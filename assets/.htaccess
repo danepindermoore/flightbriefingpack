@@ -1,0 +1,9 @@
+# php -- BEGIN cPanel-generated handler, do not edit
+# This domain inherits the “PHP” package.
+# php -- END cPanel-generated handler, do not edit
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js|mjs)$">
+    Header set Cache-Control "max-age=300, must-revalidate"
+  </FilesMatch>
+</IfModule>

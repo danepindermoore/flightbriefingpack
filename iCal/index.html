@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Roster PDF to iCloud Calendar</title>
+  <meta name="description" content="Upload your Crewlink roster PDF and export an iCloud calendar file." />
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/assets/fbp-shared.css">
+  <script src="/data/ba-destinations.js"></script>
+  <style>
+    :root {
+      --ical-panel:#111827;
+      --ical-panel2:#0b1220;
+      --ical-text:#e5e7eb;
+      --ical-muted:#9ca3af;
+      --ical-border:#374151;
+      --ical-shadow:0 12px 30px rgba(0,0,0,0.28);
+    }
+    body.light-mode {
+      --ical-panel:#ffffff;
+      --ical-panel2:#f8fafc;
+      --ical-text:#0f172a;
+      --ical-muted:#64748b;
+      --ical-border:#dbe5f1;
+      --ical-shadow:0 12px 28px rgba(15,23,42,0.08);
+    }
+    body {
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ical-text);
+    }
+    .ical-wrap {
+      margin-top:22px;
+    }
+    .ical-card {
+      background: var(--ical-panel);
+      border: 1px solid color-mix(in srgb, var(--ical-border) 82%, transparent 18%);
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: var(--ical-shadow);
+      margin-bottom: 18px;
+      color: var(--ical-text);
+    }
+    h1, h2, h3 { margin-top: 0; }
+    .sub, .note, .small { color: var(--ical-muted); line-height: 1.5; }
+    .small { font-size: 0.84rem; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 18px;
+      align-items: start;
+    }
+    @media (max-width: 980px) { .grid { grid-template-columns: 1fr; } }
+    .row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .controls { display: grid; gap: 14px; }
+    input[type="file"] { display: none; }
+    input[type="text"], select, textarea {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--ical-border);
+      background: var(--ical-panel2);
+      color: var(--ical-text);
+      padding: 12px;
+      font: inherit;
+    }
+    textarea {
+      min-height: 180px;
+      resize: vertical;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.88rem;
+    }
+    button, .file-label {
+      appearance: none;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, #1f2937, #111827);
+      color: #fff;
+      border-radius: 14px;
+      padding: 12px 14px;
+      cursor: pointer;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.12s ease, border-color 0.12s ease;
+    }
+    body.light-mode button, body.light-mode .file-label { color: #fff; }
+    button:hover, .file-label:hover {
+      transform: translateY(-1px);
+      border-color: rgba(56,189,248,0.45);
+    }
+    button.primary { background: linear-gradient(180deg, #0ea5e9, #0284c7); }
+    button.success { background: linear-gradient(180deg, #22c55e, #16a34a); }
+    button.warn { background: linear-gradient(180deg, #f59e0b, #d97706); }
+    button.danger { background: linear-gradient(180deg, #ef4444, #dc2626); }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    @media (max-width: 650px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+    .stat {
+      background: var(--ical-panel2);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 14px;
+    }
+    .stat .num {
+      font-size: 1.5rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 4px;
+      color: var(--ical-text);
+    }
+    .stat .lbl {
+      color: var(--ical-muted);
+      font-size: 0.88rem;
+    }
+    .status {
+      margin-top: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.07);
+      background: var(--ical-panel2);
+      color: var(--ical-muted);
+      white-space: pre-wrap;
+      line-height: 1.45;
+    }
+    .status.ok { border-color: rgba(34,197,94,0.35); color: #bbf7d0; }
+    .status.warn { border-color: rgba(245,158,11,0.35); color: #fef3c7; }
+    .status.err { border-color: rgba(239,68,68,0.35); color: #fee2e2; }
+    body.light-mode .status.ok { color:#166534; }
+    body.light-mode .status.warn { color:#92400e; }
+    body.light-mode .status.err { color:#991b1b; }
+    .hint {
+      border: 1px dashed rgba(56,189,248,0.35);
+      background: rgba(56,189,248,0.06);
+      border-radius: 16px;
+      padding: 12px 14px;
+      color: color-mix(in srgb, var(--ical-text) 80%, #dbeafe 20%);
+      line-height: 1.5;
+      font-size: 0.92rem;
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chip {
+      background: var(--ical-panel2);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px;
+      padding: 8px 10px;
+      font-size: 0.85rem;
+      color: var(--ical-muted);
+    }
+    .table-wrap {
+      overflow: auto;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1260px;
+      background: var(--ical-panel2);
+    }
+    th, td {
+      padding: 12px 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      vertical-align: top;
+      text-align: left;
+      font-size: 0.92rem;
+      color: var(--ical-text);
+    }
+    th {
+      position: sticky;
+      top: 0;
+      background: var(--ical-panel);
+      color: color-mix(in srgb, var(--ical-text) 85%, #dbeafe 15%);
+      z-index: 1;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+    .b-flight { background: rgba(56,189,248,0.12); color: #7dd3fc; border-color: rgba(56,189,248,0.3); }
+    .b-downroute { background: rgba(168,85,247,0.12); color: #d8b4fe; border-color: rgba(168,85,247,0.3); }
+    .b-timed { background: rgba(34,197,94,0.12); color: #86efac; border-color: rgba(34,197,94,0.3); }
+    .b-allday { background: rgba(245,158,11,0.12); color: #fcd34d; border-color: rgba(245,158,11,0.3); }
+    .state-new { color: #86efac; font-weight: 700; }
+    .state-unchanged { color: #9ca3af; font-weight: 700; }
+    .state-changed { color: #fcd34d; font-weight: 700; }
+    details summary { cursor: pointer; font-weight: 700; margin-bottom: 10px; color: var(--ical-text); }
+    .hidden { display: none !important; }
+    .roster-source-row {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) auto;
+      gap: 10px;
+      align-items: center;
+    }
+    .crewlink-flow {
+      display: grid;
+      gap: 12px;
+      padding: 14px;
+      border-radius: 16px;
+      background: var(--ical-panel2);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .crewlink-flow p {
+      margin: 0;
+      color: var(--ical-muted);
+      line-height: 1.55;
+    }
+    .crewlink-flow strong {
+      color: var(--ical-text);
+    }
+  </style>
+</head>
+<body class="fbp-theme light-mode" data-fbp-version="v2.7">
+  <main class="fbp-shell">
+
+    <nav class="fbp-subnav">
+      <a href="/">Home</a>
+      <a href="/iCal/" class="active">iCal</a>
+      <a href="/FDP/">FDP</a>
+      <a href="/briefing/">Briefing</a>
+    </nav>
+    <section class="fbp-hero">
+      <div class="fbp-aircraft-bg" aria-hidden="true">
+  <svg viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg">
+    <g opacity="0.9" transform="translate(390 74) scale(1.12)">
+      <path d="M566.5 95.5C550.4 96.5 508.9 97.8 456 99.8L337 178.5H283L359 99.2C307.4 101.3 247.4 104.2 184 107.6L117 156H74L122.5 108.8C74.1 111.5 34.3 114.2 11.8 116.5C4.7 117.2 0 123.5 0 130.6C0 137.8 5 144.1 12.1 144.8C34.8 147.1 74.7 149.7 122.7 152.4L74 199H117L184.6 153.5C248.3 156.9 308.3 159.9 359.7 162L283 239.5H337L456.3 161.4C509.2 163.4 550.5 164.8 566.5 165.8C582.1 166.8 595 154.6 595 139.1V122.2C595 106.7 582 94.5 566.5 95.5Z" fill="currentColor"/>
+    </g>
+  </svg>
+</div>
+      <div class="fbp-topbar">
+        <div>
+          <h1 class="fbp-title">Roster --&gt; iCal</h1>
+          <p class="fbp-subtitle">Use this app to upload your roster; either as a PDF or by copying the roster text from Crewlink. Then simply click &#39;Sync with iCal&#39; to have your roster in your iCloud calendar. This app has been built by BA crew, for BA crew. If you have feedback, please click the feedback button at the top of this page.</p>
+        </div>
+        <div class="fbp-toolbar">
+          <a class="fbp-button" href="mailto:u155573@ba.com?subject=Feedback%20for%20iCal%20Roster%20Tool">iCal Feedback</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="ical-wrap">
+      <div class="grid">
+        <section class="ical-card">
+          <h2>1) Roster Import</h2>
+
+          <div class="controls">
+            <div class="roster-source-row">
+              <div class="row">
+                <label for="pdfFile" class="file-label">Roster PDF</label>
+                <input id="pdfFile" type="file" accept="application/pdf" />
+                <span id="fileName" class="small">No file selected</span>
+              </div>
+              <button id="openCrewlinkBtn" type="button">Open Crewlink</button>
+            </div>
+
+            <div id="crewlinkFlow" class="crewlink-flow hidden">
+              <p><strong>iPhone flow:</strong> Tap <strong>Open Crewlink</strong>, log in, then tap <strong>Share</strong> → <strong>Copy</strong>. Return here, paste the roster text into the box below, then tap <strong>Upload Roster</strong>.</p>
+
+              <div>
+                <label class="small" for="pastedRosterText">Roster text from Crewlink</label>
+                <textarea id="pastedRosterText" placeholder="Paste roster text from Crewlink here..."></textarea>
+              </div>
+
+              <div class="row">
+                <button id="parseTextBtn" class="primary" type="button">Upload Roster</button>
+              </div>
+            </div>
+
+            <div id="statusBox" class="status">Waiting for a roster PDF, or open Crewlink to paste roster text.</div>
+          </div>
+        </section>
+
+        <section class="ical-card">
+          <h2>2) Export options</h2>
+
+          <div class="controls">
+            <div class="stats" style="grid-template-columns:1fr;">
+              <div class="stat">
+                <div id="statTotal" class="num">0</div>
+                <div class="lbl">Events Found</div>
+              </div>
+            </div>
+
+            <div class="row">
+              <button id="downloadBtn" class="success" type="button" disabled>Sync with iCal</button>
+              <button id="clearHistoryBtn" class="danger" type="button">Clear Cache</button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="ical-card">
+        <div class="row" style="justify-content: space-between;">
+          <h2 style="margin:0;">3) Event preview</h2>
+          <div class="row">
+            <input id="searchBox" type="text" placeholder="Filter by title, route, or crew..." style="width:min(340px,100%);" />
+            <select id="typeFilter" style="width:180px;">
+              <option value="all">All event types</option>
+              <option value="flight">Flights</option>
+              <option value="downroute">Downroute</option>
+              <option value="timed_duty">Timed duties</option>
+              <option value="all_day_duty">All-day duties</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Title</th>
+                <th>Location</th>
+                <th>Start (LHR local)</th>
+                <th>End (LHR local)</th>
+                <th>Status</th>
+                <th>Notes / Crew</th>
+              </tr>
+            </thead>
+            <tbody id="previewBody">
+              <tr><td colspan="8" class="small">No events parsed yet.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="ical-card">
+        <details>
+          <summary>Debug panel</summary>
+          <p class="note">This shows the raw extracted text and merged day blocks.</p>
+          <div style="display:grid; gap:14px;">
+            <div>
+              <label class="small" for="debugRawText">Extracted raw text</label>
+              <textarea id="debugRawText" readonly></textarea>
+            </div>
+            <div>
+              <label class="small" for="debugBlocks">Detected day blocks</label>
+              <textarea id="debugBlocks" readonly></textarea>
+            </div>
+          </div>
+        </details>
+      </section>
+    </div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+    window.pdfjsLib = pdfjsLib;
+    window.pdfjsReady = true;
+    console.log("PDF.js loaded:", pdfjsLib);
+  </script>
+
+<script>
+    const MONTHS = {
+      JAN: 1, FEB: 2, MAR: 3, APR: 4, MAY: 5, JUN: 6,
+      JUL: 7, AUG: 8, SEP: 9, OCT: 10, NOV: 11, DEC: 12
+    };
+
+    const RANKS = ["CCW", "IFL", "IFM"];
+
+    const airportByCode = {
+      LHR: { code: "LHR", timeZone: "Europe/London" },
+      LGW: { code: "LGW", timeZone: "Europe/London" },
+      ...(typeof baDestinations !== "undefined" ? Object.fromEntries(baDestinations.map(a => [a.code, a])) : {})
+    };
+
+    function parseISODateParts(isoDate) {
+      const [y, m, d] = String(isoDate).split("-").map(Number);
+      return { y, m, d };
+    }
+
+    function zonedLocalToUtcMs(isoDate, hhmm, timeZone) {
+      const { y, m, d } = parseISODateParts(isoDate);
+      const hh = Number(String(hhmm).slice(0, 2));
+      const mm = Number(String(hhmm).slice(2, 4));
+
+      const utcGuess = new Date(Date.UTC(y, m - 1, d, hh, mm, 0));
+      const parts = new Intl.DateTimeFormat("en-GB", {
+        timeZone,
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false
+      }).formatToParts(utcGuess);
+
+      const get = (type) => parts.find(p => p.type === type)?.value;
+      const actualY = Number(get("year"));
+      const actualM = Number(get("month"));
+      const actualD = Number(get("day"));
+      const actualH = Number(get("hour"));
+      const actualMin = Number(get("minute"));
+
+      const desiredDay = Math.floor(Date.UTC(y, m - 1, d) / 86400000);
+      const actualDay = Math.floor(Date.UTC(actualY, actualM - 1, actualD) / 86400000);
+      const deltaMinutes = ((desiredDay - actualDay) * 1440) + ((hh * 60 + mm) - (actualH * 60 + actualMin));
+
+      return utcGuess.getTime() + (deltaMinutes * 60000);
+    }
+
+    function zonedLocalRangeToUtc(isoDate, startHHMM, endHHMM, timeZone) {
+      const startUtcMs = zonedLocalToUtcMs(isoDate, startHHMM, timeZone);
+      let endUtcMs = zonedLocalToUtcMs(isoDate, endHHMM, timeZone);
+      if (endUtcMs <= startUtcMs) endUtcMs += 86400000;
+      return { startUtcMs, endUtcMs };
+    }
+
+    const STORAGE_KEYS = {
+      importHistory: "rosterCalendar.importHistory.v16",
+      lastParsed: "rosterCalendar.lastParsed.v16",
+      preferredCalendar: "rosterCalendar.preferredCalendar.v16"
+    };
+
+    const state = {
+      rawText: "",
+      rosterYear: null,
+      events: [],
+      filteredEvents: [],
+      lastExportedEvents: [],
+      importHistory: loadImportHistory(),
+      dayBlocks: []
+    };
+
+    const els = {
+      pdfFile: document.getElementById("pdfFile"),
+      fileName: document.getElementById("fileName"),
+      openCrewlinkBtn: document.getElementById("openCrewlinkBtn"),
+      crewlinkFlow: document.getElementById("crewlinkFlow"),
+      pastedRosterText: document.getElementById("pastedRosterText"),
+      parseTextBtn: document.getElementById("parseTextBtn"),
+      statusBox: document.getElementById("statusBox"),
+      statTotal: document.getElementById("statTotal"),
+      downloadBtn: document.getElementById("downloadBtn"),
+      clearHistoryBtn: document.getElementById("clearHistoryBtn"),
+      previewBody: document.getElementById("previewBody"),
+      searchBox: document.getElementById("searchBox"),
+      typeFilter: document.getElementById("typeFilter"),
+      debugRawText: document.getElementById("debugRawText"),
+      debugBlocks: document.getElementById("debugBlocks")
+    };
+
+    function getPdfjsLib() {
+      if (!window.pdfjsLib) {
+        throw new Error("PDF engine failed to load. Refresh the page and try again.");
+      }
+      return window.pdfjsLib;
+    }
+
+    init();
+
+    function init() {
+      els.openCrewlinkBtn.addEventListener("click", openCrewlink);
+
+      els.pdfFile.addEventListener("change", () => {
+        const file = els.pdfFile.files[0];
+        if (!file) {
+          els.fileName.textContent = "No file selected";
+          return;
+        }
+        els.fileName.textContent = file.name;
+        setStatus(`Selected PDF: ${file.name}
+
+Parsing roster…`);
+        handleParseClick();
+      });
+
+      els.parseTextBtn.addEventListener("click", handleParseTextClick);
+      els.downloadBtn.addEventListener("click", downloadICS);
+      els.clearHistoryBtn.addEventListener("click", clearImportHistory);
+      els.searchBox.addEventListener("input", renderPreview);
+      els.typeFilter.addEventListener("change", renderPreview);
+    }
+
+    function openCrewlink() {
+      els.crewlinkFlow.classList.remove("hidden");
+      window.open("https://crewlink.baplc.com/ccroster/displayroster.do", "_blank");
+    }
+
+    function setStatus(message, kind = "") {
+      els.statusBox.className = "status" + (kind ? " " + kind : "");
+      els.statusBox.textContent = message;
+    }
+
+    async function handleParseClick() {
+      const file = els.pdfFile.files[0];
+      if (!file) {
+        setStatus("Choose a roster PDF first.", "warn");
+        return;
+      }
+
+      try {
+        setStatus("Reading PDF and extracting roster text…");
+        const rawText = await extractRawTextFromPDF(file);
+        processRosterText(rawText);
+      } catch (err) {
+        console.error(err);
+        setStatus("Something went wrong while parsing the PDF.\n\n" + (err?.message || String(err)), "err");
+      }
+    }
+
+    function handleParseTextClick() {
+      const rawText = els.pastedRosterText.value.trim();
+      if (!rawText) {
+        setStatus("Paste roster text first.", "warn");
+        return;
+      }
+
+      try {
+        setStatus("Reading pasted roster text…");
+        processRosterText(rawText);
+      } catch (err) {
+        console.error(err);
+        setStatus("Something went wrong while parsing the pasted roster text.\n\n" + (err?.message || String(err)), "err");
+      }
+    }
+
+    function processRosterText(rawText) {
+      const cleanedText = normalizePdfText(rawText);
+      const year = extractRosterYear(cleanedText);
+
+      state.rawText = cleanedText;
+      state.rosterYear = year;
+      state.dayBlocks = splitIntoDayBlocks(cleanedText);
+
+      els.debugRawText.value = cleanedText;
+      els.debugBlocks.value = state.dayBlocks.map((b, i) => `--- BLOCK ${i + 1} ---\n${b}`).join("\n\n");
+
+      if (!year) {
+        setStatus("I couldn't detect the roster year from the roster text. Check the debug panel.", "err");
+        return;
+      }
+
+      const parsed = parseRosterBlocks(state.dayBlocks, year);
+      classifyEventsAgainstHistory(parsed);
+      state.events = parsed;
+
+      localStorage.setItem(
+        STORAGE_KEYS.lastParsed,
+        JSON.stringify({
+          rawText: cleanedText,
+          year,
+          events: parsed,
+          dayBlocks: state.dayBlocks,
+          savedAt: new Date().toISOString()
+        })
+      );
+
+      updateStats();
+      renderPreview();
+      refreshExportButtons();
+
+      setStatus("Roster parsed successfully.\n\n" + buildSummary(parsed), parsed.length ? "ok" : "warn");
+    }
+
+   async function extractRawTextFromPDF(file) {
+  const arrayBuffer = await file.arrayBuffer();
+
+  const loadingTask = pdfjsLib.getDocument({
+    data: arrayBuffer,
+    disableStream: true,
+    disableAutoFetch: true,
+    disableRange: true
+  });
+
+  const pdf = await loadingTask.promise;
+  const pages = [];
+
+  for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+    const page = await pdf.getPage(pageNum);
+    const content = await page.getTextContent();
+    pages.push(content.items.map(item => item.str || "").join(" \n "));
+  }
+
+  return pages.join("\n");
+}
+
+    function normalizePdfText(text) {
+      let out = text
+        .replace(/\u00A0/g, " ")
+        .replace(/<PARSED TEXT FOR PAGE:[^>]+>/gi, " ")
+        .replace(/Cabin Crew Roster/gi, " ")
+        .replace(/CREWLINK PORTAL\s*\|\s*HOME\s*\|\s*HELP\s*\|\s*SIGNOUT\s*\|\s*PRINT/gi, " ")
+        .replace(/For all training events please look on the IFCE intranet for further details\./gi, " ")
+        .replace(/Planned block hours to the end of published roster are\s+\d+:\d+/gi, " ")
+        .replace(/CONFIDENTIAL/gi, " ");
+
+      for (const rank of RANKS) {
+        out = out.replace(new RegExp(rank, "g"), ` ${rank} `);
+      }
+
+      return out
+        .replace(/\s+\n/g, "\n")
+        .replace(/\n\s+/g, "\n")
+        .replace(/[ \t]+/g, " ")
+        .replace(/\n{2,}/g, "\n")
+        .trim();
+    }
+
+    function extractRosterYear(text) {
+      const m = text.match(/Roster for .*?(\d{1,2})\s+([A-Z]{3})\s+(\d{2})\s+onwards/i);
+      if (m) return 2000 + Number(m[3]);
+
+      const m2 = text.match(/\b(\d{2})\s+onwards\b/i);
+      if (m2) return 2000 + Number(m2[1]);
+
+      return inferRosterYearFromCurrentDate(text);
+    }
+
+    function inferRosterYearFromCurrentDate(text) {
+      const monthsSeen = [...text.matchAll(/\b(?:MON|TUE|WED|THU|FRI|SAT|SUN)\s+\d{1,2}\s+([A-Z]{3})\b/gi)]
+        .map(m => MONTHS[m[1].toUpperCase()])
+        .filter(Boolean);
+
+      const now = new Date();
+      const currentMonth = now.getMonth() + 1;
+      const currentYear = now.getFullYear();
+
+      if (!monthsSeen.length) return currentYear;
+      if (monthsSeen.includes(1) && currentMonth === 12) return currentYear + 1;
+      if (monthsSeen.includes(12) && currentMonth === 1) return currentYear - 1;
+      return currentYear;
+    }
+
+    function splitIntoDayBlocks(text) {
+      const normalized = text.replace(/\n/g, " ").trim();
+      const rawBlocks = normalized
+        .split(/(?=(?:MON|TUE|WED|THU|FRI|SAT|SUN)\s+\d{1,2}\s+[A-Z]{3}\b)/g)
+        .map(p => normalizeSpaces(p))
+        .filter(Boolean);
+
+      const merged = [];
+      for (const block of rawBlocks) {
+        if (!merged.length) {
+          merged.push(block);
+          continue;
+        }
+
+        const prev = merged[merged.length - 1];
+        const prevEndsWithTo = /\bto$/i.test(prev);
+        const prevEndsWithOpenParen = /\($/.test(prev);
+        const currentIsBareDate = /^(MON|TUE|WED|THU|FRI|SAT|SUN)\s+\d{1,2}\s+[A-Z]{3}\)?$/i.test(block);
+
+        if (prevEndsWithTo || prevEndsWithOpenParen || currentIsBareDate) {
+          merged[merged.length - 1] = `${prev} ${block}`.replace(/\s+\)/g, ")").trim();
+        } else {
+          merged.push(block);
+        }
+      }
+
+      return merged;
+    }
+
+    function parseRosterBlocks(blocks, baseYear) {
+      const events = [];
+      let currentMonth = null;
+      let currentYear = baseYear;
+      let activeCrew = [];
+      let pendingReportHHMM = null;
+      let pendingClear = null;
+
+      for (const block of blocks) {
+        const dayMatch = block.match(/^(MON|TUE|WED|THU|FRI|SAT|SUN)\s+(\d{1,2})\s+([A-Z]{3})\b(.*)$/i);
+        if (!dayMatch) continue;
+
+        const day = Number(dayMatch[2]);
+        const monthAbbr = dayMatch[3].toUpperCase();
+        const monthNum = MONTHS[monthAbbr];
+        if (!monthNum) continue;
+
+        if (currentMonth && monthNum < currentMonth) currentYear += 1;
+        currentMonth = monthNum;
+
+        const isoDate = `${currentYear}-${pad(monthNum)}-${pad(day)}`;
+        const body = normalizeSpaces(dayMatch[4] || "");
+        if (!body) continue;
+
+        const rangeAllDay = parseAllDayRangeFromBlock(body, isoDate, currentYear, currentMonth);
+        if (rangeAllDay.length) {
+          events.push(...rangeAllDay);
+          continue;
+        }
+
+        const singleAllDay = parseSingleAllDayFromBlock(body, isoDate);
+        if (singleAllDay) {
+          events.push(singleAllDay);
+          continue;
+        }
+
+        if (/^REQUESTED BY CREW MEMBER$/i.test(body)) continue;
+        if (/^Operating as\s+\w+$/i.test(body)) continue;
+
+        const reportMatch = body.match(/Report at\s+(\d{4})\s+Local Time\s+([A-Z]{3})/i);
+        if (reportMatch && ["LHR", "LGW"].includes(reportMatch[2].toUpperCase())) {
+          pendingReportHHMM = reportMatch[1];
+        }
+
+        const clearMatch = body.match(
+          /Clear at\s+(\d{4})(?:\s+\(\s*(?:MON|TUE|WED|THU|FRI|SAT|SUN)\s+\d{1,2}\s+[A-Z]{3}\))?\s+Local Time\s+(LHR|LGW)\b/i
+        );
+        if (clearMatch) {
+          pendingClear = {
+            time: clearMatch[1],
+            base: clearMatch[2].toUpperCase()
+          };
+        }
+
+        const crewInThisBlock = parseCrewNamesFromBlock(body);
+        if (crewInThisBlock.length) {
+          activeCrew = [...crewInThisBlock];
+        }
+
+        const timedDuties = parseTimedDutiesFromBlock(body, isoDate);
+        if (timedDuties.length) events.push(...timedDuties);
+
+        const flights = parseFlightsFromBlock(body, isoDate, pendingReportHHMM);
+
+        if (flights.length) {
+          for (let i = 0; i < flights.length; i++) {
+            const flight = flights[i];
+            const clearFlightIndex = pendingClear
+              ? flights.map(f => f.to).lastIndexOf(pendingClear.base)
+              : -1;
+            const clearSuffix =
+              pendingClear &&
+              i === clearFlightIndex &&
+              flight.to === pendingClear.base
+                ? ` (Clear @ ${pendingClear.time} Local Time LHR)`
+                : "";
+
+            if (i === 0 && pendingReportHHMM) {
+              flight.title = `${flight.from} - ${flight.to} (RPT @ ${pendingReportHHMM} Local Time LHR)${clearSuffix}`;
+            } else {
+              flight.title = `${flight.from} - ${flight.to}${clearSuffix}`;
+            }
+
+            const notes = [];
+
+            if (flight.to !== "LHR" && flight.to !== "LGW" && flight.endUtcMs) {
+              const staLocal = formatAirportLocalHHMM(flight.endUtcMs, flight.to);
+              if (staLocal) {
+                notes.push(`STA @ ${staLocal} local`);
+              }
+            }
+
+            if (flight.fixedLinkMinutes != null) {
+              notes.push(`Fixed Link - ${flight.fixedLinkMinutes} mins`);
+            } else if (flight.fixedLink) {
+              notes.push(`Fixed Link`);
+            }
+
+            if (activeCrew.length) {
+              const crewNames = [...activeCrew];
+              notes.push(crewNames.join(", "));
+              flight.crew = crewNames;
+            }
+
+            flight.notes = notes.join("\n\n");
+          }
+
+          events.push(...flights);
+          pendingReportHHMM = null;
+
+          if (pendingClear && flights[flights.length - 1].to === pendingClear.base) {
+            pendingClear = null;
+            activeCrew = [];
+          }
+        }
+      }
+
+      const withDownroute = insertDownrouteEvents(events);
+
+      for (const evt of withDownroute) finalizeEvent(evt);
+      withDownroute.sort(compareEvents);
+      return withDownroute;
+    }
+
+    function insertDownrouteEvents(events) {
+      const sortedFlights = events
+        .filter(e => e.type === "flight")
+        .slice()
+        .sort(compareEvents);
+
+      const extra = [];
+
+      for (let i = 0; i < sortedFlights.length - 1; i++) {
+        const current = sortedFlights[i];
+        const next = sortedFlights[i + 1];
+
+        if (current.to !== next.from) continue;
+        if (current.to === "LHR" || current.to === "LGW") continue;
+
+        const endMs = new Date(current.endLocal).getTime();
+        const startMs = new Date(next.startLocal).getTime();
+        const gapMinutes = Math.round((startMs - endMs) / 60000);
+
+        if (gapMinutes < 300) continue;
+
+        const downrouteStart = new Date(endMs + 60000);
+        const downrouteEnd = new Date(startMs - 60000);
+
+        if (downrouteEnd.getTime() <= downrouteStart.getTime()) continue;
+
+        extra.push({
+          type: "downroute",
+          title: `${current.to} (Downroute)`,
+          location: current.to,
+          date: current.date,
+          allDay: false,
+          startLocal: toLocalDateTimeString(downrouteStart),
+          endLocal: toLocalDateTimeString(downrouteEnd),
+          startUtcMs: endMs + 60000,
+          endUtcMs: startMs - 60000,
+          notes: formatDuration(gapMinutes),
+          crew: []
+        });
+      }
+
+      return [...events, ...extra];
+    }
+
+    function toLocalDateTimeString(dateObj) {
+      return `${dateObj.getFullYear()}-${pad(dateObj.getMonth() + 1)}-${pad(dateObj.getDate())}T${pad(dateObj.getHours())}:${pad(dateObj.getMinutes())}:${pad(dateObj.getSeconds())}`;
+    }
+
+    function formatDuration(totalMinutes) {
+      const hours = Math.floor(totalMinutes / 60);
+      const minutes = totalMinutes % 60;
+      return `${pad(hours)}hrs ${pad(minutes)}mins`;
+    }
+
+    function parseSingleAllDayFromBlock(body, isoDate) {
+      const normalized = normalizeSpaces(body).toUpperCase();
+      if (normalized === "OFF DUTY") return makeAllDayEvent(isoDate, "OFF DUTY");
+      if (normalized === "ANNUAL LEAVE") return makeAllDayEvent(isoDate, "ANNUAL LEAVE");
+      if (normalized.includes("PT TIME NON WORKING FL8")) return makeAllDayEvent(isoDate, "PT TIME NON WORKING FL8");
+      return null;
+    }
+
+    function parseAllDayRangeFromBlock(body, isoDate, currentYear, currentMonth) {
+      const normalized = normalizeSpaces(body).toUpperCase();
+
+      let m = normalized.match(/^ANNUAL LEAVE\s+TO\s+(MON|TUE|WED|THU|FRI|SAT|SUN)\s+(\d{1,2})\s+([A-Z]{3})$/i);
+      if (m) return buildAllDayRange("ANNUAL LEAVE", isoDate, m[2], m[3], currentYear, currentMonth);
+
+      m = normalized.match(/^OFF DUTY\s+TO\s+(MON|TUE|WED|THU|FRI|SAT|SUN)\s+(\d{1,2})\s+([A-Z]{3})$/i);
+      if (m) return buildAllDayRange("OFF DUTY", isoDate, m[2], m[3], currentYear, currentMonth);
+
+      return [];
+    }
+
+    function buildAllDayRange(title, startIsoDate, endDay, endMonthAbbr, currentYear, currentMonth) {
+      const start = parseISODate(startIsoDate);
+      const endMonth = MONTHS[endMonthAbbr.toUpperCase()];
+      let endYear = currentYear;
+      if (endMonth < currentMonth) endYear += 1;
+
+      const endDate = new Date(endYear, endMonth - 1, Number(endDay));
+      const out = [];
+      const d = new Date(start.getFullYear(), start.getMonth(), start.getDate());
+
+      while (d <= endDate) {
+        out.push(makeAllDayEvent(formatDateObject(d), title));
+        d.setDate(d.getDate() + 1);
+      }
+
+      return out;
+    }
+
+    function parseTimedDutiesFromBlock(body, isoDate) {
+      const duties = [];
+      const regex = /([A-Z][A-Z0-9'&/ \-]+?)\s+(\d{4})\s+(\d{4})\s+Local Time\s+([A-Z]{3})/gi;
+      let m;
+
+      while ((m = regex.exec(body)) !== null) {
+        const title = normalizeSpaces(m[1]);
+        if (!title) continue;
+        if (/^Report at$/i.test(title)) continue;
+        if (/BA\d{1,4}/i.test(title)) continue;
+        if (/^Operating as /i.test(title)) continue;
+        if (/^REQUESTED BY CREW MEMBER$/i.test(title)) continue;
+
+        const airportCode = (m[4] || "").toUpperCase();
+        const tz = airportByCode[airportCode]?.timeZone || "Europe/London";
+        const utcRange = zonedLocalRangeToUtc(isoDate, m[2], m[3], tz);
+
+        duties.push({
+          type: "timed_duty",
+          title,
+          location: airportCode || "",
+          date: isoDate,
+          allDay: false,
+          startLocal: combineLocalDateTime(isoDate, m[2]),
+          endLocal: resolveLocalEndDateTime(isoDate, m[2], m[3]),
+          startUtcMs: utcRange.startUtcMs,
+          endUtcMs: utcRange.endUtcMs,
+          notes: "",
+          crew: []
+        });
+      }
+
+      return dedupeEvents(duties);
+    }
+
+    function parseFlightsFromBlock(body, isoDate, reportHHMM) {
+      const flights = [];
+      const regex = /(\d{4})\s+(BA\d{1,4})\s+([A-Z]{3})\s+([A-Z]{3})\s+(\d{4})(.*?)(?=(\d{4}\s+BA\d{1,4}\s+[A-Z]{3}\s+[A-Z]{3}\s+\d{4})|$)/gi;
+      let m;
+
+      while ((m = regex.exec(body)) !== null) {
+        const depZ = m[1];
+        const flightNo = m[2].toUpperCase();
+        const from = m[3].toUpperCase();
+        const to = m[4].toUpperCase();
+        const arrZ = m[5];
+        const tail = normalizeSpaces(m[6] || "");
+
+        const dutyPeriodMatch = tail.match(/\b(\d{2}:\d{2})\b/);
+        const fixedLinkMatch = tail.match(/\bFIX\s+(\d+)\s*mins\b/i);
+        const hasFix = /\bFIX\b/i.test(tail);
+
+        const title = reportHHMM
+          ? `${from} - ${to} (RPT @ ${reportHHMM} Local Time LHR)`
+          : `${from} - ${to}`;
+
+        flights.push({
+          type: "flight",
+          title,
+          location: flightNo,
+          date: isoDate,
+          allDay: false,
+          startLocal: zHHMMOnDateToLondonLocal(isoDate, depZ),
+          endLocal: zHHMMEndToLondonLocal(isoDate, depZ, arrZ),
+          startUtcMs: zHHMMStartToUtcMs(isoDate, depZ),
+          endUtcMs: zHHMMEndToUtcMs(isoDate, depZ, arrZ),
+          notes: "",
+          crew: [],
+          flightNo,
+          from,
+          to,
+          dutyPeriod: dutyPeriodMatch ? dutyPeriodMatch[1] : "",
+          fixedLink: hasFix,
+          fixedLinkMinutes: fixedLinkMatch ? Number(fixedLinkMatch[1]) : null
+        });
+      }
+
+      return dedupeEvents(flights);
+    }
+
+    function parseCrewNamesFromBlock(body) {
+      let cleaned = body
+        .replace(/Report at\s+\d{4}\s+Local Time\s+[A-Z]{3}/gi, " ")
+        .replace(/\d{4}\s+BA\d{1,4}\s+[A-Z]{3}\s+[A-Z]{3}\s+\d{4}\b[^A-Z]*/gi, " ")
+        .replace(/Operating as\s+[A-Z]{2,}/gi, " ")
+        .replace(/REQUESTED BY CREW MEMBER/gi, " ")
+        .replace(/Clear at\s+\d{4}(?:\s+\(\s*(?:MON|TUE|WED|THU|FRI|SAT|SUN)\s+\d{1,2}\s+[A-Z]{3}\))?\s+Local Time\s+[A-Z]{3}/gi, " ")
+        .replace(/Total duty hours[^A-Z]*/gi, " ")
+        .replace(/FIX\s+\d+\s*mins/gi, " ")
+        .replace(/\b\d{1,2}:\d{2}\b/g, " ");
+
+      for (const rank of RANKS) {
+        cleaned = cleaned.replace(new RegExp(rank, "g"), ` ${rank} `);
+      }
+
+      const tokens = normalizeSpaces(cleaned).split(" ").filter(Boolean);
+      const crew = [];
+      let nameParts = [];
+
+      for (const token of tokens) {
+        const upper = token.toUpperCase();
+
+        if (RANKS.includes(upper)) {
+          if (nameParts.length) {
+            crew.push(toTitleCaseName(nameParts.join(" ")));
+            nameParts = [];
+          }
+          continue;
+        }
+
+        if (/^[A-Z][A-Z'’\-]+$/.test(upper)) {
+          nameParts.push(upper);
+        } else {
+          nameParts = [];
+        }
+      }
+
+      return [...new Set(crew)];
+    }
+
+    function dedupeEvents(events) {
+      const seen = new Set();
+      return events.filter(evt => {
+        const key = JSON.stringify([evt.type, evt.date, evt.title, evt.startLocal, evt.endLocal, evt.location || ""]);
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+    }
+
+    function finalizeEvent(evt) {
+      evt.uidBase = buildUIDBase(evt);
+      evt.dayKey = evt.date;
+      evt.fingerprint = evt.uidBase;
+    }
+
+    function classifyEventsAgainstHistory(events) {
+      const importedByDay = state.importHistory.byDay || {};
+      for (const evt of events) {
+        const dayItems = importedByDay[evt.date] || [];
+        const sameExact = dayItems.includes(evt.fingerprint);
+        if (sameExact) evt.importStatus = "unchanged";
+        else if (dayItems.length > 0) evt.importStatus = "changed";
+        else evt.importStatus = "new";
+      }
+    }
+
+    function buildSummary(events) {
+      const total = events.length;
+      const flightCount = events.filter(e => e.type === "flight").length;
+      const downrouteCount = events.filter(e => e.type === "downroute").length;
+      const timedDutyCount = events.filter(e => e.type === "timed_duty").length;
+      const allDayCount = events.filter(e => e.type === "all_day_duty").length;
+
+      return [
+        `Parsed ${total} event${total === 1 ? "" : "s"}.`,
+        `Flights: ${flightCount}`,
+        `Downroute: ${downrouteCount}`,
+        `Timed duties: ${timedDutyCount}`,
+        `All-day duties: ${allDayCount}`,
+        `Day blocks detected: ${state.dayBlocks.length}`
+      ].join("\n");
+    }
+
+    function updateStats() {
+      const total = state.events.length;
+      els.statTotal.textContent = String(total);
+    }
+
+    function renderPreview() {
+      const q = els.searchBox.value.trim().toLowerCase();
+      const typeFilter = els.typeFilter.value;
+
+      const filtered = state.events.filter(evt => {
+        const matchesType = typeFilter === "all" ? true : evt.type === typeFilter;
+        if (!matchesType) return false;
+
+        if (!q) return true;
+
+        const haystack = [
+          evt.title,
+          evt.location || "",
+          evt.notes || "",
+          evt.flightNo || "",
+          evt.from || "",
+          evt.to || "",
+          evt.date || ""
+        ].join(" ").toLowerCase();
+
+        return haystack.includes(q);
+      });
+
+      state.filteredEvents = filtered;
+
+      if (!filtered.length) {
+        els.previewBody.innerHTML = `<tr><td colspan="8" class="small">No matching events.</td></tr>`;
+        return;
+      }
+
+      const rows = filtered.map(evt => {
+        const typeBadge = renderTypeBadge(evt.type);
+        const statusText = renderStatusText(evt.importStatus);
+        const notes = evt.notes ? escapeHtml(evt.notes).replace(/\n/g, "<br>") : "—";
+        const start = evt.allDay ? "All day" : formatLocalDisplay(evt.startLocal);
+        const end = evt.allDay ? "All day" : formatLocalDisplay(evt.endLocal);
+
+        return `
+          <tr>
+            <td>${escapeHtml(formatDatePretty(evt.date))}</td>
+            <td>${typeBadge}</td>
+            <td>${escapeHtml(evt.title)}</td>
+            <td>${escapeHtml(evt.location || "—")}</td>
+            <td>${escapeHtml(start)}</td>
+            <td>${escapeHtml(end)}</td>
+            <td>${statusText}</td>
+            <td>${notes}</td>
+          </tr>
+        `;
+      }).join("");
+
+      els.previewBody.innerHTML = rows;
+    }
+
+    function renderTypeBadge(type) {
+      if (type === "flight") return `<span class="badge b-flight">Flight</span>`;
+      if (type === "downroute") return `<span class="badge b-downroute">Downroute</span>`;
+      if (type === "timed_duty") return `<span class="badge b-timed">Timed duty</span>`;
+      if (type === "all_day_duty") return `<span class="badge b-allday">All-day duty</span>`;
+      return `<span class="badge">Other</span>`;
+    }
+
+    function renderStatusText(status) {
+      if (status === "new") return `<span class="state-new">New</span>`;
+      if (status === "unchanged") return `<span class="state-unchanged">Unchanged</span>`;
+      if (status === "changed") return `<span class="state-changed">Changed</span>`;
+      return "";
+    }
+
+    function refreshExportButtons() {
+      const hasEvents = state.events.length > 0;
+      els.downloadBtn.disabled = !hasEvents;
+    }
+
+    function getExportCandidateEvents() {
+      return [...state.events];
+    }
+
+    function downloadICS() {
+      const events = getExportCandidateEvents();
+      if (!events.length) {
+        setStatus("There are no events matching the current export mode.", "warn");
+        return;
+      }
+
+      const ics = buildICS(events);
+      const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+
+      const calendarName = "Crew_Roster";
+
+      const now = new Date();
+      const stamp = [
+        now.getFullYear(),
+        pad(now.getMonth() + 1),
+        pad(now.getDate()),
+        "_",
+        pad(now.getHours()),
+        pad(now.getMinutes())
+      ].join("");
+
+      const filename = `roster_${calendarName}_${stamp}.ics`;
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+
+      refreshExportButtons();
+
+      setStatus(
+        `Downloaded ${events.length} event${events.length === 1 ? "" : "s"} as ${filename}.`,
+        "ok"
+      );
+    }
+
+    function foldICSLine(line) {
+      const limit = 73;
+      if (line.length <= limit) return [line];
+      const out = [];
+      let remaining = line;
+      while (remaining.length > limit) {
+        out.push(remaining.slice(0, limit));
+        remaining = " " + remaining.slice(limit);
+      }
+      out.push(remaining);
+      return out;
+    }
+
+    function buildICS(events) {
+      const lines = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//Roster Calendar//EN",
+        "CALSCALE:GREGORIAN",
+        "METHOD:PUBLISH"
+      ];
+
+      lines.push(...foldICSLine(`X-WR-CALNAME:${escapeICS("Crew Roster")}`));
+
+      for (const evt of events) {
+        lines.push("BEGIN:VEVENT");
+        lines.push(...foldICSLine(`UID:${escapeICS(evt.uidBase)}@roster-calendar`));
+        lines.push(...foldICSLine(`SUMMARY:${escapeICS(evt.title)}`));
+
+        if (evt.location) {
+          lines.push(...foldICSLine(`LOCATION:${escapeICS(evt.location)}`));
+        }
+
+        if (evt.allDay) {
+          lines.push(`DTSTART;VALUE=DATE:${formatICSDate(evt.date)}`);
+          lines.push(`DTEND;VALUE=DATE:${formatICSDate(nextDay(evt.date))}`);
+        } else if (typeof evt.startUtcMs === "number" && typeof evt.endUtcMs === "number") {
+          lines.push(`DTSTART:${formatICSDateTimeUTC(evt.startUtcMs)}`);
+          lines.push(`DTEND:${formatICSDateTimeUTC(evt.endUtcMs)}`);
+        } else {
+          const fallbackStartUtcMs = new Date(evt.startLocal).getTime();
+          const fallbackEndUtcMs = new Date(evt.endLocal).getTime();
+          lines.push(`DTSTART:${formatICSDateTimeUTC(fallbackStartUtcMs)}`);
+          lines.push(`DTEND:${formatICSDateTimeUTC(fallbackEndUtcMs)}`);
+        }
+
+        if (evt.notes) {
+          lines.push(...foldICSLine(`DESCRIPTION:${escapeICS(evt.notes)}`));
+        }
+
+        lines.push(`DTSTAMP:${formatICSUtcNow()}`);
+        lines.push("END:VEVENT");
+      }
+
+      lines.push("END:VCALENDAR");
+      return lines.join("\r\n");
+    }
+
+    function clearImportHistory() {
+      const ok = window.confirm("Clear the cached roster data on this device?");
+      if (!ok) return;
+
+      const fresh = { byDay: {}, updatedAt: new Date().toISOString() };
+      saveImportHistory(fresh);
+      localStorage.removeItem(STORAGE_KEYS.lastParsed);
+      state.importHistory = fresh;
+      state.events = [];
+      state.dayBlocks = [];
+      state.rawText = "";
+      els.fileName.textContent = "No file selected";
+      els.pastedRosterText.value = "";
+      els.debugRawText.value = "";
+      els.debugBlocks.value = "";
+      updateStats();
+      renderPreview();
+      refreshExportButtons();
+      setStatus("Cached roster data cleared on this device.", "warn");
+    }
+
+    function loadImportHistory() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEYS.importHistory);
+        if (!raw) return { byDay: {}, updatedAt: null };
+        const parsed = JSON.parse(raw);
+        return {
+          byDay: parsed.byDay || {},
+          updatedAt: parsed.updatedAt || null
+        };
+      } catch {
+        return { byDay: {}, updatedAt: null };
+      }
+    }
+
+    function saveImportHistory(history) {
+      localStorage.setItem(STORAGE_KEYS.importHistory, JSON.stringify(history));
+    }
+
+    function buildUIDBase(evt) {
+      if (evt.allDay) {
+        return [evt.type, evt.date, normalizeUIDPart(evt.title)].join("|");
+      }
+
+      if (evt.type === "flight") {
+        return [
+          evt.type,
+          evt.date,
+          evt.flightNo || "",
+          evt.from || "",
+          evt.to || "",
+          String(evt.startUtcMs || "")
+        ].join("|");
+      }
+
+      return [
+        evt.type,
+        evt.date,
+        normalizeUIDPart(evt.title),
+        String(evt.startUtcMs || ""),
+        String(evt.endUtcMs || "")
+      ].join("|");
+    }
+
+    function makeAllDayEvent(date, title) {
+      return {
+        type: "all_day_duty",
+        title,
+        location: "",
+        date,
+        allDay: true,
+        startLocal: null,
+        endLocal: null,
+        notes: "",
+        crew: []
+      };
+    }
+
+    function zHHMMOnDateToLondonLocal(isoDate, hhmmZ) {
+      const dt = new Date(zHHMMStartToUtcMs(isoDate, hhmmZ));
+      return londonDateTimeString(dt);
+    }
+
+    function zHHMMStartToUtcMs(isoDate, hhmmZ) {
+      return new Date(`${isoDate}T${hhmmZ.slice(0,2)}:${hhmmZ.slice(2,4)}:00Z`).getTime();
+    }
+
+    function zHHMMEndToLondonLocal(isoDate, depHHMMZ, arrHHMMZ) {
+      const dt = new Date(zHHMMEndToUtcMs(isoDate, depHHMMZ, arrHHMMZ));
+      return londonDateTimeString(dt);
+    }
+
+    function zHHMMEndToUtcMs(isoDate, depHHMMZ, arrHHMMZ) {
+      const depMinutes = hhmmToMinutes(depHHMMZ);
+      const arrMinutes = hhmmToMinutes(arrHHMMZ);
+      const depDate = parseISODate(isoDate);
+      const arrDate = new Date(depDate.getFullYear(), depDate.getMonth(), depDate.getDate());
+
+      if (arrMinutes < depMinutes) arrDate.setDate(arrDate.getDate() + 1);
+
+      const yyyy = arrDate.getFullYear();
+      const mm = pad(arrDate.getMonth() + 1);
+      const dd = pad(arrDate.getDate());
+
+      return new Date(`${yyyy}-${mm}-${dd}T${arrHHMMZ.slice(0,2)}:${arrHHMMZ.slice(2,4)}:00Z`).getTime();
+    }
+
+    function formatAirportLocalHHMM(utcMs, airportCode) {
+      const airport = airportByCode[airportCode];
+      if (!airport || !airport.timeZone) return "";
+
+      return new Intl.DateTimeFormat("en-GB", {
+        timeZone: airport.timeZone,
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false
+      }).format(new Date(utcMs));
+    }
+
+    function londonDateTimeString(dateObj) {
+      const parts = new Intl.DateTimeFormat("en-GB", {
+        timeZone: "Europe/London",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hourCycle: "h23"
+      }).formatToParts(dateObj);
+
+      const map = {};
+      for (const p of parts) {
+        if (p.type !== "literal") map[p.type] = p.value;
+      }
+
+      return `${map.year}-${map.month}-${map.day}T${map.hour}:${map.minute}:${map.second}`;
+    }
+
+    function combineLocalDateTime(isoDate, hhmm) {
+      return `${isoDate}T${hhmm.slice(0,2)}:${hhmm.slice(2,4)}:00`;
+    }
+
+    function resolveLocalEndDateTime(isoDate, startHHMM, endHHMM) {
+      const start = hhmmToMinutes(startHHMM);
+      const end = hhmmToMinutes(endHHMM);
+      if (end < start) return `${nextDay(isoDate)}T${endHHMM.slice(0,2)}:${endHHMM.slice(2,4)}:00`;
+      return `${isoDate}T${endHHMM.slice(0,2)}:${endHHMM.slice(2,4)}:00`;
+    }
+
+    function compareEvents(a, b) {
+      if (a.date !== b.date) return a.date.localeCompare(b.date);
+      const aStart = a.allDay ? "0000" : formatUIDDateTime(a.startLocal);
+      const bStart = b.allDay ? "0000" : formatUIDDateTime(b.startLocal);
+      if (aStart !== bStart) return aStart.localeCompare(bStart);
+      return a.title.localeCompare(b.title);
+    }
+
+    function hhmmToMinutes(hhmm) {
+      return Number(hhmm.slice(0,2)) * 60 + Number(hhmm.slice(2,4));
+    }
+
+    function formatICSDate(isoDate) {
+      return isoDate.replace(/-/g, "");
+    }
+
+    function formatICSDateTimeLocal(isoDateTime) {
+      return isoDateTime.replace(/[-:]/g, "").slice(0, 15);
+    }
+
+    function formatICSDateTimeUtc(utcMs) {
+      const d = new Date(utcMs);
+      return [
+        d.getUTCFullYear(),
+        pad(d.getUTCMonth() + 1),
+        pad(d.getUTCDate()),
+        "T",
+        pad(d.getUTCHours()),
+        pad(d.getUTCMinutes()),
+        pad(d.getUTCSeconds()),
+        "Z"
+      ].join("");
+    }
+
+    function formatICSDateTimeUTC(utcMs) {
+      const d = new Date(utcMs);
+      return [
+        d.getUTCFullYear(),
+        pad(d.getUTCMonth() + 1),
+        pad(d.getUTCDate()),
+        "T",
+        pad(d.getUTCHours()),
+        pad(d.getUTCMinutes()),
+        pad(d.getUTCSeconds()),
+        "Z"
+      ].join("");
+    }
+
+    function formatICSUtcNow() {
+      const d = new Date();
+      return [
+        d.getUTCFullYear(),
+        pad(d.getUTCMonth() + 1),
+        pad(d.getUTCDate()),
+        "T",
+        pad(d.getUTCHours()),
+        pad(d.getUTCMinutes()),
+        pad(d.getUTCSeconds()),
+        "Z"
+      ].join("");
+    }
+
+    function formatUIDDateTime(isoDateTime) {
+      return String(isoDateTime || "").replace(/[-:T]/g, "").slice(0, 12);
+    }
+
+    function nextDay(isoDate) {
+      const d = parseISODate(isoDate);
+      d.setDate(d.getDate() + 1);
+      return formatDateObject(d);
+    }
+
+    function parseISODate(isoDate) {
+      const [y, m, d] = isoDate.split("-").map(Number);
+      return new Date(y, m - 1, d);
+    }
+
+    function formatDateObject(d) {
+      return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+    }
+
+    function formatDatePretty(isoDate) {
+      const d = parseISODate(isoDate);
+      return d.toLocaleDateString(undefined, {
+        weekday: "short",
+        day: "2-digit",
+        month: "short",
+        year: "numeric"
+      });
+    }
+
+    function formatLocalDisplay(isoDateTime) {
+      const d = new Date(isoDateTime);
+      return d.toLocaleString(undefined, {
+        hour: "2-digit",
+        minute: "2-digit",
+        day: "2-digit",
+        month: "short",
+        year: "numeric"
+      });
+    }
+
+    function normalizeSpaces(str) {
+      return String(str || "").replace(/\s+/g, " ").trim();
+    }
+
+    function normalizeUIDPart(str) {
+      return normalizeSpaces(str).toUpperCase();
+    }
+
+    function escapeICS(str) {
+      return String(str || "")
+        .replace(/\\/g, "\\\\")
+        .replace(/\n/g, "\\n")
+        .replace(/,/g, "\\,")
+        .replace(/;/g, "\\;");
+    }
+
+    function escapeHtml(str) {
+      return String(str || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function pad(n) {
+      return String(n).padStart(2, "0");
+    }
+
+    function toTitleCaseName(name) {
+      return name
+        .toLowerCase()
+        .split(" ")
+        .filter(Boolean)
+        .map(part => {
+          if (part.includes("'") || part.includes("’")) {
+            return part
+              .split(/['’]/)
+              .map(p => p ? p[0].toUpperCase() + p.slice(1) : p)
+              .join("'");
+          }
+          if (part.includes("-")) {
+            return part
+              .split("-")
+              .map(p => p ? p[0].toUpperCase() + p.slice(1) : p)
+              .join("-");
+          }
+          return part[0].toUpperCase() + part.slice(1);
+        })
+        .join(" ");
+    }
+  
+  </script>
+  <script src="/assets/fbp-shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Flight Briefing Pack</title>
+  <meta name="description" content="Flight Briefing Pack by Dane Jordan-Pinder" />
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/assets/fbp-shared.css">
+  <style>
+    :root {
+      --home-panel: #ffffff;
+      --home-panel-2: #f8fafc;
+      --home-text: #0f172a;
+      --home-muted: #64748b;
+      --home-border: #dbe5f1;
+      --home-shadow: 0 18px 44px rgba(15,23,42,0.08);
+      --home-shadow-soft: 0 10px 24px rgba(15,23,42,0.06);
+      --home-accent: #0f172a;
+      --home-accent-soft: rgba(15,23,42,0.04);
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--home-text);
+      background:
+        radial-gradient(circle at top left, rgba(125,211,252,0.16), transparent 30%),
+        radial-gradient(circle at top right, rgba(59,130,246,0.10), transparent 24%),
+        linear-gradient(180deg, #f8fbff 0%, #ffffff 40%, #f8fafc 100%);
+    }
+
+    .homepage-wrap {
+      margin-top: 22px;
+      display: grid;
+      gap: 22px;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(145deg, rgba(255,255,255,0.98), rgba(248,250,252,0.96));
+      border: 1px solid var(--home-border);
+      border-radius: 28px;
+      box-shadow: var(--home-shadow);
+      padding: 28px;
+      min-height: 260px;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .hero-copy {
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--home-accent-soft);
+      border: 1px solid rgba(15,23,42,0.08);
+      color: var(--home-muted);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-title {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      color: var(--home-text);
+    }
+
+    .hero-text {
+      margin: 0;
+      max-width: 760px;
+      font-size: 1.04rem;
+      line-height: 1.65;
+      color: var(--home-muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .hero-button,
+    .hero-button-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.96rem;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .hero-button {
+      background: linear-gradient(180deg, #0f172a, #1e293b);
+      color: #ffffff;
+      box-shadow: var(--home-shadow-soft);
+      border: 1px solid transparent;
+    }
+
+    .hero-button-secondary {
+      background: #ffffff;
+      color: var(--home-text);
+      border: 1px solid var(--home-border);
+      box-shadow: var(--home-shadow-soft);
+    }
+
+    .hero-button:hover,
+    .hero-button-secondary:hover,
+    .tool-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 220px;
+      border-radius: 24px;
+      border: 1px solid rgba(15,23,42,0.06);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(125,211,252,0.38), transparent 28%),
+        radial-gradient(circle at 80% 70%, rgba(59,130,246,0.20), transparent 30%),
+        linear-gradient(145deg, #eff6ff 0%, #ffffff 58%, #f8fafc 100%);
+      overflow: hidden;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.75);
+    }
+
+    .hero-visual svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      color: rgba(15,23,42,0.9);
+    }
+
+    .hero-visual-badge {
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(15,23,42,0.08);
+      color: var(--home-muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      backdrop-filter: blur(8px);
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .tool-card {
+      display: grid;
+      gap: 16px;
+      align-content: start;
+      background: var(--home-panel);
+      border: 1px solid var(--home-border);
+      border-radius: 24px;
+      box-shadow: var(--home-shadow-soft);
+      padding: 22px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .tool-card:hover {
+      border-color: rgba(59,130,246,0.22);
+      box-shadow: 0 20px 40px rgba(15,23,42,0.10);
+    }
+
+    .tool-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      color: var(--home-text);
+      background: linear-gradient(145deg, #eff6ff, #f8fafc);
+      border: 1px solid rgba(15,23,42,0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
+    }
+
+    .tool-heading {
+      margin: 0;
+      font-size: 1.18rem;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--home-text);
+    }
+
+    .tool-text {
+      margin: 0;
+      color: var(--home-muted);
+      line-height: 1.6;
+      font-size: 0.97rem;
+    }
+
+    .tool-link {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--home-text);
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .tool-link::after {
+      content: "→";
+      transition: transform 0.18s ease;
+    }
+
+    .tool-card:hover .tool-link::after {
+      transform: translateX(2px);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: 190px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .hero-card {
+        padding: 22px;
+        border-radius: 24px;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .hero-button,
+      .hero-button-secondary {
+        width: 100%;
+      }
+
+      .tool-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body class="fbp-theme light-mode" data-fbp-version="v1.2">
+  <main class="fbp-shell">
+    <section class="hero-card">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Flight Briefing Pack</div>
+          <h1 class="hero-title">Flight tools built by BA crew, for BA crew.</h1>
+          <p class="hero-text">
+            A focused suite of practical tools designed to make roster handling, FDP planning and pre-flight briefing quicker, cleaner and easier to use across iPhone and desktop.
+          </p>
+          <div class="hero-actions">
+            <a class="hero-button" href="mailto:u155573@ba.com?subject=Feedback%20for%20flightbriefingpack.com">Feedback</a>
+            <a class="hero-button-secondary" href="/iCal/">Open iCal</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(128 44) scale(0.68)">
+              <path d="M566.5 95.5C550.4 96.5 508.9 97.8 456 99.8L337 178.5H283L359 99.2C307.4 101.3 247.4 104.2 184 107.6L117 156H74L122.5 108.8C74.1 111.5 34.3 114.2 11.8 116.5C4.7 117.2 0 123.5 0 130.6C0 137.8 5 144.1 12.1 144.8C34.8 147.1 74.7 149.7 122.7 152.4L74 199H117L184.6 153.5C248.3 156.9 308.3 159.9 359.7 162L283 239.5H337L456.3 161.4C509.2 163.4 550.5 164.8 566.5 165.8C582.1 166.8 595 154.6 595 139.1V122.2C595 106.7 582 94.5 566.5 95.5Z" fill="currentColor"/>
+            </g>
+          </svg>
+          <div class="hero-visual-badge">flightbriefingpack.com</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="homepage-wrap">
+      <div class="tools-grid">
+        <a class="tool-card" href="/iCal/">
+          <div class="tool-icon">iC</div>
+          <div>
+            <h2 class="tool-heading">iCal</h2>
+            <p class="tool-text">Upload a roster PDF or paste copied Crewlink roster text, then sync the full roster into iCal.</p>
+          </div>
+          <div class="tool-link">Open tool</div>
+        </a>
+
+        <a class="tool-card" href="/FDP/">
+          <div class="tool-icon">FD</div>
+          <div>
+            <h2 class="tool-heading">FDP Calculator</h2>
+            <p class="tool-text">Calculate FDP limits, rest requirements and delay scenarios with a clean SCCM-focused workflow.</p>
+          </div>
+          <div class="tool-link">Open tool</div>
+        </a>
+
+        <a class="tool-card" href="/briefing/">
+          <div class="tool-icon">PF</div>
+          <div>
+            <h2 class="tool-heading">Pre-Flight Briefing</h2>
+            <p class="tool-text">Access aircraft AOR and service briefing information in a clearer, quicker format before departure.</p>
+          </div>
+          <div class="tool-link">Open tool</div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script src="/assets/fbp-shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Time Calculator</title>
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--border:#d7dde8;--text:#243244;--accent:#0b66d6}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text)}
+.wrap{max-width:720px;margin:32px auto;padding:18px}.card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+label{display:block;font-weight:700;margin-bottom:6px}.timegrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+input{width:100%;padding:13px;border:1px solid var(--border);border-radius:14px;font-size:16px;text-align:center}
+.result{margin-top:24px;border:2px solid var(--accent);border-radius:16px;padding:18px;background:#eef5ff;text-align:center}
+.result div{font-size:36px;font-weight:700;color:var(--accent)}
+</style></head>
+<body><div class="wrap"><div class="card">
+<h1>Time Calculator</h1>
+<p>Add a Max FDP duration to a Report Time.</p>
+<div class="grid">
+<div><label>Report Time</label><div class="timegrid"><input id="rh" maxlength="2" placeholder="HH"><input id="rm" maxlength="2" placeholder="MM"></div></div>
+<div><label>Max FDP</label><div class="timegrid"><input id="fh" maxlength="2" placeholder="HH"><input id="fm" maxlength="2" placeholder="MM"></div></div>
+</div>
+<div class="result"><h2>Result</h2><div id="out">--:--</div></div>
+</div></div>
+<script>
+const rh=document.getElementById("rh"),rm=document.getElementById("rm"),fh=document.getElementById("fh"),fm=document.getElementById("fm"),out=document.getElementById("out");
+function calc(){
+const a=parseInt(rh.value,10),b=parseInt(rm.value,10),c=parseInt(fh.value,10),d=parseInt(fm.value,10);
+if([a,b,c,d].some(isNaN)){out.textContent="--:--";return;}
+let t=a*60+b+c*60+d;
+t=((t%1440)+1440)%1440;
+out.textContent=String(Math.floor(t/60)).padStart(2,"0")+":"+String(t%60).padStart(2,"0");
+}
+[rh,rm,fh,fm].forEach(e=>e.addEventListener("input",calc));
+</script></body></html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aircraft Briefing</title>
+  <meta name="description" content="Pre-Flight Aircraft AOR and service briefing." />
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/assets/fbp-shared.css">
+  <style>
+    .briefing-shell {
+      --panel:rgba(17,26,46,.92);
+      --panel-2:rgba(23,35,59,.88);
+      --line:rgba(255,255,255,.08);
+      --line-2:rgba(255,255,255,.12);
+      --accent:#6fc3ff;
+      --accent-2:#53d3a7;
+      --gold:#c8a51a;
+      --cw:#4e86ff;
+      --wtp:#ff5252;
+      --wt:#f0c21a;
+      --door:#ff2b21;
+      --toilet:#27b9e6;
+      --spare:#7CFC00;
+      --galley:#8f8f93;
+      --ck:#38b66a;
+      --aor-fill:rgba(111,195,255,.28);
+      --aor-stroke:rgba(111,195,255,.95);
+      --chip-bg:rgba(111,195,255,.08);
+      --chip-border:rgba(111,195,255,.16);
+      --chip-expanded:rgba(83,211,167,.14);
+      --chip-expanded-border:rgba(83,211,167,.35);
+      --seat:#22314c;
+      --seat-active:#53d3a7;
+      --shadow:0 18px 40px rgba(0,0,0,.28);
+      --radius:22px;
+      margin-top:22px;
+    }
+    body.light-mode .briefing-shell {
+      --panel:rgba(255,255,255,.82);
+      --panel-2:rgba(246,249,252,.96);
+      --line:rgba(15,23,42,.08);
+      --line-2:rgba(15,23,42,.12);
+      --gold:#b38700;
+      --cw:#3f6fe0;
+      --wtp:#e34b4b;
+      --wt:#d0a41a;
+      --door:#dc2626;
+      --toilet:#0ea5e9;
+      --galley:#7c7c81;
+      --seat:#d7e3f4;
+      --seat-active:#53d3a7;
+      --shadow:0 14px 30px rgba(15,23,42,.08);
+    }
+    body {
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+      color:var(--text);
+    }
+    .briefing-controls {
+      display:grid;
+      grid-template-columns:1.25fr .75fr;
+      gap:18px;
+      margin-top:22px;
+      margin-bottom:18px;
+    }
+    .briefing-card {
+      background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(8px);
+      padding:22px;
+      color:var(--text);
+    }
+    .eyebrow{font-size:.8rem;text-transform:uppercase;letter-spacing:.14em;color:var(--accent);font-weight:800;margin-bottom:10px}
+    .briefing-card h2,.position-panel h2,.meta-panel h2{margin:0;font-size:1.1rem;letter-spacing:-.02em}
+    .briefing-card h3,.section h3{margin:0 0 10px;font-size:1rem;letter-spacing:-.02em}
+    .briefing-card p,.section p,.section ul{margin:0;color:var(--muted);line-height:1.65;font-size:.96rem}
+    .hero-copy h1{margin:0 0 10px;font-size:clamp(2rem,4vw,3.1rem);line-height:.95;letter-spacing:-.04em}
+    .hero-copy p{max-width:760px}
+    .control-label{color:var(--muted);font-size:.9rem;margin-bottom:9px}
+    .aircraft-button-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+    .aircraft-code-btn{min-height:50px;border-radius:14px;border:1px solid var(--line-2);background:var(--panel-2);color:var(--text);font:inherit;font-weight:800;cursor:pointer;transition:transform .16s ease,border-color .16s ease,background .16s ease,box-shadow .16s ease}
+    .aircraft-code-btn:hover{transform:translateY(-1px);border-color:rgba(111,195,255,.3)}
+    .aircraft-code-btn.active{background:linear-gradient(135deg,rgba(111,195,255,.22),rgba(83,211,167,.18));border-color:rgba(111,195,255,.46);box-shadow:0 10px 24px rgba(111,195,255,.15)}
+    .action-row{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{border:none;border-radius:14px;padding:13px 18px;cursor:pointer;font:inherit;font-weight:800;transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+    .btn:hover{transform:translateY(-1px)}
+    .btn.primary{background:linear-gradient(135deg,var(--accent),#91d2ff);color:#0a1626;box-shadow:0 10px 24px rgba(111,195,255,.22)}
+    .btn.secondary{background:transparent;color:var(--text);border:1px solid var(--line-2)}
+    .layout{display:grid;grid-template-columns:minmax(360px,560px) minmax(420px,1fr);gap:18px;align-items:start}
+    .left-stack,.right-stack{display:grid;gap:18px}
+    .aircraft-panel{position:sticky;top:16px}
+    .panel-header,.title-row{display:flex;align-items:start;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+    .subtle{color:var(--muted);font-size:.92rem;line-height:1.55;margin-top:4px}
+    .badge{padding:8px 12px;border-radius:999px;background:rgba(111,195,255,.12);color:var(--accent);font-size:.82rem;font-weight:800;white-space:nowrap;border:1px solid rgba(111,195,255,.18)}
+    .meta-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}
+    .meta-stat,.legend-item,.small-card{padding:12px 14px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07)}
+    body.light-mode .meta-stat, body.light-mode .legend-item, body.light-mode .small-card{background:rgba(255,255,255,.7);border-color:rgba(15,23,42,.07)}
+    .meta-stat strong,.small-card strong{display:block;font-size:1rem;margin-bottom:4px;letter-spacing:-.02em}
+    .meta-stat span,.small-card span,.legend-item{color:var(--muted);font-size:.9rem;line-height:1.5}
+    .aircraft-wrap{display:flex;justify-content:center;padding:12px 0 4px}
+    .diagram-shell{width:min(100%,440px);aspect-ratio:.44/1;position:relative}
+    .diagram-shell svg{width:100%;height:100%;display:block;overflow:visible;filter:drop-shadow(0 20px 36px rgba(0,0,0,.28))}
+    .seat-layer{position:absolute;inset:0;pointer-events:none}
+    .seat-btn{position:absolute;width:38px;height:38px;border-radius:999px;border:2px solid rgba(255,255,255,.95);background:var(--seat);color:#fff;font-weight:900;font-size:1rem;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,background .18s ease;box-shadow:0 10px 18px rgba(0,0,0,.18);pointer-events:auto;z-index:5}
+    .seat-btn:hover,.seat-btn:focus-visible{transform:scale(1.08);outline:none;box-shadow:0 16px 24px rgba(0,0,0,.26)}
+    .seat-btn.active{background:var(--seat-active);color:#082218;border-color:rgba(255,255,255,.98);transform:scale(1.1)}
+    .seat-btn.required::after{content:"";position:absolute;right:-2px;top:-2px;width:11px;height:11px;border-radius:50%;background:#ece04b;border:2px solid #163252}
+    .legend{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:16px}
+    .swatch{display:inline-block;width:10px;height:10px;border-radius:999px;margin-right:8px;vertical-align:middle}
+    .aor-caption{margin-top:10px;min-height:22px;color:var(--muted);font-size:.9rem}
+    .position-name{font-size:1.55rem;font-weight:900;letter-spacing:-.03em;margin:0}
+    .pill-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+    .pill{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:var(--text);font-size:.88rem}
+    body.light-mode .pill{background:rgba(255,255,255,.7);border-color:rgba(15,23,42,.08)}
+    .section{margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08)}
+    .section ul{padding-left:20px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .chips{display:flex;flex-wrap:wrap;gap:10px}
+    .equipment-chip{border:1px solid var(--chip-border);background:var(--chip-bg);color:#dff3ff;border-radius:14px;padding:10px 12px;font:inherit;cursor:pointer;transition:all .18s ease;user-select:none;white-space:nowrap}
+    .equipment-chip:hover{transform:translateY(-1px)}
+    .equipment-chip.expanded{transform:scale(1.04);background:var(--chip-expanded);border-color:var(--chip-expanded-border);color:#f4fffb}
+    .equipment-chip.seat{border-color:rgba(111,195,255,.3)}
+    .equipment-chip.area{border-color:rgba(255,255,255,.14)}
+    .equipment-chip.fcrc,.equipment-chip.ofcr{background:rgba(139,125,255,.12);border-color:rgba(139,125,255,.28)}
+    .equipment-chip.ccrc,.equipment-chip.ofar{background:rgba(255,125,125,.12);border-color:rgba(255,125,125,.28)}
+    .equipment-chip .qty{font-weight:900;margin-right:4px}
+    .equipment-chip .code{font-weight:900;letter-spacing:.02em}
+    .equipment-chip .full-name,.equipment-chip .location-name{display:none;margin-left:8px;color:#d8efe8;font-weight:600}
+    .equipment-chip.expanded .full-name,.equipment-chip.expanded .location-name{display:inline}
+    .error-box{padding:18px;border-radius:16px;background:rgba(255,125,125,.08);border:1px solid rgba(255,125,125,.22);color:#ffdede;line-height:1.6}
+    .loading{display:inline-flex;align-items:center;gap:10px;color:var(--muted)}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);display:inline-block;animation:pulse 1.2s infinite ease-in-out}
+    @keyframes pulse{0%,100%{opacity:.35;transform:scale(.9)}50%{opacity:1;transform:scale(1.1)}}
+    .footer-note{margin-top:16px;padding:12px 14px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);color:var(--muted);font-size:.9rem;line-height:1.6}
+    @media (max-width:1180px){.briefing-controls,.layout{grid-template-columns:1fr}.aircraft-panel{position:static}.aircraft-button-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media (max-width:720px){.meta-grid,.grid-2,.legend,.aircraft-button-grid{grid-template-columns:1fr 1fr}.seat-btn{width:34px;height:34px;font-size:.95rem}}
+    @media (max-width:520px){.aircraft-button-grid,.legend,.grid-2,.meta-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body class="fbp-theme" data-fbp-version="v1.2">
+  <main class="fbp-shell">
+
+    <nav class="fbp-subnav">
+      <a href="/">Home</a>
+      <a href="/iCal/">iCal</a>
+      <a href="/FDP/">FDP</a>
+      <a href="/briefing/" class="active">Briefing</a>
+    </nav>
+
+    <section class="fbp-hero">
+      <div class="fbp-aircraft-bg" aria-hidden="true">
+  <svg viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg">
+    <g opacity="0.9" transform="translate(390 74) scale(1.12)">
+      <path d="M566.5 95.5C550.4 96.5 508.9 97.8 456 99.8L337 178.5H283L359 99.2C307.4 101.3 247.4 104.2 184 107.6L117 156H74L122.5 108.8C74.1 111.5 34.3 114.2 11.8 116.5C4.7 117.2 0 123.5 0 130.6C0 137.8 5 144.1 12.1 144.8C34.8 147.1 74.7 149.7 122.7 152.4L74 199H117L184.6 153.5C248.3 156.9 308.3 159.9 359.7 162L283 239.5H337L456.3 161.4C509.2 163.4 550.5 164.8 566.5 165.8C582.1 166.8 595 154.6 595 139.1V122.2C595 106.7 582 94.5 566.5 95.5Z" fill="currentColor"/>
+    </g>
+  </svg>
+</div>
+      <div class="fbp-topbar">
+        <div>
+          <h1 class="fbp-title" id="pageTitle">Aircraft Briefing</h1>
+          <p class="fbp-subtitle" id="pageIntro">Select your aircraft code, tap your working position, and view service, safety, AOR, demo and SEP check information in one place.</p>
+          <p class="fbp-microline">Built for BA crew.</p>
+        </div>
+        <div class="fbp-toolbar">
+          <button type="button" class="fbp-theme-toggle" data-fbp-theme-toggle>Light mode</button>
+          <a class="fbp-button" href="mailto:u155573@ba.com?subject=Feedback%20for%20Pre-Flight%20Briefing">Send feedback</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="fbp-install-box">
+      <h3>Install on iPhone</h3>
+      <p>Open this page in Safari, tap Share, then choose <strong>Add to Home Screen</strong> for an app-like launcher.</p>
+    </section>
+
+    <section class="briefing-shell">
+      <section class="briefing-controls">
+        <div class="briefing-card hero-copy">
+          <div class="eyebrow">Flight Briefing Pack</div>
+          <h1 id="aircraftHeaderTitle">Aircraft layout</h1>
+          <p id="aircraftHeaderSub">Tap a numbered position to open its full briefing.</p>
+        </div>
+        <div class="briefing-card">
+          <div class="control-label">Aircraft code</div>
+          <div id="aircraftButtonGrid" class="aircraft-button-grid"></div>
+          <div class="action-row" style="margin-top:14px;">
+            <button class="btn primary" id="openFirstRequiredBtn" type="button">Open first required position</button>
+            <button class="btn secondary" id="showAllPositionsBtn" type="button">Show all positions</button>
+          </div>
+          <div class="subtle" id="selectorSummary" style="margin-top:14px;">Uses aircraft metadata, acronym lookups and equipment definitions from your external data files.</div>
+        </div>
+      </section>
+
+      <section class="layout">
+        <div class="left-stack">
+          <div class="briefing-card aircraft-panel">
+            <div class="panel-header">
+              <div>
+                <h2>Aircraft layout</h2>
+                <div class="subtle">Tap a numbered position to open its full briefing.</div>
+              </div>
+              <div class="badge" id="crewCountBadge">0 positions</div>
+            </div>
+            <div class="meta-grid" id="summaryStats"></div>
+            <div class="aircraft-wrap">
+              <div class="diagram-shell">
+                <svg id="aircraftSvg" viewBox="0 0 420 980" xmlns="http://www.w3.org/2000/svg"></svg>
+                <div id="seatLayer" class="seat-layer"></div>
+              </div>
+            </div>
+            <div id="zoneLegend" class="legend"></div>
+            <div id="aorCaption" class="aor-caption"></div>
+            <div class="footer-note">Yellow dots on position numbers indicate required crew seats. Selecting a working position also highlights its AOR on the diagram when available.</div>
+          </div>
+        </div>
+        <div class="right-stack">
+          <div class="briefing-card position-panel">
+            <h2>Position briefing</h2>
+            <div id="positionContent" class="section" style="margin-top:12px;padding-top:0;border-top:none;"></div>
+          </div>
+          <div class="briefing-card meta-panel">
+            <h2>Aircraft summary</h2>
+            <div id="aircraftMetaContent" class="section" style="margin-top:12px;padding-top:0;border-top:none;"></div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script>
+
+const BASE_DATA_PATH="data",SVG_NS="http://www.w3.org/2000/svg",STATE={activeCode:null,activeMeta:null,activeData:null,activePosition:null};
+const D351={bodyPath:"M130 10 Q95 48 88 120 L74 825 Q72 904 115 954 Q150 970 210 970 Q270 970 305 954 Q348 904 346 825 L332 120 Q325 48 290 10 Z",left:94,right:326,centerX:210,centerW:36,aisles:[{x:133,w:22},{x:249,w:22}],zones:[{code:"CW",y:110,h:306},{code:"WTP",y:416,h:102},{code:"WT",y:518,h:346}],doors:[{code:"D1L",side:"left",kind:"angled",y:86},{code:"D1R",side:"right",kind:"angled",y:86},{code:"D2L",side:"left",kind:"vertical",y:355},{code:"D2R",side:"right",kind:"vertical",y:355},{code:"D3L",side:"left",kind:"vertical",y:612},{code:"D3R",side:"right",kind:"vertical",y:612},{code:"D4L",side:"left",kind:"angled",y:888},{code:"D4R",side:"right",kind:"angled",y:888}],galleys:[{x:102,y:52,w:84,h:40,label:"G"},{x:236,y:52,w:84,h:40,label:"G"},{x:92,y:884,w:92,h:42,label:"G"},{x:236,y:884,w:92,h:42,label:"G"},{x:154,y:332,w:112,h:30,label:"CK",fill:"var(--ck)"}],toilets:[{x:104,y:48,w:28,h:28},{x:288,y:48,w:28,h:28},{x:152,y:334,w:28,h:28},{x:182,y:334,w:28,h:28},{x:212,y:334,w:28,h:28},{x:242,y:334,w:28,h:28},{x:152,y:590,w:28,h:28},{x:182,y:590,w:28,h:28},{x:212,y:590,w:28,h:28},{x:242,y:590,w:28,h:28},{x:150,y:880,w:28,h:28},{x:242,y:880,w:28,h:28}],spare:{x:108,y:156,w:26,h:26,label:"S"},seats:{10:{x:108,y:126},1:{x:142,y:126},5:{x:286,y:156},2:{x:114,y:357},6:{x:286,y:349},9:{x:286,y:383},3:{x:114,y:615},7:{x:286,y:615},4:{x:108,y:888},11:{x:142,y:888},12:{x:252,y:888},8:{x:288,y:888}},aor:{"cw-left-forward":{x:94,y:110,w:116,h:306},"cw-left-aft":{x:94,y:232,w:116,h:184},"cw-right-full":{x:210,y:110,w:116,h:306},"cw-right-aft":{x:210,y:232,w:116,h:184},"wtp-left":{x:94,y:416,w:116,h:102},"wtp-right":{x:210,y:416,w:116,h:102},"wt-left":{x:94,y:518,w:116,h:346},"wt-right":{x:210,y:518,w:116,h:346},"tail-left":{x:94,y:864,w:116,h:62},"tail-right":{x:210,y:864,w:116,h:62},"ck-left":{x:148,y:332,w:118,h:30},"cw-galley-right":{x:236,y:52,w:84,h:40},"fcrc-right":{x:250,y:10,w:72,h:34},"ccrc-left":{x:92,y:884,w:92,h:42},"wt-galley-right":{x:236,y:884,w:92,h:42},"fd-toilet-right":{x:288,y:48,w:28,h:28},"d2-left-toilet":{x:152,y:334,w:58,h:28},"d2-right-toilet":{x:212,y:334,w:58,h:28},"d3-left-toilets":{x:152,y:590,w:58,h:28},"d3-right-toilets":{x:212,y:590,w:58,h:28},"d4-left-toilet":{x:150,y:880,w:28,h:28},"d4-right-toilet":{x:242,y:880,w:28,h:28}}};
+function loadScript(src){return new Promise((resolve,reject)=>{const existing=document.querySelector(`script[data-load-src="${src}"]`);if(existing){if(existing.dataset.loaded==="true"){resolve();return}existing.addEventListener("load",()=>resolve(),{once:true});existing.addEventListener("error",()=>reject(new Error(`Failed loading ${src}`)),{once:true});return}const s=document.createElement("script");s.src=src;s.dataset.loadSrc=src;s.async=false;s.addEventListener("load",()=>{s.dataset.loaded="true";resolve()},{once:true});s.addEventListener("error",()=>reject(new Error(`Failed loading ${src}`)),{once:true});document.head.appendChild(s)})}
+const esc=v=>String(v).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
+const svgEl=(tag,attrs={})=>{const el=document.createElementNS(SVG_NS,tag);Object.entries(attrs).forEach(([k,v])=>el.setAttribute(k,v));return el};
+function expandAcronym(code){const groups=globalThis.ACRONYMS||{};for(const group of Object.values(groups)){if(group&&typeof group==="object"&&code in group)return group[code]}return code}
+function locationTypeLabel(type){switch((type||"").toLowerCase()){case"seat":return"Under crew seat";case"area":return"In assigned area";case"fcrc":return expandAcronym("FCRC");case"ccrc":return expandAcronym("CCRC");case"ofcr":return expandAcronym("OFCR");case"ofar":return expandAcronym("OFAR");default:return""}}
+function restSummary(meta){if(!meta.includesRestFacilities)return"No crew rest facilities";return[meta.flightCrewRest,meta.cabinCrewRest].filter(Boolean).map(expandAcronym).join(" + ")}
+function bootError(message){document.getElementById("positionContent").innerHTML=`<div class="error-box"><strong>Aircraft data not loaded.</strong><br>${esc(message)}</div>`}
+function aorIds(area){switch(area){case"Club Kitchen / D2L to AFT CW Cabin AE side":return["ck-left","cw-left-aft"];case"FWD WTP to D3L AB side and 2 x Toilets at D3L":return["wtp-left","d3-left-toilets"];case"D3L to D4L ABC side, CCRC and 1 x Toilet at D4L":return["wt-left","ccrc-left","d4-left-toilet"];case"CW Galley, FCRC and 1 x Toilet AFT of the Flight Deck":return["cw-right-full","cw-galley-right","fcrc-right","fd-toilet-right"];case"D1R to D2R FK side and 1 x Toilet at D2R":return["cw-right-full","d2-right-toilet"];case"FWD WTP JK side to D3R and 2 x Toilets at D3R":return["wtp-right","d3-right-toilets"];case"WT Galley and 1 x Toilet at D4R":return["tail-right","wt-galley-right","d4-right-toilet"];case"D2R to AFT CW cabin FK side":return["cw-right-aft"];case"D1L to D2L and 1 x Toilet at D2L":return["cw-left-forward","d2-left-toilet"];case"D3R to D4R":return["wt-right"];default:return[]}}
+async function boot(){try{await loadScript(`${BASE_DATA_PATH}/acronyms.js`);await loadScript(`${BASE_DATA_PATH}/equipment.js`);await loadScript(`${BASE_DATA_PATH}/aircraft.js`);if(!globalThis.AIRCRAFT||!globalThis.AIRCRAFT_ORDER)throw new Error(`Loaded ${BASE_DATA_PATH}/aircraft.js but AIRCRAFT or AIRCRAFT_ORDER is still missing.`);initApp()}catch(err){bootError(err.message)}}
+function initApp(){
+const pageTitle=document.getElementById("pageTitle"),pageIntro=document.getElementById("pageIntro"),aircraftButtonGrid=document.getElementById("aircraftButtonGrid"),aircraftHeaderTitle=document.getElementById("aircraftHeaderTitle"),aircraftHeaderSub=document.getElementById("aircraftHeaderSub"),crewCountBadge=document.getElementById("crewCountBadge"),summaryStats=document.getElementById("summaryStats"),aircraftSvg=document.getElementById("aircraftSvg"),seatLayer=document.getElementById("seatLayer"),zoneLegend=document.getElementById("zoneLegend"),aircraftMetaContent=document.getElementById("aircraftMetaContent"),positionContent=document.getElementById("positionContent"),selectorSummary=document.getElementById("selectorSummary"),openFirstRequiredBtn=document.getElementById("openFirstRequiredBtn"),showAllPositionsBtn=document.getElementById("showAllPositionsBtn"),aorCaption=document.getElementById("aorCaption");
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim(),ZONE_STYLES={F:{name:"First",color:css("--gold")},CW:{name:"Club World",color:css("--cw")},WTP:{name:"World Traveller Plus",color:css("--wtp")},WT:{name:"World Traveller",color:css("--wt")}};
+const clearDiagram=()=>{aircraftSvg.innerHTML="";seatLayer.innerHTML="";aorCaption.textContent=""};
+function renderLegend(meta){const codes=(meta.classes||[]).filter(c=>ZONE_STYLES[c]);zoneLegend.innerHTML=codes.map(c=>`<div class="legend-item"><span class="swatch" style="background:${ZONE_STYLES[c].color}"></span>${esc(ZONE_STYLES[c].name)}</div>`).join("")}
+function buildButtons(){aircraftButtonGrid.innerHTML="";globalThis.AIRCRAFT_ORDER.forEach(code=>{const meta=globalThis.AIRCRAFT[code];if(!meta)return;const btn=document.createElement("button");btn.type="button";btn.className="aircraft-code-btn";btn.textContent=meta.selectorLabel||code;btn.addEventListener("click",()=>selectAircraft(code));aircraftButtonGrid.appendChild(btn)})}
+function updateButtons(){[...aircraftButtonGrid.children].forEach((btn,i)=>btn.classList.toggle("active",globalThis.AIRCRAFT_ORDER[i]===STATE.activeCode))}
+function setLoading(meta){pageTitle.textContent=meta.briefingTitle||"Aircraft Briefing";pageIntro.textContent=`${meta.fullName} · ${meta.configName}. Loading aircraft briefing data...`;selectorSummary.textContent=`${meta.selectorLabel} · ${meta.fullName} · ${meta.configName}`;aircraftHeaderTitle.textContent=`${meta.selectorLabel} · ${meta.fullName}`;aircraftHeaderSub.textContent="Loading aircraft data...";crewCountBadge.textContent="Loading";summaryStats.innerHTML=`<div class="meta-stat"><strong>—</strong><span>Total seats</span></div><div class="meta-stat"><strong>—</strong><span>Legal minimum crew</span></div><div class="meta-stat"><strong>—</strong><span>Standard crew compliment</span></div>`;aircraftMetaContent.innerHTML=`<div class="loading"><span class="dot"></span>Loading aircraft summary...</div>`;positionContent.innerHTML=`<div class="loading"><span class="dot"></span>Loading aircraft briefing...</div>`;clearDiagram();renderLegend(meta)}
+
+async function loadDataset(code){const key=`AOR_${code}`;
+if(globalThis[key])return globalThis[key];
+const meta=globalThis.AIRCRAFT[code];
+const path=meta?.dataPath||`${BASE_DATA_PATH}/aircraft/${code}.js`;
+await loadScript(path);
+if(!globalThis[key])throw new Error(`Loaded ${path} but ${key} was not created.`);
+return globalThis[key]
+}
+
+function syncUrl(code){const url=new URL(window.location.href);url.searchParams.set("code",code);window.history.replaceState({},"",url.toString())}
+function renderMissing(meta,err){pageTitle.textContent=meta.briefingTitle||"Aircraft Briefing";pageIntro.textContent=`${meta.fullName} is listed in the selector, but its aircraft-specific briefing file is not available yet.`;aircraftHeaderTitle.textContent=`${meta.selectorLabel} · ${meta.fullName}`;aircraftHeaderSub.textContent=`${meta.selectorSubLabel}${meta.includesRestFacilities?` · ${restSummary(meta)}`:" · No crew rest facilities"}`;crewCountBadge.textContent="No dataset";positionContent.innerHTML=`<div class="error-box"><strong>Aircraft data file not available yet.</strong><br>${esc(err.message)}</div>`;aircraftMetaContent.innerHTML=`<div class="grid-2"><div class="small-card"><strong>Aircraft</strong><span>${esc(meta.fullName)}<br>${esc(meta.configName)} · ${esc(meta.manufacturer)}</span></div><div class="small-card"><strong>Cabins</strong><span>${esc((meta.classes||[]).map(expandAcronym).join(" · "))}</span></div><div class="small-card"><strong>Crew rest</strong><span>${meta.includesRestFacilities?esc(restSummary(meta)):"No crew rest facilities"}</span></div><div class="small-card"><strong>Expected file</strong><span>${esc(meta.dataPath||`${BASE_DATA_PATH}/aircraft/${meta.code}.js`)}</span></div></div>`}
+function renderGeneric(meta){clearDiagram();const body="M138 18 Q102 56 96 122 L82 824 Q80 902 120 952 Q155 968 210 968 Q265 968 300 952 Q340 902 338 824 L324 122 Q318 56 282 18 Z";const defs=svgEl("defs"),clip=svgEl("clipPath",{id:"genericClip"});clip.appendChild(svgEl("path",{d:body}));defs.appendChild(clip);aircraftSvg.appendChild(defs);aircraftSvg.appendChild(svgEl("path",{d:body,fill:"#eef3fb",stroke:"rgba(58,74,102,.9)","stroke-width":"4"}));const g=svgEl("g",{"clip-path":"url(#genericClip)"});let y=110;(meta.classes||[]).forEach((code,i,arr)=>{const h=code==="F"?80:(i===arr.length-1?310:180);g.appendChild(svgEl("rect",{x:102,y,width:216,height:h,rx:"18",fill:ZONE_STYLES[code]?.color||"#777",opacity:"0.34"}));y+=h+16});aircraftSvg.appendChild(g);aorCaption.textContent="Enhanced aircraft-style diagram and AOR overlays are currently enabled for 351."}
+function render351(data){clearDiagram();const defs=svgEl("defs"),clip=svgEl("clipPath",{id:"bodyClip351"});clip.appendChild(svgEl("path",{d:D351.bodyPath}));defs.appendChild(clip);const glow=svgEl("filter",{id:"aorGlow351",x:"-30%",y:"-30%",width:"160%",height:"160%"});glow.appendChild(svgEl("feGaussianBlur",{stdDeviation:"6",result:"blur"}));const merge=svgEl("feMerge");merge.appendChild(svgEl("feMergeNode",{in:"blur"}));merge.appendChild(svgEl("feMergeNode",{in:"SourceGraphic"}));glow.appendChild(merge);defs.appendChild(glow);aircraftSvg.appendChild(defs);aircraftSvg.appendChild(svgEl("path",{d:D351.bodyPath,fill:"#eef3fb",stroke:"rgba(58,74,102,.9)","stroke-width":"4"}));const clipped=svgEl("g",{"clip-path":"url(#bodyClip351)"});D351.zones.forEach(z=>clipped.appendChild(svgEl("rect",{x:D351.left,y:z.y,width:D351.right-D351.left,height:z.h,rx:"18",fill:ZONE_STYLES[z.code].color,opacity:"0.38"})));D351.aisles.forEach(a=>clipped.appendChild(svgEl("rect",{x:a.x,y:110,width:a.w,height:754,rx:"11",fill:"rgba(245,247,250,.58)"})));clipped.appendChild(svgEl("rect",{x:D351.centerX-D351.centerW/2,y:24,width:D351.centerW,height:926,rx:"18",fill:"rgba(102,122,150,.16)"}));for(let y=46;y<934;y+=34)clipped.appendChild(svgEl("rect",{x:D351.centerX-3,y,width:6,height:16,rx:2,fill:"rgba(75,91,118,.2)"}));D351.galleys.forEach(g=>{clipped.appendChild(svgEl("rect",{x:g.x,y:g.y,width:g.w,height:g.h,rx:"10",fill:g.fill||"var(--galley)"}));const t=svgEl("text",{x:g.x+g.w/2,y:g.y+g.h/2+1,fill:"#fff","font-size":"12","font-weight":"800","text-anchor":"middle","dominant-baseline":"middle"});t.textContent=g.label;clipped.appendChild(t)});D351.toilets.forEach(t=>{clipped.appendChild(svgEl("rect",{x:t.x,y:t.y,width:t.w,height:t.h,rx:"6",fill:"var(--toilet)"}));const tx=svgEl("text",{x:t.x+t.w/2,y:t.y+t.h/2+1,fill:"#fff","font-size":"12","font-weight":"800","text-anchor":"middle","dominant-baseline":"middle"});tx.textContent="T";clipped.appendChild(tx)});clipped.appendChild(svgEl("rect",{x:D351.spare.x,y:D351.spare.y,width:D351.spare.w,height:D351.spare.h,rx:"6",fill:"var(--spare)"}));const spare=svgEl("text",{x:D351.spare.x+D351.spare.w/2,y:D351.spare.y+D351.spare.h/2+1,fill:"#143d00","font-size":"12","font-weight":"900","text-anchor":"middle","dominant-baseline":"middle"});spare.textContent=D351.spare.label;clipped.appendChild(spare);const aorLayer=svgEl("g",{id:"aorLayer351","clip-path":"url(#bodyClip351)"});Object.entries(D351.aor).forEach(([id,r])=>aorLayer.appendChild(svgEl("rect",{x:r.x,y:r.y,width:r.w,height:r.h,rx:"14",fill:"var(--aor-fill)",stroke:"var(--aor-stroke)","stroke-width":"2",opacity:"0",filter:"url(#aorGlow351)","data-aor-id":id})));clipped.appendChild(aorLayer);aircraftSvg.appendChild(clipped);D351.doors.forEach(d=>{let path="",labelX=0;if(d.kind==="vertical"){if(d.side==="left"){path=`M82 ${d.y-30} C74 ${d.y-24}, 72 ${d.y+24}, 82 ${d.y+30} L96 ${d.y+30} L96 ${d.y-30} Z`;labelX=58}else{path=`M338 ${d.y-30} C346 ${d.y-24}, 348 ${d.y+24}, 338 ${d.y+30} L324 ${d.y+30} L324 ${d.y-30} Z`;labelX=362}}else{if(d.side==="left"){path=`M108 ${d.y-28} L90 ${d.y-46} C79 ${d.y-28}, 73 ${d.y-6}, 78 ${d.y+12} L96 ${d.y+32} Z`;labelX=52}else{path=`M312 ${d.y-28} L330 ${d.y-46} C341 ${d.y-28}, 347 ${d.y-6}, 342 ${d.y+12} L324 ${d.y+32} Z`;labelX=366}}aircraftSvg.appendChild(svgEl("path",{d:path,fill:"var(--door)",stroke:"#151515","stroke-width":"2.4"}));const tx=svgEl("text",{x:labelX,y:d.y-18,fill:"#fff","font-size":"12","font-weight":"800","text-anchor":"middle"});tx.textContent=d.code;aircraftSvg.appendChild(tx)});seatLayer.innerHTML="";(data.positions||[]).forEach(pos=>{const c=D351.seats[pos.number]||{x:210,y:120};const btn=document.createElement("button");btn.className=`seat-btn${data.crew?.requiredSeats?.includes(pos.number)?" required":""}`;btn.textContent=pos.number;btn.style.left=`${c.x-19}px`;btn.style.top=`${c.y-19}px`;btn.dataset.position=String(pos.number);btn.type="button";btn.addEventListener("click",()=>setActivePosition(pos.number));seatLayer.appendChild(btn)})}
+function setAorOverlay(pos){aorCaption.textContent="";aircraftSvg.querySelectorAll("[data-aor-id]").forEach(el=>el.setAttribute("opacity","0"));if(STATE.activeMeta?.code!=="351"||!pos?.aor?.hasAor||!pos.aor.area)return;const ids=aorIds(pos.aor.area);ids.forEach(id=>{const el=aircraftSvg.querySelector(`[data-aor-id="${id}"]`);if(el)el.setAttribute("opacity","1")});if(ids.length)aorCaption.textContent=`AOR highlighted: ${pos.aor.area}`}
+function renderAircraft(meta,data){pageTitle.textContent=meta.briefingTitle||"Aircraft Briefing";pageIntro.textContent=`${meta.fullName} · ${meta.configName}. Select your working position to view service flow context, seating, demo, AOR and SEP equipment checks.`;selectorSummary.textContent=`${meta.selectorLabel} · ${meta.fullName} · ${meta.configName}`;aircraftHeaderTitle.textContent=`${meta.selectorLabel} · ${meta.fullName}`;aircraftHeaderSub.textContent=meta.code==="351"?"Rebuilt 351 diagram with blended aisles and AOR overlays":`${meta.selectorSubLabel}${meta.includesRestFacilities?` · ${restSummary(meta)}`:" · No crew rest facilities"}`;crewCountBadge.textContent=`${data.positions.length} positions`;summaryStats.innerHTML=`<div class="meta-stat"><strong>${esc(String(data?.config?.totalSeats??"—"))}</strong><span>Total seats</span></div><div class="meta-stat"><strong>${esc(String(data?.crew?.legalMinimum??"—"))}</strong><span>Legal minimum crew</span></div><div class="meta-stat"><strong>${esc(String(data?.crew?.standardCrewCompliment??"—"))}</strong><span>Standard crew compliment</span></div>`;const cfg=[data?.config?.clubWorld!=null?`CW ${data.config.clubWorld}`:null,data?.config?.worldTravellerPlus!=null?`WTP ${data.config.worldTravellerPlus}`:null,data?.config?.worldTraveller!=null?`WT ${data.config.worldTraveller}`:null].filter(Boolean).join(" · ");const notes=[...(meta.notes||[]),...(data?.importantInfo?.notes||[])].filter(Boolean);aircraftMetaContent.innerHTML=`<div class="grid-2"><div class="small-card"><strong>Aircraft</strong><span>${esc(meta.fullName)}<br>${esc(meta.configName)} · ${esc(meta.manufacturer)}</span></div><div class="small-card"><strong>Cabins</strong><span>${esc((meta.classes||[]).map(expandAcronym).join(" · "))}</span></div><div class="small-card"><strong>Seat split</strong><span>${esc(cfg||"—")}</span></div><div class="small-card"><strong>Required crew seats</strong><span>${esc((data?.crew?.requiredSeats||[]).join(", ")||"—")}</span></div><div class="small-card"><strong>Spare seat</strong><span>${esc((data?.crew?.spareCrewSeats||[]).map(s=>`${s.seat} ${s.facing}`).join(", ")||"None listed")}</span></div><div class="small-card"><strong>Crew rest</strong><span>${meta.includesRestFacilities?esc(restSummary(meta)):"No crew rest facilities"}</span></div></div><div class="section"><div class="grid-2"><div class="small-card"><strong>Emergency equipment summary</strong><span>${(data?.importantInfo?.emergencyEquipmentSummary||[]).map(item=>`${esc(item.code)}: ${esc(item.location)}`).join("<br>")||"None"}</span></div><div class="small-card"><strong>Aircraft notes</strong><span>${notes.length?notes.map(n=>esc(n)).join("<br><br>"):"None"}</span></div></div></div>`;renderLegend(meta);if(meta.code==="351")render351(data);else renderGeneric(meta);const required=data.crew?.requiredSeats||[];const first=data.positions.find(p=>required.includes(p.number))||data.positions[0];if(first)setActivePosition(first.number)}
+function formatBullets(text){if(!text||String(text).trim()==="")return `<p>None</p>`;const parts=String(text).split(",").map(s=>s.trim()).filter(Boolean);if(!parts.length)return `<p>None</p>`;return `<ul>${parts.map(item=>`<li>${esc(item)}</li>`).join("")}</ul>`}
+function setActivePosition(number){const pos=(STATE.activeData?.positions||[]).find(p=>p.number===number);if(!pos)return;STATE.activePosition=pos;const hasAor=!!pos?.aor?.hasAor,doorText=pos.doorResponsibility||"None",restText=pos.rest||"None",serviceCabins=(pos.service?.cabin||[]).map(expandAcronym).join(" · ")||"None";let demo=`<ul><li>Position: None</li><li>Points out: None</li></ul>`;if(pos.demo){const p=pos.demo.position==null?"None":pos.demo.position,pts=pos.demo.pointsOut&&pos.demo.pointsOut.length?pos.demo.pointsOut.join(", "):"None";demo=`<ul><li>Position: ${esc(p)}</li><li>Points out: ${esc(pts)}</li></ul>`}positionContent.innerHTML=`<div class="title-row"><div><h3 class="position-name">${esc(pos.displayTitle||`Position ${pos.number}`)}</h3><div class="subtle">${esc(pos.seating?.full||"Seat not listed")}</div></div><div class="badge">${hasAor?"AOR assigned":"No AOR"}</div></div><div class="pill-row"><div class="pill">Door: ${esc(doorText)}</div><div class="pill">Rest: ${esc(restText)}</div><div class="pill">Cabin: ${esc(serviceCabins)}</div></div><div class="section"><h3>Service Delivery</h3>${formatBullets(pos.service?.summary)}</div><div class="section"><h3>Safety Demo</h3>${demo}</div><div class="section"><h3>Area of Responsibility (AOR)</h3><p>${hasAor?esc(pos.aor.area):"None"}</p></div><div class="section"><h3>Additional Responsibilities</h3>${pos.additionalResponsibilities?.length?`<ul>${pos.additionalResponsibilities.map(item=>`<li>${esc(item)}</li>`).join("")}</ul>`:`<p>None</p>`}</div><div class="section"><h3>Pre-Flight SEP Equipment Checks</h3><div class="chips">${(pos.equipmentChecks||[]).map(item=>{const fullName=globalThis.EQUIPMENT?.[item.code]||item.code,locationName=locationTypeLabel(item.locationType),qty=item.qty&&item.qty>1?`<span class="qty">${item.qty}</span>`:"";return `<button type="button" class="equipment-chip ${esc(item.locationType||"area")}" onclick="window.__toggleEquipmentChip(this)" aria-expanded="false">${qty}<span class="code">${esc(item.code)}</span><span class="full-name">— ${esc(fullName)}</span>${locationName?`<span class="location-name">· ${esc(locationName)}</span>`:""}</button>`}).join("")}</div></div>`;setAorOverlay(pos);seatLayer.querySelectorAll(".seat-btn").forEach(btn=>btn.classList.toggle("active",Number(btn.dataset.position)===STATE.activePosition?.number))}
+function openFirstRequired(){const data=STATE.activeData;if(!data?.positions?.length)return;const required=data.crew?.requiredSeats||[];const first=data.positions.find(p=>required.includes(p.number))||data.positions[0];if(first)setActivePosition(first.number)}
+function showAllPositionsList(){const data=STATE.activeData;if(!data?.positions?.length)return;positionContent.innerHTML=`<div class="title-row"><div><h3 class="position-name" style="font-size:1.3rem;">All positions · ${esc(STATE.activeMeta.selectorLabel)}</h3><div class="subtle">Tap any position below to open the full briefing.</div></div></div><div class="grid-2">${(data.positions||[]).map(pos=>`<button class="small-card" style="text-align:left;cursor:pointer;color:var(--text);" type="button" onclick="window.__openPosition(${pos.number})"><strong>Position ${pos.number}${pos.title?` · ${esc(pos.title)}`:""}${pos.role?` · ${esc(pos.role)}`:""}</strong><span>${esc(pos.seating?.full||"Seat not listed")}</span></button>`).join("")}</div>`}
+async function selectAircraft(code){const meta=globalThis.AIRCRAFT[code];if(!meta)return;STATE.activeCode=code;STATE.activeMeta=meta;STATE.activeData=null;STATE.activePosition=null;updateButtons();setLoading(meta);try{const data=await loadDataset(code);STATE.activeData=data;syncUrl(code);renderAircraft(meta,data)}catch(err){syncUrl(code);renderMissing(meta,err)}}
+window.__toggleEquipmentChip=function(button){const expanded=button.classList.toggle("expanded");button.setAttribute("aria-expanded",expanded?"true":"false")};window.__openPosition=function(number){setActivePosition(number);document.querySelector(".position-panel")?.scrollIntoView({behavior:"smooth",block:"start"})};
+buildButtons();openFirstRequiredBtn.addEventListener("click",openFirstRequired);showAllPositionsBtn.addEventListener("click",showAllPositionsList);const initialCode=new URLSearchParams(window.location.search).get("code"),fallbackCode=globalThis.AIRCRAFT_ORDER[0],startCode=globalThis.AIRCRAFT[initialCode]?initialCode:fallbackCode;selectAircraft(startCode)}
+document.addEventListener("DOMContentLoaded",boot);
+
+  </script>
+  <script src="/assets/fbp-shared.js"></script>
+</body>
+</html>

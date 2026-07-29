@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Choose a Longhaul or Shorthaul Flight Duty Period calculator." />
+  <title>FDP Calculator</title>
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/assets/fbp-shared.css">
+
+  <style>
+    :root {
+      --fdp-card: #ffffff;
+      --fdp-card-2: #f8fafc;
+      --fdp-text: #0f172a;
+      --fdp-muted: #64748b;
+      --fdp-border: #dbe5f1;
+      --fdp-shadow: 0 14px 40px rgba(15,23,42,.08);
+      --fdp-shadow-soft: 0 10px 24px rgba(15,23,42,.06);
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--fdp-text);
+      background: #f5f8fc;
+    }
+
+    .app-wrap {
+      padding-bottom: 24px;
+    }
+
+    .fdp-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .fdp-choice {
+      background: var(--fdp-card);
+      border: 1px solid var(--fdp-border);
+      border-radius: 28px;
+      box-shadow: var(--fdp-shadow);
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+      display: block;
+      min-height: 220px;
+    }
+
+    .fdp-choice:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 44px rgba(15,23,42,.12);
+      border-color: #bfd0e6;
+      background: #ffffff;
+    }
+
+    .fdp-choice-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 72px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--fdp-card-2);
+      border: 1px solid var(--fdp-border);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      color: var(--fdp-muted);
+      margin-bottom: 18px;
+    }
+
+    .fdp-choice h2 {
+      margin: 0 0 10px;
+      font-size: 28px;
+      line-height: 1.05;
+      letter-spacing: -.03em;
+      color: var(--fdp-text);
+    }
+
+    .fdp-choice p {
+      margin: 0 0 18px;
+      color: var(--fdp-muted);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .fdp-choice-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      color: var(--fdp-text);
+      background: var(--fdp-card-2);
+      border: 1px solid var(--fdp-border);
+      border-radius: 16px;
+      padding: 12px 14px;
+      box-shadow: var(--fdp-shadow-soft);
+    }
+
+    .fdp-note {
+      margin-top: 18px;
+      color: var(--fdp-muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .fbp-toolbar .fbp-button {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      box-shadow: none;
+    }
+
+    .fbp-toolbar .fbp-button:hover {
+      background: var(--surface-hover);
+      color: var(--text);
+    }
+
+    @media (max-width: 820px) {
+      .fdp-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .fdp-choice {
+        min-height: 0;
+      }
+
+      .fdp-choice h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body class="fbp-theme" data-fbp-version="v1.2">
+  <main class="fbp-shell app-wrap">
+
+    <nav class="fbp-subnav">
+      <a href="/">Home</a>
+      <a href="/iCal/">iCal</a>
+      <a href="/FDP/" class="active">FDP</a>
+      <a href="/briefing/">Briefing</a>
+    </nav>
+
+    <section class="fbp-hero">
+      <div class="fbp-aircraft-bg" aria-hidden="true">
+        <svg viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg">
+          <g opacity="0.9" transform="translate(390 74) scale(1.12)">
+            <path d="M566.5 95.5C550.4 96.5 508.9 97.8 456 99.8L337 178.5H283L359 99.2C307.4 101.3 247.4 104.2 184 107.6L117 156H74L122.5 108.8C74.1 111.5 34.3 114.2 11.8 116.5C4.7 117.2 0 123.5 0 130.6C0 137.8 5 144.1 12.1 144.8C34.8 147.1 74.7 149.7 122.7 152.4L74 199H117L184.6 153.5C248.3 156.9 308.3 159.9 359.7 162L283 239.5H337L456.3 161.4C509.2 163.4 550.5 164.8 566.5 165.8C582.1 166.8 595 154.6 595 139.1V122.2C595 106.7 582 94.5 566.5 95.5Z" fill="currentColor"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="fbp-topbar">
+        <div>
+          <h1 class="fbp-title">FDP Calculator</h1>
+          <p class="fbp-subtitle">Choose the correct calculator for your operation. Longhaul and shorthaul now run as separate tools so each page stays cleaner, simpler and easier to use.</p>
+          <p class="fbp-microline">Built for BA crew.</p>
+        </div>
+        <div class="fbp-toolbar">
+          <a class="fbp-button" href="mailto:u155573@ba.com?subject=Feedback%20for%20FDP%20Calculator">Feedback</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="fdp-grid">
+      <a class="fdp-choice" href="/FDP/LH-fdp.html">
+        <span class="fdp-choice-badge">LONGHAUL</span>
+        <h2>Longhaul FDP</h2>
+        <p>Use this version for longhaul operations, including inflight rest, Table 5 logic, second service planning, commander’s discretion and longhaul report and clear time assumptions.</p>
+        <span class="fdp-choice-cta">Open Longhaul Calculator</span>
+      </a>
+
+      <a class="fdp-choice" href="/FDP/SH-fdp.html">
+        <span class="fdp-choice-badge">SHORTHAUL</span>
+        <h2>Shorthaul FDP</h2>
+        <p>Use this version for shorthaul operations, with the cleaner shorthaul flow and without the extra longhaul-only inputs and outputs.</p>
+        <span class="fdp-choice-cta">Open Shorthaul Calculator</span>
+      </a>
+    </div>
+
+    <p class="fdp-note">Save this page as <strong>index.html</strong> inside your <strong>/FDP/</strong> folder. The two calculator files should sit alongside it as <strong>LH-fdp.html</strong> and <strong>SH-fdp.html</strong>.</p>
+
+  </main>
+
+  <script src="/assets/fbp-shared.js"></script>
+</body>
+</html>
