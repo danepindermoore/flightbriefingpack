@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aircraft Briefing</title>
   <meta name="description" content="Pre-Flight Aircraft AOR and service briefing." />
-  <link rel="icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/fbp-shared.css">
+  <link rel="icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="stylesheet" href="../assets/fbp-shared.css">
   <style>
     .briefing-shell {
       --panel:rgba(17,26,46,.92);
@@ -147,10 +147,10 @@
   <main class="fbp-shell">
 
     <nav class="fbp-subnav">
-      <a href="/">Home</a>
-      <a href="/iCal/">iCal</a>
-      <a href="/FDP/">FDP</a>
-      <a href="/briefing/" class="active">Briefing</a>
+      <a href="../">Home</a>
+      <a href="../iCal/">iCal</a>
+      <a href="../FDP/">FDP</a>
+      <a href="../briefing/" class="active">Briefing</a>
     </nav>
 
     <section class="fbp-hero">
@@ -234,7 +234,7 @@
   </main>
   <script>
 
-const BASE_DATA_PATH="data",SVG_NS="http://www.w3.org/2000/svg",STATE={activeCode:null,activeMeta:null,activeData:null,activePosition:null};
+const BASE_DATA_PATH="../data",SVG_NS="http://www.w3.org/2000/svg",STATE={activeCode:null,activeMeta:null,activeData:null,activePosition:null};
 const D351={bodyPath:"M130 10 Q95 48 88 120 L74 825 Q72 904 115 954 Q150 970 210 970 Q270 970 305 954 Q348 904 346 825 L332 120 Q325 48 290 10 Z",left:94,right:326,centerX:210,centerW:36,aisles:[{x:133,w:22},{x:249,w:22}],zones:[{code:"CW",y:110,h:306},{code:"WTP",y:416,h:102},{code:"WT",y:518,h:346}],doors:[{code:"D1L",side:"left",kind:"angled",y:86},{code:"D1R",side:"right",kind:"angled",y:86},{code:"D2L",side:"left",kind:"vertical",y:355},{code:"D2R",side:"right",kind:"vertical",y:355},{code:"D3L",side:"left",kind:"vertical",y:612},{code:"D3R",side:"right",kind:"vertical",y:612},{code:"D4L",side:"left",kind:"angled",y:888},{code:"D4R",side:"right",kind:"angled",y:888}],galleys:[{x:102,y:52,w:84,h:40,label:"G"},{x:236,y:52,w:84,h:40,label:"G"},{x:92,y:884,w:92,h:42,label:"G"},{x:236,y:884,w:92,h:42,label:"G"},{x:154,y:332,w:112,h:30,label:"CK",fill:"var(--ck)"}],toilets:[{x:104,y:48,w:28,h:28},{x:288,y:48,w:28,h:28},{x:152,y:334,w:28,h:28},{x:182,y:334,w:28,h:28},{x:212,y:334,w:28,h:28},{x:242,y:334,w:28,h:28},{x:152,y:590,w:28,h:28},{x:182,y:590,w:28,h:28},{x:212,y:590,w:28,h:28},{x:242,y:590,w:28,h:28},{x:150,y:880,w:28,h:28},{x:242,y:880,w:28,h:28}],spare:{x:108,y:156,w:26,h:26,label:"S"},seats:{10:{x:108,y:126},1:{x:142,y:126},5:{x:286,y:156},2:{x:114,y:357},6:{x:286,y:349},9:{x:286,y:383},3:{x:114,y:615},7:{x:286,y:615},4:{x:108,y:888},11:{x:142,y:888},12:{x:252,y:888},8:{x:288,y:888}},aor:{"cw-left-forward":{x:94,y:110,w:116,h:306},"cw-left-aft":{x:94,y:232,w:116,h:184},"cw-right-full":{x:210,y:110,w:116,h:306},"cw-right-aft":{x:210,y:232,w:116,h:184},"wtp-left":{x:94,y:416,w:116,h:102},"wtp-right":{x:210,y:416,w:116,h:102},"wt-left":{x:94,y:518,w:116,h:346},"wt-right":{x:210,y:518,w:116,h:346},"tail-left":{x:94,y:864,w:116,h:62},"tail-right":{x:210,y:864,w:116,h:62},"ck-left":{x:148,y:332,w:118,h:30},"cw-galley-right":{x:236,y:52,w:84,h:40},"fcrc-right":{x:250,y:10,w:72,h:34},"ccrc-left":{x:92,y:884,w:92,h:42},"wt-galley-right":{x:236,y:884,w:92,h:42},"fd-toilet-right":{x:288,y:48,w:28,h:28},"d2-left-toilet":{x:152,y:334,w:58,h:28},"d2-right-toilet":{x:212,y:334,w:58,h:28},"d3-left-toilets":{x:152,y:590,w:58,h:28},"d3-right-toilets":{x:212,y:590,w:58,h:28},"d4-left-toilet":{x:150,y:880,w:28,h:28},"d4-right-toilet":{x:242,y:880,w:28,h:28}}};
 function loadScript(src){return new Promise((resolve,reject)=>{const existing=document.querySelector(`script[data-load-src="${src}"]`);if(existing){if(existing.dataset.loaded==="true"){resolve();return}existing.addEventListener("load",()=>resolve(),{once:true});existing.addEventListener("error",()=>reject(new Error(`Failed loading ${src}`)),{once:true});return}const s=document.createElement("script");s.src=src;s.dataset.loadSrc=src;s.async=false;s.addEventListener("load",()=>{s.dataset.loaded="true";resolve()},{once:true});s.addEventListener("error",()=>reject(new Error(`Failed loading ${src}`)),{once:true});document.head.appendChild(s)})}
 const esc=v=>String(v).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
@@ -279,6 +279,6 @@ buildButtons();openFirstRequiredBtn.addEventListener("click",openFirstRequired);
 document.addEventListener("DOMContentLoaded",boot);
 
   </script>
-  <script src="/assets/fbp-shared.js"></script>
+  <script src="../assets/fbp-shared.js"></script>
 </body>
 </html>

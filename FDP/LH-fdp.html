@@ -6,16 +6,16 @@
   <meta name="description" content="Longhaul FDP calculator for BA crew." />
   <title>Longhaul FDP</title>
 
-  <link rel="icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/fbp-shared.css">
+  <link rel="icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="stylesheet" href="../assets/fbp-shared.css">
 
-  <script src="/data/ba-destinations.js"></script>
-  <script src="/data/ba-fdp-tables.js"></script>
-  <script src="/data/ba-inflight-rest.js"></script>
-  <script src="/data/aircraft.js"></script>
+  <script src="../data/ba-destinations.js"></script>
+  <script src="../data/ba-fdp-tables.js"></script>
+  <script src="../data/ba-inflight-rest.js"></script>
+  <script src="../data/aircraft.js"></script>
 
   <style>
     :root{--fdp-card:#ffffff;--fdp-card-2:#f8fafc;--fdp-text:#0f172a;--fdp-muted:#64748b;--fdp-border:#dbe5f1;--fdp-shadow:0 14px 40px rgba(15,23,42,.08);--fdp-shadow-soft:0 8px 24px rgba(15,23,42,.06);--fdp-input-bg:#ffffff;--fdp-warn:#b91c1c;--fdp-warn-bg:#fff1f2;--fdp-warn-ring:rgba(185,28,28,.18);--fdp-disabled:#eef3f9;}
@@ -70,10 +70,10 @@
 <body class="fbp-theme" data-fbp-version="v1.2">
   <main class="fbp-shell app-wrap">
     <nav class="fbp-subnav">
-      <a href="/">Home</a>
-      <a href="/iCal/">iCal</a>
-      <a href="/FDP/">FDP</a>
-      <a href="/briefing/">Briefing</a>
+      <a href="../">Home</a>
+      <a href="../iCal/">iCal</a>
+      <a href="../FDP/">FDP</a>
+      <a href="../briefing/">Briefing</a>
     </nav>
     <section class="fbp-hero">
       <div class="fbp-aircraft-bg" aria-hidden="true"><svg viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg"><g opacity="0.9" transform="translate(390 74) scale(1.12)"><path d="M566.5 95.5C550.4 96.5 508.9 97.8 456 99.8L337 178.5H283L359 99.2C307.4 101.3 247.4 104.2 184 107.6L117 156H74L122.5 108.8C74.1 111.5 34.3 114.2 11.8 116.5C4.7 117.2 0 123.5 0 130.6C0 137.8 5 144.1 12.1 144.8C34.8 147.1 74.7 149.7 122.7 152.4L74 199H117L184.6 153.5C248.3 156.9 308.3 159.9 359.7 162L283 239.5H337L456.3 161.4C509.2 163.4 550.5 164.8 566.5 165.8C582.1 166.8 595 154.6 595 139.1V122.2C595 106.7 582 94.5 566.5 95.5Z" fill="currentColor"/></g></svg></div>
@@ -141,7 +141,7 @@
       </div>
     </div>
 
-    <div class="page-actions"><a class="button-link" href="/FDP/">Back to FDP Selection</a></div>
+    <div class="page-actions"><a class="button-link" href="../FDP/">Back to FDP Selection</a></div>
   </main>
 
   <script>
@@ -573,6 +573,6 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
     ids.resultsBox1.innerHTML=''; ids.resultsBox2.innerHTML=''; ids.resultsBox3.innerHTML='';
   </script>
 
-  <script src="/assets/fbp-shared.js"></script>
+  <script src="../assets/fbp-shared.js"></script>
 </body>
 </html>
