@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>Crew Documents | Flight Briefing Pack</title>
+
+<link rel="icon" href="../favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+
+<link rel="stylesheet" href="../assets/fbp-shared.css">
+
+<style>
+
+:root{
+    --pink:#ffd8e6;
+    --yellow:#fff2bf;
+    --blue:#dcecff;
+    --purple:#e7dbff;
+    --green:#ddf5da;
+    --grey:#f5f7fa;
+}
+
+/* Search */
+
+.search-panel{
+
+    margin-top:26px;
+
+}
+
+.search-box{
+
+    width:100%;
+    padding:18px 22px;
+    font-size:20px;
+    border-radius:18px;
+    border:1px solid #d9dee8;
+    box-sizing:border-box;
+
+}
+
+.search-box:focus{
+
+    outline:none;
+    border-color:#3b82f6;
+
+}
+
+.search-results{
+
+    margin-top:14px;
+    display:grid;
+    gap:12px;
+
+}
+
+.result{
+
+    padding:16px;
+    border-radius:16px;
+    background:white;
+    border:1px solid #dbe5f1;
+    text-decoration:none;
+    color:inherit;
+    transition:.15s;
+
+}
+
+.result:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/* Aircraft icons */
+
+.icon-saa{background:var(--pink);}
+.icon-a380{background:var(--yellow);}
+.icon-a350{background:var(--blue);}
+.icon-b787{background:var(--purple);}
+.icon-b777{background:var(--green);}
+.icon-doc{background:var(--grey);}
+
+.tool-icon{
+
+    font-size:.82rem;
+
+}
+
+</style>
+
+</head>
+
+<body class="fbp-theme light-mode">
+
+<main class="fbp-shell">
+
+<section class="hero-card">
+
+<div class="hero-grid">
+
+<div class="hero-copy">
+
+<div class="eyebrow">
+
+Flight Briefing Pack
+
+</div>
+
+<h1 class="hero-title">
+
+Crew Documents
+
+</h1>
+
+<p class="hero-text">
+
+Quickly find Delivery Standards, AORs and operational documents by browsing the fleet or searching for an aircraft code such as <strong>77H</strong>, <strong>351</strong> or <strong>32P</strong>.
+
+</p>
+
+<div class="search-panel">
+
+<input
+
+id="search"
+
+class="search-box"
+
+placeholder="Search aircraft code..."
+
+autocomplete="off">
+
+<div
+
+id="searchResults"
+
+class="search-results">
+
+</div>
+
+</div>
+
+</div>
+
+<div class="hero-visual">
+
+<!-- Replace aircraft SVG with document SVG later -->
+
+<div class="hero-visual-badge">
+
+Crew Documents
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="homepage-wrap">
+
+<div class="tools-grid">
+
+<a class="tool-card" href="Single Aisle/">
+
+<div class="tool-icon icon-saa">
+
+SAA
+
+</div>
+
+<div>
+
+<h2 class="tool-heading">
+
+Single Aisle Airbus
+
+</h2>
+
+<p class="tool-text">
+
+A319, A320 and A321 Delivery Standards and AORs.
+
+</p>
+
+</div>
+
+<div class="tool-link">
+
+Browse documents
+
+</div>
+
+</a>
+
+<a class="tool-card" href="A380/">
+
+<div class="tool-icon icon-a380">
+
+A380
+
+</div>
+
+<div>
+
+<h2 class="tool-heading">
+
+Airbus A380
+
+</h2>
+
+<p class="tool-text">
+
+Delivery Standards and AORs.
+
+</p>
+
+</div>
+
+<div class="tool-link">
+
+Browse documents
+
+</div>
+
+</a>
+
+<a class="tool-card" href="A350/">
+
+<div class="tool-icon icon-a350">
+
+A350
+
+</div>
+
+<div>
+
+<h2 class="tool-heading">
+
+Airbus A350
+
+</h2>
+
+<p class="tool-text">
+
+Delivery Standards and AORs.
+
+</p>
+
+</div>
+
+<div class="tool-link">
+
+Browse documents
+
+</div>
+
+</a>
+
+<a class="tool-card" href="B787/">
+
+<div class="tool-icon icon-b787">
+
+B787
+
+</div>
+
+<div>
+
+<h2 class="tool-heading">
+
+Boeing 787
+
+</h2>
+
+<p class="tool-text">
+
+Delivery Standards and AORs.
+
+</p>
+
+</div>
+
+<div class="tool-link">
+
+Browse documents
+
+</div>
+
+</a>
+
+<a class="tool-card" href="B777/">
+
+<div class="tool-icon icon-b777">
+
+B777
+
+</div>
+
+<div>
+
+<h2 class="tool-heading">
+
+Boeing 777
+
+</h2>
+
+<p class="tool-text">
+
+Delivery Standards and AORs.
+
+</p>
+
+</div>
+
+<div class="tool-link">
+
+Browse documents
+
+</div>
+
+</a>
+
+<a class="tool-card" href="../Service Documents/">
+
+<div class="tool-icon icon-doc">
+
+DOC
+
+</div>
+
+<div>
+
+<h2 class="tool-heading">
+
+General Documents
+
+</h2>
+
+<p class="tool-text">
+
+Aircraft Change Matrix, Shuttle Guidance, Reduced Crew, Club World in First and more.
+
+</p>
+
+</div>
+
+<div class="tool-link">
+
+Open documents
+
+</div>
+
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+<script src="../data/crew-documents.js"></script>
+<script src="../assets/fbp-shared.js"></script>
+<script src="../assets/crew-documents-search.js"></script>
+
+</body>
+
+</html>
