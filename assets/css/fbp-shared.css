@@ -41,11 +41,26 @@ body.fbp-theme.light-mode {
   --shadow: 0 18px 40px rgba(31, 53, 88, 0.10);
 }
 
-.fbp-shell {
-  width: min(92%, 1380px);
-  margin: 0 auto;
-  padding: calc(28px + env(safe-area-inset-top)) 0 54px;
-  position: relative;
+.fbp-shell,
+.fbp-layout-standard,
+.fbp-layout-wide {
+
+    width: 100%;
+    margin: 0 auto;
+    padding: 24px;
+
+}
+
+.fbp-layout-standard {
+
+    max-width: 1200px;
+
+}
+
+.fbp-layout-wide {
+
+    max-width: 1500px;
+
 }
 
 .fbp-hero,

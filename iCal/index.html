@@ -9,257 +9,23 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
   <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-  <link rel="stylesheet" href="../assets/fbp-shared.css">
+
+  <link rel="stylesheet" href="../assets/css/fbp-shared.css">
+  <link rel="stylesheet" href="../assets/css/ical.css">
+
   <script src="../data/ba-destinations.js"></script>
-  <style>
-    :root {
-      --ical-panel:#111827;
-      --ical-panel2:#0b1220;
-      --ical-text:#e5e7eb;
-      --ical-muted:#9ca3af;
-      --ical-border:#374151;
-      --ical-shadow:0 12px 30px rgba(0,0,0,0.28);
-    }
-    body.light-mode {
-      --ical-panel:#ffffff;
-      --ical-panel2:#f8fafc;
-      --ical-text:#0f172a;
-      --ical-muted:#64748b;
-      --ical-border:#dbe5f1;
-      --ical-shadow:0 12px 28px rgba(15,23,42,0.08);
-    }
-    body {
-      margin:0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--ical-text);
-    }
-    .ical-wrap {
-      margin-top:22px;
-    }
-    .ical-card {
-      background: var(--ical-panel);
-      border: 1px solid color-mix(in srgb, var(--ical-border) 82%, transparent 18%);
-      border-radius: 24px;
-      padding: 20px;
-      box-shadow: var(--ical-shadow);
-      margin-bottom: 18px;
-      color: var(--ical-text);
-    }
-    h1, h2, h3 { margin-top: 0; }
-    .sub, .note, .small { color: var(--ical-muted); line-height: 1.5; }
-    .small { font-size: 0.84rem; }
-    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
-    .grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 18px;
-      align-items: start;
-    }
-    @media (max-width: 980px) { .grid { grid-template-columns: 1fr; } }
-    .row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    .controls { display: grid; gap: 14px; }
-    input[type="file"] { display: none; }
-    input[type="text"], select, textarea {
-      width: 100%;
-      border-radius: 12px;
-      border: 1px solid var(--ical-border);
-      background: var(--ical-panel2);
-      color: var(--ical-text);
-      padding: 12px;
-      font: inherit;
-    }
-    textarea {
-      min-height: 180px;
-      resize: vertical;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 0.88rem;
-    }
-    button, .file-label {
-      appearance: none;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: linear-gradient(180deg, #1f2937, #111827);
-      color: #fff;
-      border-radius: 14px;
-      padding: 12px 14px;
-      cursor: pointer;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: transform 0.12s ease, border-color 0.12s ease;
-    }
-    body.light-mode button, body.light-mode .file-label { color: #fff; }
-    button:hover, .file-label:hover {
-      transform: translateY(-1px);
-      border-color: rgba(56,189,248,0.45);
-    }
-    button.primary { background: linear-gradient(180deg, #0ea5e9, #0284c7); }
-    button.success { background: linear-gradient(180deg, #22c55e, #16a34a); }
-    button.warn { background: linear-gradient(180deg, #f59e0b, #d97706); }
-    button.danger { background: linear-gradient(180deg, #ef4444, #dc2626); }
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-    }
-    @media (max-width: 650px) { .stats { grid-template-columns: repeat(2, 1fr); } }
-    .stat {
-      background: var(--ical-panel2);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 16px;
-      padding: 14px;
-    }
-    .stat .num {
-      font-size: 1.5rem;
-      font-weight: 800;
-      line-height: 1;
-      margin-bottom: 4px;
-      color: var(--ical-text);
-    }
-    .stat .lbl {
-      color: var(--ical-muted);
-      font-size: 0.88rem;
-    }
-    .status {
-      margin-top: 10px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.07);
-      background: var(--ical-panel2);
-      color: var(--ical-muted);
-      white-space: pre-wrap;
-      line-height: 1.45;
-    }
-    .status.ok { border-color: rgba(34,197,94,0.35); color: #bbf7d0; }
-    .status.warn { border-color: rgba(245,158,11,0.35); color: #fef3c7; }
-    .status.err { border-color: rgba(239,68,68,0.35); color: #fee2e2; }
-    body.light-mode .status.ok { color:#166534; }
-    body.light-mode .status.warn { color:#92400e; }
-    body.light-mode .status.err { color:#991b1b; }
-    .hint {
-      border: 1px dashed rgba(56,189,248,0.35);
-      background: rgba(56,189,248,0.06);
-      border-radius: 16px;
-      padding: 12px 14px;
-      color: color-mix(in srgb, var(--ical-text) 80%, #dbeafe 20%);
-      line-height: 1.5;
-      font-size: 0.92rem;
-    }
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .chip {
-      background: var(--ical-panel2);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 999px;
-      padding: 8px 10px;
-      font-size: 0.85rem;
-      color: var(--ical-muted);
-    }
-    .table-wrap {
-      overflow: auto;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 1260px;
-      background: var(--ical-panel2);
-    }
-    th, td {
-      padding: 12px 10px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      vertical-align: top;
-      text-align: left;
-      font-size: 0.92rem;
-      color: var(--ical-text);
-    }
-    th {
-      position: sticky;
-      top: 0;
-      background: var(--ical-panel);
-      color: color-mix(in srgb, var(--ical-text) 85%, #dbeafe 15%);
-      z-index: 1;
-    }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      border-radius: 999px;
-      padding: 4px 8px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      border: 1px solid transparent;
-      white-space: nowrap;
-    }
-    .b-flight { background: rgba(56,189,248,0.12); color: #7dd3fc; border-color: rgba(56,189,248,0.3); }
-    .b-downroute { background: rgba(168,85,247,0.12); color: #d8b4fe; border-color: rgba(168,85,247,0.3); }
-    .b-timed { background: rgba(34,197,94,0.12); color: #86efac; border-color: rgba(34,197,94,0.3); }
-    .b-allday { background: rgba(245,158,11,0.12); color: #fcd34d; border-color: rgba(245,158,11,0.3); }
-    .state-new { color: #86efac; font-weight: 700; }
-    .state-unchanged { color: #9ca3af; font-weight: 700; }
-    .state-changed { color: #fcd34d; font-weight: 700; }
-    details summary { cursor: pointer; font-weight: 700; margin-bottom: 10px; color: var(--ical-text); }
-    .hidden { display: none !important; }
-    .roster-source-row {
-      display: grid;
-      grid-template-columns: minmax(0,1fr) auto;
-      gap: 10px;
-      align-items: center;
-    }
-    .crewlink-flow {
-      display: grid;
-      gap: 12px;
-      padding: 14px;
-      border-radius: 16px;
-      background: var(--ical-panel2);
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-    .crewlink-flow p {
-      margin: 0;
-      color: var(--ical-muted);
-      line-height: 1.55;
-    }
-    .crewlink-flow strong {
-      color: var(--ical-text);
-    }
-  </style>
+  <script src="../data/ba-roster-data.js"></script>
+
+  <script src="../assets/js/fbp-shared.js"></script>
+  <script src="../assets/js/fbp-nav.js"></script>
+  <script src="../assets/js/fbp-shell.js"></script>
+  <script src="../assets/js/fbp-page.js"></script>
+
+  
 </head>
 <body class="fbp-theme light-mode" data-fbp-version="v2.7">
-  <main class="fbp-shell">
 
-    <nav class="fbp-subnav">
-      <a href="../">Home</a>
-      <a href="../iCal/" class="active">iCal</a>
-      <a href="../FDP/">FDP</a>
-      <a href="../briefing/">Briefing</a>
-    </nav>
-    <section class="fbp-hero">
-      <div class="fbp-aircraft-bg" aria-hidden="true">
-  <svg viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg">
-    <g opacity="0.9" transform="translate(390 74) scale(1.12)">
-      <path d="M566.5 95.5C550.4 96.5 508.9 97.8 456 99.8L337 178.5H283L359 99.2C307.4 101.3 247.4 104.2 184 107.6L117 156H74L122.5 108.8C74.1 111.5 34.3 114.2 11.8 116.5C4.7 117.2 0 123.5 0 130.6C0 137.8 5 144.1 12.1 144.8C34.8 147.1 74.7 149.7 122.7 152.4L74 199H117L184.6 153.5C248.3 156.9 308.3 159.9 359.7 162L283 239.5H337L456.3 161.4C509.2 163.4 550.5 164.8 566.5 165.8C582.1 166.8 595 154.6 595 139.1V122.2C595 106.7 582 94.5 566.5 95.5Z" fill="currentColor"/>
-    </g>
-  </svg>
-</div>
-      <div class="fbp-topbar">
-        <div>
-          <h1 class="fbp-title">Roster --&gt; iCal</h1>
-          <p class="fbp-subtitle">Use this app to upload your roster; either as a PDF or by copying the roster text from Crewlink. Then simply click &#39;Sync with iCal&#39; to have your roster in your iCloud calendar. This app has been built by BA crew, for BA crew. If you have feedback, please click the feedback button at the top of this page.</p>
-        </div>
-        <div class="fbp-toolbar">
-          <a class="fbp-button" href="mailto:u155573@ba.com?subject=Feedback%20for%20iCal%20Roster%20Tool">iCal Feedback</a>
-        </div>
-      </div>
-    </section>
+<main>
 
     <div class="ical-wrap">
       <div class="grid">
@@ -365,7 +131,8 @@
         </details>
       </section>
     </div>
-  </main>
+ </main>
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script>
@@ -856,25 +623,53 @@ Parsing roster…`);
       return `${pad(hours)}hrs ${pad(minutes)}mins`;
     }
 
-    function parseSingleAllDayFromBlock(body, isoDate) {
-      const normalized = normalizeSpaces(body).toUpperCase();
-      if (normalized === "OFF DUTY") return makeAllDayEvent(isoDate, "OFF DUTY");
-      if (normalized === "ANNUAL LEAVE") return makeAllDayEvent(isoDate, "ANNUAL LEAVE");
-      if (normalized.includes("PT TIME NON WORKING FL8")) return makeAllDayEvent(isoDate, "PT TIME NON WORKING FL8");
-      return null;
+function parseSingleAllDayFromBlock(body, isoDate) {
+
+    const normalized = normalizeSpaces(body).toUpperCase();
+
+    const rosterItem = BA_ROSTER_DATA[normalized];
+
+    if (rosterItem && rosterItem.eventType === "allday") {
+        return makeAllDayEvent(isoDate, rosterItem.calendarTitle);
     }
 
-    function parseAllDayRangeFromBlock(body, isoDate, currentYear, currentMonth) {
-      const normalized = normalizeSpaces(body).toUpperCase();
+    return null;
 
-      let m = normalized.match(/^ANNUAL LEAVE\s+TO\s+(MON|TUE|WED|THU|FRI|SAT|SUN)\s+(\d{1,2})\s+([A-Z]{3})$/i);
-      if (m) return buildAllDayRange("ANNUAL LEAVE", isoDate, m[2], m[3], currentYear, currentMonth);
+}
 
-      m = normalized.match(/^OFF DUTY\s+TO\s+(MON|TUE|WED|THU|FRI|SAT|SUN)\s+(\d{1,2})\s+([A-Z]{3})$/i);
-      if (m) return buildAllDayRange("OFF DUTY", isoDate, m[2], m[3], currentYear, currentMonth);
+   function parseAllDayRangeFromBlock(body, isoDate, currentYear, currentMonth) {
 
-      return [];
+    const normalized = normalizeSpaces(body).toUpperCase();
+
+    for (const [code, duty] of Object.entries(BA_ROSTER_DATA)) {
+
+        if (duty.eventType !== "allday") continue;
+
+        const regex = new RegExp(
+            "^" +
+            code.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") +
+            "\\s+TO\\s+(MON|TUE|WED|THU|FRI|SAT|SUN)\\s+(\\d{1,2})\\s+([A-Z]{3})$",
+            "i"
+        );
+
+        const match = normalized.match(regex);
+
+        if (match) {
+            return buildAllDayRange(
+                duty.calendarTitle,
+                isoDate,
+                match[2],
+                match[3],
+                currentYear,
+                currentMonth
+            );
+        }
+
     }
+
+    return [];
+
+}
 
     function buildAllDayRange(title, startIsoDate, endDay, endMonthAbbr, currentYear, currentMonth) {
       const start = parseISODate(startIsoDate);
@@ -1544,7 +1339,27 @@ Parsing roster…`);
         .join(" ");
     }
   
-  </script>
-  <script src="/assets/fbp-shared.js"></script>
+
+
+FBP.createPage({
+
+    contentSelector: ".ical-wrap",
+
+    title: "Roster → iCal",
+
+    subtitle:
+        "Use this app to upload your roster; either as a PDF or by copying the roster text from Crewlink. Then simply click 'Sync with iCal' to have your roster in your iCloud calendar. This app has been built by BA crew, for BA crew. If you have feedback, please click the feedback button at the top of this page.",
+
+    feedbackEmail: "u155573@ba.com",
+
+    feedbackSubject: "Feedback for iCal Roster Tool",
+
+    feedbackButton: "iCal Feedback",
+
+    activePage: "ical"
+
+});
+</script>
+
 </body>
 </html>
