@@ -4,94 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content="Longhaul FDP calculator for BA crew." />
-  <title>Longhaul FDP</title>
+  <title>Longhaul FDP Calculator</title>
 
-  <link rel="icon" href="../favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-  <link rel="stylesheet" href="../assets/fbp-shared.css">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/assets/css/fbp-shared.css">
+  <link rel="stylesheet" href="/assets/css/calculator.css">
+  <link rel="stylesheet" href="/assets/css/fdp.css">
 
-  <script src="../data/ba-destinations.js"></script>
-  <script src="../data/ba-fdp-tables.js"></script>
-  <script src="../data/ba-inflight-rest.js"></script>
-  <script src="../data/aircraft.js"></script>
+  <script src="/data/ba-destinations.js"></script>
+  <script src="/data/ba-fdp-tables.js"></script>
+  <script src="/data/ba-inflight-rest.js"></script>
+  <script src="/data/aircraft.js"></script>
 
-  <style>
-    :root{--fdp-card:#ffffff;--fdp-card-2:#f8fafc;--fdp-text:#0f172a;--fdp-muted:#64748b;--fdp-border:#dbe5f1;--fdp-shadow:0 14px 40px rgba(15,23,42,.08);--fdp-shadow-soft:0 8px 24px rgba(15,23,42,.06);--fdp-input-bg:#ffffff;--fdp-warn:#b91c1c;--fdp-warn-bg:#fff1f2;--fdp-warn-ring:rgba(185,28,28,.18);--fdp-disabled:#eef3f9;}
-    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--fdp-text);background:#f5f8fc;}
-    *{box-sizing:border-box;}
-    .app-wrap{padding-bottom:24px;}
-    .fdp-grid{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(320px,.94fr);gap:18px;align-items:start;margin-top:22px;}
-    .fdp-card{background:var(--fdp-card);border:1px solid var(--fdp-border);border-radius:24px;box-shadow:var(--fdp-shadow);padding:20px;color:var(--fdp-text);}
-    .fdp-card h2{margin:0 0 14px;font-size:18px;font-weight:800;letter-spacing:-.02em;}
-    .section-note{color:var(--fdp-muted);font-size:13px;margin:-6px 0 14px;line-height:1.55;white-space:pre-line;}
-    .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}
-    .full-span{grid-column:1 / -1;}
-    .hidden-block{display:none;}
-    .airport-row{grid-column:1 / -1;display:grid;grid-template-columns:minmax(0,1fr) minmax(140px,.65fr) minmax(0,1fr);gap:14px;align-items:end;}
-
-       label{display:block;font-size:13px;font-weight:700;margin-bottom:6px;color:var(--fdp-text);}
-    input,select{width:100%;max-width:100%;min-width:0;border:1px solid var(--fdp-border);border-radius:16px;padding:13px 14px;font-size:16px;background:var(--fdp-input-bg);color:var(--fdp-text);transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease, background .18s ease, color .18s ease;box-shadow:0 1px 0 rgba(255,255,255,.04) inset;}
-    input[type="date"]{-webkit-appearance:none;appearance:none;display:block;line-height:1.2;min-height:48px;}
-    input[type="date"]::-webkit-date-and-time-value{text-align:left;}
-    input::placeholder{color:var(--fdp-muted);}
-
-    input:focus,select:focus{outline:none;border-color:#7c9ad6;box-shadow:0 0 0 4px rgba(124,154,214,.16);transform:translateY(-1px);}
-    input.invalid,select.invalid{border-color:var(--fdp-warn);background:var(--fdp-warn-bg);box-shadow:0 0 0 4px var(--fdp-warn-ring);}
-    select:disabled,input:disabled{background:var(--fdp-disabled);color:#94a3b8;cursor:not-allowed;opacity:1;}
-    .timegrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-    .timegrid input,.mins-only input{text-align:center;font-variant-numeric:tabular-nums;}
-    .small-italic{font-size:12px;font-style:italic;font-weight:500;color:var(--fdp-muted);}
-    .delay-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:end;margin-top:10px;}
-    .actions,.page-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
-    button,.button-link{appearance:none;border:1px solid var(--fdp-border);background:var(--fdp-card-2);color:var(--fdp-text);border-radius:16px;padding:13px 16px;font-size:15px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;box-shadow:var(--fdp-shadow-soft);transition:transform .16s ease, box-shadow .16s ease, background .16s ease;text-decoration:none;min-height:48px;}
-    button:hover,.button-link:hover{transform:translateY(-1px);box-shadow:0 12px 24px rgba(15,23,42,.08);}
-    button.primary{background:#0f172a;color:#fff;border-color:#0f172a;}
-    button.danger{background:#fff1f2;color:#b91c1c;border-color:#fecdd3;}
-    .right-rail{display:grid;gap:16px;align-self:start;}
-    .results-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:22px 0 -2px;padding:0 4px;}
-    .results-heading h2{margin:0;font-size:28px;font-weight:900;letter-spacing:-.03em;color:var(--fdp-text);}
-    .result-box{background:var(--fdp-card);border:1px solid var(--fdp-border);border-radius:24px;box-shadow:var(--fdp-shadow);padding:14px 18px;color:var(--fdp-text);}
-    .info-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:10px 0;border-bottom:1px solid var(--fdp-border);}
-    .info-row:last-child{border-bottom:0;}
-    .info-label{color:var(--fdp-muted);font-size:14px;line-height:1.4;}
-    .info-value{text-align:right;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.01em;white-space:nowrap;color:var(--fdp-text);}
-    .info-value .minor-note{display:block;font-size:12px;font-weight:500;font-style:italic;color:var(--fdp-muted);margin-top:2px;}
-    .small{font-size:13px;color:var(--fdp-muted);line-height:1.55;}
-    ul.notes{margin:10px 0 0;padding-left:18px;color:var(--fdp-muted);font-size:14px;line-height:1.6;}
-    .error{border:1px solid color-mix(in srgb, var(--fdp-warn) 30%, var(--fdp-border) 70%);background:color-mix(in srgb, var(--fdp-warn) 8%, var(--fdp-card) 92%);color:var(--fdp-warn);border-radius:18px;padding:12px 14px;margin-bottom:14px;font-size:14px;font-weight:700;display:none;}
-    .tick-box{display:flex;align-items:center;gap:12px;min-height:48px;padding:10px 14px;border:1px solid var(--fdp-border);border-radius:999px;background:var(--fdp-card-2);}
-    .tick-box input{width:18px;height:18px;margin:0;accent-color:#0f172a;box-shadow:none;transform:none;}
-    @media (max-width:980px){.fdp-grid{grid-template-columns:1fr;}}
-    @media (max-width:700px){.form-grid{grid-template-columns:1fr;}.airport-row{grid-template-columns:1fr;}.delay-grid{grid-template-columns:1fr;}.results-heading h2{font-size:24px;}}
-  </style>
 </head>
-<body class="fbp-theme" data-fbp-version="v1.2">
-  <main class="fbp-shell app-wrap">
-    <nav class="fbp-subnav">
-      <a href="../">Home</a>
-      <a href="../iCal/">iCal</a>
-      <a href="../FDP/">FDP</a>
-      <a href="../briefing/">Briefing</a>
-    </nav>
-    <section class="fbp-hero">
-      <div class="fbp-aircraft-bg" aria-hidden="true"><svg viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg"><g opacity="0.9" transform="translate(390 74) scale(1.12)"><path d="M566.5 95.5C550.4 96.5 508.9 97.8 456 99.8L337 178.5H283L359 99.2C307.4 101.3 247.4 104.2 184 107.6L117 156H74L122.5 108.8C74.1 111.5 34.3 114.2 11.8 116.5C4.7 117.2 0 123.5 0 130.6C0 137.8 5 144.1 12.1 144.8C34.8 147.1 74.7 149.7 122.7 152.4L74 199H117L184.6 153.5C248.3 156.9 308.3 159.9 359.7 162L283 239.5H337L456.3 161.4C509.2 163.4 550.5 164.8 566.5 165.8C582.1 166.8 595 154.6 595 139.1V122.2C595 106.7 582 94.5 566.5 95.5Z" fill="currentColor"/></g></svg></div>
-      <div class="fbp-topbar">
-        <div>
-          <h1 class="fbp-title">Longhaul FDP</h1>
-          <p class="fbp-subtitle">Use this page for longhaul FDP calculations.</p>
-          <p class="fbp-microline">Built for BA crew.</p>
-        </div>
-        <div class="fbp-toolbar">
-          <a class="fbp-button" href="mailto:u155573@ba.com?subject=Feedback%20for%20Longhaul%20FDP">FDP Feedback</a>
-        </div>
-      </div>
-    </section>
+<body class="fbp-theme" data-fbp-version="v2.0">
+  <main id="fbp-page" class="fbp-shell app-wrap">
     <div class="fdp-grid">
       <div class="fdp-card">
         <h2>Inputs</h2>
-        <p class="section-note">All times in GMT (from roster), unless otherwise stated. Calculations assume all crew members acclimatised to LHR unless changed.</p>
+        <p class="section-note">Enter all scheduled times in local airport time unless otherwise stated. The calculator automatically converts between local time and UTC where required. Calculations assume all crew members acclimatised to LHR unless changed.</p>
         <div id="errorBox" class="error"></div>
         <div class="form-grid">
           <div><label for="flightDate">Date</label><input id="flightDate" type="date" /></div>
@@ -108,7 +42,7 @@
           <div><label for="aircraftType">Aircraft Type</label><select id="aircraftType"></select></div>
           <div><label for="numSectors">Number of Sectors</label><select id="numSectors"></select></div>
 
-          <div><label>Scheduled Departure Time <span class="small-italic">(GMT)</span></label><div class="timegrid"><input id="depHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="depMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
+          <div><label>Scheduled Departure Time <span class="small-italic">(Local)</span></label><div class="timegrid"><input id="depHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="depMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
           <div><label for="acclimatisedAt">Acclimatised at</label><input id="acclimatisedAt" maxlength="3" value="LHR" /></div>
           <div><label>Report Time <span class="small-italic">(Local)</span></label><div class="timegrid"><input id="reportHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="reportMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
           <div><label for="restFacility">Rest Facility Available</label><select id="restFacility"><option value="1">Class 1 Rest (Bunks)</option><option value="2">Class 2 Rest (High Comfort Seat)</option><option value="3">Class 3 Rest (Passenger Seat)</option><option value="">No Rest Facility Available</option></select></div>
@@ -141,7 +75,7 @@
       </div>
     </div>
 
-    <div class="page-actions"><a class="button-link" href="../FDP/">Back to FDP Selection</a></div>
+    <div class="page-actions"><a class="button-link" href="/FDP/">Back to FDP Selection</a></div>
   </main>
 
   <script>
@@ -319,7 +253,11 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       const depZ=parsePart(ids.depHour.value, ids.depMinute.value, true);
       if(depZ==null || depZ===undefined || !depAirport || !ids.flightDate.value) return;
       const minsBefore=getBaseOrAwayReportMinutes(depCode, ids.lhrTerminal.value);
-      const depUtcMs=utcDateFromZClock(ids.flightDate.value, depZ).getTime();
+      const depUtcMs = zonedDateFromLocal(
+    ids.flightDate.value,
+    depZ,
+    depAirport.timeZone
+).getTime();
       const reportUtcMs=addMinutes(depUtcMs, -minsBefore);
       const reportLocal=utcMsToLocalHHMM(reportUtcMs, depAirport.timeZone);
       const [hh,mm]=reportLocal.split(':');
@@ -419,7 +357,7 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       const lhWarning=maybeWarnIfNotLonghaul(from,to);
       if(lhWarning){ showError(lhWarning); return; }
 
-      const depRes=validateRequiredTimePair(ids.depHour, ids.depMinute, 'Scheduled Departure Time (GMT)');
+      const depRes=validateRequiredTimePair(ids.depHour, ids.depMinute, 'Scheduled Departure Time (Local)');
       if(!depRes.ok){ showError(depRes.message); return; }
       const reportRes=validateRequiredTimePair(ids.reportHour, ids.reportMinute, 'Report Time');
       if(!reportRes.ok){ showError(reportRes.message); return; }
@@ -447,7 +385,11 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       const crewCompliment=Number(ids.flightCrewCompliment.value || '2');
       const cmdrDiscRequired=ids.cmdrDiscRequired.checked;
 
-      const depUtcMs=utcDateFromZClock(flightDate, depRes.value).getTime();
+      const depUtcMs = zonedDateFromLocal(
+    flightDate,
+    depRes.value,
+    depAirport.timeZone
+).getTime();
       const reportUtcMs=zonedDateFromLocal(flightDate, reportRes.value, depAirport.timeZone).getTime();
 
       let plannedArrivalUtcMs=utcDateFromZClockRolling(flightDate, lastArrRes.value, depUtcMs).getTime();
@@ -456,8 +398,15 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       const activeDepartureUtcMs=revDepRes.value==null ? depUtcMs : utcDateFromZClockRolling(flightDate, revDepRes.value, reportUtcMs).getTime();
       const activeFlightTime=getActualFlightMinutes(absFlightRes.value, actualFlightRes.value);
 
-      let etaUtcMs=addMinutes(activeDepartureUtcMs, absFlightRes.value - 30);
-      if(revLandRes.value!=null) etaUtcMs=utcDateFromZClockRolling(flightDate, revLandRes.value, activeDepartureUtcMs).getTime();
+     let etaUtcMs = addMinutes(activeDepartureUtcMs, absFlightRes.value);
+
+if (revLandRes.value != null) {
+    etaUtcMs = utcDateFromZClockRolling(
+        flightDate,
+        revLandRes.value,
+        activeDepartureUtcMs
+    ).getTime();
+}
 
       const routeKey=`${from}-${to}`;
       const routeRest=routeRestByKey[routeKey] || null;
@@ -573,6 +522,20 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
     ids.resultsBox1.innerHTML=''; ids.resultsBox2.innerHTML=''; ids.resultsBox3.innerHTML='';
   </script>
 
-  <script src="../assets/fbp-shared.js"></script>
+  <script src="/assets/js/fbp-shared.js"></script>
+  <script src="/assets/js/fbp-nav.js"></script>
+  <script src="/assets/js/fbp-shell.js"></script>
+  <script src="/assets/js/fbp-page.js"></script>
+
+  <script>
+  FBP.createPage({
+      title: "Longhaul FDP",
+      subtitle: "Use this page for longhaul FDP calculations.",
+      microline: "Built for BA crew.",
+      feedbackText: "FDP Feedback",
+      feedbackSubject: "Feedback for Longhaul FDP",
+      activePage: "fdp"
+  });
+  </script>
 </body>
 </html>

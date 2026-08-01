@@ -1,0 +1,597 @@
+/*
+=========================================================
+Flight Briefing Pack
+Calculator Styles
+Version: 1.0.0
+=========================================================
+
+Shared styles for all calculator pages.
+
+Requires:
+    /assets/fbp-shared.css
+
+=========================================================
+*/
+
+/* ------------------------------------------------------
+   Layout
+------------------------------------------------------ */
+
+.fdp-grid {
+    grid-template-columns: 1.35fr 0.95fr;
+}
+.right-rail {
+    display: grid;
+    gap: 16px;
+    align-self: start;
+}
+
+/* ------------------------------------------------------
+   Cards
+------------------------------------------------------ */
+
+.fdp-card,
+.result-box {
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 24px;
+
+    box-shadow: var(--shadow);
+
+    padding: 20px;
+
+    color: var(--text);
+}
+
+.result-box {
+    padding: 14px 18px;
+}
+
+.fdp-card h2 {
+    margin: 0 0 14px;
+
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -.02em;
+}
+
+.section-note {
+    margin: -6px 0 14px;
+
+    color: var(--text-muted);
+
+    font-size: 13px;
+    line-height: 1.55;
+
+    white-space: pre-line;
+}
+
+/* ------------------------------------------------------
+   Forms
+------------------------------------------------------ */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.full-span {
+    grid-column: 1 / -1;
+}
+
+.hidden-block {
+    display: none;
+}
+
+.airport-row {
+    display: grid;
+    grid-column: 1 / -1;
+
+    grid-template-columns:
+        2fr
+        120px
+        2fr;
+
+    gap: 18px;
+    align-items: end;
+}
+
+.delay-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 12px;
+
+    align-items: end;
+
+    margin-top: 10px;
+}
+
+/* ------------------------------------------------------
+   Labels
+------------------------------------------------------ */
+
+label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--text);
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* ------------------------------------------------------
+   Inputs
+------------------------------------------------------ */
+
+input,
+select {
+
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+
+    height: 48px;
+    box-sizing: border-box;
+
+    padding: 13px 14px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    color: var(--text);
+
+    font-size: 16px;
+
+    transition:
+        border-color .18s ease,
+        box-shadow .18s ease,
+        transform .18s ease,
+        background .18s ease,
+        color .18s ease;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.04);
+
+}
+
+input::placeholder {
+
+    color: var(--text-muted);
+
+}
+
+input[type="date"] {
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    display: block;
+
+    line-height: 1.2;
+
+}
+
+input[type="date"]::-webkit-date-and-time-value {
+
+    text-align: left;
+
+}
+
+.timegrid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+
+}
+
+.timegrid input,
+.mins-only input {
+
+    text-align: center;
+
+    font-variant-numeric: tabular-nums;
+
+}
+
+/* ------------------------------------------------------
+   Input states
+------------------------------------------------------ */
+
+input:focus,
+select:focus {
+
+    outline: none;
+
+    border-color: #7c9ad6;
+
+    box-shadow: 0 0 0 4px rgba(124,154,214,.16);
+
+    transform: translateY(-1px);
+
+}
+
+input.invalid,
+select.invalid {
+
+    border-color: #b91c1c;
+
+    background: #fff1f2;
+
+    box-shadow: 0 0 0 4px rgba(185,28,28,.18);
+
+}
+
+input:disabled,
+select:disabled {
+
+    background: #eef3f9;
+
+    color: #94a3b8;
+
+    cursor: not-allowed;
+
+    opacity: 1;
+
+}
+
+/* ------------------------------------------------------
+   Typography
+------------------------------------------------------ */
+
+.small {
+
+    font-size: 13px;
+
+    color: var(--text-muted);
+
+    line-height: 1.55;
+
+}
+
+.small-italic {
+
+    font-size: 12px;
+
+    font-style: italic;
+
+    font-weight: 500;
+
+    color: var(--text-muted);
+
+}
+
+/* ------------------------------------------------------
+   Buttons
+------------------------------------------------------ */
+
+.actions,
+.page-actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 18px;
+
+}
+
+button,
+.button-link {
+
+    appearance: none;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 48px;
+
+    padding: 13px 16px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow: var(--shadow-soft);
+
+    transition:
+        transform .16s ease,
+        box-shadow .16s ease,
+        background .16s ease;
+
+}
+
+button:hover,
+.button-link:hover {
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 12px 24px rgba(15,23,42,.08);
+
+}
+
+button.primary {
+
+    background: #0f172a;
+
+    color: #fff;
+
+    border-color: #0f172a;
+
+}
+
+button.danger {
+
+    background: #fff1f2;
+
+    color: #b91c1c;
+
+    border-color: #fecdd3;
+
+}
+
+/* ------------------------------------------------------
+   Results
+------------------------------------------------------ */
+
+.results-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin: 22px 0 -2px;
+
+    padding: 0 4px;
+
+}
+
+.results-heading h2 {
+
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 28px;
+
+    font-weight: 900;
+
+    letter-spacing: -.03em;
+
+}
+
+.info-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 16px;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid var(--border);
+
+}
+
+.info-row:last-child {
+
+    border-bottom: none;
+
+}
+
+.info-label {
+
+    color: var(--text-muted);
+
+    font-size: 14px;
+
+    line-height: 1.4;
+
+}
+
+.info-value {
+
+    text-align: right;
+
+    white-space: nowrap;
+
+    color: var(--text);
+
+    font-weight: 800;
+
+    font-variant-numeric: tabular-nums;
+
+    letter-spacing: -.01em;
+
+}
+
+.info-value .minor-note {
+
+    display: block;
+
+    margin-top: 2px;
+
+    color: var(--text-muted);
+
+    font-size: 12px;
+
+    font-style: italic;
+
+    font-weight: 500;
+
+}
+
+/* ------------------------------------------------------
+   Messages
+------------------------------------------------------ */
+
+.error {
+
+    display: none;
+
+    margin-bottom: 14px;
+
+    padding: 12px 14px;
+
+    background: color-mix(
+        in srgb,
+        #b91c1c 8%,
+        var(--surface) 92%
+    );
+
+    border: 1px solid color-mix(
+        in srgb,
+        #b91c1c 30%,
+        var(--border) 70%
+    );
+
+    border-radius: 18px;
+
+    color: #b91c1c;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+}
+
+/* ------------------------------------------------------
+   Tick box
+------------------------------------------------------ */
+
+.tick-box {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    min-height: 48px;
+
+    padding: 10px 14px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 999px;
+
+}
+
+.tick-box input {
+
+    width: 18px;
+
+    height: 18px;
+
+    margin: 0;
+
+    accent-color: #0f172a;
+
+    box-shadow: none;
+
+    transform: none;
+
+}
+
+/* ------------------------------------------------------
+   Notes
+------------------------------------------------------ */
+
+ul.notes {
+
+    margin: 10px 0 0;
+
+    padding-left: 18px;
+
+    color: var(--text-muted);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+}
+
+/* ------------------------------------------------------
+   Responsive
+------------------------------------------------------ */
+
+@media (max-width: 980px) {
+
+    .fdp-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .form-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .airport-row {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .delay-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .results-heading h2 {
+
+        font-size: 24px;
+
+    }
+
+}
+
+/* ------------------------------------------------------
+   End of calculator.css
+------------------------------------------------------ */

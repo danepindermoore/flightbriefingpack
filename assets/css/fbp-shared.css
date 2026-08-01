@@ -42,7 +42,7 @@ body.fbp-theme.light-mode {
 }
 
 .fbp-shell {
-  width: min(92%, 1180px);
+  width: min(92%, 1380px);
   margin: 0 auto;
   padding: calc(28px + env(safe-area-inset-top)) 0 54px;
   position: relative;
@@ -118,6 +118,11 @@ body.fbp-theme.light-mode {
   z-index: 2;
 }
 
+.fbp-page-heading {
+  flex: 1;
+  min-width: 0;
+}
+
 .fbp-title {
   margin: 0;
   font-size: clamp(2.2rem, 5vw, 4.2rem);
@@ -142,6 +147,8 @@ body.fbp-theme.light-mode {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: flex-start;
 }
 
 .fbp-button,
@@ -171,6 +178,13 @@ body.fbp-theme.light-mode {
   background: var(--surface-hover);
   box-shadow: 0 22px 45px rgba(0,0,0,0.20);
   border-color: rgba(102, 179, 255, 0.30);
+}
+
+.fbp-button:focus-visible,
+.fbp-subnav a:focus-visible,
+.fbp-theme-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 .fbp-button.primary {
