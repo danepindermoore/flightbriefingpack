@@ -21,33 +21,42 @@ Responsibilities
     // Navigation Items
     //-----------------------------------------------------
 
-    const NAV_ITEMS = [
+const IS_ROOT =
+    location.pathname.endsWith("/") ||
+    location.pathname.endsWith("/index.html") ||
+    !location.pathname.includes("/FDP/") &&
+    !location.pathname.includes("/briefing/") &&
+    !location.pathname.includes("/iCal/");
 
-        {
-            id: "home",
-            text: "Home",
-            href: "/"
-        },
+const BASE = IS_ROOT ? "" : "../";
 
-        {
-            id: "ical",
-            text: "iCal",
-            href: "/iCal/"
-        },
+const NAV_ITEMS = [
 
-        {
-            id: "fdp",
-            text: "FDP",
-            href: "/FDP/"
-        },
+    {
+        id: "home",
+        text: "Home",
+        href: BASE
+    },
 
-        {
-            id: "briefing",
-            text: "Briefing",
-            href: "/briefing/"
-        }
+    {
+        id: "ical",
+        text: "iCal",
+        href: BASE + "iCal/"
+    },
 
-    ];
+    {
+        id: "fdp",
+        text: "FDP",
+        href: BASE + "FDP/"
+    },
+
+    {
+        id: "briefing",
+        text: "Briefing",
+        href: BASE + "briefing/"
+    }
+
+];
 
     //-----------------------------------------------------
     // Create Navigation
