@@ -372,3 +372,18 @@ details summary {
 .crewlink-flow strong {
     color: var(--ical-text);
 }
+
+.setting-row{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin-bottom:16px;
+}
+
+.setting-row label{
+    font-weight:600;
+}
+
+.setting-row select{
+    max-width:340px;
+}

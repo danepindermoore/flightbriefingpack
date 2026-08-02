@@ -15,6 +15,7 @@
 
   <script src="../data/ba-destinations.js"></script>
   <script src="../data/ba-roster-data.js"></script>
+  <script src="../data/ba-contract-types.js"></script>
 
   <script src="../assets/js/fbp-shared.js"></script>
   <script src="../assets/js/fbp-nav.js"></script>
@@ -57,10 +58,45 @@
 
             <div id="statusBox" class="status">Waiting for a roster PDF, or open Crewlink to paste roster text.</div>
           </div>
+
         </section>
 
+<section class="ical-card">
+
+    <h2>2) Future Planning</h2>
+
+    <div class="setting-row">
+
+        <label for="contractType">
+            Contract Type
+        </label>
+
+        <select id="contractType"></select>
+
+    </div>
+
+    <div class="setting-row">
+
+        <label for="firstPTDate">
+            First known Part Time day
+        </label>
+
+        <input
+            type="date"
+            id="firstPTDate"
+        >
+
+        <p class="small">
+            Leave blank and iCal will automatically use the first
+            PT TIME NON WORKING duty found in your uploaded roster.
+        </p>
+
+    </div>
+
+</section>
+
         <section class="ical-card">
-          <h2>2) Export options</h2>
+          <h2>3) Export options</h2>
 
           <div class="controls">
             <div class="stats" style="grid-template-columns:1fr;">
@@ -80,7 +116,7 @@
 
       <section class="ical-card">
         <div class="row" style="justify-content: space-between;">
-          <h2 style="margin:0;">3) Event preview</h2>
+          <h2 style="margin:0;">4) Event preview</h2>
           <div class="row">
             <input id="searchBox" type="text" placeholder="Filter by title, route, or crew..." style="width:min(340px,100%);" />
             <select id="typeFilter" style="width:180px;">
@@ -116,7 +152,7 @@
 
       <section class="ical-card">
         <details>
-          <summary>Debug panel</summary>
+          <summary>5) Debug panel</summary>
           <p class="note">This shows the raw extracted text and merged day blocks.</p>
           <div style="display:grid; gap:14px;">
             <div>
@@ -141,7 +177,6 @@
 
     window.pdfjsLib = pdfjsLib;
     window.pdfjsReady = true;
-    console.log("PDF.js loaded:", pdfjsLib);
   </script>
 
 <script>
@@ -203,7 +238,9 @@
     const STORAGE_KEYS = {
       importHistory: "rosterCalendar.importHistory.v16",
       lastParsed: "rosterCalendar.lastParsed.v16",
-      preferredCalendar: "rosterCalendar.preferredCalendar.v16"
+      preferredCalendar: "rosterCalendar.preferredCalendar.v16",
+      contractType: "rosterCalendar.contractType.v1",
+      firstPTDate: "rosterCalendar.firstPTDate.v1"
     };
 
     const state = {
@@ -231,7 +268,9 @@
       searchBox: document.getElementById("searchBox"),
       typeFilter: document.getElementById("typeFilter"),
       debugRawText: document.getElementById("debugRawText"),
-      debugBlocks: document.getElementById("debugBlocks")
+      debugBlocks: document.getElementById("debugBlocks"),
+      contractType: document.getElementById("contractType"),
+      firstPTDate: document.getElementById("firstPTDate")
     };
 
     function getPdfjsLib() {
@@ -241,35 +280,116 @@
       return window.pdfjsLib;
     }
 
-    init();
+init();
 
-    function init() {
-      els.openCrewlinkBtn.addEventListener("click", openCrewlink);
+function init() {
 
-      els.pdfFile.addEventListener("change", () => {
+    populateContractTypes();
+    loadContractSettings();
+
+    els.contractType.addEventListener(
+        "change",
+        saveContractSettings
+    );
+
+els.firstPTDate.addEventListener(
+    "change",
+    saveContractSettings
+);
+
+    els.openCrewlinkBtn.addEventListener("click", openCrewlink);
+
+    els.pdfFile.addEventListener("change", () => {
+
         const file = els.pdfFile.files[0];
+
         if (!file) {
-          els.fileName.textContent = "No file selected";
-          return;
+            els.fileName.textContent = "No file selected";
+            return;
         }
+
         els.fileName.textContent = file.name;
+
         setStatus(`Selected PDF: ${file.name}
 
 Parsing roster…`);
+
         handleParseClick();
-      });
 
-      els.parseTextBtn.addEventListener("click", handleParseTextClick);
-      els.downloadBtn.addEventListener("click", downloadICS);
-      els.clearHistoryBtn.addEventListener("click", clearImportHistory);
-      els.searchBox.addEventListener("input", renderPreview);
-      els.typeFilter.addEventListener("change", renderPreview);
+    });
+
+    els.parseTextBtn.addEventListener("click", handleParseTextClick);
+    els.downloadBtn.addEventListener("click", downloadICS);
+    els.clearHistoryBtn.addEventListener("click", clearImportHistory);
+    els.searchBox.addEventListener("input", renderPreview);
+    els.typeFilter.addEventListener("change", renderPreview);
+
+}
+
+function populateContractTypes() {
+
+    els.contractType.innerHTML = "";
+
+    for (const [key, contract] of Object.entries(BA_CONTRACT_TYPES)) {
+
+        const option = document.createElement("option");
+
+        option.value = key;
+        option.textContent = contract.label;
+
+        els.contractType.appendChild(option);
+
     }
 
-    function openCrewlink() {
-      els.crewlinkFlow.classList.remove("hidden");
-      window.open("https://crewlink.baplc.com/ccroster/displayroster.do", "_blank");
+}
+
+function saveContractSettings() {
+
+    localStorage.setItem(
+        STORAGE_KEYS.contractType,
+        els.contractType.value
+    );
+
+    localStorage.setItem(
+        STORAGE_KEYS.firstPTDate,
+        els.firstPTDate.value
+    );
+
+}
+function loadContractSettings() {
+
+    const saved = localStorage.getItem(
+        STORAGE_KEYS.contractType
+    );
+
+    if (saved && BA_CONTRACT_TYPES[saved]) {
+
+        els.contractType.value = saved;
+
     }
+
+const savedPTDate = localStorage.getItem(
+    STORAGE_KEYS.firstPTDate
+);
+
+if (savedPTDate) {
+
+    els.firstPTDate.value = savedPTDate;
+
+}
+
+}
+
+function openCrewlink() {
+
+    els.crewlinkFlow.classList.remove("hidden");
+
+    window.open(
+        "https://crewlink.baplc.com/ccroster/displayroster.do",
+        "_blank"
+    );
+
+}
 
     function setStatus(message, kind = "") {
       els.statusBox.className = "status" + (kind ? " " + kind : "");
@@ -283,6 +403,7 @@ Parsing roster…`);
         return;
       }
 
+
       try {
         setStatus("Reading PDF and extracting roster text…");
         const rawText = await extractRawTextFromPDF(file);
@@ -292,6 +413,8 @@ Parsing roster…`);
         setStatus("Something went wrong while parsing the PDF.\n\n" + (err?.message || String(err)), "err");
       }
     }
+
+
 
     function handleParseTextClick() {
       const rawText = els.pastedRosterText.value.trim();
@@ -308,6 +431,162 @@ Parsing roster…`);
         setStatus("Something went wrong while parsing the pasted roster text.\n\n" + (err?.message || String(err)), "err");
       }
     }
+
+function findPTSeedDate(events = state.events) {
+
+    // 1. User entered a PT date manually
+
+    if (els.firstPTDate.value) {
+        return new Date(els.firstPTDate.value + "T00:00:00");
+    }
+
+    // 2. Look through parsed roster events
+
+    for (const event of events) {
+
+        if (!event.allDay) continue;
+
+        const title = (event.title || "").toUpperCase();
+
+        if (
+            title.includes("PT TIME NON WORKING")
+        ) {
+
+            return new Date(event.date + "T00:00:00");
+
+        }
+
+    }
+
+    // 3. Nothing found
+
+    return null;
+
+}
+
+function generateFuturePTBlocks() {
+
+    const seed = findPTSeedDate();
+
+    if (!seed) {
+        return [];
+    }
+
+    const contract =
+        BA_CONTRACT_TYPES[els.contractType.value];
+
+    if (!contract) {
+        return [];
+    }
+
+    const blocks = [];
+
+    const endDate = new Date(seed);
+
+    endDate.setMonth(endDate.getMonth() + 12);
+
+    let current = new Date(seed);
+
+    while (current <= endDate) {
+
+        const start = new Date(current);
+
+        const end = new Date(current);
+
+
+        end.setDate(
+    end.getDate() + contract.offDays - 1
+);
+
+
+blocks.push({
+    start,
+    end,
+    type: "pt_non_working",
+    source: "generated",
+    contractType: els.contractType.value,
+    dutyCode: contract.dutyCode
+});
+
+        current.setDate(
+            current.getDate() + contract.cycleDays
+        );
+
+    }
+
+    return blocks;
+
+}
+
+function formatLocalDate(date) {
+
+    const year = date.getFullYear();
+
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+
+    const day = String(date.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+
+}
+
+function generateFuturePTEvents() {
+
+    const blocks = generateFuturePTBlocks();
+
+    const events = [];
+
+    for (const block of blocks) {
+
+        const current = new Date(block.start);
+
+        while (current <= block.end) {
+
+           events.push({
+
+    type: "all_day_duty",
+
+    title: block.dutyCode,
+
+    location: "",
+
+    date: formatLocalDate(current),
+
+    dayKey: formatLocalDate(current),
+
+    allDay: true,
+
+    crew: [],
+
+    notes: "",
+
+    startLocal: null,
+
+    endLocal: null,
+
+    importStatus: "generated",
+
+    fingerprint:
+        `all_day_duty|${formatLocalDate(current)}|${block.dutyCode}`,
+
+    uidBase:
+        `all_day_duty|${formatLocalDate(current)}|${block.dutyCode}`,
+
+    dutyCode: block.dutyCode,
+
+    source: "generated"
+
+});
+
+            current.setDate(current.getDate() + 1);
+
+        }
+
+    }
+
+    return events;
+
+}
 
     function processRosterText(rawText) {
       const cleanedText = normalizePdfText(rawText);
@@ -326,26 +605,41 @@ Parsing roster…`);
       }
 
       const parsed = parseRosterBlocks(state.dayBlocks, year);
-      classifyEventsAgainstHistory(parsed);
-      state.events = parsed;
 
-      localStorage.setItem(
-        STORAGE_KEYS.lastParsed,
-        JSON.stringify({
-          rawText: cleanedText,
-          year,
-          events: parsed,
-          dayBlocks: state.dayBlocks,
-          savedAt: new Date().toISOString()
-        })
-      );
 
-      updateStats();
-      renderPreview();
-      refreshExportButtons();
+const generatedPTEvents = generateFuturePTEvents();
 
-      setStatus("Roster parsed successfully.\n\n" + buildSummary(parsed), parsed.length ? "ok" : "warn");
-    }
+state.events = [
+    ...parsed,
+    ...generatedPTEvents
+];
+
+classifyEventsAgainstHistory(state.events) ;
+
+
+localStorage.setItem(
+    STORAGE_KEYS.lastParsed,
+    JSON.stringify({
+        rawText: cleanedText,
+        year,
+        events: state.events,
+        dayBlocks: state.dayBlocks,
+        savedAt: new Date().toISOString()
+    })
+);
+
+updateStats();
+renderPreview();
+refreshExportButtons();
+
+setStatus(
+    "Roster parsed successfully.\n\n" +
+    buildSummary(state.events),
+    state.events.length ? "ok" : "warn"
+);
+
+}
+
 
    async function extractRawTextFromPDF(file) {
   const arrayBuffer = await file.arrayBuffer();
@@ -825,16 +1119,29 @@ function parseSingleAllDayFromBlock(body, isoDate) {
       evt.fingerprint = evt.uidBase;
     }
 
-    function classifyEventsAgainstHistory(events) {
-      const importedByDay = state.importHistory.byDay || {};
-      for (const evt of events) {
+   function classifyEventsAgainstHistory(events) {
+
+    const importedByDay = state.importHistory.byDay || {};
+
+    for (const evt of events) {
+
+        if (evt.source === "generated") {
+            continue;
+        }
+
         const dayItems = importedByDay[evt.date] || [];
+
         const sameExact = dayItems.includes(evt.fingerprint);
-        if (sameExact) evt.importStatus = "unchanged";
-        else if (dayItems.length > 0) evt.importStatus = "changed";
-        else evt.importStatus = "new";
-      }
+
+        if (sameExact) {
+            evt.importStatus = "unchanged";
+        } else if (dayItems.length > 0) {
+            evt.importStatus = "changed";
+        } else {
+            evt.importStatus = "new";
+        }
     }
+}
 
     function buildSummary(events) {
       const total = events.length;
