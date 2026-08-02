@@ -91,9 +91,12 @@ input[type="file"] {
 }
 
 input[type="text"],
+input[type="date"],
+input[type="number"],
 select,
 textarea {
     width: 100%;
+    box-sizing: border-box;
     border-radius: 12px;
     border: 1px solid var(--ical-border);
     background: var(--ical-panel2);
@@ -386,4 +389,100 @@ details summary {
 
 .setting-row select{
     max-width:340px;
+}
+
+.planning-divider {
+
+    margin: 24px 0;
+
+    border: none;
+
+    border-top: 1px solid #ddd;
+
+}
+
+.planning-subheading {
+
+    margin: 0 0 14px;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    color: var(--fbp-primary);
+
+}
+
+.future-duty-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+
+}
+
+.future-duty-card {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+
+}
+
+.future-duty-header strong {
+
+    font-size: 1.05rem;
+
+    font-weight: 700;
+
+}
+
+
+.future-duty-fields {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+}
+
+
+.future-duty-fields label {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-weight: 600;
+
+}
+
+.future-duty-actions {
+
+    margin-top: 16px;
+
+}
+
+
+.future-duty-actions {
+
+    margin-top: 20px;
+
+}
+
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+
+    filter: invert(1);
+
+    cursor: pointer;
+
 }
