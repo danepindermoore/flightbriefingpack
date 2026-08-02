@@ -153,6 +153,11 @@ els.refreshBtn.addEventListener(
         openCrewlink
     );
 
+els.downloadBtn.addEventListener(
+    "click",
+    downloadICS
+);
+
     els.addFutureDutyBtn.addEventListener(
         "click",
         addFutureDutyCard
