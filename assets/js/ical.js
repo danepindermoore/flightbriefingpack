@@ -755,40 +755,88 @@ function openCrewlink() {
     }
 
     async function handleParseClick() {
-      const file = els.pdfFile.files[0];
-      if (!file) {
-        setStatus("Choose a roster PDF first.", "warn");
+
+    const file = els.pdfFile.files[0];
+
+    const pastedText =
+        els.pastedRosterText.value.trim();
+
+    buildFutureDuties();
+
+    const hasFutureDuties =
+        state.futureDuties.length > 0;
+
+    // Crewlink pasted
+
+    if (pastedText) {
+
+        processRosterText(pastedText);
+
         return;
-      }
 
-
-      try {
-        setStatus("Reading PDF and extracting roster text…");
-        const rawText = await extractRawTextFromPDF(file);
-        processRosterText(rawText);
-      } catch (err) {
-        console.error(err);
-        setStatus("Something went wrong while parsing the PDF.\n\n" + (err?.message || String(err)), "err");
-      }
     }
 
+    // PDF uploaded
 
+    if (file) {
 
-    function handleParseTextClick() {
-      const rawText = els.pastedRosterText.value.trim();
-      if (!rawText) {
-        setStatus("Paste roster text first.", "warn");
+        try {
+
+            setStatus(
+                "Reading PDF and extracting roster text…"
+            );
+
+            const rawText =
+                await extractRawTextFromPDF(file);
+
+            processRosterText(rawText);
+
+        } catch (err) {
+
+            console.error(err);
+
+            setStatus(
+                "Something went wrong while parsing the PDF.\n\n" +
+                (err?.message || String(err)),
+                "err"
+            );
+
+        }
+
         return;
-      }
 
-      try {
-        setStatus("Reading pasted roster text…");
-        processRosterText(rawText);
-      } catch (err) {
-        console.error(err);
-        setStatus("Something went wrong while parsing the pasted roster text.\n\n" + (err?.message || String(err)), "err");
-      }
     }
+
+    // Future Duties only
+
+    if (hasFutureDuties) {
+
+        state.events =
+            generateFutureDutyEvents();
+
+        state.events.sort(compareEvents);
+
+        updateStats();
+
+        renderPreview();
+
+        refreshExportButtons();
+
+        setStatus(
+            "Future duties generated successfully.",
+            "ok"
+        );
+
+        return;
+
+    }
+
+    setStatus(
+        "Upload a roster PDF, paste Crewlink text, or add one or more Future Duties before clicking Upload.",
+        "warn"
+    );
+
+}
 
 function findPTSeedDate(events = state.events) {
 

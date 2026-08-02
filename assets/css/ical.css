@@ -479,6 +479,16 @@ details summary {
 }
 
 
+input[type="date"] {
+
+    width: 100%;
+
+    max-width: 100%;
+
+    box-sizing: border-box;
+
+}
+
 input[type="date"]::-webkit-calendar-picker-indicator {
 
     filter: invert(1);
