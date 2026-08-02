@@ -1623,13 +1623,18 @@ function parseSingleAllDayFromBlock(body, isoDate) {
     }
 
     function downloadICS() {
-      const events = getExportCandidateEvents();
+     console.log("downloadICS called");
+
+    const events = getExportCandidateEvents();
+
+    console.log(events.length);
       if (!events.length) {
         setStatus("There are no events matching the current export mode.", "warn");
         return;
       }
 
       const ics = buildICS(events);
+console.log(ics.substring(0, 200));
       const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
       const url = URL.createObjectURL(blob);
 
