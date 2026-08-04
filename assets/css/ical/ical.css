@@ -370,12 +370,19 @@ details summary {
     margin-bottom:16px;
 }
 
-.setting-row label{
-    font-weight:600;
+.setting-row label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
 }
 
-.setting-row select{
-    max-width:340px;
+.setting-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+    width: 100%;
+    min-width: 0;
 }
 
 .planning-divider {
@@ -483,8 +490,7 @@ textarea {
     padding: 12px;
     font: inherit;
 
-    -webkit-appearance: none;
-    appearance: none;
+
 }
 .future-duty-fields,
 .future-duty-fields > div,
