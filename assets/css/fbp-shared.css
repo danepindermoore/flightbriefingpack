@@ -16,6 +16,15 @@
   --radius-md: 16px;
 }
 
+*,
+*::before,
+*::after {
+
+    box-sizing: border-box;
+
+}
+
+
 body.fbp-theme {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -48,6 +57,7 @@ body.fbp-theme.light-mode {
     width: 100%;
     margin: 0 auto;
     padding: 24px;
+    box-sizing: border-box;
 
 }
 
