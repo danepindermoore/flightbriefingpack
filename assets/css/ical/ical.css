@@ -473,7 +473,6 @@ details summary {
 }
 
 input[type="text"],
-input[type="date"],
 input[type="number"],
 select,
 textarea {
@@ -492,6 +491,19 @@ textarea {
 
 
 }
+
+
+input[type="date"] {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 12px;
+    border: 1px solid var(--ical-border);
+    background: var(--ical-panel2);
+    color: var(--ical-text);
+    padding: 12px;
+    font: inherit;
+}
+
 .future-duty-fields,
 .future-duty-fields > div,
 .setting-row{
