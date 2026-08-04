@@ -518,3 +518,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
 
 }
+
+/* iOS Safari date input fix */
+@supports (-webkit-touch-callout: none) {
+    input[type="date"] {
+        display: block;
+        inline-size: 100%;
+        max-inline-size: 100%;
+        min-inline-size: 0;
+        overflow: hidden;
+    }
+}
