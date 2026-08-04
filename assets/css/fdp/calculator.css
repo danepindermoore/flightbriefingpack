@@ -59,7 +59,7 @@ Requires:
 .section-note {
     margin: -6px 0 14px;
 
-    color: var(--text-muted);
+    color: var(--muted);
 
     font-size: 13px;
     line-height: 1.55;
@@ -165,7 +165,7 @@ select {
 
 input::placeholder {
 
-    color: var(--text-muted);
+    color: var(--muted);
 
 }
 
@@ -254,7 +254,7 @@ select:disabled {
 
     font-size: 13px;
 
-    color: var(--text-muted);
+    color: var(--muted);
 
     line-height: 1.55;
 
@@ -268,7 +268,7 @@ select:disabled {
 
     font-weight: 500;
 
-    color: var(--text-muted);
+    color: var(--muted);
 
 }
 
@@ -418,7 +418,7 @@ button.danger {
 
 .info-label {
 
-    color: var(--text-muted);
+    color: var(--muted);
 
     font-size: 14px;
 
@@ -448,7 +448,7 @@ button.danger {
 
     margin-top: 2px;
 
-    color: var(--text-muted);
+    color: var(--muted);
 
     font-size: 12px;
 
@@ -542,7 +542,7 @@ ul.notes {
 
     padding-left: 18px;
 
-    color: var(--text-muted);
+    color: var(--muted);
 
     font-size: 14px;
 

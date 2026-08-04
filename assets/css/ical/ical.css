@@ -90,20 +90,7 @@ input[type="file"] {
     display: none;
 }
 
-input[type="text"],
-input[type="date"],
-input[type="number"],
-select,
-textarea {
-    width: 100%;
-    box-sizing: border-box;
-    border-radius: 12px;
-    border: 1px solid var(--ical-border);
-    background: var(--ical-panel2);
-    color: var(--ical-text);
-    padding: 12px;
-    font: inherit;
-}
+
 
 textarea {
     min-height: 180px;
@@ -478,16 +465,33 @@ details summary {
 
 }
 
-
-input[type="date"] {
-
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select,
+textarea {
+    display: block;
     width: 100%;
-
+    min-width: 0;
     max-width: 100%;
-
     box-sizing: border-box;
 
+    border-radius: 12px;
+    border: 1px solid var(--ical-border);
+    background: var(--ical-panel2);
+    color: var(--ical-text);
+    padding: 12px;
+    font: inherit;
+
+    -webkit-appearance: none;
+    appearance: none;
 }
+.future-duty-fields,
+.future-duty-fields > div,
+.setting-row{
+    min-width:0;
+}
+
 
 input[type="date"]::-webkit-calendar-picker-indicator {
 

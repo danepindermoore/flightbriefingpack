@@ -8,10 +8,10 @@ Version: 1.0.0
 Styles specific to the FDP landing page only.
 
 Shared application styles:
-    /assets/fbp-shared.css
+    /assets/css/fbp-shared.css
 
 Shared calculator styles:
-    /assets/css/calculator.css (future)
+    /assets/css/calculator.css
 
 =========================================================
 */
@@ -28,12 +28,15 @@ Shared calculator styles:
     min-height: 220px;
     padding: 24px;
 
-    background: #fff;
+    background:
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04)),
+    var(--surface-2);
 
     border: 1px solid var(--border);
-    border-radius: 28px;
+    border-radius: var(--radius-xl);
 
     box-shadow: var(--shadow);
+backdrop-filter: blur(10px);
 
     color: inherit;
     text-decoration: none;
@@ -48,7 +51,9 @@ Shared calculator styles:
 .fdp-choice:hover {
     transform: translateY(-2px);
 
-    background: #fff;
+    background:
+    linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05)),
+    var(--surface-hover);
 
     border-color: #bfd0e6;
 
@@ -70,7 +75,7 @@ Shared calculator styles:
     border: 1px solid var(--border);
     border-radius: 999px;
 
-    color: var(--text-muted);
+    color: var(--muted);
 
     font-size: 12px;
     font-weight: 800;
@@ -90,35 +95,23 @@ Shared calculator styles:
 .fdp-choice p {
     margin: 0 0 18px;
 
-    color: var(--text-muted);
+    color: var(--muted);
 
     font-size: 15px;
     line-height: 1.6;
 }
 
 .fdp-choice-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-
-    padding: 12px 14px;
-
-    background: var(--surface);
-
-    border: 1px solid var(--border);
-    border-radius: 16px;
-
-    box-shadow: var(--shadow-soft);
-
-    color: var(--text);
-
-    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), #4198f2);
+    color: #fff;
+    border: none;
 }
+
 
 .fdp-note {
     margin-top: 18px;
 
-    color: var(--text-muted);
+    color: var(--muted);
 
     font-size: 13px;
     line-height: 1.6;
@@ -138,4 +131,20 @@ Shared calculator styles:
         font-size: 24px;
     }
 
+}
+
+.app-wrap {
+    padding-bottom: 24px;
+}
+
+.fbp-toolbar .fbp-button {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    box-shadow: none;
+}
+
+.fbp-toolbar .fbp-button:hover {
+    background: var(--surface-hover);
+    color: var(--text);
 }
