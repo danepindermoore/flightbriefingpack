@@ -2,7 +2,7 @@
     const cleanupDigits = v => String(v || '').replace(/\D/g,'');
 
 const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
-    const routeRestByKey = typeof baInflightRestRequirementsByRoute !== "undefined" ? baInflightRestRequirementsByRoute : {};
+    
     const fdpApi = typeof baFdpData !== "undefined" ? baFdpData : null;
 
     const airportByCode = {
@@ -22,7 +22,6 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       acclimatisedAt: document.getElementById('acclimatisedAt'),
       lhrTerminal: document.getElementById('lhrTerminal'),
       aircraftType: document.getElementById('aircraftType'),
-      restFacility: document.getElementById('restFacility'),
       depHour: document.getElementById('depHour'),
       depMinute: document.getElementById('depMinute'),
       reportHour: document.getElementById('reportHour'),
@@ -43,8 +42,6 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       revLandMinute: document.getElementById('revLandMinute'),
       flightCrewCompliment: document.getElementById('flightCrewCompliment'),
       cmdrDiscRequired: document.getElementById('cmdrDiscRequired'),
-      secondServiceHour: document.getElementById('secondServiceHour'),
-      secondServiceMinute: document.getElementById('secondServiceMinute'),
       delaySection: document.getElementById('delaySection'),
       taxiOutMins: document.getElementById('taxiOutMins'),
       holdingMins: document.getElementById('holdingMins'),
@@ -82,7 +79,7 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
     function sanitiseFlightNumber(){ let raw=ids.flightNumber.value.toUpperCase().replace(/[^A-Z0-9]/g,''); raw=raw.replace(/^BA/,'').replace(/[A-Z]/g,'').slice(0,4); ids.flightNumber.value='BA'+raw; }
 
     function wireTimeAutoAdvance(){
-      const pairs=[['depHour','depMinute'],['reportHour','reportMinute'],['lastArrHour','lastArrMinute'],['absHour','absMinute'],['actualHour','actualMinute'],['revDepHour','revDepMinute'],['revLandHour','revLandMinute'],['secondServiceHour','secondServiceMinute']];
+      const pairs=[['depHour','depMinute'],['reportHour','reportMinute'],['lastArrHour','lastArrMinute'],['absHour','absMinute'],['actualHour','actualMinute'],['revDepHour','revDepMinute'],['revLandHour','revLandMinute']];
       for(const [hourId, minuteId] of pairs){
         const hourEl=document.getElementById(hourId), minuteEl=document.getElementById(minuteId);
         if(!hourEl || !minuteEl) continue;
@@ -110,22 +107,14 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
         const label=meta.selectorLabel || meta.code || code;
         return `<option value="${code}">${label}</option>`;
       }).join('');
-      if(validCodes.length) ids.aircraftType.value=validCodes[0];
-      prepopulateRestFacility();
+   
     }
 
     function getAircraftMeta(){ return aircraftMap[ids.aircraftType.value] || null; }
     function isShAirbus(){ const meta=getAircraftMeta(); return meta && meta.code==='SH Airbus'; }
     function isA380(){ return ids.aircraftType.value==='38A'; }
 
-    function prepopulateRestFacility(){
-      const meta=getAircraftMeta();
-      if(!meta){ ids.restFacility.value='2'; return; }
-      const ccRest=String(meta.cabinCrewRest || '').toUpperCase();
-      if(ccRest==='CCRC' || ccRest==='OFAR') ids.restFacility.value='1';
-      else if(meta.code==='SH Airbus') ids.restFacility.value='';
-      else ids.restFacility.value='2';
-    }
+    
 
     function updateLhrTerminalState(){
       const enabled=normalizeCode(ids.from.value)==='LHR';
@@ -144,10 +133,10 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       ids.arrivalTimeLabel.innerHTML=sectors===1 ? 'Scheduled Arrival Time <span class="small-italic">(GMT)</span>' : 'Last Sector Arrival Time <span class="small-italic">(GMT)</span>';
     }
 
-    function maybeWarnIfNotLonghaul(depCode, arrCode){
+    function maybeWarnIfNotShorthaul(depCode, arrCode){
       const dep=airportByCode[depCode], arr=airportByCode[arrCode];
       const nonBase=(depCode==='LHR'||depCode==='LGW') ? arr : dep;
-      if(nonBase && nonBase.haul==='SH') return 'The non-base airport on this route is marked as shorthaul in ba-destinations.js. This page is intended for longhaul use.';
+      if(nonBase && nonBase.haul==='LH') return 'The non-base airport on this route is marked as longhaul. This page is intended for shorthaul use.';
       return '';
     }
 
@@ -156,7 +145,7 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
     function getBaseOrAwayReportMinutes(depCode, terminal){
       const upperDep=normalizeCode(depCode), term=String(terminal || '').toUpperCase();
       if(fdpApi && typeof fdpApi.getCabinCrewReportTime==='function' && (upperDep==='LHR' || upperDep==='LGW')){
-        const result=fdpApi.getCabinCrewReportTime({ dep:upperDep, haul:'LH', fleet:upperDep==='LGW' ? '777' : getFleetKeyForReportTable(), terminal:upperDep==='LHR' ? term : 'N/A' });
+        const result=fdpApi.getCabinCrewReportTime({ dep:upperDep, haul:'SH', fleet:upperDep==='LGW' ? '777' : getFleetKeyForReportTable(), terminal:upperDep==='LHR' ? term : 'N/A' });
         if(result && result.found) return result.minutes;
       }
       if(upperDep==='LHR' || upperDep==='LGW'){
@@ -202,27 +191,8 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
     function getActualFlightMinutes(absFlight, actualFlight){ return actualFlight==null ? absFlight : actualFlight; }
     function getClearTimeMinutes(arrivingCode){ if(arrivingCode==='LHR' || arrivingCode==='LGW') return isShAirbus() ? 30 : 45; return 30; }
     function getReferenceReportHHMM(reportUtcMs, acclimatisedCode){ const code=normalizeCode(acclimatisedCode); if(code==='LHR' || !airportByCode[code]) return fmtClockFromMs(reportUtcMs); return utcMsToLocalHHMM(reportUtcMs, airportByCode[code].timeZone); }
-    function getTable2MaxFdp(referenceHHMM, sectors){ const res=fdpApi && typeof fdpApi.getTable2MaxFdp==='function' ? fdpApi.getTable2MaxFdp(referenceHHMM, sectors) : null; return res ? res.minutes : null; }
-
-    function getClassBands(restClass){
-      if(restClass==null || !fdpApi || !fdpApi.raw || !fdpApi.raw.table5) return [];
-      const idx=Number(restClass)+1;
-      return fdpApi.raw.table5.map(r=>({min:r[0], max:r[1], rest:r[idx]})).filter(r=>r.rest!=null);
-    }
-
-    function maxBandForRestMinutes(restMins, restClass){
-      const bands=getClassBands(restClass); let chosen=null;
-      for(const band of bands){ if(restMins>=band.rest) chosen=band; }
-      return chosen;
-    }
-
-    function bandForActualFdp(actualFdp, restClass){
-      const bands=getClassBands(restClass); let idx=bands.findIndex(b=>actualFdp<=b.max);
-      if(idx===-1) return null;
-      let chosen=bands[idx], bufferApplied=false;
-      if((chosen.max-actualFdp)<=30 && idx+1<bands.length){ chosen=bands[idx+1]; bufferApplied=true; }
-      return { chosen, bufferApplied };
-    }
+    
+function getTable2MaxFdp(referenceHHMM, sectors){ const res=fdpApi && typeof fdpApi.getTable2MaxFdp==='function' ? fdpApi.getTable2MaxFdp(referenceHHMM, sectors) : null; return res ? res.minutes : null; }
 
     function refreshmentBreakRequirement(dutyPeriod){
       if(dutyPeriod>=180 && dutyPeriod<=360) return 20;
@@ -232,7 +202,7 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       return 0;
     }
 
-    function refreshmentBreakNoteLonghaul(minutes){
+    function refreshmentBreakNoteShorthaul(minutes){
       if(minutes===20) return '20 minutes continuous break required';
       if(minutes===40) return '40 minute break required (Can be taken as one continuous 40 minute break or two breaks of 20 minutes)';
       if(minutes===60) return '1 hour continuous break required';
@@ -242,10 +212,6 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
 
     function computeCmdrDiscretionAllowed(crewCompliment){ return crewCompliment===2 ? 120 : 180; }
 
-    function routeRefText(routeKey, routeRest, depTz, facilityText){
-      if(routeRest) return `<div><strong>${routeKey}</strong></div><div>${facilityText}</div><div>Departure time zone: ${depTz || 'Unknown'}</div><div style="margin-top:8px;">${routeRest.comments || ''}</div>`;
-      return `<div><strong>${routeKey}</strong></div><div>${facilityText}</div><div>Departure time zone: ${depTz || 'Unknown'}</div><div style="margin-top:8px;">No route-specific planned inflight rest found in the dataset. Refreshment break rules apply instead.</div>`;
-    }
 
     function calculate(){
       clearInvalidMarkers(); hideError();
@@ -274,7 +240,7 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       if(!ids.sccm.value.trim()){ markInvalid(ids.sccm); showError('Please complete Senior Crew Member (SCCM).'); return; }
       if(!ids.asccm.value.trim()){ markInvalid(ids.asccm); showError('Please complete Acting SCCM.'); return; }
 
-      const lhWarning=maybeWarnIfNotLonghaul(from,to);
+      const lhWarning=maybeWarnIfNotShorthaul(from,to);
       if(lhWarning){ showError(lhWarning); return; }
 
       const depRes=validateRequiredTimePair(ids.depHour, ids.depMinute, 'Scheduled Departure Time (Local)');
@@ -287,8 +253,7 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       if(!absFlightRes.ok){ showError(absFlightRes.message); return; }
       const actualFlightRes=validateRequiredTimePair(ids.actualHour, ids.actualMinute, 'Actual Flight Time', true);
       if(!actualFlightRes.ok){ showError(actualFlightRes.message); return; }
-      const secondSvcRes=validateRequiredTimePair(ids.secondServiceHour, ids.secondServiceMinute, 'Second Service Length', true);
-      if(!secondSvcRes.ok){ showError(secondSvcRes.message); return; }
+      
       const revDepRes=validateRequiredTimePair(ids.revDepHour, ids.revDepMinute, 'Delayed Departure Time', true);
       if(!revDepRes.ok){ showError(revDepRes.message); return; }
       const revLandRes=validateRequiredTimePair(ids.revLandHour, ids.revLandMinute, 'Revised Landing Time', true);
@@ -301,7 +266,6 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       if(!taxiInRes.ok){ showError(taxiInRes.message); return; }
 
       const sectors=Number(ids.numSectors.value || '1');
-      const restClass=ids.restFacility.value==='' ? null : Number(ids.restFacility.value);
       const crewCompliment=Number(ids.flightCrewCompliment.value || '2');
       const cmdrDiscRequired=ids.cmdrDiscRequired.checked;
 
@@ -329,41 +293,27 @@ if (revLandRes.value != null) {
 }
 
       const routeKey=`${from}-${to}`;
-      const routeRest=routeRestByKey[routeKey] || null;
-
       const rosteredFdp=Math.round((plannedArrivalUtcMs - reportUtcMs)/60000);
       const rosteredDuty=rosteredFdp + getClearTimeMinutes(to);
       const actualFdp=Math.round((activeDepartureUtcMs - reportUtcMs)/60000) + activeFlightTime;
       const actualDutyPeriod=actualFdp + getClearTimeMinutes(to);
 
       const acclRefHHMM=getReferenceReportHHMM(reportUtcMs, acclimatisedAt);
-      const maxFDP=getTable2MaxFdp(acclRefHHMM, sectors);
-      if(maxFDP==null){ showError('Unable to calculate Max FDP from ba-fdp-tables.js.'); return; }
 
-      let inflightRestRequirement=routeRest ? routeRest.requiredRestMinutes : 0;
-      let newMaxFDPBeforeDisc=maxFDP;
-      let refreshmentBreak=0;
-      let bufferApplied=false;
-      let usingRefreshmentBreak=false;
+      const maxFDP = getTable2MaxFdp(acclRefHHMM, sectors);
+if (maxFDP == null) {
+    showError('Unable to calculate Max FDP from ba-fdp-tables.js.');
+    return;
+}
 
-      if(inflightRestRequirement>0){
-        if(restClass==null){ showError('This route has planned inflight rest in ba-inflight-rest.js. Please select a valid rest facility.'); markInvalid(ids.restFacility); return; }
-        const baseBand=maxBandForRestMinutes(inflightRestRequirement, restClass);
-        if(baseBand) newMaxFDPBeforeDisc=baseBand.max;
+// Shorthaul does not use inflight-rest / Table 5 logic.
+// The maximum FDP comes directly from Table 2 and can only
+// be increased if Commander's Discretion is selected.
 
-        if(actualFdp>newMaxFDPBeforeDisc || (newMaxFDPBeforeDisc - actualFdp)<=30){
-          const requiredBand=bandForActualFdp(actualFdp, restClass);
-          if(requiredBand){
-            if(requiredBand.bufferApplied) bufferApplied=true;
-            if(requiredBand.chosen.rest>inflightRestRequirement) inflightRestRequirement=requiredBand.chosen.rest;
-            newMaxFDPBeforeDisc=requiredBand.chosen.max;
-          }
-        }
-      } else {
-        usingRefreshmentBreak=true;
-        refreshmentBreak=refreshmentBreakRequirement(actualDutyPeriod);
-      }
+const refreshmentBreak = refreshmentBreakRequirement(actualDutyPeriod);
+const usingRefreshmentBreak = true;
 
+let newMaxFDPBeforeDisc = maxFDP;
       const maxCmdrDiscretionAllowable=computeCmdrDiscretionAllowed(crewCompliment);
       const newMaxFDPInclDisc=cmdrDiscRequired ? newMaxFDPBeforeDisc + maxCmdrDiscretionAllowable : newMaxFDPBeforeDisc;
       const latestOnChocksUtcMs=addMinutes(reportUtcMs, newMaxFDPInclDisc);
@@ -381,11 +331,28 @@ if (revLandRes.value != null) {
         infoRow('Estimated Time of Arrival (GMT)', etaUtcText)
       ].join('');
 
-      const box2Rows=[infoRow('Max Flight Duty Period (Max FDP)', fmtDuration(maxFDP), `Reference time used: ${acclRefHHMM}${acclimatisedAt==='LHR' ? 'z' : ` @ ${acclimatisedAt}`}`)];
-      if(inflightRestRequirement>0){
-        box2Rows.push(infoRow('Inflight Rest Requirement', fmtDuration(inflightRestRequirement)));
-        box2Rows.push(infoRow('New Max Flight Duty Period (FDP)', fmtDuration(newMaxFDPInclDisc), cmdrDiscRequired ? "Including Commander's Discretion" : ''));
-      } else {
+      const box2Rows = [
+    infoRow(
+        'Max Flight Duty Period (Max FDP)',
+        fmtDuration(maxFDP),
+        `Reference time used: ${acclRefHHMM}${acclimatisedAt === 'LHR' ? 'z' : ` @ ${acclimatisedAt}`}`
+    ),
+    infoRow(
+        'New Max Flight Duty Period (FDP)',
+        fmtDuration(newMaxFDPInclDisc),
+        cmdrDiscRequired ? "Including Commander's Discretion" : ""
+    ),
+    infoRow(
+        'HCC Refreshment Break',
+        refreshmentBreak < 60
+            ? `${String(refreshmentBreak).padStart(2,'0')}m`
+            : fmtDuration(refreshmentBreak)
+    )
+];
+
+ids.resultsBox2.innerHTML = box2Rows.join('');
+
+
         box2Rows.push(infoRow('HCC Refreshment Break', refreshmentBreak<60 ? `${String(refreshmentBreak).padStart(2,'0')}m` : fmtDuration(refreshmentBreak)));
       }
       ids.resultsBox2.innerHTML=box2Rows.join('');
@@ -397,12 +364,12 @@ if (revLandRes.value != null) {
         infoRow('Latest Off Chocks Time (SOFT LIMIT)', fmtClockWithZ(latestOffChocksUtcMs))
       ].join('');
 
-      const facilityText=restClass===1 ? 'Class 1 Rest (Bunks)' : restClass===2 ? 'Class 2 Rest (High Comfort Seat)' : restClass===3 ? 'Class 3 Rest (Passenger Seat)' : 'No Rest Facility Available';
-      ids.routeRef.innerHTML=routeRefText(routeKey, routeRest, depAirport.timeZone, facilityText);
+      
+      ids.routeRef.innerHTML =
+    `<strong>${routeKey}</strong><br>${depAirport.timeZone}`;
 
       const notes=[];
-      if(usingRefreshmentBreak){ const msg=refreshmentBreakNoteLonghaul(refreshmentBreak); if(msg) notes.push(msg); }
-      if(bufferApplied) notes.push('Inflight rest has been auto-moved to the next protected Table 5 band because the actual FDP sat within 30 minutes of the current band limit.');
+      if(usingRefreshmentBreak){ const msg=refreshmentBreakNoteShorthaul(refreshmentBreak); if(msg) notes.push(msg); }
       if(revLandRes.value!=null) notes.push('Revised landing time overrides the ETA displays only. Core FDP calculations still remain based on report, departure and flight-time calculations.');
       ids.notesList.innerHTML=notes.map(n=>`<li>${n}</li>`).join('');
     }
@@ -410,10 +377,10 @@ if (revLandRes.value != null) {
     function clearForm(){
       ids.flightDate.value=''; ids.flightNumber.value='BA'; ids.from.value=''; ids.to.value=''; ids.acclimatisedAt.value='LHR';
       ids.depHour.value=''; ids.depMinute.value=''; ids.reportHour.value=''; ids.reportMinute.value=''; ids.lastArrHour.value=''; ids.lastArrMinute.value='';
-      ids.absHour.value=''; ids.absMinute.value=''; ids.actualHour.value=''; ids.actualMinute.value=''; ids.revDepHour.value=''; ids.revDepMinute.value=''; ids.revLandHour.value=''; ids.revLandMinute.value=''; ids.secondServiceHour.value=''; ids.secondServiceMinute.value='';
+      ids.absHour.value=''; ids.absMinute.value=''; ids.actualHour.value=''; ids.actualMinute.value=''; ids.revDepHour.value=''; ids.revDepMinute.value=''; ids.revLandHour.value=''; ids.revLandMinute.value=''; 
       ids.sccm.value='Dane Jordan-Pinder'; ids.asccm.value=''; ids.numSectors.value='1'; ids.flightCrewCompliment.value='2'; ids.cmdrDiscRequired.checked=false;
       ids.taxiOutMins.value='25'; ids.holdingMins.value='10'; ids.taxiInMins.value='10'; ids.lhrTerminal.value='';
-      setTodayDate(); updateLhrTerminalState(); updateDelayVisibility(); updateArrivalLabel(); prepopulateRestFacility(); hideError();
+      setTodayDate(); updateLhrTerminalState(); updateDelayVisibility(); updateArrivalLabel();  hideError();
       ids.resultsBox1.innerHTML=''; ids.resultsBox2.innerHTML=''; ids.resultsBox3.innerHTML=''; ids.routeRef.textContent='—'; ids.notesList.innerHTML='';
     }
 
@@ -421,7 +388,7 @@ if (revLandRes.value != null) {
     ids.to.addEventListener('input',()=>sanitiseAirportInput(ids.to));
     ids.acclimatisedAt.addEventListener('input',()=>sanitiseAirportInput(ids.acclimatisedAt));
     ids.flightNumber.addEventListener('input',sanitiseFlightNumber);
-    ids.aircraftType.addEventListener('change',()=>{ prepopulateRestFacility(); prepopulateReportTime(); });
+    ids.aircraftType.addEventListener('change',()=>{ prepopulateReportTime(); });
     ids.lhrTerminal.addEventListener('change',prepopulateReportTime);
     ids.depHour.addEventListener('input',prepopulateReportTime);
     ids.depMinute.addEventListener('input',prepopulateReportTime);
