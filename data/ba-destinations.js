@@ -187,7 +187,6 @@ const baDestinations = [
 { code:"YUL", city:"Montreal", airport:"Montréal–Trudeau International Airport", timeZone:"America/Toronto", haul:"LH" },												
 { code:"YYZ", city:"Toronto", airport:"Toronto Pearson International Airport", timeZone:"America/Toronto", haul:"LH" },												
 { code:"ZAG", city:"Zagreb", airport:"Zagreb Airport", timeZone:"Europe/Zagreb", haul:"SH" },												
-{ code:"ZRH", city:"Zurich", airport:"Zurich Airport", timeZone:"Europe/Zurich", haul:"SH" }												
+{ code:"ZRH", city:"Zurich", airport:"Zurich Airport", timeZone:"Europe/Zurich", haul:"SH" },											
 { code:"ZTH", city:"Zakynthos", airport:"Zakynthos International Airport", timeZone:"Europe/Athens", haul:"SH" },												
-
 ];
