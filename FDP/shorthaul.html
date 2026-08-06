@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Shorthaul FDP calculator for BA crew." />
+  <title>Shorthaul FDP Calculator</title>
+
+  <link rel="icon" href="../favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+
+<link rel="stylesheet" href="../assets/css/fbp-shared.css">
+<link rel="stylesheet" href="../assets/css/fdp/calculator.css">
+<link rel="stylesheet" href="../assets/css/fdp/fdp.css">
+
+<script src="../data/ba-destinations.js"></script>
+<script src="../data/ba-fdp-tables.js"></script>
+<script src="../data/ba-inflight-rest.js"></script>
+<script src="../data/aircraft.js"></script>
+
+</head>
+<body class="fbp-theme" data-fbp-version="v3">
+  <main id="fbp-page" class="fbp-shell app-wrap">
+    <div class="fdp-grid">
+      <div class="fdp-card">
+        <h2>Inputs</h2>
+        <p class="section-note">Enter all scheduled times in local airport time unless otherwise stated. The calculator automatically converts between local time and UTC where required. Calculations assume all crew members acclimatised to LHR unless changed.</p>
+        <div id="errorBox" class="error"></div>
+        <div class="form-grid">
+          <div><label for="flightDate">Date</label><input id="flightDate" type="date" /></div>
+          <div><label for="flightNumber">Flight Number</label><input id="flightNumber" maxlength="6" placeholder="BA1234" value="BA" /></div>
+
+          <div class="airport-row">
+            <div><label for="from">Departure Airport</label><input id="from" maxlength="3" placeholder="LHR" /></div>
+            <div><label for="lhrTerminal">Terminal</label><select id="lhrTerminal" disabled><option value="">—</option><option value="T5">T5</option><option value="T3">T3</option></select></div>
+            <div><label for="to">Destination Airport</label><input id="to" maxlength="3" placeholder="JFK" /></div>
+          </div>
+
+          <div><label for="sccm">Senior Crew Member (SCCM)</label><input id="sccm" maxlength="80" value="Dane Jordan-Pinder" /></div>
+          <div><label for="asccm">Acting SCCM</label><input id="asccm" maxlength="80" /></div>
+          <div><label for="aircraftType">Aircraft Type</label><select id="aircraftType"></select></div>
+          <div><label for="numSectors">Number of Sectors</label><select id="numSectors"></select></div>
+
+          <div><label>Scheduled Departure Time <span class="small-italic">(Local)</span></label><div class="timegrid"><input id="depHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="depMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
+          <div><label for="acclimatisedAt">Acclimatised at</label><input id="acclimatisedAt" maxlength="3" value="LHR" /></div>
+          <div><label>Report Time <span class="small-italic">(Local)</span></label><div class="timegrid"><input id="reportHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="reportMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
+          
+          <div><label>ABS Flight Time</label><div class="timegrid"><input id="absHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="absMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
+          <div><label id="arrivalTimeLabel">Scheduled Arrival Time <span class="small-italic">(GMT)</span></label><div class="timegrid"><input id="lastArrHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="lastArrMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
+          <div><label>Delayed Departure Time <span class="small-italic">(GMT, optional)</span></label><div class="timegrid"><input id="revDepHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="revDepMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
+          <div><label>Actual Flight Time <span class="small-italic">(optional)</span></label><div class="timegrid"><input id="actualHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="actualMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
+          
+          <div><label>Revised Landing Time <span class="small-italic">(optional)</span></label><div class="timegrid"><input id="revLandHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="revLandMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
+          <div><label for="flightCrewCompliment">Flight Crew Compliment</label><select id="flightCrewCompliment"></select></div>
+          <div><label>Commander’s Discretion Required</label><div class="tick-box"><input id="cmdrDiscRequired" type="checkbox" /><span class="small">Tick if discretion is required</span></div></div>
+
+          <div id="delaySection" class="full-span hidden-block">
+            <div class="delay-grid">
+              <div><label for="taxiOutMins">Taxi Out</label><div class="mins-only"><input id="taxiOutMins" inputmode="numeric" maxlength="3" value="25" placeholder="Mins" /></div></div>
+              <div><label for="holdingMins">Holding</label><div class="mins-only"><input id="holdingMins" inputmode="numeric" maxlength="3" value="10" placeholder="Mins" /></div></div>
+              <div><label for="taxiInMins">Taxi In</label><div class="mins-only"><input id="taxiInMins" inputmode="numeric" maxlength="3" value="10" placeholder="Mins" /></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="actions"><button id="calcBtn" class="primary" type="button">Calculate</button><button id="clearBtn" class="danger" type="button">Clear Form</button></div>
+      </div>
+
+      <div class="right-rail">
+        <div class="results-heading"><h2>Results</h2></div>
+        <div class="result-box"><div id="resultsBox1"></div></div>
+        <div class="result-box"><div id="resultsBox2"></div></div>
+        <div class="result-box"><div id="resultsBox3"></div></div>
+        <div class="fdp-card"><h2>Route reference</h2><div id="routeRef" class="small">—</div><ul id="notesList" class="notes"></ul></div>
+      </div>
+    </div>
+
+    <div class="page-actions"><a class="button-link" href="/FDP/">Back to FDP Selection</a></div>
+  </main>
+
+ 
+<script src="../assets/js/fbp-shared.js"></script>
+<script src="../assets/js/fbp-nav.js"></script>
+<script src="../assets/js/fbp-shell.js"></script>
+<script src="../assets/js/fbp-page.js"></script>
+
+<script src="../assets/js/fdp/shorthaul.js"></script>
+
+  <script>
+  FBP.createPage({
+      title: "Shorthaul FDP",
+      subtitle: "Use this page for shorthaul FDP calculations.",
+      microline: "Built for BA crew.",
+      feedbackText: "FDP Feedback",
+      feedbackSubject: "Feedback for Shorthaul FDP",
+      activePage: "fdp"
+  });
+  </script>
+</body>
+</html>
