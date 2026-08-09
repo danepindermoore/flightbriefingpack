@@ -1366,30 +1366,31 @@ console.log("PARSING DAY:", isoDate, "| BODY:", body);
         if (current.to !== next.from) continue;
         if (current.to === "LHR" || current.to === "LGW") continue;
 
-        const endMs = new Date(current.endLocal).getTime();
-        const startMs = new Date(next.startLocal).getTime();
-        const gapMinutes = Math.round((startMs - endMs) / 60000);
+       const endMs = current.endUtcMs;
+const startMs = next.startUtcMs;
 
-        if (gapMinutes < 300) continue;
+const gapMinutes = Math.round((startMs - endMs) / 60000);
 
-        const downrouteStart = new Date(endMs + 60000);
-        const downrouteEnd = new Date(startMs - 60000);
+if (gapMinutes < 300) continue;
 
-        if (downrouteEnd.getTime() <= downrouteStart.getTime()) continue;
+const downrouteStart = new Date(endMs + 60000);
+const downrouteEnd = new Date(startMs - 60000);
 
-        extra.push({
-          type: "downroute",
-          title: `${current.to} (Downroute)`,
-          location: current.to,
-          date: current.date,
-          allDay: false,
-          startLocal: toLocalDateTimeString(downrouteStart),
-          endLocal: toLocalDateTimeString(downrouteEnd),
-          startUtcMs: endMs + 60000,
-          endUtcMs: startMs - 60000,
-          notes: formatDuration(gapMinutes),
-          crew: []
-        });
+if (downrouteEnd.getTime() <= downrouteStart.getTime()) continue;
+
+extra.push({
+    type: "downroute",
+    title: `${current.to} (Downroute)`,
+    location: current.to,
+    date: current.date,
+    allDay: false,
+    startLocal: londonDateTimeString(downrouteStart),
+    endLocal: londonDateTimeString(downrouteEnd),
+    startUtcMs: endMs + 60000,
+    endUtcMs: startMs - 60000,
+    notes: formatDuration(gapMinutes),
+    crew: []
+});
       }
 
       return [...events, ...extra];
@@ -2148,7 +2149,7 @@ FBP.createPage({
     title: "Roster → iCal",
 
     subtitle:
-        "Use this app to upload your roster; either as a PDF or by copying the roster text from Crewlink. Then simply click 'Sync with iCal' to have your roster in your iCloud calendar. This app has been built by BA crew, for BA crew. If you have feedback, please click the feedback button at the top of this page.",
+        "Upload a PDF of your roster, or click 'Open Crewlink' below. If you choose the 'Open Crewlink' option, simply copy your roster text and paste it back here. Then scroll down, input your contract type and add any future duties (i.e. annual leave etc and then click the blue 'Upload' button in section 3. IF all looks well in the preview section, click the green 'Sync with iCloud Calendar' button and your duties will be added to your iCloud calendar automatically.",
 
     feedbackEmail: "u155573@ba.com",
 
