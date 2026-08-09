@@ -140,7 +140,11 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       return '';
     }
 
-    function getFleetKeyForReportTable(){ return isA380() ? 'A380' : '777/787/A350'; }
+
+    function getFleetKeyForReportTable(){ 
+			return isA380() ? 'A380' : 'AIRBUS_SINGLE_AISLE'; 
+	}
+
 
     function getBaseOrAwayReportMinutes(depCode, terminal){
       const upperDep=normalizeCode(depCode), term=String(terminal || '').toUpperCase();
@@ -351,11 +355,6 @@ let newMaxFDPBeforeDisc = maxFDP;
 ];
 
 ids.resultsBox2.innerHTML = box2Rows.join('');
-
-
-        box2Rows.push(infoRow('HCC Refreshment Break', refreshmentBreak<60 ? `${String(refreshmentBreak).padStart(2,'0')}m` : fmtDuration(refreshmentBreak)));
-      }
-      ids.resultsBox2.innerHTML=box2Rows.join('');
 
       ids.resultsBox3.innerHTML=[
         infoRow('Actual Flight Time', fmtDuration(activeFlightTime)),
