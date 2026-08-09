@@ -1127,7 +1127,7 @@ setStatus(
         .replace(/Cabin Crew Roster/gi, " ")
         .replace(/CREWLINK PORTAL\s*\|\s*HOME\s*\|\s*HELP\s*\|\s*SIGNOUT\s*\|\s*PRINT/gi, " ")
         .replace(/For all training events please look on the IFCE intranet for further details\./gi, " ")
-        .replace(/Planned block hours to the end of published roster are\s+\d+:\d+/gi, " ")
+        .replace(/Planned[\s\S]*$/i, " ")
         .replace(/CONFIDENTIAL/gi, " ");
 
       for (const rank of RANKS) {
