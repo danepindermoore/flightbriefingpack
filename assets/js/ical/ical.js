@@ -1,3 +1,5 @@
+iCal.js
+
     const MONTHS = {
       JAN: 1, FEB: 2, MAR: 3, APR: 4, MAY: 5, JUN: 6,
       JUL: 7, AUG: 8, SEP: 9, OCT: 10, NOV: 11, DEC: 12
@@ -635,6 +637,20 @@ if (duty.wrapDays === "BOTH") {
 
         });
 
+
+      console.log("=== ROSTER PARSER END ===");
+      console.log("Total parsed events:", events.length);
+      console.log(
+        "Last 10 parsed events:",
+        events.slice(-10).map(e => ({
+          date: e.date,
+          type: e.type,
+          title: e.title,
+          startLocal: e.startLocal,
+          endLocal: e.endLocal
+        }))
+      );
+
     return events;
 
 }
@@ -1011,6 +1027,21 @@ function generateFuturePTEvents() {
       }
 
       const parsed = parseRosterBlocks(state.dayBlocks, year);
+
+
+      console.log("=== PARSED ROSTER CHECK ===");
+      console.log("Roster year:", year);
+      console.log("Day blocks:", state.dayBlocks.length);
+      console.log(
+        "Last day block:",
+        state.dayBlocks[state.dayBlocks.length - 1]
+      );
+      console.log(
+        "Last parsed event:",
+        parsed[parsed.length - 1]
+      );
+
+
       const generatedFutureDutyEvents = generateFutureDutyEvents();
       const filteredGeneratedFutureDutyEvents = generatedFutureDutyEvents.filter(generated => {
 
@@ -1170,6 +1201,11 @@ setStatus(
       const events = [];
       let currentMonth = null;
       let currentYear = baseYear;
+ 
+ console.log("=== ROSTER PARSER START ===");
+  console.log("Total day blocks:", blocks.length);
+  console.log("Last 5 day blocks:", blocks.slice(-5));
+
       let activeCrew = [];
       let pendingReportHHMM = null;
       let pendingClear = null;
@@ -1188,6 +1224,9 @@ setStatus(
 
         const isoDate = `${currentYear}-${pad(monthNum)}-${pad(day)}`;
         const body = normalizeSpaces(dayMatch[4] || "");
+        
+console.log("PARSING DAY:", isoDate, "| BODY:", body);
+
         if (!body) continue;
 
         const rangeAllDay = parseAllDayRangeFromBlock(body, isoDate, currentYear, currentMonth);
