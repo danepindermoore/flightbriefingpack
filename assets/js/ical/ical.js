@@ -112,9 +112,12 @@ function init() {
     loadContractSettings();
 
     els.contractType.addEventListener(
-        "change",
-        saveContractSettings
-    );
+    "change",
+    () => {
+        updatePTDateFieldState();
+        saveContractSettings();
+    }
+);
 
     els.firstPTDate.addEventListener(
         "change",
@@ -729,7 +732,8 @@ function saveContractSettings() {
     );
 
 }
-function loadContractSettings() {
+function loadContractSettings();
+	 updatePTDateFieldState(); {
 
     const saved = localStorage.getItem(
         STORAGE_KEYS.contractType
@@ -885,6 +889,20 @@ function findPTSeedDate(events = state.events) {
 
 }
 
+
+function updatePTDateFieldState() {
+    const isFullTime =
+        els.contractType.value === "FULL_TIME";
+
+    if (isFullTime) {
+        els.firstPTDate.value = "";
+        els.firstPTDate.disabled = true;
+    } else {
+        els.firstPTDate.disabled = false;
+    }
+}
+
+
 function generateFuturePTBlocks() {
 
     const seed = findPTSeedDate();
@@ -894,11 +912,16 @@ function generateFuturePTBlocks() {
     }
 
     const contract =
-        BA_CONTRACT_TYPES[els.contractType.value];
+    BA_CONTRACT_TYPES[els.contractType.value];
 
-    if (!contract) {
-        return [];
-    }
+if (
+    !contract ||
+    !contract.autoGeneratePT ||
+    !contract.offDays ||
+    !contract.cycleDays
+) {
+    return [];
+}
 
     const blocks = [];
 
