@@ -529,3 +529,36 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         overflow: hidden;
     }
 }
+
+
+.roster-import-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.import-option {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    width: 100%;
+}
+
+.import-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 16px;
+    cursor: pointer;
+}
+
+.import-option input[type="file"] {
+    display: none;
+}
+
+.import-option button {
+    margin-top: 2px;
+}

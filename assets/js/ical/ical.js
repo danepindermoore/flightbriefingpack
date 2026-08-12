@@ -76,6 +76,9 @@
     const els = {
       pdfFile: document.getElementById("pdfFile"),
       fileName: document.getElementById("fileName"),
+      screenshotFiles: document.getElementById("screenshotFiles"),
+      screenshotFileName: document.getElementById("screenshotFileName"),
+      ocrScreenshotsBtn: document.getElementById("ocrScreenshotsBtn"),
       openCrewlinkBtn: document.getElementById("openCrewlinkBtn"),
       crewlinkFlow: document.getElementById("crewlinkFlow"),
       pastedRosterText: document.getElementById("pastedRosterText"),
@@ -108,8 +111,9 @@ init();
 function init() {
 
     populateContractTypes();
-
     loadContractSettings();
+    updatePTDateFieldState();
+
 
     els.contractType.addEventListener(
     "change",
@@ -123,6 +127,36 @@ function init() {
         "change",
         saveContractSettings
     );
+
+
+
+
+els.screenshotFiles.addEventListener("change", () => {
+
+    const files = Array.from(els.screenshotFiles.files || []);
+
+    els.screenshotFileName.textContent = files.length
+        ? `${files.length} screenshot${files.length === 1 ? "" : "s"} selected`
+        : "No screenshots selected";
+
+    if (files.length) {
+        els.pdfFile.value = "";
+        els.fileName.textContent = "No PDF selected";
+
+        setStatus(
+            `${files.length} roster screenshot${files.length === 1 ? "" : "s"} selected. Tap 'Read Screenshots' to extract the roster.`,
+            "info"
+        );
+    }
+});
+
+els.ocrScreenshotsBtn.addEventListener(
+    "click",
+    handleScreenshotOCR
+);
+
+
+
 
     els.pdfFile.addEventListener("change", () => {
 
@@ -732,8 +766,10 @@ function saveContractSettings() {
     );
 
 }
-function loadContractSettings();
-	 updatePTDateFieldState(); {
+
+
+function loadContractSettings() {
+
 
     const saved = localStorage.getItem(
         STORAGE_KEYS.contractType
@@ -772,6 +808,133 @@ function openCrewlink() {
       els.statusBox.className = "status" + (kind ? " " + kind : "");
       els.statusBox.textContent = message;
     }
+
+
+
+async function handleScreenshotOCR() {
+
+    const files = Array.from(
+        els.screenshotFiles.files || []
+    );
+
+    if (!files.length) {
+        setStatus(
+            "Select one or more roster screenshots first.",
+            "warn"
+        );
+        return;
+    }
+
+    if (!window.Tesseract) {
+        setStatus(
+            "The screenshot-reading engine failed to load. Refresh the page and try again.",
+            "err"
+        );
+        return;
+    }
+
+    try {
+
+        els.ocrScreenshotsBtn.disabled = true;
+        els.refreshBtn.disabled = true;
+
+        setStatus(
+            `Reading ${files.length} roster screenshot${files.length === 1 ? "" : "s"}…`
+        );
+
+        const worker =
+            await Tesseract.createWorker("eng");
+
+        const results = [];
+
+        try {
+
+            for (let i = 0; i < files.length; i++) {
+
+                setStatus(
+                    `Reading roster screenshot ${i + 1} of ${files.length}…`
+                );
+
+                const result =
+                    await worker.recognize(files[i]);
+
+                results.push({
+                    file: files[i],
+                    text: result.data.text || "",
+                    index: i
+                });
+            }
+
+        } finally {
+
+            await worker.terminate();
+
+        }
+
+        /*
+         * Keep the user's selected order.
+         *
+         * Screenshots should be selected:
+         * first page → second page → third page.
+         */
+
+        const combinedText =
+            results
+                .map(result => result.text.trim())
+                .filter(Boolean)
+                .join("\n\n");
+
+        if (!combinedText.trim()) {
+            throw new Error(
+                "No readable roster text was found in the screenshots."
+            );
+        }
+
+        /*
+         * Put the OCR text into the existing text box so that
+         * the user can inspect what was extracted if necessary.
+         */
+
+        els.pastedRosterText.value =
+            combinedText;
+
+        state.rawText =
+            combinedText;
+
+        setStatus(
+            "Screenshots read successfully. Parsing roster…",
+            "info"
+        );
+
+        /*
+         * IMPORTANT:
+         * Use the existing roster parser.
+         * We do NOT create a second parser for screenshots.
+         */
+
+        processRosterText(combinedText);
+
+    } catch (err) {
+
+        console.error(err);
+
+        setStatus(
+            "Something went wrong while reading the roster screenshots.\n\n" +
+            (err?.message || String(err)),
+            "err"
+        );
+
+    } finally {
+
+        els.ocrScreenshotsBtn.disabled = false;
+        els.refreshBtn.disabled = false;
+
+    }
+}
+
+
+
+
 
     async function handleParseClick() {
 
@@ -1848,6 +2011,8 @@ console.log(ics.substring(0, 200));
       state.dayBlocks = [];
       state.rawText = "";
       els.fileName.textContent = "No file selected";
+      els.screenshotFiles.value = "";
+      els.screenshotFileName.textContent = "No screenshots selected";
       els.pastedRosterText.value = "";
       els.debugRawText.value = "";
       els.debugBlocks.value = "";

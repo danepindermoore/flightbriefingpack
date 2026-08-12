@@ -34,29 +34,101 @@
         <section class="ical-card">
           
 <h2>1) Roster Import</h2>
-	 <div class="controls">
-            <div class="roster-source-row">
-              <div class="row">
-                <label for="pdfFile" class="file-label">Roster PDF</label>
-                <input id="pdfFile" type="file" accept="application/pdf" />
-                <span id="fileName" class="small">No file selected</span>
-              </div>
-              <button id="openCrewlinkBtn" type="button">Open Crewlink</button>
-            </div>
 
-            <div id="crewlinkFlow" class="crewlink-flow hidden">
-              <p><strong>iPhone flow:</strong> Tap <strong>Open Crewlink</strong>, log in, then tap <strong>Share</strong> → <strong>Copy</strong>. Return here, paste the roster text into the box below, then tap the <strong>Upload</strong> button in section 3 (Export) below.</p>
+
+<div class="controls">
+
+
+<div class="roster-import-options">
+
+   <!-- SCREENSHOT IMPORT -->
+<div class="import-option">
+
+    <button
+        id="ocrScreenshotsBtn"
+        type="button"
+        disabled
+    >
+        📸 Roster Screenshots
+    </button>
+
+    <span
+        style="color:#e53935; font-weight:700; font-size:0.85rem; letter-spacing:0.04em;"
+    >
+        COMING SOON
+    </span>
+
+    <!-- Kept hidden so the existing JS remains intact for later -->
+    <input
+        id="screenshotFiles"
+        type="file"
+        accept="image/*"
+        multiple
+        hidden
+    />
+
+    <span
+        id="screenshotFileName"
+        class="small"
+        hidden
+    >
+        No screenshots selected
+    </span>
+
+</div>
+
+
+    <!-- PDF IMPORT -->
+    <div class="import-option">
+
+        <label
+            for="pdfFile"
+            class="file-label import-button"
+        >
+            📄 Roster PDF
+        </label>
+
+        <input
+            id="pdfFile"
+            type="file"
+            accept="application/pdf"
+        />
+
+        <span
+            id="fileName"
+            class="small"
+        >
+            No file selected
+        </span>
+
+    </div>
+
+
+    <!-- CREWLINK -->
+    <div class="import-option">
+
+        <button
+            id="openCrewlinkBtn"
+            type="button"
+        >
+            Open Crewlink
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<div id="crewlinkFlow" class="crewlink-flow hidden">
+<p><strong>iPhone flow:</strong> Tap <strong>Open Crewlink</strong>, log in, then tap <strong>Share</strong> → <strong>Copy</strong>. Return here, paste the roster text into the box below, then tap the <strong>Upload</strong> button in section 3 (Export) below.</p>
 
               <div>
                 <label class="small" for="pastedRosterText">Roster text from Crewlink</label>
                 <textarea id="pastedRosterText" placeholder="Paste roster text from Crewlink here..."></textarea>
               </div>
 
-              <div class="row">
-               
-              </div>
-            </div>
-
+             
             <div id="statusBox" class="status">Waiting for a roster PDF, or open Crewlink to paste roster text.</div>
           </div>
 
@@ -224,6 +296,8 @@
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+
 
   <script>
     pdfjsLib.GlobalWorkerOptions.workerSrc =
