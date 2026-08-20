@@ -10,7 +10,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/fbp-shared.css">
+  <link rel="stylesheet" href="/assets/css/fbp-shared.css">
 
   <script src="/data/ba-destinations.js"></script>
   <script src="/data/ba-fdp-tables.js"></script>
@@ -18,8 +18,8 @@
   <script src="/data/aircraft.js"></script>
 
   <style>
-    :root{--fdp-card:#ffffff;--fdp-card-2:#f8fafc;--fdp-text:#0f172a;--fdp-muted:#64748b;--fdp-border:#dbe5f1;--fdp-shadow:0 14px 40px rgba(15,23,42,.08);--fdp-shadow-soft:0 8px 24px rgba(15,23,42,.06);--fdp-input-bg:#ffffff;--fdp-warn:#b91c1c;--fdp-warn-bg:#fff1f2;--fdp-warn-ring:rgba(185,28,28,.18);--fdp-disabled:#eef3f9;}
-    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--fdp-text);background:#f5f8fc;}
+    :root{--fdp-card:#1f2d3b;--fdp-card-2:#263747;--fdp-text:#f8fafc;--fdp-muted:#c5cfda;--fdp-border:#405366;--fdp-shadow:0 14px 40px rgba(0,0,0,.20);--fdp-shadow-soft:0 8px 24px rgba(0,0,0,.16);--fdp-input-bg:#2c3b4b;--fdp-warn:#ef4444;--fdp-warn-bg:#3b2025;--fdp-warn-ring:rgba(239,68,68,.18);--fdp-disabled:#eef3f9;}
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--fdp-text);background:#071827;}
     *{box-sizing:border-box;}
     .app-wrap{padding-bottom:24px;}
     .fdp-grid{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(320px,.94fr);gap:18px;align-items:start;margin-top:22px;}
@@ -581,6 +581,6 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
     ids.resultsBox1.innerHTML=''; ids.resultsBox2.innerHTML=''; ids.resultsBox3.innerHTML='';
   </script>
 
-  <script src="/assets/fbp-shared.js"></script>
+  <script src="/assets/js/fbp-shared.js"></script>
 </body>
 </html>
