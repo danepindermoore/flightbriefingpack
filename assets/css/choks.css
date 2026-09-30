@@ -1,0 +1,79 @@
+.choks-content {
+  margin-top: 22px;
+}
+
+.choks-content h2 {
+  margin: 0 0 18px;
+  font-size: 1.2rem;
+}
+
+.choks-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.choks-grid label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.timegrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.timegrid input {
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.timegrid input::placeholder {
+  color: var(--muted);
+}
+
+.timegrid input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.choks-result {
+  margin-top: 22px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  text-align: center;
+}
+
+.choks-result h3 {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: .92rem;
+  font-weight: 700;
+}
+
+.choks-result output {
+  color: var(--accent);
+  font-size: clamp(2rem, 8vw, 3rem);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 640px) {
+  .choks-grid {
+    grid-template-columns: 1fr;
+  }
+}

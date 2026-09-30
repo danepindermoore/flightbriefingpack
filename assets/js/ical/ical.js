@@ -2320,7 +2320,7 @@ FBP.createPage({
 
     feedbackSubject: "Feedback for iCal Roster Tool",
 
-    feedbackButton: "iCal Feedback",
+    feedbackText: "iCal Feedback",
 
     activePage: "ical"
 

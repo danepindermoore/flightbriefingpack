@@ -22,7 +22,7 @@ const BA_ROSTER_DATA = {
     // OFF DAYS
     //=====================================================
 
-    OFF: {
+    "OFF": {
 
         officialName: "OFF",
 

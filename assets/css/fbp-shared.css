@@ -73,6 +73,10 @@ body.fbp-theme.light-mode {
 
 }
 
+.fbp-shell:not(.fbp-layout-wide) {
+  max-width: 1200px;
+}
+
 .fbp-hero,
 .fbp-panel,
 .fbp-card,
@@ -351,7 +355,10 @@ body.light-mode .fbp-version {
   .fbp-hero,
   .fbp-card,
   .fbp-panel,
-  .fbp-install-box {
+  .fbp-install-box,
+  .briefing-card,
+  .ical-card,
+  .fdp-card {
     padding: 20px;
     border-radius: 24px;
   }
@@ -384,5 +391,120 @@ body.light-mode .fbp-version {
   .fbp-version {
     right: 12px;
     bottom: 12px;
+  }
+
+}
+
+/* Shared visual treatment for feature-page panels. */
+body.fbp-theme .briefing-card,
+body.fbp-theme .ical-card,
+body.fbp-theme .fdp-card {
+  padding: 24px;
+}
+
+body.fbp-theme .briefing-card,
+body.fbp-theme .ical-card,
+body.fbp-theme .fdp-card,
+body.fbp-theme .result-box {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04)),
+    var(--surface-2);
+  box-shadow: var(--shadow);
+  color: var(--text);
+}
+
+body.fbp-theme .briefing-card h2,
+body.fbp-theme .ical-card h2,
+body.fbp-theme .fdp-card h2,
+body.fbp-theme .fbp-panel > h2 {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+body.fbp-theme input:not([type="checkbox"]):not([type="radio"]):not(:disabled):not(.invalid),
+body.fbp-theme select:not(:disabled):not(.invalid),
+body.fbp-theme textarea:not(:disabled):not(.invalid) {
+  border-color: var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--text);
+}
+
+body.fbp-theme button:not(.aircraft-code-btn):not(.equipment-chip) {
+  min-height: 46px;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--text);
+  font-family: inherit;
+  font-weight: 700;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+
+body.fbp-theme button.primary,
+body.fbp-theme .fdp-choice-cta {
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--accent), #4198f2);
+  color: #fff;
+}
+
+body.fbp-theme button.success {
+  border-color: transparent;
+  background: linear-gradient(135deg, #34d399, #16a34a);
+  color: #062719;
+}
+
+body.fbp-theme button.warn {
+  border-color: transparent;
+  background: linear-gradient(135deg, #fbbf24, #d97706);
+  color: #271707;
+}
+
+body.fbp-theme button.danger {
+  border-color: transparent;
+  background: linear-gradient(135deg, #f87171, #dc2626);
+  color: #fff;
+}
+
+body.fbp-theme .button-link,
+body.fbp-theme .btn {
+  min-height: 46px;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-weight: 700;
+}
+
+body.fbp-theme .btn.primary {
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--accent), #4198f2);
+  color: #fff;
+}
+
+body.fbp-theme input:disabled,
+body.fbp-theme select:disabled,
+body.fbp-theme textarea:disabled {
+  border-color: var(--border);
+  background: var(--surface-2);
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+body.fbp-theme :focus-visible {
+  outline-color: var(--accent);
+}
+
+@media (max-width: 700px) {
+  body.fbp-theme .briefing-card,
+  body.fbp-theme .ical-card,
+  body.fbp-theme .fdp-card {
+    padding: 20px;
+    border-radius: 24px;
   }
 }

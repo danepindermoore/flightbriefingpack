@@ -12,7 +12,7 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
     };
 
     const aircraftMap = globalThis.AIRCRAFT || {};
-    const aircraftOrder = globalThis.AIRCRAFT_ORDER || [];
+    const aircraftOrder = globalThis.AIRCRAFT_ORDER_SHORTHAUL || globalThis.AIRCRAFT_ORDER || [];
 
     const ids = {
       flightDate: document.getElementById('flightDate'),
@@ -101,7 +101,7 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
     function setTodayDate(){ const d=new Date(); ids.flightDate.value=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; }
 
    function populateAircraft(){
-      const validCodes=(globalThis.AIRCRAFT_ORDER || []).filter(code => globalThis.AIRCRAFT && globalThis.AIRCRAFT[code]);
+      const validCodes=aircraftOrder.filter(code => globalThis.AIRCRAFT && globalThis.AIRCRAFT[code]);
       ids.aircraftType.innerHTML=validCodes.map(code=>{
         const meta=globalThis.AIRCRAFT[code];
         const label=meta.selectorLabel || meta.code || code;
@@ -112,7 +112,7 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
 
     function getAircraftMeta(){ return aircraftMap[ids.aircraftType.value] || null; }
     function isShAirbus(){ const meta=getAircraftMeta(); return meta && meta.code==='SH Airbus'; }
-    function isA380(){ return ids.aircraftType.value==='38A'; }
+    function isA380(){ return getAircraftMeta()?.family==='A380'; }
 
     
 

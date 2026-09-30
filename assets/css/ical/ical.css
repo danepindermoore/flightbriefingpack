@@ -1,19 +1,10 @@
 :root {
-    --ical-panel: #111827;
-    --ical-panel2: #0b1220;
-    --ical-text: #e5e7eb;
-    --ical-muted: #9ca3af;
-    --ical-border: #374151;
-    --ical-shadow: 0 12px 30px rgba(0,0,0,0.28);
-}
-
-body.light-mode {
-    --ical-panel: #ffffff;
-    --ical-panel2: #f8fafc;
-    --ical-text: #0f172a;
-    --ical-muted: #64748b;
-    --ical-border: #dbe5f1;
-    --ical-shadow: 0 12px 28px rgba(15,23,42,0.08);
+    --ical-panel: var(--surface);
+    --ical-panel2: var(--surface-2);
+    --ical-text: var(--text);
+    --ical-muted: var(--muted);
+    --ical-border: var(--border);
+    --ical-shadow: var(--shadow);
 }
 
 body {
@@ -26,11 +17,11 @@ body {
 }
 
 .ical-card {
-    background: var(--ical-panel);
-    border: 1px solid color-mix(in srgb, var(--ical-border) 82%, transparent 18%);
-    border-radius: 24px;
-    padding: 20px;
-    box-shadow: var(--ical-shadow);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 24px;
+    box-shadow: var(--shadow);
     margin-bottom: 18px;
     color: var(--ical-text);
 }

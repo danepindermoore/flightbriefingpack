@@ -21,14 +21,11 @@ Responsibilities
     // Navigation Items
     //-----------------------------------------------------
 
-const IS_ROOT =
-    location.pathname.endsWith("/") ||
-    location.pathname.endsWith("/index.html") ||
-    !location.pathname.includes("/FDP/") &&
-    !location.pathname.includes("/briefing/") &&
-    !location.pathname.includes("/iCal/");
+const IS_FEATURE_PAGE = /\/(FDP|briefing|iCal|Crew Documents|Choks)(\/|$)/i.test(
+    decodeURIComponent(location.pathname)
+);
 
-const BASE = IS_ROOT ? "" : "../";
+const BASE = IS_FEATURE_PAGE ? "../" : "";
 
 const NAV_ITEMS = [
 
@@ -54,6 +51,18 @@ const NAV_ITEMS = [
         id: "briefing",
         text: "Briefing",
         href: BASE + "briefing/"
+    },
+
+    {
+        id: "crew-documents",
+        text: "Crew Documents",
+        href: BASE + "Crew%20Documents/"
+    },
+
+    {
+        id: "choks",
+        text: "Time Calculator",
+        href: BASE + "Choks/"
     }
 
 ];

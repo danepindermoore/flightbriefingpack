@@ -9,7 +9,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
   <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-  <link rel="stylesheet" href="../assets/fbp-shared.css">
+  <link rel="stylesheet" href="../assets/css/fbp-shared.css">
   <style>
     .briefing-shell {
       --panel:rgba(17,26,46,.92);
@@ -146,12 +146,6 @@
 <body class="fbp-theme" data-fbp-version="v1.2">
   <main class="fbp-shell">
 
-    <nav class="fbp-subnav">
-      <a href="../">Home</a>
-      <a href="../iCal/">iCal</a>
-      <a href="../FDP/">FDP</a>
-      <a href="../briefing/" class="active">Briefing</a>
-    </nav>
 
     <section class="fbp-hero">
       <div class="fbp-aircraft-bg" aria-hidden="true">
@@ -244,7 +238,7 @@ function locationTypeLabel(type){switch((type||"").toLowerCase()){case"seat":ret
 function restSummary(meta){if(!meta.includesRestFacilities)return"No crew rest facilities";return[meta.flightCrewRest,meta.cabinCrewRest].filter(Boolean).map(expandAcronym).join(" + ")}
 function bootError(message){document.getElementById("positionContent").innerHTML=`<div class="error-box"><strong>Aircraft data not loaded.</strong><br>${esc(message)}</div>`}
 function aorIds(area){switch(area){case"Club Kitchen / D2L to AFT CW Cabin AE side":return["ck-left","cw-left-aft"];case"FWD WTP to D3L AB side and 2 x Toilets at D3L":return["wtp-left","d3-left-toilets"];case"D3L to D4L ABC side, CCRC and 1 x Toilet at D4L":return["wt-left","ccrc-left","d4-left-toilet"];case"CW Galley, FCRC and 1 x Toilet AFT of the Flight Deck":return["cw-right-full","cw-galley-right","fcrc-right","fd-toilet-right"];case"D1R to D2R FK side and 1 x Toilet at D2R":return["cw-right-full","d2-right-toilet"];case"FWD WTP JK side to D3R and 2 x Toilets at D3R":return["wtp-right","d3-right-toilets"];case"WT Galley and 1 x Toilet at D4R":return["tail-right","wt-galley-right","d4-right-toilet"];case"D2R to AFT CW cabin FK side":return["cw-right-aft"];case"D1L to D2L and 1 x Toilet at D2L":return["cw-left-forward","d2-left-toilet"];case"D3R to D4R":return["wt-right"];default:return[]}}
-async function boot(){try{await loadScript(`${BASE_DATA_PATH}/acronyms.js`);await loadScript(`${BASE_DATA_PATH}/equipment.js`);await loadScript(`${BASE_DATA_PATH}/aircraft.js`);if(!globalThis.AIRCRAFT||!globalThis.AIRCRAFT_ORDER)throw new Error(`Loaded ${BASE_DATA_PATH}/aircraft.js but AIRCRAFT or AIRCRAFT_ORDER is still missing.`);initApp()}catch(err){bootError(err.message)}}
+async function boot(){try{await loadScript(`${BASE_DATA_PATH}/acronyms.js`);await loadScript(`${BASE_DATA_PATH}/equipment.js`);await loadScript(`${BASE_DATA_PATH}/aircraft.js`);await loadScript(`${BASE_DATA_PATH}/aircraft-registrations.js`);if(!globalThis.AIRCRAFT||!globalThis.AIRCRAFT_ORDER)throw new Error(`Loaded ${BASE_DATA_PATH}/aircraft.js but AIRCRAFT or AIRCRAFT_ORDER is still missing.`);initApp()}catch(err){bootError(err.message)}}
 function initApp(){
 const pageTitle=document.getElementById("pageTitle"),pageIntro=document.getElementById("pageIntro"),aircraftButtonGrid=document.getElementById("aircraftButtonGrid"),aircraftHeaderTitle=document.getElementById("aircraftHeaderTitle"),aircraftHeaderSub=document.getElementById("aircraftHeaderSub"),crewCountBadge=document.getElementById("crewCountBadge"),summaryStats=document.getElementById("summaryStats"),aircraftSvg=document.getElementById("aircraftSvg"),seatLayer=document.getElementById("seatLayer"),zoneLegend=document.getElementById("zoneLegend"),aircraftMetaContent=document.getElementById("aircraftMetaContent"),positionContent=document.getElementById("positionContent"),selectorSummary=document.getElementById("selectorSummary"),openFirstRequiredBtn=document.getElementById("openFirstRequiredBtn"),showAllPositionsBtn=document.getElementById("showAllPositionsBtn"),aorCaption=document.getElementById("aorCaption");
 const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim(),ZONE_STYLES={F:{name:"First",color:css("--gold")},CW:{name:"Club World",color:css("--cw")},WTP:{name:"World Traveller Plus",color:css("--wtp")},WT:{name:"World Traveller",color:css("--wt")}};
@@ -280,5 +274,9 @@ document.addEventListener("DOMContentLoaded",boot);
 
   </script>
   <script src="../assets/js/fbp-shared.js"></script>
+  <script src="../assets/js/fbp-nav.js"></script>
+  <script>
+    document.querySelector(".fbp-shell").prepend(FBP.createNavigation("briefing"));
+  </script>
 </body>
 </html>
