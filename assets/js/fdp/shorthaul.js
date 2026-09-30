@@ -94,7 +94,7 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
     function populateSelects(){
       ids.numSectors.innerHTML=Array.from({length:10},(_,i)=>`<option value="${i+1}">${i+1}</option>`).join('');
       ids.numSectors.value='1';
-      ids.flightCrewCompliment.innerHTML=[2,3,4,5].map(n=>`<option value="${n}">${n}</option>`).join('');
+      ids.flightCrewCompliment.innerHTML=[2,3].map(n=>`<option value="${n}">${n}</option>`).join('');
       ids.flightCrewCompliment.value='2';
     }
 
