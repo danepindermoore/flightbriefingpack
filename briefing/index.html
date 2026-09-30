@@ -251,7 +251,7 @@ function setLoading(meta){pageTitle.textContent=meta.briefingTitle||"Aircraft Br
 async function loadDataset(code){const key=`AOR_${code}`;
 if(globalThis[key])return globalThis[key];
 const meta=globalThis.AIRCRAFT[code];
-const path=meta?.dataPath||`${BASE_DATA_PATH}/aircraft/${code}.js`;
+const configuredPath=meta?.dataPath;const path=configuredPath?(configuredPath.startsWith("data/")?`${BASE_DATA_PATH}/${configuredPath.slice(5)}`:configuredPath):`${BASE_DATA_PATH}/aircraft/${code}.js`;
 await loadScript(path);
 if(!globalThis[key])throw new Error(`Loaded ${path} but ${key} was not created.`);
 return globalThis[key]
