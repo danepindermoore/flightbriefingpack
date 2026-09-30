@@ -32,37 +32,37 @@ const NAV_ITEMS = [
     {
         id: "home",
         text: "Home",
-        href: BASE
+        href: BASE + "index.html"
     },
 
     {
         id: "ical",
         text: "iCal",
-        href: BASE + "iCal/"
+        href: BASE + "iCal/index.html"
     },
 
     {
         id: "fdp",
         text: "FDP",
-        href: BASE + "FDP/"
+        href: BASE + "FDP/index.html"
     },
 
     {
         id: "briefing",
         text: "Briefing",
-        href: BASE + "briefing/"
+        href: BASE + "briefing/index.html"
     },
 
     {
-        id: "crew-documents",
-        text: "Crew Documents",
-        href: BASE + "Crew%20Documents/"
+        id: "aors",
+        text: "AORs",
+        href: BASE + "Service%20Documents/Briefing_Pack_Redirection.pdf"
     },
 
     {
         id: "choks",
         text: "Time Calculator",
-        href: BASE + "Choks/"
+        href: BASE + "Choks/index.html"
     }
 
 ];

@@ -67,6 +67,8 @@
       margin-top:22px;
       margin-bottom:18px;
     }
+    .briefing-shell:not(.has-aircraft) .briefing-controls{grid-template-columns:1fr}
+    .hero-copy[hidden],.layout[hidden]{display:none!important}
     .briefing-card {
       background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));
       border:1px solid var(--line);
@@ -161,7 +163,7 @@
       <div class="fbp-topbar">
         <div>
           <h1 class="fbp-title" id="pageTitle">Aircraft Briefing</h1>
-          <p class="fbp-subtitle" id="pageIntro">Select your aircraft code, tap your working position, and view service, safety, AOR, demo and SEP check information in one place.</p>
+          <p class="fbp-subtitle" id="pageIntro">Select an aircraft code to view its briefing information.</p>
           <p class="fbp-microline">Built for BA crew.</p>
         </div>
         <div class="fbp-toolbar">
@@ -178,7 +180,7 @@
 
     <section class="briefing-shell">
       <section class="briefing-controls">
-        <div class="briefing-card hero-copy">
+        <div class="briefing-card hero-copy" hidden>
           <div class="eyebrow">Flight Briefing Pack</div>
           <h1 id="aircraftHeaderTitle">Aircraft layout</h1>
           <p id="aircraftHeaderSub">Tap a numbered position to open its full briefing.</p>
@@ -186,11 +188,11 @@
         <div class="briefing-card">
           <div class="control-label">Aircraft code</div>
           <div id="aircraftButtonGrid" class="aircraft-button-grid"></div>
-          <div class="subtle" id="selectorSummary" style="margin-top:14px;">Uses aircraft metadata, acronym lookups and equipment definitions from your external data files.</div>
+          <div class="subtle" id="selectorSummary" style="margin-top:14px;">Select an aircraft code to load its briefing.</div>
         </div>
       </section>
 
-      <section class="layout">
+      <section class="layout" hidden>
         <div class="left-stack">
           <div class="briefing-card aircraft-panel">
             <div class="panel-header">
@@ -244,7 +246,7 @@ const clearDiagram=()=>{aircraftSvg.innerHTML="";aircraftSvg.setAttribute("viewB
 function renderLegend(meta){const codes=(meta.classes||[]).filter(c=>ZONE_STYLES[c]);zoneLegend.innerHTML=codes.map(c=>`<div class="legend-item"><span class="swatch" style="background:${ZONE_STYLES[c].color}"></span>${esc(ZONE_STYLES[c].name)}</div>`).join("")}
 function buildButtons(){aircraftButtonGrid.innerHTML="";globalThis.AIRCRAFT_ORDER.forEach(code=>{const meta=globalThis.AIRCRAFT[code];if(!meta)return;const btn=document.createElement("button");btn.type="button";btn.className="aircraft-code-btn";btn.textContent=meta.selectorLabel||code;btn.addEventListener("click",()=>selectAircraft(code));aircraftButtonGrid.appendChild(btn)})}
 function updateButtons(){[...aircraftButtonGrid.children].forEach((btn,i)=>btn.classList.toggle("active",globalThis.AIRCRAFT_ORDER[i]===STATE.activeCode))}
-function setLoading(meta){pageTitle.textContent=meta.briefingTitle||"Aircraft Briefing";pageIntro.textContent=`${meta.fullName} · ${meta.configName}. Loading aircraft briefing data...`;selectorSummary.textContent=`${meta.selectorLabel} · ${meta.fullName} · ${meta.configName}`;diagramNote.textContent=meta.code==="351"?"Tap a numbered panel to mark that position’s safety demo spot and highlight its AOR.":"Yellow dots on position numbers indicate required crew seats. Selecting a working position also highlights its AOR when available.";aircraftHeaderTitle.textContent=`${meta.selectorLabel} · ${meta.fullName}`;aircraftHeaderSub.textContent="Loading aircraft data...";crewCountBadge.textContent="Loading";summaryStats.innerHTML=`<div class="meta-stat"><strong>—</strong><span>Total seats</span></div><div class="meta-stat"><strong>—</strong><span>Legal minimum crew</span></div><div class="meta-stat"><strong>—</strong><span>Standard crew compliment</span></div>`;aircraftMetaContent.innerHTML=`<div class="loading"><span class="dot"></span>Loading aircraft summary...</div>`;positionContent.innerHTML=`<div class="loading"><span class="dot"></span>Loading aircraft briefing...</div>`;clearDiagram();renderLegend(meta)}
+function setLoading(meta){document.querySelector(".briefing-shell").classList.add("has-aircraft");document.querySelector(".hero-copy").hidden=false;document.querySelector(".layout").hidden=false;pageTitle.textContent=meta.briefingTitle||"Aircraft Briefing";pageIntro.textContent=`${meta.fullName} · ${meta.configName}. Loading aircraft briefing data...`;selectorSummary.textContent=`${meta.selectorLabel} · ${meta.fullName} · ${meta.configName}`;diagramNote.textContent=meta.code==="351"?"Tap a numbered panel to mark that position’s safety demo spot and highlight its AOR.":"Yellow dots on position numbers indicate required crew seats. Selecting a working position also highlights its AOR when available.";aircraftHeaderTitle.textContent=`${meta.selectorLabel} · ${meta.fullName}`;aircraftHeaderSub.textContent="Loading aircraft data...";crewCountBadge.textContent="Loading";summaryStats.innerHTML=`<div class="meta-stat"><strong>—</strong><span>Total seats</span></div><div class="meta-stat"><strong>—</strong><span>Legal minimum crew</span></div><div class="meta-stat"><strong>—</strong><span>Standard crew compliment</span></div>`;aircraftMetaContent.innerHTML=`<div class="loading"><span class="dot"></span>Loading aircraft summary...</div>`;positionContent.innerHTML=`<div class="loading"><span class="dot"></span>Loading aircraft briefing...</div>`;clearDiagram();renderLegend(meta)}
 
 async function loadDataset(code){const key=`AOR_${code}`;
 if(globalThis[key])return globalThis[key];
@@ -340,7 +342,7 @@ function setActivePosition(number){const pos=(STATE.activeData?.positions||[]).f
 function showAllPositionsList(){const data=STATE.activeData;if(!data?.positions?.length)return;STATE.activePosition=null;setAorOverlay(null);setDemoMarker(null);seatLayer.querySelectorAll(".seat-btn,.position-hotspot").forEach(btn=>{btn.classList.remove("active");btn.setAttribute("aria-pressed","false")});positionContent.innerHTML=`<div class="title-row"><div><h3 class="position-name" style="font-size:1.3rem;">All positions · ${esc(STATE.activeMeta.selectorLabel)}</h3><div class="subtle">Tap any position below to open the full briefing.</div></div></div><div class="grid-2">${(data.positions||[]).map(pos=>`<button class="small-card" style="text-align:left;cursor:pointer;color:var(--text);" type="button" onclick="window.__openPosition(${pos.number})"><strong>Position ${pos.number}${pos.title?` · ${esc(pos.title)}`:""}${pos.role?` · ${esc(pos.role)}`:""}</strong><span>${esc(pos.seating?.full||"Seat not listed")}</span></button>`).join("")}</div>`}
 async function selectAircraft(code){const meta=globalThis.AIRCRAFT[code];if(!meta)return;STATE.activeCode=code;STATE.activeMeta=meta;STATE.activeData=null;STATE.activePosition=null;updateButtons();setLoading(meta);try{const data=await loadDataset(code);STATE.activeData=data;syncUrl(code);renderAircraft(meta,data)}catch(err){syncUrl(code);renderMissing(meta,err)}}
 window.__toggleEquipmentChip=function(button){const expanded=button.classList.toggle("expanded");button.setAttribute("aria-expanded",expanded?"true":"false")};window.__openPosition=function(number){setActivePosition(number);document.querySelector(".position-panel")?.scrollIntoView({behavior:"smooth",block:"start"})};
-buildButtons();document.addEventListener("click",event=>{if(!STATE.activePosition)return;if(event.target.closest(".position-hotspot,.seat-btn,button,a,input,select,textarea,label"))return;if(event.target!==positionContent&&event.target.closest("#positionContent"))return;showAllPositionsList()});const initialCode=new URLSearchParams(window.location.search).get("code"),fallbackCode=globalThis.AIRCRAFT_ORDER[0],startCode=globalThis.AIRCRAFT[initialCode]?initialCode:fallbackCode;selectAircraft(startCode)}
+buildButtons();document.addEventListener("click",event=>{if(!STATE.activePosition)return;if(event.target.closest(".position-hotspot,.seat-btn,button,a,input,select,textarea,label"))return;if(event.target!==positionContent&&event.target.closest("#positionContent"))return;showAllPositionsList()})}
 document.addEventListener("DOMContentLoaded",boot);
 
   </script>
