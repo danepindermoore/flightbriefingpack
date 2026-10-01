@@ -49,20 +49,22 @@ const NAV_ITEMS = [
 
     {
         id: "briefing",
-        text: "Briefing",
+        text: "Briefing and AORs",
         href: BASE + "briefing/index.html"
     },
 
     {
         id: "aors",
         text: "AORs",
-        href: BASE + "Service%20Documents/Briefing_Pack_Redirection.pdf"
+        href: BASE + "Service%20Documents/Briefing_Pack_Redirection.pdf",
+        inProgress: true
     },
 
     {
         id: "choks",
         text: "Time Calculator",
-        href: BASE + "Choks/index.html"
+        href: BASE + "Choks/index.html",
+        inProgress: true
     }
 
 ];
@@ -84,6 +86,12 @@ const NAV_ITEMS = [
             link.href = item.href;
 
             link.textContent = item.text;
+
+            if (item.inProgress) {
+
+                link.dataset.functionalityInProgress = "true";
+
+            }
 
             if (item.id === activePage) {
 
@@ -108,5 +116,19 @@ const NAV_ITEMS = [
         return [...NAV_ITEMS];
 
     };
+
+    document.addEventListener("click", event => {
+
+        const link = event.target instanceof Element
+            ? event.target.closest("a[data-functionality-in-progress]")
+            : null;
+
+        if (!link) return;
+
+        event.preventDefault();
+
+        window.alert("Functionality in progress");
+
+    });
 
 })();

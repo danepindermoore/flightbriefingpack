@@ -8,8 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     FBP.createPage({
         activePage: "fdp",
         title: "FDP Calculator",
-        subtitle: "Choose the correct calculator for your operation. Longhaul and shorthaul now run as separate tools so each page stays cleaner, simpler and easier to use.",
-        microline: "Built for BA crew.",
+        subtitle: "Choose the correct calculator for your operation today.",
         feedbackSubject: "Feedback for FDP Calculator"
     });
 
