@@ -26,28 +26,31 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       depMinute: document.getElementById('depMinute'),
       reportHour: document.getElementById('reportHour'),
       reportMinute: document.getElementById('reportMinute'),
+      moreOptionsToggle: document.getElementById('moreOptionsToggle'),
+      moreOptionsSection: document.getElementById('moreOptionsSection'),
       lastArrHour: document.getElementById('lastArrHour'),
       lastArrMinute: document.getElementById('lastArrMinute'),
       arrivalTimeLabel: document.getElementById('arrivalTimeLabel'),
       numSectors: document.getElementById('numSectors'),
       sccm: document.getElementById('sccm'),
       asccm: document.getElementById('asccm'),
-      absHour: document.getElementById('absHour'),
-      absMinute: document.getElementById('absMinute'),
-      actualHour: document.getElementById('actualHour'),
-      actualMinute: document.getElementById('actualMinute'),
       revDepHour: document.getElementById('revDepHour'),
       revDepMinute: document.getElementById('revDepMinute'),
+      finalSectorHour: document.getElementById('finalSectorHour'),
+      finalSectorMinute: document.getElementById('finalSectorMinute'),
       revLandHour: document.getElementById('revLandHour'),
       revLandMinute: document.getElementById('revLandMinute'),
       flightCrewCompliment: document.getElementById('flightCrewCompliment'),
       cmdrDiscRequired: document.getElementById('cmdrDiscRequired'),
-      delaySection: document.getElementById('delaySection'),
       taxiOutMins: document.getElementById('taxiOutMins'),
       holdingMins: document.getElementById('holdingMins'),
       taxiInMins: document.getElementById('taxiInMins'),
       calcBtn: document.getElementById('calcBtn'),
       clearBtn: document.getElementById('clearBtn'),
+      standardChangeDialog: document.getElementById('standardChangeDialog'),
+      standardChangeMessage: document.getElementById('standardChangeMessage'),
+      standardChangeAgree: document.getElementById('standardChangeAgree'),
+      standardChangeCancel: document.getElementById('standardChangeCancel'),
       errorBox: document.getElementById('errorBox'),
       resultsBox1: document.getElementById('resultsBox1'),
       resultsBox2: document.getElementById('resultsBox2'),
@@ -55,6 +58,33 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       routeRef: document.getElementById('routeRef'),
       notesList: document.getElementById('notesList')
     };
+
+    const standardTimeDefaults = new Map([
+      [ids.taxiOutMins, '25'],
+      [ids.holdingMins, '10'],
+      [ids.taxiInMins, '10']
+    ]);
+    const approvedStandardTimes = new Map(standardTimeDefaults);
+    let pendingStandardChange = null;
+
+    function resolveStandardTimeChange(agree){
+      if(!pendingStandardChange) return;
+      const {field, previousValue} = pendingStandardChange;
+      if(agree) approvedStandardTimes.set(field, field.value);
+      else field.value=previousValue;
+      pendingStandardChange=null;
+      ids.standardChangeDialog.close();
+    }
+
+    function confirmStandardTimeChange(field){
+      const previousValue=approvedStandardTimes.get(field);
+      if(previousValue===field.value) return;
+      const label=field.id==='taxiOutMins' ? 'Taxi Out' : field.id==='holdingMins' ? 'Holding' : 'Taxi In';
+      pendingStandardChange={field,previousValue};
+      ids.standardChangeMessage.textContent=`${label} is set to the standard ${previousValue} minutes. Change it only when absolutely necessary and agreed with LHR Ops. Do you agree to change it to ${field.value || 'blank'} minutes?`;
+      ids.standardChangeDialog.showModal();
+      ids.standardChangeCancel.focus();
+    }
 
     function normalizeCode(value){ return String(value || '').trim().toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0,3); }
     function parsePart(h,m,allowBlank=false){ if(h===''&&m==='') return allowBlank?null:undefined; const hh=Number(h), mm=Number(m); if(!Number.isInteger(hh)||!Number.isInteger(mm)||hh<0||hh>23||mm<0||mm>59) return undefined; return hh*60+mm; }
@@ -79,7 +109,7 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
     function sanitiseFlightNumber(){ let raw=ids.flightNumber.value.toUpperCase().replace(/[^A-Z0-9]/g,''); raw=raw.replace(/^BA/,'').replace(/[A-Z]/g,'').slice(0,4); ids.flightNumber.value='BA'+raw; }
 
     function wireTimeAutoAdvance(){
-      const pairs=[['depHour','depMinute'],['reportHour','reportMinute'],['lastArrHour','lastArrMinute'],['absHour','absMinute'],['actualHour','actualMinute'],['revDepHour','revDepMinute'],['revLandHour','revLandMinute']];
+      const pairs=[['depHour','depMinute'],['reportHour','reportMinute'],['lastArrHour','lastArrMinute'],['revDepHour','revDepMinute'],['finalSectorHour','finalSectorMinute'],['revLandHour','revLandMinute']];
       for(const [hourId, minuteId] of pairs){
         const hourEl=document.getElementById(hourId), minuteEl=document.getElementById(minuteId);
         if(!hourEl || !minuteEl) continue;
@@ -92,7 +122,7 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
     }
 
     function populateSelects(){
-      ids.numSectors.innerHTML=Array.from({length:10},(_,i)=>`<option value="${i+1}">${i+1}</option>`).join('');
+      ids.numSectors.innerHTML=Array.from({length:4},(_,i)=>`<option value="${i+1}">${i+1}</option>`).join('');
       ids.numSectors.value='1';
       ids.flightCrewCompliment.innerHTML=[2,3].map(n=>`<option value="${n}">${n}</option>`).join('');
       ids.flightCrewCompliment.value='2';
@@ -121,11 +151,6 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       ids.lhrTerminal.disabled=!enabled;
       if(!enabled) ids.lhrTerminal.value='';
       if(enabled && !ids.lhrTerminal.value) ids.lhrTerminal.value='T5';
-    }
-
-    function updateDelayVisibility(){
-      const hasRevDep=ids.revDepHour.value!=='' || ids.revDepMinute.value!=='';
-      ids.delaySection.classList.toggle('hidden-block', !hasRevDep);
     }
 
     function updateArrivalLabel(){
@@ -192,9 +217,8 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       return {ok:true, value:parsed, message:''};
     }
 
-    function getActualFlightMinutes(absFlight, actualFlight){ return actualFlight==null ? absFlight : actualFlight; }
     function getClearTimeMinutes(arrivingCode){ if(arrivingCode==='LHR' || arrivingCode==='LGW') return isShAirbus() ? 30 : 45; return 30; }
-    function getReferenceReportHHMM(reportUtcMs, acclimatisedCode){ const code=normalizeCode(acclimatisedCode); if(code==='LHR' || !airportByCode[code]) return fmtClockFromMs(reportUtcMs); return utcMsToLocalHHMM(reportUtcMs, airportByCode[code].timeZone); }
+    function getReferenceReportHHMM(reportUtcMs, acclimatisedCode){ const code=normalizeCode(acclimatisedCode); if(!airportByCode[code]) return fmtClockFromMs(reportUtcMs); return utcMsToLocalHHMM(reportUtcMs, airportByCode[code].timeZone); }
     
 function getTable2MaxFdp(referenceHHMM, sectors){ const res=fdpApi && typeof fdpApi.getTable2MaxFdp==='function' ? fdpApi.getTable2MaxFdp(referenceHHMM, sectors) : null; return res ? res.minutes : null; }
 
@@ -253,13 +277,10 @@ function getTable2MaxFdp(referenceHHMM, sectors){ const res=fdpApi && typeof fdp
       if(!reportRes.ok){ showError(reportRes.message); return; }
       const lastArrRes=validateRequiredTimePair(ids.lastArrHour, ids.lastArrMinute, 'Arrival Time (GMT)');
       if(!lastArrRes.ok){ showError(lastArrRes.message); return; }
-      const absFlightRes=validateRequiredTimePair(ids.absHour, ids.absMinute, 'ABS Flight Time');
-      if(!absFlightRes.ok){ showError(absFlightRes.message); return; }
-      const actualFlightRes=validateRequiredTimePair(ids.actualHour, ids.actualMinute, 'Actual Flight Time', true);
-      if(!actualFlightRes.ok){ showError(actualFlightRes.message); return; }
-      
       const revDepRes=validateRequiredTimePair(ids.revDepHour, ids.revDepMinute, 'Delayed Departure Time', true);
       if(!revDepRes.ok){ showError(revDepRes.message); return; }
+      const finalSectorFlightRes=validateRequiredTimePair(ids.finalSectorHour, ids.finalSectorMinute, 'Final Sector Flight Time', true);
+      if(!finalSectorFlightRes.ok){ showError(finalSectorFlightRes.message); return; }
       const revLandRes=validateRequiredTimePair(ids.revLandHour, ids.revLandMinute, 'Revised Landing Time', true);
       if(!revLandRes.ok){ showError(revLandRes.message); return; }
       const taxiOutRes=validateRequiredMinutesOnly(ids.taxiOutMins, 'Taxi Out');
@@ -284,9 +305,7 @@ function getTable2MaxFdp(referenceHHMM, sectors){ const res=fdpApi && typeof fdp
       if(plannedArrivalUtcMs < reportUtcMs) plannedArrivalUtcMs += 86400000;
 
       const activeDepartureUtcMs=revDepRes.value==null ? depUtcMs : utcDateFromZClockRolling(flightDate, revDepRes.value, reportUtcMs).getTime();
-      const activeFlightTime=getActualFlightMinutes(absFlightRes.value, actualFlightRes.value);
-
-     let etaUtcMs = addMinutes(activeDepartureUtcMs, absFlightRes.value);
+      let etaUtcMs = addMinutes(plannedArrivalUtcMs, activeDepartureUtcMs - depUtcMs);
 
 if (revLandRes.value != null) {
     etaUtcMs = utcDateFromZClockRolling(
@@ -299,7 +318,7 @@ if (revLandRes.value != null) {
       const routeKey=`${from}-${to}`;
       const rosteredFdp=Math.round((plannedArrivalUtcMs - reportUtcMs)/60000);
       const rosteredDuty=rosteredFdp + getClearTimeMinutes(to);
-      const actualFdp=Math.round((activeDepartureUtcMs - reportUtcMs)/60000) + activeFlightTime;
+      const actualFdp=Math.round((etaUtcMs - reportUtcMs)/60000);
       const actualDutyPeriod=actualFdp + getClearTimeMinutes(to);
 
       const acclRefHHMM=getReferenceReportHHMM(reportUtcMs, acclimatisedAt);
@@ -321,8 +340,8 @@ let newMaxFDPBeforeDisc = maxFDP;
       const maxCmdrDiscretionAllowable=computeCmdrDiscretionAllowed(crewCompliment);
       const newMaxFDPInclDisc=cmdrDiscRequired ? newMaxFDPBeforeDisc + maxCmdrDiscretionAllowable : newMaxFDPBeforeDisc;
       const latestOnChocksUtcMs=addMinutes(reportUtcMs, newMaxFDPInclDisc);
-      const latestTakeOffUtcMs=addMinutes(latestOnChocksUtcMs, -(activeFlightTime + taxiInRes.value + holdingRes.value));
-      const latestOffChocksUtcMs=addMinutes(latestTakeOffUtcMs, -taxiOutRes.value);
+      const latestTakeOffUtcMs=finalSectorFlightRes.value==null ? null : addMinutes(latestOnChocksUtcMs, -(finalSectorFlightRes.value + taxiInRes.value + holdingRes.value));
+      const latestOffChocksUtcMs=latestTakeOffUtcMs==null ? null : addMinutes(latestTakeOffUtcMs, -taxiOutRes.value);
 
       const etaDestLocal=utcMsToLocalHHMM(etaUtcMs, arrAirport.timeZone);
       const etaUtcText=fmtClockWithZ(etaUtcMs);
@@ -339,7 +358,7 @@ let newMaxFDPBeforeDisc = maxFDP;
     infoRow(
         'Max Flight Duty Period (Max FDP)',
         fmtDuration(maxFDP),
-        `Reference time used: ${acclRefHHMM}${acclimatisedAt === 'LHR' ? 'z' : ` @ ${acclimatisedAt}`}`
+        `Reference time used: ${acclRefHHMM} local @ ${acclimatisedAt}`
     ),
     infoRow(
         'New Max Flight Duty Period (FDP)',
@@ -357,10 +376,11 @@ let newMaxFDPBeforeDisc = maxFDP;
 ids.resultsBox2.innerHTML = box2Rows.join('');
 
       ids.resultsBox3.innerHTML=[
-        infoRow('Actual Flight Time', fmtDuration(activeFlightTime)),
         infoRow('Latest On Chocks Time', fmtClockWithZ(latestOnChocksUtcMs)),
-        infoRow('Latest Take Off Time (HARD LIMIT)', fmtClockWithZ(latestTakeOffUtcMs)),
-        infoRow('Latest Off Chocks Time (SOFT LIMIT)', fmtClockWithZ(latestOffChocksUtcMs))
+        ...(latestTakeOffUtcMs==null ? [] : [
+          infoRow('Latest Take Off Time (HARD LIMIT)', fmtClockWithZ(latestTakeOffUtcMs)),
+          infoRow('Latest Off Chocks Time (SOFT LIMIT)', fmtClockWithZ(latestOffChocksUtcMs))
+        ])
       ].join('');
 
       
@@ -369,17 +389,18 @@ ids.resultsBox2.innerHTML = box2Rows.join('');
 
       const notes=[];
       if(usingRefreshmentBreak){ const msg=refreshmentBreakNoteShorthaul(refreshmentBreak); if(msg) notes.push(msg); }
-      if(revLandRes.value!=null) notes.push('Revised landing time overrides the ETA displays only. Core FDP calculations still remain based on report, departure and flight-time calculations.');
+      if(revLandRes.value!=null) notes.push('Revised landing time overrides the projected final arrival and updates the FDP and duty calculations. Rostered FDP and duty remain based on the scheduled last-sector arrival.');
       ids.notesList.innerHTML=notes.map(n=>`<li>${n}</li>`).join('');
     }
 
     function clearForm(){
       ids.flightDate.value=''; ids.flightNumber.value='BA'; ids.from.value=''; ids.to.value=''; ids.acclimatisedAt.value='LHR';
       ids.depHour.value=''; ids.depMinute.value=''; ids.reportHour.value=''; ids.reportMinute.value=''; ids.lastArrHour.value=''; ids.lastArrMinute.value='';
-      ids.absHour.value=''; ids.absMinute.value=''; ids.actualHour.value=''; ids.actualMinute.value=''; ids.revDepHour.value=''; ids.revDepMinute.value=''; ids.revLandHour.value=''; ids.revLandMinute.value=''; 
+      ids.revDepHour.value=''; ids.revDepMinute.value=''; ids.finalSectorHour.value=''; ids.finalSectorMinute.value=''; ids.revLandHour.value=''; ids.revLandMinute.value='';
       ids.sccm.value='Dane Jordan-Pinder'; ids.asccm.value=''; ids.numSectors.value='1'; ids.flightCrewCompliment.value='2'; ids.cmdrDiscRequired.checked=false;
       ids.taxiOutMins.value='25'; ids.holdingMins.value='10'; ids.taxiInMins.value='10'; ids.lhrTerminal.value='';
-      setTodayDate(); updateLhrTerminalState(); updateDelayVisibility(); updateArrivalLabel();  hideError();
+      standardTimeDefaults.forEach((value,field)=>approvedStandardTimes.set(field,value));
+      setTodayDate(); updateLhrTerminalState(); updateArrivalLabel(); ids.moreOptionsSection.classList.add('hidden-block'); ids.moreOptionsToggle.setAttribute('aria-expanded','false'); ids.moreOptionsToggle.textContent='More Options'; hideError();
       ids.resultsBox1.innerHTML=''; ids.resultsBox2.innerHTML=''; ids.resultsBox3.innerHTML=''; ids.routeRef.textContent='—'; ids.notesList.innerHTML='';
     }
 
@@ -392,8 +413,16 @@ ids.resultsBox2.innerHTML = box2Rows.join('');
     ids.depHour.addEventListener('input',prepopulateReportTime);
     ids.depMinute.addEventListener('input',prepopulateReportTime);
     ids.numSectors.addEventListener('change',updateArrivalLabel);
-    ids.revDepHour.addEventListener('input',updateDelayVisibility);
-    ids.revDepMinute.addEventListener('input',updateDelayVisibility);
+    ids.moreOptionsToggle.addEventListener('click',()=>{
+      const expanded=ids.moreOptionsToggle.getAttribute('aria-expanded')!=='true';
+      ids.moreOptionsToggle.setAttribute('aria-expanded',String(expanded));
+      ids.moreOptionsSection.classList.toggle('hidden-block',!expanded);
+      ids.moreOptionsToggle.textContent=expanded?'Fewer Options':'More Options';
+    });
+    [ids.taxiOutMins,ids.holdingMins,ids.taxiInMins].forEach(field=>field.addEventListener('change',()=>confirmStandardTimeChange(field)));
+    ids.standardChangeAgree.addEventListener('click',()=>resolveStandardTimeChange(true));
+    ids.standardChangeCancel.addEventListener('click',()=>resolveStandardTimeChange(false));
+    ids.standardChangeDialog.addEventListener('cancel',event=>{ event.preventDefault(); resolveStandardTimeChange(false); });
     ids.calcBtn.addEventListener('click',calculate);
     ids.clearBtn.addEventListener('click',clearForm);
 
@@ -403,6 +432,5 @@ ids.resultsBox2.innerHTML = box2Rows.join('');
     sanitiseFlightNumber();
     populateAircraft();
     updateLhrTerminalState();
-    updateDelayVisibility();
     updateArrivalLabel();
     ids.resultsBox1.innerHTML=''; ids.resultsBox2.innerHTML=''; ids.resultsBox3.innerHTML='';

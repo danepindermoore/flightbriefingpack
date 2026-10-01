@@ -114,11 +114,6 @@ button,
         border-color .12s ease;
 }
 
-body.light-mode button,
-body.light-mode .file-label {
-    color: #fff;
-}
-
 button:hover,
 .file-label:hover {
     transform: translateY(-1px);
@@ -197,18 +192,6 @@ button.danger {
 .status.err {
     border-color: rgba(239,68,68,.35);
     color: #fee2e2;
-}
-
-body.light-mode .status.ok {
-    color: #166534;
-}
-
-body.light-mode .status.warn {
-    color: #92400e;
-}
-
-body.light-mode .status.err {
-    color: #991b1b;
 }
 
 .hint {

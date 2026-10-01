@@ -10,7 +10,7 @@ Responsibilities
 ✓ FBP namespace
 ✓ Framework version
 ✓ Cache busting
-✓ Theme management
+✓ Dark appearance
 ✓ Version badge
 ✓ Global initialisation
 
@@ -30,12 +30,6 @@ Responsibilities
     FBP.version = "2.0.0";
 
     FBP.cacheVersion = "v4";
-
-    //-----------------------------------------------------
-    // Configuration
-    //-----------------------------------------------------
-
-    const storageKey = "fbp-theme";
 
     //-----------------------------------------------------
     // Cache Busting
@@ -62,114 +56,6 @@ Responsibilities
                 link.href = bust(link.href);
 
             });
-
-    };
-
-    //-----------------------------------------------------
-    // Theme
-    //-----------------------------------------------------
-
-    FBP.setTheme = function (mode) {
-
-        if (mode === "light") {
-
-            document.body.classList.add("light-mode");
-
-        }
-
-        else {
-
-            document.body.classList.remove("light-mode");
-
-            mode = "dark";
-
-        }
-
-        localStorage.setItem(
-
-            storageKey,
-
-            mode
-
-        );
-
-        const toggle =
-
-            document.querySelector(
-
-                "[data-fbp-theme-toggle]"
-
-            );
-
-        if (toggle) {
-
-            toggle.textContent =
-
-                mode === "light"
-
-                    ? "Dark mode"
-
-                    : "Light mode";
-
-        }
-
-    };
-
-    FBP.getTheme = function () {
-
-        return document.body.classList.contains(
-
-            "light-mode"
-
-        )
-
-            ? "light"
-
-            : "dark";
-
-    };
-
-    FBP.initTheme = function () {
-
-        const saved =
-
-            localStorage.getItem(storageKey)
-
-            || "dark";
-
-        FBP.setTheme(saved);
-
-        const toggle =
-
-            document.querySelector(
-
-                "[data-fbp-theme-toggle]"
-
-            );
-
-        if (toggle) {
-
-            toggle.addEventListener(
-
-                "click",
-
-                () => {
-
-                    FBP.setTheme(
-
-                        FBP.getTheme() === "light"
-
-                            ? "dark"
-
-                            : "light"
-
-                    );
-
-                }
-
-            );
-
-        }
 
     };
 
@@ -208,8 +94,6 @@ Responsibilities
     FBP.init = function () {
 
         FBP.refreshAssets();
-
-        FBP.initTheme();
 
         FBP.injectVersion();
 

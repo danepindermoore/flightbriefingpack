@@ -2,6 +2,53 @@ globalThis.AOR_351 = {
   aircraftCode: "351",
   aircraftName: "A350",
   configName: "3 Class",
+  diagram: {
+    image: "../assets/aircraft/351.png",
+    viewBox: { width: 380, height: 818 },
+    fuselageClipPath: "M190 10 C180 18 172 34 167 58 L157 102 Q153 116 153 136 V684 Q153 728 173 746 Q181 752 190 753 Q199 752 207 746 Q227 728 227 684 V136 Q227 116 223 102 L213 58 C208 34 200 18 190 10 Z",
+    aorAreaIds: {
+      "Club Kitchen / D2L to AFT CW Cabin AE side": ["cw-left-aft"],
+      "FWD WTP to D3L AB side and 2 x Toilets at D3L": ["wtp-left", "wt-left-forward"],
+      "D3L to D4L ABC side, CCRC and 1 x Toilet at D4L": ["wt-left"],
+      "CW Galley, FCRC and 1 x Toilet AFT of the Flight Deck": ["front-galley"],
+      "D1R to D2R FK side and 1 x Toilet at D2R": ["cw-right-full"],
+      "FWD WTP JK side to D3R and 2 x Toilets at D3R": ["wtp-right", "wt-right-forward"],
+      "WT Galley and 1 x Toilet at D4R": ["aft-galley"],
+      "D2R to AFT CW cabin FK side": ["cw-right-aft"],
+      "D1L to D2L and 1 x Toilet at D2L": ["cw-left-forward"],
+      "D3R to D4R": ["wt-right"]
+    },
+    aorShapes: {
+      "front-galley": "M165 67 Q158 82 154 118 L226 118 Q222 82 215 67 Z",
+      "cw-left-forward": "M156 116 C154 156 152 218 153 266 L173 268 L174 279 Q181 282 188 280 L189 117 Z",
+      "cw-right-full": "M189 117 L189 266 L190 280 Q197 282 204 279 L204 268 L224 266 C225 218 223 156 222 116 Z",
+      "cw-left-aft": "M153 267 L173 269 L174 280 Q181 283 188 281 L189 342 L158 342 Q154 339 153 329 Z",
+      "cw-right-aft": "M204 267 L224 267 C225 292 225 320 225 342 L189 342 L189 281 Q197 283 203 280 Z",
+      "wtp-left": "M154 342 C153 369 153 405 154 432 L187.5 432 L187.5 342 Z",
+      "wtp-right": "M187.5 342 L187.5 432 L226 432 C227 405 227 369 226 342 Z",
+      "wt-left-forward": "M154 432 C154 458 154 484 155 508 L187.5 508 L187.5 432 Z",
+      "wt-right-forward": "M187.5 432 L187.5 508 L225 508 C226 484 226 458 226 432 Z",
+      // Keep No. 4 as one continuous custom path, including the marked door
+      // pocket and left toilet while stopping before the grey galley.
+      "wt-left": "M153 508 L190 508 L190 678 Q190 684 184 688 L166 689 L181 689 L181 700 Q181 708 170 714 L170 725 Q170 728 166 728 Q161 728 160 724 L157 713 Q157 708 155 704 L153 689 Z",
+      "wt-right": "M187.5 508 L187.5 689 L221 689 C225 635 225 559 225 508 Z",
+      // No. 8 follows No. 4's boundary without covering any of its area.
+      "aft-galley": "M181 689 L198 689 L198 684 Q198 679 202 679 L212 679 Q216 679 216 684 L216 689 Q220 711 210 731 Q203 742 190 742 Q177 742 170 731 L170 714 Q181 708 181 700 Z"
+    },
+    demoPoints: {
+      10: [174, 128], 5: [204, 153], 12: [172, 199], 6: [205, 221],
+      2: [174, 302], 9: [203, 302], 3: [172, 362], 7: [203, 444],
+      4: [174, 520], 11: [204, 520]
+    },
+    positionPanels: {
+      1: { x: 16, y: 32, w: 116, h: 62 }, 10: { x: 16, y: 103, w: 114, h: 61 },
+      2: { x: 16, y: 269, w: 114, h: 64 }, 3: { x: 16, y: 498, w: 114, h: 64 },
+      4: { x: 16, y: 684, w: 114, h: 64 }, 11: { x: 16, y: 752, w: 114, h: 62 },
+      5: { x: 252, y: 31, w: 114, h: 64 }, 6: { x: 252, y: 269, w: 114, h: 64 },
+      9: { x: 252, y: 342, w: 114, h: 64 }, 7: { x: 252, y: 498, w: 114, h: 64 },
+      8: { x: 252, y: 684, w: 114, h: 64 }, 12: { x: 252, y: 752, w: 114, h: 62 }
+    }
+  },
   variantNotes: "FCRC and CCRC",
   config: {
     clubWorld: 56,

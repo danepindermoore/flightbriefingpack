@@ -37,19 +37,6 @@ body.fbp-theme {
   overflow-x: hidden;
 }
 
-body.fbp-theme.light-mode {
-  --bg-1: #edf3fb;
-  --bg-2: #e7eef8;
-  --bg-3: #dde7f3;
-  --surface: rgba(255,255,255,0.70);
-  --surface-2: rgba(255,255,255,0.55);
-  --surface-hover: rgba(255,255,255,0.9);
-  --border: rgba(18, 35, 58, 0.10);
-  --text: #0f1b33;
-  --muted: #60708b;
-  --shadow: 0 18px 40px rgba(31, 53, 88, 0.10);
-}
-
 .fbp-shell,
 .fbp-layout-standard,
 .fbp-layout-wide {
@@ -79,8 +66,7 @@ body.fbp-theme.light-mode {
 
 .fbp-hero,
 .fbp-panel,
-.fbp-card,
-.fbp-install-box {
+.fbp-card {
   position: relative;
   overflow: hidden;
   border: 1px solid var(--border);
@@ -97,15 +83,13 @@ body.fbp-theme.light-mode {
 }
 
 .fbp-card,
-.fbp-panel,
-.fbp-install-box {
+.fbp-panel {
   padding: 24px;
 }
 
 .fbp-hero::before,
 .fbp-panel::before,
-.fbp-card::before,
-.fbp-install-box::before {
+.fbp-card::before {
   content: "";
   position: absolute;
   width: 220px;
@@ -125,10 +109,6 @@ body.fbp-theme.light-mode {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.light-mode .fbp-aircraft-bg {
-  opacity: 0.04;
 }
 
 .fbp-aircraft-bg svg {
@@ -181,8 +161,7 @@ body.fbp-theme.light-mode {
 }
 
 .fbp-button,
-.fbp-chip,
-.fbp-theme-toggle {
+.fbp-chip {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -201,7 +180,6 @@ body.fbp-theme.light-mode {
 
 .fbp-button:hover,
 .fbp-chip:hover,
-.fbp-theme-toggle:hover,
 .fbp-clickable:hover {
   transform: translateY(-3px);
   background: var(--surface-hover);
@@ -210,8 +188,7 @@ body.fbp-theme.light-mode {
 }
 
 .fbp-button:focus-visible,
-.fbp-subnav a:focus-visible,
-.fbp-theme-toggle:focus-visible {
+.fbp-subnav a:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
@@ -268,22 +245,6 @@ body.fbp-theme.light-mode {
   box-shadow: 0 14px 28px rgba(102,179,255,0.22);
 }
 
-.fbp-install-box {
-  margin-top: 22px;
-}
-
-.fbp-install-box h3 {
-  margin: 0 0 10px;
-  font-size: 1.8rem;
-}
-
-.fbp-install-box p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.55;
-  font-size: clamp(1rem, 2vw, 1.15rem);
-}
-
 .fbp-subnav {
   display: flex;
   gap: 10px;
@@ -337,10 +298,6 @@ body.fbp-theme.light-mode {
   box-shadow: 0 10px 25px rgba(0,0,0,0.18);
 }
 
-body.light-mode .fbp-version {
-  background: rgba(255,255,255,0.78);
-}
-
 @media (max-width: 980px) {
   .fbp-grid-3 {
     grid-template-columns: 1fr;
@@ -355,7 +312,6 @@ body.light-mode .fbp-version {
   .fbp-hero,
   .fbp-card,
   .fbp-panel,
-  .fbp-install-box,
   .briefing-card,
   .ical-card,
   .fdp-card {
@@ -383,8 +339,7 @@ body.light-mode .fbp-version {
   }
 
   .fbp-button,
-  .fbp-chip,
-  .fbp-theme-toggle {
+  .fbp-chip {
     width: 100%;
   }
 

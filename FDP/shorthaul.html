@@ -28,6 +28,11 @@
       color: #0f172a;
       background-color: #ffffff;
     }
+
+    .fbp-hero .fbp-toolbar {
+      flex-direction: column;
+      align-items: flex-end;
+    }
 </style>
 </head>
 <body class="fbp-theme" data-fbp-version="v3">
@@ -54,26 +59,30 @@
 
           <div><label>Scheduled Departure Time <span class="small-italic">(Local)</span></label><div class="timegrid"><input id="depHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="depMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
           <div><label for="acclimatisedAt">Acclimatised at</label><input id="acclimatisedAt" maxlength="3" value="LHR" /></div>
-          <div><label>Report Time <span class="small-italic">(Local)</span></label><div class="timegrid"><input id="reportHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="reportMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
+          <div><label>Report Time <span class="small-italic">(Local)</span></label><div class="timegrid"><input id="reportHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="reportMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div><button id="moreOptionsToggle" class="option-toggle" type="button" aria-expanded="false" aria-controls="moreOptionsSection">More Options</button></div>
           
-          <div><label>ABS Flight Time</label><div class="timegrid"><input id="absHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="absMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
           <div><label id="arrivalTimeLabel">Scheduled Arrival Time <span class="small-italic">(GMT)</span></label><div class="timegrid"><input id="lastArrHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="lastArrMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
-          <div><label>Delayed Departure Time <span class="small-italic">(GMT, optional)</span></label><div class="timegrid"><input id="revDepHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="revDepMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
-          <div><label>Actual Flight Time <span class="small-italic">(optional)</span></label><div class="timegrid"><input id="actualHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="actualMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
-          
-          <div><label>Revised Landing Time <span class="small-italic">(optional)</span></label><div class="timegrid"><input id="revLandHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="revLandMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
-          <div><label for="flightCrewCompliment">Flight Crew Compliment</label><select id="flightCrewCompliment"></select></div>
-          <div><label>Commander’s Discretion Required</label><div class="tick-box"><input id="cmdrDiscRequired" type="checkbox" /><span class="small">Tick if discretion is required</span></div></div>
-
-          <div id="delaySection" class="full-span hidden-block">
-            <div class="delay-grid">
-              <div><label for="taxiOutMins">Taxi Out</label><div class="mins-only"><input id="taxiOutMins" inputmode="numeric" maxlength="3" value="25" placeholder="Mins" /></div></div>
-              <div><label for="holdingMins">Holding</label><div class="mins-only"><input id="holdingMins" inputmode="numeric" maxlength="3" value="10" placeholder="Mins" /></div></div>
-              <div><label for="taxiInMins">Taxi In</label><div class="mins-only"><input id="taxiInMins" inputmode="numeric" maxlength="3" value="10" placeholder="Mins" /></div></div>
+          <div id="moreOptionsSection" class="full-span options-grid hidden-block">
+            <div><label>Delayed Departure Time <span class="small-italic">(GMT, optional)</span></label><div class="timegrid"><input id="revDepHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="revDepMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
+            <div><label>Final Sector Flight Time <span class="small-italic">(optional)</span></label><div class="timegrid"><input id="finalSectorHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="finalSectorMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
+            <div><label>Revised Landing Time <span class="small-italic">(optional)</span></label><div class="timegrid"><input id="revLandHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="revLandMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
+            <div><label for="flightCrewCompliment">Flight Crew Compliment</label><select id="flightCrewCompliment"></select></div>
+            <div><label>Commander’s Discretion Required</label><div class="tick-box"><input id="cmdrDiscRequired" type="checkbox" /><span class="small">Tick if discretion is required</span></div></div>
+            <div class="full-span">
+              <div class="delay-grid">
+                <div><label for="taxiOutMins">Taxi Out</label><div class="mins-only"><input id="taxiOutMins" inputmode="numeric" maxlength="3" value="25" placeholder="Mins" /></div></div>
+                <div><label for="holdingMins">Holding</label><div class="mins-only"><input id="holdingMins" inputmode="numeric" maxlength="3" value="10" placeholder="Mins" /></div></div>
+                <div><label for="taxiInMins">Taxi In</label><div class="mins-only"><input id="taxiInMins" inputmode="numeric" maxlength="3" value="10" placeholder="Mins" /></div></div>
+              </div>
             </div>
           </div>
         </div>
         <div class="actions"><button id="calcBtn" class="primary" type="button">Calculate</button><button id="clearBtn" class="danger" type="button">Clear Form</button></div>
+        <dialog id="standardChangeDialog" class="standard-change-dialog" aria-labelledby="standardChangeTitle" aria-describedby="standardChangeMessage">
+          <h3 id="standardChangeTitle">Confirm change to standard times</h3>
+          <p id="standardChangeMessage">Taxi out, holding and taxi in use standard industry figures. Change them only when absolutely necessary and agreed with LHR Ops. Do you agree to change this value?</p>
+          <div class="standard-change-actions"><button id="standardChangeCancel" type="button">Cancel</button><button id="standardChangeAgree" class="primary" type="button">Agree</button></div>
+        </dialog>
       </div>
 
       <div class="right-rail">
@@ -105,6 +114,16 @@
       feedbackSubject: "Feedback for Shorthaul FDP",
       activePage: "fdp"
   });
+
+  const fdpBackLink = document.querySelector(".page-actions .button-link");
+  const feedbackToolbar = document.querySelector(".fbp-hero .fbp-toolbar");
+  if (fdpBackLink && feedbackToolbar) {
+      const pageActions = fdpBackLink.parentElement;
+      fdpBackLink.classList.remove("button-link");
+      fdpBackLink.classList.add("fbp-button");
+      feedbackToolbar.appendChild(fdpBackLink);
+      pageActions.remove();
+  }
   </script>
 </body>
 </html>
