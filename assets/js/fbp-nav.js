@@ -21,7 +21,7 @@ Responsibilities
     // Navigation Items
     //-----------------------------------------------------
 
-const IS_FEATURE_PAGE = /\/(FDP|briefing|iCal|Crew Documents|Choks)(\/|$)/i.test(
+const IS_FEATURE_PAGE = /\/(FDP|briefing|iCal|Time Calculator)(\/|$)/i.test(
     decodeURIComponent(location.pathname)
 );
 
@@ -49,22 +49,20 @@ const NAV_ITEMS = [
 
     {
         id: "briefing",
-        text: "Briefing and AORs",
+        text: "Briefing & AORs",
         href: BASE + "briefing/index.html"
     },
 
     {
         id: "aors",
-        text: "AORs",
+        text: "BA AORs",
         href: BASE + "Service%20Documents/Briefing_Pack_Redirection.pdf",
-        inProgress: true
     },
 
     {
-        id: "choks",
+        id: "time-calculator",
         text: "Time Calculator",
-        href: BASE + "Choks/index.html",
-        inProgress: true
+        href: BASE + "Time%20Calculator/index.html"
     }
 
 ];

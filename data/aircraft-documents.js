@@ -1,14 +1,14 @@
 /*
     Flight Briefing Pack
-    Crew Documents Database
+    Aircraft Documents Database
 
     All paths are relative to:
-    Crew Documents/
+    Aircraft document folders
 
-    The search engine and aircraft pages both use this file.
+    This catalog is retained for future integration into Briefing & AORs.
 */
 
-const crewDocuments = [
+const aircraftDocuments = [
 
     // ==================================================
     // SINGLE AISLE

@@ -1,19 +1,19 @@
-.choks-content {
+.time-calculator-content {
   margin-top: 22px;
 }
 
-.choks-content h2 {
+.time-calculator-content h2 {
   margin: 0 0 18px;
   font-size: 1.2rem;
 }
 
-.choks-grid {
+.time-calculator-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
 }
 
-.choks-grid label {
+.time-calculator-grid label {
   display: block;
   margin-bottom: 8px;
   color: var(--text);
@@ -49,7 +49,7 @@
   outline-offset: 2px;
 }
 
-.choks-result {
+.time-calculator-result {
   margin-top: 22px;
   padding: 18px;
   border: 1px solid var(--border);
@@ -58,14 +58,14 @@
   text-align: center;
 }
 
-.choks-result h3 {
+.time-calculator-result h3 {
   margin: 0 0 6px;
   color: var(--muted);
   font-size: .92rem;
   font-weight: 700;
 }
 
-.choks-result output {
+.time-calculator-result output {
   color: var(--accent);
   font-size: clamp(2rem, 8vw, 3rem);
   font-weight: 800;
@@ -73,7 +73,7 @@
 }
 
 @media (max-width: 640px) {
-  .choks-grid {
+  .time-calculator-grid {
     grid-template-columns: 1fr;
   }
 }
