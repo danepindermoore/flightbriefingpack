@@ -22,6 +22,18 @@
 <script src="../data/aircraft-registrations.js"></script>
 
 <style>
+    .acclimatisation-options {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .acclimatisation-options .tick-box {
+      margin: 0;
+      white-space: nowrap;
+    }
+
     /* Keep native dropdown menus readable on the dark FDP theme. */
     select option,
     select optgroup {
@@ -44,7 +56,7 @@
         <div id="errorBox" class="error"></div>
         <div class="form-grid">
           <div><label for="flightDate">Date</label><input id="flightDate" type="date" /></div>
-          <div><label for="flightNumber">Flight Number</label><input id="flightNumber" maxlength="6" placeholder="BA1234" value="BA" /></div>
+          <div><label for="numSectors">Number of Sectors</label><select id="numSectors"></select></div>
 
           <div class="airport-row">
             <div><label for="from">Departure Airport</label><input id="from" maxlength="3" placeholder="LHR" /></div>
@@ -53,15 +65,13 @@
           </div>
 
           <div><label for="sccm">Senior Crew Member (SCCM)</label><input id="sccm" maxlength="80" value="Dane Jordan-Pinder" /></div>
-          <div><label for="asccm">Acting SCCM</label><input id="asccm" maxlength="80" /></div>
           <div><label for="aircraftType">Aircraft Type</label><select id="aircraftType"></select></div>
-          <div><label for="numSectors">Number of Sectors</label><select id="numSectors"></select></div>
 
           <div><label>Scheduled Departure Time <span class="small-italic">(Local)</span></label><div class="timegrid"><input id="depHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="depMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
-          <div><label for="acclimatisedAt">Acclimatised at</label><input id="acclimatisedAt" maxlength="3" value="LHR" /></div>
-          <div><label>Report Time <span class="small-italic">(Local)</span></label><div class="timegrid"><input id="reportHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="reportMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div><button id="moreOptionsToggle" class="option-toggle" type="button" aria-expanded="false" aria-controls="moreOptionsSection">More Options</button></div>
-          
+          <div><label>Report Time <span class="small-italic">(Local)</span></label><div class="timegrid"><input id="reportHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="reportMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
+          <div><label for="acclimatisedAt">Acclimatised at</label><div class="acclimatisation-options"><input id="acclimatisedAt" maxlength="3" value="LHR" /><label class="tick-box" for="unknownAcclimatisation"><input id="unknownAcclimatisation" type="checkbox" /><span>Unknown</span></label></div></div>
           <div><label id="arrivalTimeLabel">Scheduled Arrival Time <span class="small-italic">(GMT)</span></label><div class="timegrid"><input id="lastArrHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="lastArrMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
+          <div class="full-span"><button id="moreOptionsToggle" class="option-toggle" type="button" aria-expanded="false" aria-controls="moreOptionsSection">More Options</button></div>
           <div id="moreOptionsSection" class="full-span options-grid hidden-block">
             <div><label>Delayed Departure Time <span class="small-italic">(GMT, optional)</span></label><div class="timegrid"><input id="revDepHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="revDepMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
             <div><label>Final Sector Flight Time <span class="small-italic">(optional)</span></label><div class="timegrid"><input id="finalSectorHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="finalSectorMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
@@ -94,7 +104,7 @@
       </div>
     </div>
 
-    <div class="page-actions"><a class="button-link" href="/FDP/">Back to FDP Selection</a></div>
+    <div class="page-actions"><a class="button-link" href="../FDP/">Back to FDP Selection</a></div>
   </main>
 
  

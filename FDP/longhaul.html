@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="../assets/css/fbp-shared.css">
 
   <script src="../data/ba-destinations.js"></script>
+  <script src="../data/ba-longhaul-flights.js"></script>
   <script src="../data/ba-fdp-tables.js"></script>
   <script src="../data/ba-inflight-rest.js"></script>
   <script src="../data/aircraft.js"></script>
@@ -27,9 +28,22 @@
     .fdp-card h2{margin:0 0 14px;font-size:18px;font-weight:800;letter-spacing:-.02em;}
     .section-note{color:var(--fdp-muted);font-size:13px;margin:-6px 0 14px;line-height:1.55;white-space:pre-line;}
     .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}
+    .options-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding-top:4px;}
+    .option-toggle{min-height:38px;margin-top:8px;padding:8px 12px;font-size:13px;}
     .full-span{grid-column:1 / -1;}
     .hidden-block{display:none;}
     .airport-row{grid-column:1 / -1;display:grid;grid-template-columns:minmax(0,1fr) minmax(140px,.65fr) minmax(0,1fr);gap:14px;align-items:end;}
+    .airport-input-wrap{position:relative;}
+    .airport-input-wrap input{padding-right:48px;}
+    .airport-options-toggle{position:absolute;right:7px;top:50%;width:34px;min-height:34px;padding:0;transform:translateY(-50%);border-radius:10px;font-size:17px;}
+    .airport-options-toggle[hidden]{display:none;}
+    .airport-options-toggle:hover{transform:translateY(-50%);}
+    .airport-options-menu{position:absolute;z-index:20;top:calc(100% + 5px);left:0;right:0;max-height:220px;overflow-y:auto;padding:4px;border:1px solid #94a3b8;border-radius:12px;background-color:#fff !important;color:#0f172a !important;box-shadow:0 12px 28px rgba(15,23,42,.3);opacity:1;}
+    .airport-options-menu[hidden]{display:none;}
+    .fbp-theme .airport-options-menu .airport-option{display:flex;width:100%;min-height:40px;padding:9px 12px;border:0;border-radius:8px;background:transparent;color:#0f172a !important;-webkit-text-fill-color:#0f172a;box-shadow:none;text-align:left;justify-content:flex-start;font-size:15px;font-weight:700;}
+    .fbp-theme .airport-options-menu .airport-option:hover{background:#e2e8f0 !important;transform:none;box-shadow:none;}
+    .acclimatisation-options{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;}
+    .acclimatisation-options .tick-box{margin:0;white-space:nowrap;}
 
        label{display:block;font-size:13px;font-weight:700;margin-bottom:6px;color:var(--fdp-text);}
     input,select{width:100%;max-width:100%;min-width:0;border:1px solid var(--fdp-border);border-radius:16px;padding:13px 14px;font-size:16px;background:var(--fdp-input-bg);color:var(--fdp-text);transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease, background .18s ease, color .18s ease;box-shadow:0 1px 0 rgba(255,255,255,.04) inset;}
@@ -64,7 +78,7 @@
     .tick-box{display:flex;align-items:center;gap:12px;min-height:48px;padding:10px 14px;border:1px solid var(--fdp-border);border-radius:999px;background:var(--fdp-card-2);}
     .tick-box input{width:18px;height:18px;margin:0;accent-color:#0f172a;box-shadow:none;transform:none;}
     @media (max-width:980px){.fdp-grid{grid-template-columns:1fr;}}
-    @media (max-width:700px){.form-grid{grid-template-columns:1fr;}.airport-row{grid-template-columns:1fr;}.delay-grid{grid-template-columns:1fr;}.results-heading h2{font-size:24px;}}
+    @media (max-width:700px){.form-grid{grid-template-columns:1fr;}.options-grid{grid-template-columns:1fr;}.airport-row{grid-template-columns:1fr;}.delay-grid{grid-template-columns:1fr;}.results-heading h2{font-size:24px;}}
   </style>
 <style>
     /* Keep native dropdown menus readable on the dark FDP theme. */
@@ -104,9 +118,9 @@
           <div><label for="flightNumber">Flight Number</label><input id="flightNumber" maxlength="6" placeholder="BA1234" value="BA" /></div>
 
           <div class="airport-row">
-            <div><label for="from">Departure Airport</label><input id="from" maxlength="3" placeholder="LHR" /></div>
+            <div><label for="from">Departure Airport</label><div class="airport-input-wrap"><input id="from" maxlength="3" placeholder="LHR" /><button class="airport-options-toggle" type="button" data-airport-menu-toggle="departureAirportMenu" aria-label="Show departure airport options" aria-expanded="false" hidden>▾</button><div class="airport-options-menu" id="departureAirportMenu" role="listbox" hidden></div></div></div>
             <div><label for="lhrTerminal">Terminal</label><select id="lhrTerminal" disabled><option value="">—</option><option value="T5">T5</option><option value="T3">T3</option></select></div>
-            <div><label for="to">Destination Airport</label><input id="to" maxlength="3" placeholder="JFK" /></div>
+            <div><label for="to">Destination Airport</label><div class="airport-input-wrap"><input id="to" maxlength="3" placeholder="JFK" /><button class="airport-options-toggle" type="button" data-airport-menu-toggle="destinationAirportMenu" aria-label="Show destination airport options" aria-expanded="false" hidden>▾</button><div class="airport-options-menu" id="destinationAirportMenu" role="listbox" hidden></div></div></div>
           </div>
 
           <div><label for="sccm">Senior Crew Member (SCCM)</label><input id="sccm" maxlength="80" value="Dane Jordan-Pinder" /></div>
@@ -114,24 +128,27 @@
           <div><label for="aircraftType">Aircraft Type</label><select id="aircraftType"></select></div>
           <div><label for="numSectors">Number of Sectors</label><select id="numSectors"></select></div>
 
-          <div><label>Scheduled Departure Time <span class="small-italic">(GMT)</span></label><div class="timegrid"><input id="depHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="depMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
-          <div><label for="acclimatisedAt">Acclimatised at</label><input id="acclimatisedAt" maxlength="3" value="LHR" /></div>
+          <div><label>Scheduled Departure Time <span class="small-italic">(Local)</span></label><div class="timegrid"><input id="depHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="depMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
+          <div><label for="acclimatisedAt">Acclimatised at</label><div class="acclimatisation-options"><input id="acclimatisedAt" maxlength="3" value="LHR" /><label class="tick-box" for="unknownAcclimatisation"><input id="unknownAcclimatisation" type="checkbox" /><span>Unknown</span></label></div></div>
           <div><label>Report Time <span class="small-italic">(Local)</span></label><div class="timegrid"><input id="reportHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="reportMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
           <div><label for="restFacility">Rest Facility Available</label><select id="restFacility"><option value="1">Class 1 Rest (Bunks)</option><option value="2">Class 2 Rest (High Comfort Seat)</option><option value="3">Class 3 Rest (Passenger Seat)</option><option value="">No Rest Facility Available</option></select></div>
           <div><label>ABS Flight Time</label><div class="timegrid"><input id="absHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="absMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
           <div><label id="arrivalTimeLabel">Scheduled Arrival Time <span class="small-italic">(GMT)</span></label><div class="timegrid"><input id="lastArrHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="lastArrMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
-          <div><label>Delayed Departure Time <span class="small-italic">(GMT, optional)</span></label><div class="timegrid"><input id="revDepHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="revDepMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
-          <div><label>Actual Flight Time <span class="small-italic">(optional)</span></label><div class="timegrid"><input id="actualHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="actualMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
-          <div><label>Second Service Length <span class="small-italic">(optional)</span></label><div class="timegrid"><input id="secondServiceHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="secondServiceMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
-          <div><label>Revised Landing Time <span class="small-italic">(optional)</span></label><div class="timegrid"><input id="revLandHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="revLandMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
-          <div><label for="flightCrewCompliment">Flight Crew Compliment</label><select id="flightCrewCompliment"></select></div>
-          <div><label>Commander’s Discretion Required</label><div class="tick-box"><input id="cmdrDiscRequired" type="checkbox" /><span class="small">Tick if discretion is required</span></div></div>
+          <button id="moreOptionsToggle" class="option-toggle full-span" type="button" aria-expanded="false" aria-controls="moreOptionsSection">More Options</button>
+          <div id="moreOptionsSection" class="full-span options-grid hidden-block">
+            <div><label>Delayed Departure Time <span class="small-italic">(GMT, optional)</span></label><div class="timegrid"><input id="revDepHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="revDepMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
+            <div><label>Actual Flight Time <span class="small-italic">(optional)</span></label><div class="timegrid"><input id="actualHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="actualMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
+            <div><label>Second Service Length <span class="small-italic">(optional)</span></label><div class="timegrid"><input id="secondServiceHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="secondServiceMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
+            <div><label>Revised Landing Time <span class="small-italic">(optional)</span></label><div class="timegrid"><input id="revLandHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="revLandMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
+            <div><label for="flightCrewCompliment">Flight Crew Compliment</label><select id="flightCrewCompliment"></select></div>
+            <div><label>Commander’s Discretion Required</label><div class="tick-box"><input id="cmdrDiscRequired" type="checkbox" /><span class="small">Tick if discretion is required</span></div></div>
 
-          <div id="delaySection" class="full-span hidden-block">
-            <div class="delay-grid">
-              <div><label for="taxiOutMins">Taxi Out</label><div class="mins-only"><input id="taxiOutMins" inputmode="numeric" maxlength="3" value="25" placeholder="Mins" /></div></div>
-              <div><label for="holdingMins">Holding</label><div class="mins-only"><input id="holdingMins" inputmode="numeric" maxlength="3" value="10" placeholder="Mins" /></div></div>
-              <div><label for="taxiInMins">Taxi In</label><div class="mins-only"><input id="taxiInMins" inputmode="numeric" maxlength="3" value="10" placeholder="Mins" /></div></div>
+            <div id="delaySection" class="full-span hidden-block">
+              <div class="delay-grid">
+                <div><label for="taxiOutMins">Taxi Out</label><div class="mins-only"><input id="taxiOutMins" inputmode="numeric" maxlength="3" value="25" placeholder="Mins" /></div></div>
+                <div><label for="holdingMins">Holding</label><div class="mins-only"><input id="holdingMins" inputmode="numeric" maxlength="3" value="10" placeholder="Mins" /></div></div>
+                <div><label for="taxiInMins">Taxi In</label><div class="mins-only"><input id="taxiInMins" inputmode="numeric" maxlength="3" value="10" placeholder="Mins" /></div></div>
+              </div>
             </div>
           </div>
         </div>
@@ -171,6 +188,7 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       from: document.getElementById('from'),
       to: document.getElementById('to'),
       acclimatisedAt: document.getElementById('acclimatisedAt'),
+      unknownAcclimatisation: document.getElementById('unknownAcclimatisation'),
       lhrTerminal: document.getElementById('lhrTerminal'),
       aircraftType: document.getElementById('aircraftType'),
       restFacility: document.getElementById('restFacility'),
@@ -178,6 +196,8 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       depMinute: document.getElementById('depMinute'),
       reportHour: document.getElementById('reportHour'),
       reportMinute: document.getElementById('reportMinute'),
+      moreOptionsToggle: document.getElementById('moreOptionsToggle'),
+      moreOptionsSection: document.getElementById('moreOptionsSection'),
       lastArrHour: document.getElementById('lastArrHour'),
       lastArrMinute: document.getElementById('lastArrMinute'),
       arrivalTimeLabel: document.getElementById('arrivalTimeLabel'),
@@ -231,6 +251,85 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
     function hideError(){ ids.errorBox.style.display='none'; ids.errorBox.textContent=''; }
     function sanitiseAirportInput(el){ el.value=normalizeCode(el.value); el.classList.remove('invalid'); }
     function sanitiseFlightNumber(){ let raw=ids.flightNumber.value.toUpperCase().replace(/[^A-Z0-9]/g,''); raw=raw.replace(/^BA/,'').replace(/[A-Z]/g,'').slice(0,4); ids.flightNumber.value='BA'+raw; }
+    let lastAutoPopulatedRoute = null;
+    let currentAirportRoute = null;
+    function getRouteSectors(route){
+      const weekday=ids.flightDate.value ? new Date(`${ids.flightDate.value}T00:00:00Z`).getUTCDay() : null;
+      return (route.sectors || [{from:route.from,to:route.to}]).map(sector=>({
+        from:sector.from,
+        to:weekday==null ? sector.to : sector.toByWeekday?.[weekday] || sector.to
+      }));
+    }
+    function uniqueRouteAirports(codes){ return [...new Set(codes.filter(Boolean))]; }
+    function setAirportSuggestions(menuId, toggleSelector, inputId, airports){
+      const uniqueAirports=[...new Set(airports)];
+      const menu=document.getElementById(menuId);
+      const toggle=document.querySelector(toggleSelector);
+      menu.replaceChildren(...uniqueAirports.map(code=>{
+        const option=document.createElement('button');
+        option.type='button'; option.className='airport-option'; option.role='option'; option.textContent=code;
+        option.addEventListener('click',()=>{
+          const input=document.getElementById(inputId); input.value=code;
+          input.dispatchEvent(new Event('input',{bubbles:true})); menu.hidden=true;
+          toggle.setAttribute('aria-expanded','false');
+        });
+        return option;
+      }));
+      toggle.hidden=uniqueAirports.length<2; menu.hidden=true; toggle.setAttribute('aria-expanded','false');
+    }
+    function updateDestinationOptionsForDeparture(autofill=false){
+      if(!currentAirportRoute) return;
+      const departure=normalizeCode(ids.from.value);
+      const matchingSectors=getRouteSectors(currentAirportRoute).filter(sector=>sector.from===departure);
+      const destinations=uniqueRouteAirports(matchingSectors.flatMap(sector=>sector.toOptions || [sector.to]));
+      setAirportSuggestions('destinationAirportMenu','[data-airport-menu-toggle="destinationAirportMenu"]','to',destinations);
+      if(autofill && destinations.length){
+        const currentDestination=normalizeCode(ids.to.value);
+        if(!destinations.includes(currentDestination)) ids.to.value=matchingSectors[0].to;
+      }
+    }
+    document.addEventListener('click',event=>{
+      const toggle=event.target.closest('[data-airport-menu-toggle]');
+      if(toggle){
+        const menu=document.getElementById(toggle.dataset.airportMenuToggle);
+        const opening=menu.hidden;
+        document.querySelectorAll('.airport-options-menu').forEach(other=>other.hidden=true);
+        document.querySelectorAll('[data-airport-menu-toggle]').forEach(other=>other.setAttribute('aria-expanded','false'));
+        menu.hidden=!opening; toggle.setAttribute('aria-expanded',String(opening)); return;
+      }
+      if(!event.target.closest('.airport-input-wrap')){
+        document.querySelectorAll('.airport-options-menu').forEach(menu=>menu.hidden=true);
+        document.querySelectorAll('[data-airport-menu-toggle]').forEach(button=>button.setAttribute('aria-expanded','false'));
+      }
+    });
+    function updateRouteFromFlightNumber(){
+      const digits=ids.flightNumber.value.replace(/\D/g,'');
+      const flightKey=digits ? `BA${Number(digits)}` : '';
+      const route=globalThis.baLonghaulFlightRoutes?.[flightKey];
+      if(route){
+        currentAirportRoute=route;
+        const sectors=getRouteSectors(route);
+        const departures=uniqueRouteAirports([...sectors.map(sector=>sector.from),...(route.fromOptions || [])]);
+        const initialDeparture=route.from || departures[0];
+        const initialSector=sectors.find(sector=>sector.from===initialDeparture) || sectors[0];
+        setAirportSuggestions('departureAirportMenu','[data-airport-menu-toggle="departureAirportMenu"]','from',departures);
+        ids.from.value=initialDeparture;
+        ids.to.value=initialSector?.to || route.to || '';
+        updateDestinationOptionsForDeparture(false);
+        lastAutoPopulatedRoute={from:ids.from.value,to:ids.to.value};
+        ids.from.classList.remove('invalid'); ids.to.classList.remove('invalid');
+        updateLhrTerminalState(); prepopulateReportTime();
+        return;
+      }
+      currentAirportRoute=null;
+      setAirportSuggestions('departureAirportMenu','[data-airport-menu-toggle="departureAirportMenu"]','from',[]);
+      setAirportSuggestions('destinationAirportMenu','[data-airport-menu-toggle="destinationAirportMenu"]','to',[]);
+      if(lastAutoPopulatedRoute && ids.from.value===lastAutoPopulatedRoute.from && ids.to.value===lastAutoPopulatedRoute.to){
+        ids.from.value=''; ids.to.value='';
+        updateLhrTerminalState(); prepopulateReportTime();
+      }
+      lastAutoPopulatedRoute=null;
+    }
 
     function wireTimeAutoAdvance(){
       const pairs=[['depHour','depMinute'],['reportHour','reportMinute'],['lastArrHour','lastArrMinute'],['absHour','absMinute'],['actualHour','actualMinute'],['revDepHour','revDepMinute'],['revLandHour','revLandMinute'],['secondServiceHour','secondServiceMinute']];
@@ -321,10 +420,10 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       hideError();
       const depCode=normalizeCode(ids.from.value);
       const depAirport=airportByCode[depCode];
-      const depZ=parsePart(ids.depHour.value, ids.depMinute.value, true);
-      if(depZ==null || depZ===undefined || !depAirport || !ids.flightDate.value) return;
+      const depLocal=parsePart(ids.depHour.value, ids.depMinute.value, true);
+      if(depLocal==null || depLocal===undefined || !depAirport || !ids.flightDate.value) return;
       const minsBefore=getBaseOrAwayReportMinutes(depCode, ids.lhrTerminal.value);
-      const depUtcMs=utcDateFromZClock(ids.flightDate.value, depZ).getTime();
+      const depUtcMs=zonedDateFromLocal(ids.flightDate.value, depLocal, depAirport.timeZone).getTime();
       const reportUtcMs=addMinutes(depUtcMs, -minsBefore);
       const reportLocal=utcMsToLocalHHMM(reportUtcMs, depAirport.timeZone);
       const [hh,mm]=reportLocal.split(':');
@@ -401,30 +500,31 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       const flightDate=ids.flightDate.value;
       if(!flightDate){ markInvalid(ids.flightDate); showError('Please complete Date.'); return; }
 
-      const from=normalizeCode(ids.from.value), to=normalizeCode(ids.to.value), acclimatisedAt=normalizeCode(ids.acclimatisedAt.value);
+      const unknownAcclimatisation=ids.unknownAcclimatisation.checked;
+      const from=normalizeCode(ids.from.value), to=normalizeCode(ids.to.value), acclimatisedAt=unknownAcclimatisation ? '' : normalizeCode(ids.acclimatisedAt.value);
       ids.from.value=from; ids.to.value=to; ids.acclimatisedAt.value=acclimatisedAt;
 
-      if(from.length!==3 || to.length!==3 || acclimatisedAt.length!==3){
+      if(from.length!==3 || to.length!==3 || (!unknownAcclimatisation && acclimatisedAt.length!==3)){
         showError('Please enter valid 3-letter airport codes.');
         if(from.length!==3) markInvalid(ids.from);
         if(to.length!==3) markInvalid(ids.to);
-        if(acclimatisedAt.length!==3) markInvalid(ids.acclimatisedAt);
+        if(!unknownAcclimatisation && acclimatisedAt.length!==3) markInvalid(ids.acclimatisedAt);
         return;
       }
 
       const depAirport=airportByCode[from], arrAirport=airportByCode[to], acclAirport=airportByCode[acclimatisedAt];
       if(!depAirport){ showError('Unknown departure airport time zone. Add this airport to ba-destinations.js first.'); markInvalid(ids.from); return; }
       if(!arrAirport){ showError('Unknown destination airport time zone. Add this airport to ba-destinations.js first.'); markInvalid(ids.to); return; }
-      if(!acclAirport && acclimatisedAt!=='LHR'){ showError('Unknown acclimatised airport time zone. Add this airport to ba-destinations.js first.'); markInvalid(ids.acclimatisedAt); return; }
+      if(!unknownAcclimatisation && !acclAirport && acclimatisedAt!=='LHR'){ showError('Unknown acclimatised airport time zone. Add this airport to ba-destinations.js first.'); markInvalid(ids.acclimatisedAt); return; }
 
       if(normalizeCode(ids.from.value)==='LHR' && !ids.lhrTerminal.value){ markInvalid(ids.lhrTerminal); showError('Please select LHR Terminal.'); return; }
       if(!ids.sccm.value.trim()){ markInvalid(ids.sccm); showError('Please complete Senior Crew Member (SCCM).'); return; }
-      if(!ids.asccm.value.trim()){ markInvalid(ids.asccm); showError('Please complete Acting SCCM.'); return; }
+      if(!ids.asccm.value.trim() && !window.confirm("Acting SCCM input has not been completed.  This will mean a result is returned without Acting SCCM details. Select 'Ok' if you wish to continue or 'Cancel' to go back and input these details.")) return;
 
       const lhWarning=maybeWarnIfNotLonghaul(from,to);
       if(lhWarning){ showError(lhWarning); return; }
 
-      const depRes=validateRequiredTimePair(ids.depHour, ids.depMinute, 'Scheduled Departure Time (GMT)');
+      const depRes=validateRequiredTimePair(ids.depHour, ids.depMinute, 'Scheduled Departure Time (Local)');
       if(!depRes.ok){ showError(depRes.message); return; }
       const reportRes=validateRequiredTimePair(ids.reportHour, ids.reportMinute, 'Report Time');
       if(!reportRes.ok){ showError(reportRes.message); return; }
@@ -452,7 +552,7 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       const crewCompliment=Number(ids.flightCrewCompliment.value || '2');
       const cmdrDiscRequired=ids.cmdrDiscRequired.checked;
 
-      const depUtcMs=utcDateFromZClock(flightDate, depRes.value).getTime();
+      const depUtcMs=zonedDateFromLocal(flightDate, depRes.value, depAirport.timeZone).getTime();
       const reportUtcMs=zonedDateFromLocal(flightDate, reportRes.value, depAirport.timeZone).getTime();
 
       let plannedArrivalUtcMs=utcDateFromZClockRolling(flightDate, lastArrRes.value, depUtcMs).getTime();
@@ -472,8 +572,8 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       const actualFdp=Math.round((activeDepartureUtcMs - reportUtcMs)/60000) + activeFlightTime;
       const actualDutyPeriod=actualFdp + getClearTimeMinutes(to);
 
-      const acclRefHHMM=getReferenceReportHHMM(reportUtcMs, acclimatisedAt);
-      const maxFDP=getTable2MaxFdp(acclRefHHMM, sectors);
+      const acclRefHHMM=unknownAcclimatisation ? null : getReferenceReportHHMM(reportUtcMs, acclimatisedAt);
+      const maxFDP=unknownAcclimatisation ? fdpApi.getTable3MaxFdp(sectors)?.minutes ?? null : getTable2MaxFdp(acclRefHHMM, sectors);
       if(maxFDP==null){ showError('Unable to calculate Max FDP from ba-fdp-tables.js.'); return; }
 
       let inflightRestRequirement=routeRest ? routeRest.requiredRestMinutes : 0;
@@ -511,13 +611,15 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
 
       ids.resultsBox1.innerHTML=[
         infoRow('Report Time', fmtClockWithZ(reportUtcMs)),
+        infoRow('Critical Path RTG - Cabin Door Closed', fmtClockWithZ(depUtcMs - 5 * 60000)),
         infoRow('Rostered Flight Duty Period', fmtDuration(rosteredFdp)),
         infoRow('Rostered Duty Period', fmtDuration(rosteredDuty)),
         infoRow('Estimated Time of Arrival (Destination Local)', etaDestLocal),
         infoRow('Estimated Time of Arrival (GMT)', etaUtcText)
       ].join('');
 
-      const box2Rows=[infoRow('Max Flight Duty Period (Max FDP)', fmtDuration(maxFDP), `Reference time used: ${acclRefHHMM}${acclimatisedAt==='LHR' ? 'z' : ` @ ${acclimatisedAt}`}`)];
+      const maxFdpReference=unknownAcclimatisation ? 'Unknown acclimatisation (Table 3)' : `Reference time used: ${acclRefHHMM}${acclimatisedAt==='LHR' ? 'z' : ` @ ${acclimatisedAt}`}`;
+      const box2Rows=[infoRow('Max Flight Duty Period (Max FDP)', fmtDuration(maxFDP), maxFdpReference)];
       if(inflightRestRequirement>0){
         box2Rows.push(infoRow('Inflight Rest Requirement', fmtDuration(inflightRestRequirement)));
         box2Rows.push(infoRow('New Max Flight Duty Period (FDP)', fmtDuration(newMaxFDPInclDisc), cmdrDiscRequired ? "Including Commander's Discretion" : ''));
@@ -544,24 +646,40 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
     }
 
     function clearForm(){
-      ids.flightDate.value=''; ids.flightNumber.value='BA'; ids.from.value=''; ids.to.value=''; ids.acclimatisedAt.value='LHR';
+      ids.flightDate.value=''; ids.flightNumber.value='BA'; ids.from.value=''; ids.to.value=''; ids.acclimatisedAt.value='LHR'; ids.unknownAcclimatisation.checked=false; ids.acclimatisedAt.disabled=false;
+      setAirportSuggestions('departureAirportMenu','[data-airport-menu-toggle="departureAirportMenu"]','from',[]);
+      setAirportSuggestions('destinationAirportMenu','[data-airport-menu-toggle="destinationAirportMenu"]','to',[]); lastAutoPopulatedRoute=null;
       ids.depHour.value=''; ids.depMinute.value=''; ids.reportHour.value=''; ids.reportMinute.value=''; ids.lastArrHour.value=''; ids.lastArrMinute.value='';
       ids.absHour.value=''; ids.absMinute.value=''; ids.actualHour.value=''; ids.actualMinute.value=''; ids.revDepHour.value=''; ids.revDepMinute.value=''; ids.revLandHour.value=''; ids.revLandMinute.value=''; ids.secondServiceHour.value=''; ids.secondServiceMinute.value='';
       ids.sccm.value='Dane Jordan-Pinder'; ids.asccm.value=''; ids.numSectors.value='1'; ids.flightCrewCompliment.value='2'; ids.cmdrDiscRequired.checked=false;
       ids.taxiOutMins.value='25'; ids.holdingMins.value='10'; ids.taxiInMins.value='10'; ids.lhrTerminal.value='';
-      setTodayDate(); updateLhrTerminalState(); updateDelayVisibility(); updateArrivalLabel(); prepopulateRestFacility(); hideError();
+      setTodayDate(); updateLhrTerminalState(); updateDelayVisibility(); updateArrivalLabel(); prepopulateRestFacility();
+      ids.moreOptionsSection.classList.add('hidden-block'); ids.moreOptionsToggle.setAttribute('aria-expanded','false'); ids.moreOptionsToggle.textContent='More Options'; hideError();
       ids.resultsBox1.innerHTML=''; ids.resultsBox2.innerHTML=''; ids.resultsBox3.innerHTML=''; ids.routeRef.textContent='—'; ids.notesList.innerHTML='';
     }
 
-    ids.from.addEventListener('input',()=>{ sanitiseAirportInput(ids.from); updateLhrTerminalState(); prepopulateReportTime(); });
+    ids.from.addEventListener('input',()=>{ sanitiseAirportInput(ids.from); updateDestinationOptionsForDeparture(true); updateLhrTerminalState(); prepopulateReportTime(); });
     ids.to.addEventListener('input',()=>sanitiseAirportInput(ids.to));
     ids.acclimatisedAt.addEventListener('input',()=>sanitiseAirportInput(ids.acclimatisedAt));
+    ids.unknownAcclimatisation.addEventListener('change',()=>{
+      ids.acclimatisedAt.disabled=ids.unknownAcclimatisation.checked;
+      ids.acclimatisedAt.value=ids.unknownAcclimatisation.checked ? '' : 'LHR';
+      ids.acclimatisedAt.classList.remove('invalid');
+    });
     ids.flightNumber.addEventListener('input',sanitiseFlightNumber);
+    ids.flightNumber.addEventListener('input',updateRouteFromFlightNumber);
+    ids.flightDate.addEventListener('input',updateRouteFromFlightNumber);
     ids.aircraftType.addEventListener('change',()=>{ prepopulateRestFacility(); prepopulateReportTime(); });
     ids.lhrTerminal.addEventListener('change',prepopulateReportTime);
     ids.depHour.addEventListener('input',prepopulateReportTime);
     ids.depMinute.addEventListener('input',prepopulateReportTime);
     ids.numSectors.addEventListener('change',updateArrivalLabel);
+    ids.moreOptionsToggle.addEventListener('click',()=>{
+      const expanded=ids.moreOptionsToggle.getAttribute('aria-expanded')!=='true';
+      ids.moreOptionsToggle.setAttribute('aria-expanded',String(expanded));
+      ids.moreOptionsSection.classList.toggle('hidden-block',!expanded);
+      ids.moreOptionsToggle.textContent=expanded?'Fewer Options':'More Options';
+    });
     ids.revDepHour.addEventListener('input',updateDelayVisibility);
     ids.revDepMinute.addEventListener('input',updateDelayVisibility);
     ids.calcBtn.addEventListener('click',calculate);
