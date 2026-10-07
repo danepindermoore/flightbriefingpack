@@ -72,7 +72,8 @@
     .summary-list{margin:0!important;padding-left:19px}
     .summary-list li{margin:0 0 2px}
     #registrationNotes:empty{display:none}
-    .registration-notes-grid:not(.has-registration-notes)>.small-card:first-child{grid-column:1/-1}
+    #registrationNotes:not(:empty){margin-bottom:12px}
+    .summary-sep-equipment{grid-column:1/-1}
     .summary-registration-error{margin-top:8px;color:var(--muted)}
     .aircraft-menu-back{margin-bottom:10px;min-height:40px;padding:8px 12px;border-radius:12px;border:1px solid var(--line-2);background:var(--panel-2);color:var(--text);font:inherit;font-weight:700;cursor:pointer}
     .aircraft-menu-back[hidden]{display:none}
@@ -372,7 +373,6 @@ function updateRegistrationNotes(meta){
   const notesContainer=document.getElementById("registrationNotes");
   if(!notesContainer)return;
   const value=registrationInput.value.trim();
-  notesContainer.parentElement.classList.toggle("has-registration-notes",Boolean(value));
   if(!value){notesContainer.innerHTML="";return}
   const record=globalThis.getAircraftByRegistration?.(value);
   let content;
@@ -412,7 +412,7 @@ function renderAircraft(meta,data){
   const restCodes=meta.restTypes?.length?meta.restTypes:[meta.flightCrewRest,meta.cabinCrewRest].filter(Boolean);
   const restAreas=restCodes.map(code=>REST_AREA_NAMES[code]||expandAcronym(code));
   const equipmentItems=(meta.emergencyEquipmentSummary||[]).map(item=>`${item.code}: ${item.location}`);
-  aircraftMetaContent.innerHTML=`<div class="grid-2"><div class="small-card"><strong>Aircraft</strong><span>${esc(meta.manufacturer)} - ${esc(meta.fullName)}<br>${esc(meta.configName)}</span></div><div class="small-card"><strong>Cabins</strong>${summaryList(cabinItems,"Cabin details not listed")}</div><div class="small-card"><strong>Cabin Breakdown</strong>${summaryList(seatItems,"Seat breakdown not listed")}</div><div class="small-card"><strong>Required Crew Seats</strong><span>${esc((crew.requiredSeats||[]).join(", ")||"—")}</span></div><div class="small-card"><strong>Spare Seat</strong>${summaryList(spareSeats)}</div><div class="small-card"><strong>Crew Rest</strong>${summaryList(restAreas,"No crew rest areas listed")}</div></div><div class="section"><div class="grid-2 registration-notes-grid"><div class="small-card"><strong>SEP Equipment Summary</strong>${summaryList(equipmentItems,"None listed")}</div><div id="registrationNotes"></div></div></div>`;
+  aircraftMetaContent.innerHTML=`<div id="registrationNotes"></div><div class="grid-2"><div class="small-card"><strong>Aircraft</strong><span>${esc(meta.manufacturer)} - ${esc(meta.fullName)}<br>${esc(meta.configName)}</span></div><div class="small-card"><strong>Cabins</strong>${summaryList(cabinItems,"Cabin details not listed")}</div><div class="small-card"><strong>Cabin Breakdown</strong>${summaryList(seatItems,"Seat breakdown not listed")}</div><div class="small-card"><strong>Required Crew Seats</strong><span>${esc((crew.requiredSeats||[]).join(", ")||"—")}</span></div><div class="small-card"><strong>Spare Seat</strong>${summaryList(spareSeats)}</div><div class="small-card"><strong>Crew Rest</strong>${summaryList(restAreas,"No crew rest areas listed")}</div><div class="small-card summary-sep-equipment"><strong>SEP Equipment Summary</strong>${summaryList(equipmentItems,"None listed")}</div></div>`;
   updateRegistrationNotes(meta);
   if(data.diagram?.image)renderConfiguredDiagram(data);
   else renderGeneric(meta,data);
