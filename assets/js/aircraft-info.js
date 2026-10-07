@@ -13,13 +13,11 @@
   const labelOverrides = {
     registration: "Registration",
     baseSection: "Fleet Section",
-    aircraftVariant: "Aircraft Variant",
     flightDeck: "Flight Deck Code",
     airfile: "Airfile Code",
     mtow: "Maximum Take-Off Weight (kg)",
     seatCount: "Total Passenger Seats",
-    wifiEnabled: "Wi-Fi",
-    starlinkEnabled: "Starlink",
+    wifiType: "Wi-Fi Type",
     newShorthaulSeat: "New Shorthaul Seat",
     xlOverheadBins: "XL Overhead Bins",
     sourceNotes: "Source Notes",
@@ -38,7 +36,8 @@
     restTypes: "Rest Facility Types",
     flightCrewRest: "Flight Crew Rest Facility",
     cabinCrewRest: "Cabin Crew Rest Facility",
-    product: "Product",
+    firstProduct: "First Product",
+    clubWorldProduct: "Club World Product",
     catering: "Catering"
   };
 
@@ -82,7 +81,7 @@
         .map(([cabin, label]) => `${label}: ${value[cabin]}`)
         .join(" · ");
     }
-    if (key === "product" && haul === "longhaul") {
+    if (["product", "firstProduct", "clubWorldProduct"].includes(key) && haul === "longhaul") {
       return String(value).split("/").map(part => productNames[part.trim()] || part.trim()).join(" / ");
     }
     if (Array.isArray(value)) return value.length ? value.join(", ") : "None listed";
@@ -102,7 +101,7 @@
     const hidden = new Set(hiddenKeys);
     const entries = Object.entries(record || {}).filter(([key, value]) =>
       !hidden.has(key) && value !== null && value !== undefined && value !== "" &&
-      !(key === "product" && haul !== "longhaul") &&
+      !(["product", "firstProduct", "clubWorldProduct"].includes(key) && haul !== "longhaul") &&
       !(key === "seatBreakdown" && haul === "shorthaul")
     );
 
@@ -141,14 +140,13 @@
     }
 
     const type = aircraftTypes[record.airfile] || {};
-    title.textContent = `${record.registration} — ${type.fullName || record.aircraftVariant || "Aircraft"}`;
+    title.textContent = `${record.registration} — ${type.fullName || "Aircraft"}`;
     source.textContent = globalThis.AIRCRAFT_REGISTRATION_SOURCE?.asOf
       ? `Fleet registration data current as of ${globalThis.AIRCRAFT_REGISTRATION_SOURCE.asOf}.`
       : "Fleet registration data.";
 
-    const shorthaulFields = record.haul === "shorthaul" ? ["flightCrewBunks", "cabinCrewBunks"] : [];
-    renderDetails(registrationDetails, record, shorthaulFields, record.haul);
-    renderDetails(typeDetails, type, ["dataFile", "dataPath", "briefingTitle", "selectorLabel", "selectorSubLabel", "flightCrewRest", "cabinCrewRest", "notes"], record.haul);
+    renderDetails(registrationDetails, record, ["haul", "airfile", "flightCrewBunks", "cabinCrewBunks"], record.haul);
+    renderDetails(typeDetails, type, ["dataFile", "dataPath", "briefingTitle", "selectorLabel", "selectorSubLabel", "flightCrewRest", "cabinCrewRest", "includesRestFacilities", "restTypes", "crew", "emergencyEquipmentSummary", "firstProduct", "clubWorldProduct", "notes"], record.haul);
     results.hidden = false;
     showMessage("");
   }

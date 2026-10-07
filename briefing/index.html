@@ -229,9 +229,9 @@ const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim
 const clearDiagram=()=>{aircraftSvg.innerHTML="";aircraftSvg.setAttribute("viewBox","0 0 420 980");aircraftSvg.parentElement.classList.remove("image-diagram");aircraftSvg.parentElement.style.aspectRatio="";seatLayer.innerHTML="";aorCaption.textContent=""};
 const AIRCRAFT_FAMILIES=[
   {label:"A350",direct:{label:"351",code:"351"}},
-  {label:"A380",options:[{label:"38A",code:"38A"},{label:"38T",code:"38T"}]},
+  {label:"A380",direct:{label:"38A",code:"38A"}},
   {label:"B777",options:["77S","77T","77M","77L","77H"].map(code=>({label:code,code}))},
-  {label:"B787",options:["788","78E","789","78N","781","78Z"].map(code=>({label:code,code}))},
+  {label:"B787",options:["78E","789","78N","781"].map(code=>({label:code,code}))},
   {label:"Shorthaul Airbus",options:[
     {label:"319",code:"319"},
     {label:"31C",code:"31C"},
@@ -297,7 +297,7 @@ function returnToBriefingStart(){
   window.scrollTo({top:0,behavior:"smooth"});
 }
 function updateButtons(){[...aircraftButtonGrid.children].forEach(btn=>btn.classList.toggle("active",btn.dataset.aircraftCode===STATE.activeCode&&btn.dataset.aircraftLabel===STATE.activeSelectorLabel))}
-function setLoading(meta){document.querySelector(".briefing-shell").classList.add("has-aircraft");document.querySelector(".hero-copy").hidden=false;document.querySelector(".layout").hidden=false;positionPanel.hidden=true;registrationLookup.hidden=false;registrationInput.value="";pageTitle.textContent="Briefing & AORs";selectorSummary.textContent=`${meta.selectorLabel} · ${meta.fullName} · ${meta.configName}`;aircraftHeaderTitle.textContent=`${meta.selectorLabel} · ${meta.fullName}`;aircraftHeaderSub.textContent="Loading aircraft data...";summaryStats.innerHTML=`<div class="meta-stat"><strong>—</strong><span>Legal Minimum Crew</span></div><div class="meta-stat"><strong>—</strong><span>Standard Crew Compliment</span></div>`;aircraftMetaContent.innerHTML=`<div class="loading"><span class="dot"></span>Loading aircraft summary...</div>`;positionContent.innerHTML=`<div class="loading"><span class="dot"></span>Loading aircraft briefing...</div>`;clearDiagram()}
+function setLoading(meta){document.querySelector(".briefing-shell").classList.add("has-aircraft");document.querySelector(".hero-copy").hidden=false;document.querySelector(".layout").hidden=false;positionPanel.hidden=true;registrationLookup.hidden=false;registrationInput.value="";const exampleRegistration=Object.values(globalThis.AIRCRAFT_REGISTRATIONS||{}).find(record=>record.airfile===meta.code)?.registration;registrationInput.placeholder=exampleRegistration?`i.e. ${exampleRegistration}`:"Enter aircraft registration";pageTitle.textContent="Briefing & AORs";selectorSummary.textContent=`${meta.selectorLabel} · ${meta.fullName} · ${meta.configName}`;aircraftHeaderTitle.textContent=`${meta.selectorLabel} · ${meta.fullName}`;aircraftHeaderSub.textContent="Loading aircraft data...";summaryStats.innerHTML=`<div class="meta-stat"><strong>—</strong><span>Legal Minimum Crew</span></div><div class="meta-stat"><strong>—</strong><span>Standard Crew Compliment</span></div>`;aircraftMetaContent.innerHTML=`<div class="loading"><span class="dot"></span>Loading aircraft summary...</div>`;positionContent.innerHTML=`<div class="loading"><span class="dot"></span>Loading aircraft briefing...</div>`;clearDiagram()}
 
 async function loadDataset(code){const key=`AOR_${code}`;
 if(globalThis[key])return globalThis[key];
@@ -310,7 +310,7 @@ return globalThis[key]
 
 function syncUrl(code){const url=new URL(window.location.href);url.searchParams.set("code",code);window.history.replaceState({},"",url.toString())}
 function renderMissing(meta,err){pageTitle.textContent="Briefing & AORs";positionPanel.hidden=false;aircraftHeaderTitle.textContent=`${meta.selectorLabel} · ${meta.fullName}`;aircraftHeaderSub.textContent=`${meta.selectorSubLabel}${meta.includesRestFacilities?` · ${restSummary(meta)}`:meta.includesRestFacilities===false?" · No crew rest facilities":""}`;positionContent.innerHTML=`<div class="error-box"><strong>Aircraft data file not available yet.</strong><br>${esc(err.message)}</div>`;aircraftMetaContent.innerHTML=`<div class="grid-2"><div class="small-card"><strong>Aircraft</strong><span>${esc(meta.fullName)}<br>${esc(meta.configName)} · ${esc(meta.manufacturer)}</span></div><div class="small-card"><strong>Cabins</strong><span>${esc((meta.classes||[]).map(expandAcronym).join(" · ")||"Details pending")}</span></div><div class="small-card"><strong>Crew rest</strong><span>${meta.includesRestFacilities?esc(restSummary(meta)):meta.includesRestFacilities===false?"No crew rest facilities":"Details pending"}</span></div><div class="small-card"><strong>Expected file</strong><span>${esc(meta.dataPath||`${BASE_DATA_PATH}/aircraft/${meta.code}.js`)}</span></div></div>`}
-function renderGeneric(meta){clearDiagram();const body="M138 18 Q102 56 96 122 L82 824 Q80 902 120 952 Q155 968 210 968 Q265 968 300 952 Q340 902 338 824 L324 122 Q318 56 282 18 Z";const defs=svgEl("defs"),clip=svgEl("clipPath",{id:"genericClip"});clip.appendChild(svgEl("path",{d:body}));defs.appendChild(clip);aircraftSvg.appendChild(defs);aircraftSvg.appendChild(svgEl("path",{d:body,fill:"#eef3fb",stroke:"rgba(58,74,102,.9)","stroke-width":"4"}));const g=svgEl("g",{"clip-path":"url(#genericClip)"});let y=110;(meta.classes||[]).forEach((code,i,arr)=>{const h=code==="F"?80:(i===arr.length-1?310:180);g.appendChild(svgEl("rect",{x:102,y,width:216,height:h,rx:"18",fill:ZONE_STYLES[code]?.color||"#777",opacity:"0.34"}));y+=h+16});aircraftSvg.appendChild(g);aorCaption.textContent="Enhanced aircraft-style diagram and AOR overlays are currently enabled for 351."}
+function renderGeneric(meta,data){clearDiagram();const width=420,height=986,body="M138 18 Q102 56 96 122 L82 824 Q80 902 120 952 Q155 968 210 968 Q265 968 300 952 Q340 902 338 824 L324 122 Q318 56 282 18 Z";aircraftSvg.setAttribute("viewBox",`0 0 ${width} ${height}`);const defs=svgEl("defs"),clip=svgEl("clipPath",{id:"genericClip"});clip.appendChild(svgEl("path",{d:body}));defs.appendChild(clip);aircraftSvg.appendChild(defs);aircraftSvg.appendChild(svgEl("path",{d:body,fill:"#eef3fb",stroke:"rgba(58,74,102,.9)","stroke-width":"4"}));const g=svgEl("g",{"clip-path":"url(#genericClip)"});let y=110;(meta.classes||[]).forEach((code,i,arr)=>{const h=code==="F"?80:(i===arr.length-1?310:180);g.appendChild(svgEl("rect",{x:102,y,width:216,height:h,rx:"18",fill:ZONE_STYLES[code]?.color||"#777",opacity:"0.34"}));y+=h+16});aircraftSvg.appendChild(g);seatLayer.innerHTML="";const positions=data?.positions||[];positions.forEach((pos,index)=>{const column=index%2,row=Math.floor(index/2),rows=Math.ceil(positions.length/2),button=document.createElement("button");button.className="seat-btn";button.type="button";button.textContent=String(pos.number);button.dataset.position=String(pos.number);button.setAttribute("aria-label",`Show position ${pos.number} briefing`);button.setAttribute("aria-pressed","false");button.style.left=`${(column===0?31:59)}%`;button.style.top=`${(10+row/Math.max(rows,1)*77)}%`;button.addEventListener("click",()=>{if(STATE.activePosition?.number===pos.number)showAllPositionsList();else setActivePosition(pos.number)});seatLayer.appendChild(button)});aorCaption.textContent="Schematic aircraft layout. Select a numbered crew position to view its available briefing details."}
 function renderConfiguredDiagram(data){
   const diagram=data.diagram;
   const {width,height}=diagram.viewBox;
@@ -365,7 +365,7 @@ function renderConfiguredDiagram(data){
 }
 function setDemoMarker(pos){aircraftSvg.querySelectorAll("[data-demo-position]").forEach(el=>el.setAttribute("opacity","0"));if(!STATE.activeData?.diagram?.demoPoints||!pos?.demo?.position)return;const marker=aircraftSvg.querySelector(`[data-demo-position="${pos.number}"]`);if(marker)marker.setAttribute("opacity","1")}
 function setAorOverlay(pos){aorCaption.textContent="";aircraftSvg.querySelectorAll("[data-aor-id]").forEach(el=>el.setAttribute("opacity","0"));if(!STATE.activeData?.diagram?.aorAreaIds||!pos?.aor?.hasAor||!pos.aor.area)return;const ids=STATE.activeData.diagram.aorAreaIds[pos.aor.area]||[];ids.forEach(id=>{const el=aircraftSvg.querySelector(`[data-aor-id="${id}"]`);if(el)el.setAttribute("opacity","1")});if(ids.length)aorCaption.textContent=`AOR highlighted: ${pos.aor.area}`}
-const CABIN_DISPLAY_ORDER=[{code:"F",name:"First",seatKey:"first"},{code:"CW",name:"Club World",seatKey:"clubWorld"},{code:"WTP",name:"World Traveller Plus",seatKey:"worldTravellerPlus"},{code:"WT",name:"World Traveller",seatKey:"worldTraveller"},{code:"CE",name:"Club Europe",seatKey:"clubEurope"},{code:"ET",name:"Euro Traveller",seatKey:"euroTraveller"}];
+const CABIN_DISPLAY_ORDER=[{code:"F",breakdownCode:"F",name:"First",seatKey:"first"},{code:"J",breakdownCode:"CW",name:"Club World",seatKey:"clubWorld"},{code:"W",breakdownCode:"WTP",name:"World Traveller Plus",seatKey:"worldTravellerPlus"},{code:"M",breakdownCode:"WT",name:"World Traveller",seatKey:"worldTraveller"},{code:"CE",breakdownCode:"CE",name:"Club Europe",seatKey:"clubEurope"},{code:"ET",breakdownCode:"ET",name:"Euro Traveller",seatKey:"euroTraveller"}];
 const REST_AREA_NAMES={OFCR:"Overhead Flight Crew Rest",OFAR:"Overhead Flight Attendant Rest",FCRC:"Flight Crew Rest Compartment",CCRC:"Cabin Crew Rest Compartment"};
 function summaryList(items,emptyText="None listed"){return items.length?`<ul class="summary-list">${items.map(item=>`<li>${esc(item)}</li>`).join("")}</ul>`:`<span>${esc(emptyText)}</span>`}
 function updateRegistrationNotes(meta){
@@ -377,15 +377,15 @@ function updateRegistrationNotes(meta){
   const record=globalThis.getAircraftByRegistration?.(value);
   let content;
   if(!record){content=`<div class="summary-registration-error">Registration not found in the fleet data.</div>`}
-  else if(record.airfile!==STATE.activeCode){content=`<div class="summary-registration-error">This registration belongs to ${esc(record.aircraftVariant||record.airfile)}, not the selected aircraft.</div>`}
+  else if(record.airfile!==STATE.activeCode){content=`<div class="summary-registration-error">This registration belongs to ${esc(record.aircraft?.fullName||record.airfile)}, not the selected aircraft.</div>`}
   else{
-    const noteItems=[
-      `Wi-Fi: ${record.wifiEnabled===true?"Available":record.wifiEnabled===false?"Not Available":"Not Listed"}`,
-      `Starlink: ${record.starlinkEnabled===true?"Enabled":record.starlinkEnabled===false?"Not Enabled":"Not Listed"}`
-    ];
+    const noteItems=[`Wi-Fi Type: ${record.wifiType||"Not Listed"}`];
     const specialLivery=record.livery&&String(record.livery).toLowerCase()!=="standard";
     noteItems.push(`Special Livery: ${specialLivery?record.livery:"None"}`);
-    noteItems.push(`Product: ${record.product||"Not Listed"}`);
+    if(meta.haul==="longhaul"){
+      noteItems.push(`First Product: ${record.firstProduct||"Not Listed"}`);
+      noteItems.push(`Club World Product: ${record.clubWorldProduct||"Not Listed"}`);
+    }
     if(meta.haul==="shorthaul"){
       noteItems.push(`Overhead Bins: ${record.xlOverheadBins===true?"XL":record.xlOverheadBins===false?"Standard":"Not Listed"}`);
       noteItems.push(`Shorthaul Seat: ${record.newShorthaulSeat===true?"New":record.newShorthaulSeat===false?"Standard":"Not Listed"}`);
@@ -401,20 +401,21 @@ function renderAircraft(meta,data){
   aircraftHeaderSub.textContent=data.diagram
     ?"Select a numbered crew position to view its briefing and AOR"
     :`${meta.selectorSubLabel}${meta.includesRestFacilities?` · ${restSummary(meta)}`:" · No crew rest facilities"}`;
-  summaryStats.innerHTML=`<div class="meta-stat"><strong>${esc(String(data?.crew?.legalMinimum??"—"))}</strong><span>Legal Minimum Crew</span></div><div class="meta-stat"><strong>${esc(String(data?.crew?.standardCrewCompliment??"—"))}</strong><span>Standard Crew Compliment</span></div>`;
+  const crew=data?.crew||meta.crew||{};
+  summaryStats.innerHTML=`<div class="meta-stat"><strong>${esc(String(crew.legalMinimum??"—"))}</strong><span>Legal Minimum Crew</span></div><div class="meta-stat"><strong>${esc(String(crew.standardCrewCompliment??"—"))}</strong><span>Standard Crew Compliment</span></div>`;
   const cabinCodes=new Set(meta.classes||[]);
   const cabinItems=CABIN_DISPLAY_ORDER.filter(cabin=>cabinCodes.has(cabin.code)).map(cabin=>cabin.name);
-  const seatBreakdown=data?.config||meta.seatBreakdown||{};
-  const totalSeatCount=data?.config?.totalSeats??meta.totalSeats;
-  const seatItems=[...(totalSeatCount!=null?[`Total Seats - ${totalSeatCount}`]:[]),...CABIN_DISPLAY_ORDER.filter(cabin=>cabinCodes.has(cabin.code)&&seatBreakdown[cabin.seatKey]!=null).map(cabin=>`${cabin.code} - ${seatBreakdown[cabin.seatKey]}`)];
-  const spareSeats=(data?.crew?.spareCrewSeats||[]).map(seat=>[seat.seat,seat.facing].filter(Boolean).join(" "));
+  const seatBreakdown=meta.seatBreakdown||{};
+  const totalSeatCount=meta.totalSeats;
+  const seatItems=[...(totalSeatCount!=null?[`Total Seats - ${totalSeatCount}`]:[]),...CABIN_DISPLAY_ORDER.filter(cabin=>cabinCodes.has(cabin.code)&&seatBreakdown[cabin.seatKey]!=null).map(cabin=>`${cabin.breakdownCode} - ${seatBreakdown[cabin.seatKey]}`)];
+  const spareSeats=(crew.spareCrewSeats||[]).map(seat=>[seat.seat,seat.descriptor,seat.facing].filter(Boolean).join(" "));
   const restCodes=meta.restTypes?.length?meta.restTypes:[meta.flightCrewRest,meta.cabinCrewRest].filter(Boolean);
   const restAreas=restCodes.map(code=>REST_AREA_NAMES[code]||expandAcronym(code));
-  const equipmentItems=(data?.importantInfo?.emergencyEquipmentSummary||[]).map(item=>`${item.code}: ${item.location}`);
-  aircraftMetaContent.innerHTML=`<div class="grid-2"><div class="small-card"><strong>Aircraft</strong><span>${esc(meta.manufacturer)} - ${esc(meta.fullName)}<br>${esc(meta.configName)}</span></div><div class="small-card"><strong>Cabins</strong>${summaryList(cabinItems,"Cabin details not listed")}</div><div class="small-card"><strong>Cabin Breakdown</strong>${summaryList(seatItems,"Seat breakdown not listed")}</div><div class="small-card"><strong>Required Crew Seats</strong><span>${esc((data?.crew?.requiredSeats||[]).join(", ")||"—")}</span></div><div class="small-card"><strong>Spare Seat</strong>${summaryList(spareSeats)}</div><div class="small-card"><strong>Crew Rest</strong>${summaryList(restAreas,"No crew rest areas listed")}</div></div><div class="section"><div class="grid-2 registration-notes-grid"><div class="small-card"><strong>SEP Equipment Summary</strong>${summaryList(equipmentItems,"None listed")}</div><div id="registrationNotes"></div></div></div>`;
+  const equipmentItems=(meta.emergencyEquipmentSummary||[]).map(item=>`${item.code}: ${item.location}`);
+  aircraftMetaContent.innerHTML=`<div class="grid-2"><div class="small-card"><strong>Aircraft</strong><span>${esc(meta.manufacturer)} - ${esc(meta.fullName)}<br>${esc(meta.configName)}</span></div><div class="small-card"><strong>Cabins</strong>${summaryList(cabinItems,"Cabin details not listed")}</div><div class="small-card"><strong>Cabin Breakdown</strong>${summaryList(seatItems,"Seat breakdown not listed")}</div><div class="small-card"><strong>Required Crew Seats</strong><span>${esc((crew.requiredSeats||[]).join(", ")||"—")}</span></div><div class="small-card"><strong>Spare Seat</strong>${summaryList(spareSeats)}</div><div class="small-card"><strong>Crew Rest</strong>${summaryList(restAreas,"No crew rest areas listed")}</div></div><div class="section"><div class="grid-2 registration-notes-grid"><div class="small-card"><strong>SEP Equipment Summary</strong>${summaryList(equipmentItems,"None listed")}</div><div id="registrationNotes"></div></div></div>`;
   updateRegistrationNotes(meta);
   if(data.diagram?.image)renderConfiguredDiagram(data);
-  else renderGeneric(meta);
+  else renderGeneric(meta,data);
   showAllPositionsList();
 }
 function formatBullets(text){if(!text||String(text).trim()==="")return `<p>None</p>`;const parts=String(text).split(",").map(s=>s.trim()).filter(Boolean);if(!parts.length)return `<p>None</p>`;return `<ul>${parts.map(item=>`<li>${esc(item)}</li>`).join("")}</ul>`}

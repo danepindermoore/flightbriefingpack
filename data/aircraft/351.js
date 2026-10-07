@@ -1,7 +1,5 @@
 globalThis.AOR_351 = {
   aircraftCode: "351",
-  aircraftName: "A350",
-  configName: "3 Class",
   diagram: {
     image: "../assets/aircraft/351.png",
     viewBox: { width: 380, height: 818 },
@@ -49,34 +47,7 @@ globalThis.AOR_351 = {
       8: { x: 252, y: 684, w: 114, h: 64 }, 12: { x: 252, y: 752, w: 114, h: 62 }
     }
   },
-  variantNotes: "FCRC and CCRC",
-  config: {
-    clubWorld: 56,
-    worldTravellerPlus: 56,
-    worldTraveller: 219,
-    totalSeats: 331
-  },
-  crew: {
-    legalMinimum: 8,
-    requiredSeats: [1, 2, 3, 4, 5, 6, 7, 8],
-    totalCrewSeats: 13,
-    standardCrewCompliment: 12,
-    spareCrewSeats: [
-      {
-        seat: "D1L",
-        facing: "FWD",
-        note: "Spare crew seat"
-      }
-    ]
-  },
   importantInfo: {
-    emergencyEquipmentSummary: [
-      { code: "AED", location: "D2R" },
-      { code: "M5", location: "D2R" },
-      { code: "RES", location: "D2R" },
-      { code: "FE", location: "All RHD + D4L" },
-      { code: "WEX", location: "D2R + D3R" }
-    ],
     notes: [
       "WTP Pre-Take Off Service is delivered by the the No. 4 and No. 11.",
       "If No. 3 is GCC position, IFR to be allocated to No. 11."
