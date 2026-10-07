@@ -21,7 +21,7 @@ Responsibilities
     // Navigation Items
     //-----------------------------------------------------
 
-const IS_FEATURE_PAGE = /\/(FDP|briefing|iCal|Time Calculator)(\/|$)/i.test(
+const IS_FEATURE_PAGE = /\/(FDP|briefing|iCal|Time Calculator|Aircraft Info)(\/|$)/i.test(
     decodeURIComponent(location.pathname)
 );
 
@@ -63,6 +63,12 @@ const NAV_ITEMS = [
         id: "time-calculator",
         text: "Time Calculator",
         href: BASE + "Time%20Calculator/index.html"
+    },
+
+    {
+        id: "aircraft-info",
+        text: "Aircraft Info",
+        href: BASE + "Aircraft%20Info/index.html"
     }
 
 ];

@@ -22,6 +22,38 @@
 <script src="../data/aircraft-registrations.js"></script>
 
 <style>
+    .aircraft-inputs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .email-results-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: end;
+    }
+
+    .standby-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .standby-results-section {
+      display: grid;
+      gap: 16px;
+    }
+
+    .standby-results-section[hidden] {
+      display: none;
+    }
+
+    .email-results-row[hidden] {
+      display: none;
+    }
+
     .acclimatisation-options {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
@@ -65,7 +97,7 @@
           </div>
 
           <div><label for="sccm">Senior Crew Member (SCCM)</label><input id="sccm" maxlength="80" value="Dane Jordan-Pinder" /></div>
-          <div><label for="aircraftType">Aircraft Type</label><select id="aircraftType"></select></div>
+          <div class="aircraft-inputs"><div><label for="aircraftReg">Aircraft Reg <span class="small-italic">(Optional)</span></label><input id="aircraftReg" maxlength="5" placeholder="NEOP" autocomplete="off" /></div><div><label for="aircraftType">Aircraft Type</label><select id="aircraftType"></select></div></div>
 
           <div><label>Scheduled Departure Time <span class="small-italic">(Local)</span></label><div class="timegrid"><input id="depHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="depMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
           <div><label>Report Time <span class="small-italic">(Local)</span></label><div class="timegrid"><input id="reportHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="reportMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
@@ -100,6 +132,21 @@
         <div class="result-box"><div id="resultsBox1"></div></div>
         <div class="result-box"><div id="resultsBox2"></div></div>
         <div class="result-box"><div id="resultsBox3"></div></div>
+        <div id="standbyCalcRow" class="email-results-row" hidden>
+          <div><label for="standbyReportTime">Crew Member called from Airport Standby</label><input id="standbyReportTime" type="time" required aria-describedby="standbyReportHint" /></div>
+          <div class="standby-actions"><button id="standbyCalcBtn" class="primary" type="button">Calculate</button><button id="standbyClearBtn" class="danger" type="button">Clear</button></div>
+          <small id="standbyReportHint" class="small">Enter this crew member’s report time in LHR local time.</small>
+        </div>
+        <section id="standbyResultsSection" class="standby-results-section" hidden aria-live="polite">
+          <h3>Airport Standby Crew Results</h3>
+          <div class="result-box"><div id="standbyResultsBox1"></div></div>
+          <div class="result-box"><div id="standbyResultsBox2"></div></div>
+          <div class="result-box"><div id="standbyResultsBox3"></div></div>
+        </section>
+        <div id="emailResultsRow" class="email-results-row" hidden>
+          <div><label for="captainStaffNumber">Flight Crew Staff Number/s</label><input id="captainStaffNumber" type="text" inputmode="text" autocomplete="off" maxlength="79" placeholder="123456 u123456 (up to 10)" /></div>
+          <button id="emailResults" class="primary" type="button">Email Results</button>
+        </div>
         <div class="fdp-card"><h2>Route Reference</h2><div id="routeRef" class="small">—</div><ul id="notesList" class="notes"></ul></div>
       </div>
     </div>

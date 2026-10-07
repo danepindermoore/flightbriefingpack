@@ -18,6 +18,7 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       flightDate: document.getElementById('flightDate'),
       from: document.getElementById('from'),
       to: document.getElementById('to'),
+      aircraftReg: document.getElementById('aircraftReg'),
       acclimatisedAt: document.getElementById('acclimatisedAt'),
       unknownAcclimatisation: document.getElementById('unknownAcclimatisation'),
       lhrTerminal: document.getElementById('lhrTerminal'),
@@ -54,6 +55,17 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       resultsBox1: document.getElementById('resultsBox1'),
       resultsBox2: document.getElementById('resultsBox2'),
       resultsBox3: document.getElementById('resultsBox3'),
+      standbyCalcRow: document.getElementById('standbyCalcRow'),
+      standbyReportTime: document.getElementById('standbyReportTime'),
+      standbyCalcBtn: document.getElementById('standbyCalcBtn'),
+      standbyClearBtn: document.getElementById('standbyClearBtn'),
+      standbyResultsSection: document.getElementById('standbyResultsSection'),
+      standbyResultsBox1: document.getElementById('standbyResultsBox1'),
+      standbyResultsBox2: document.getElementById('standbyResultsBox2'),
+      standbyResultsBox3: document.getElementById('standbyResultsBox3'),
+      emailResultsRow: document.getElementById('emailResultsRow'),
+      captainStaffNumber: document.getElementById('captainStaffNumber'),
+      emailResults: document.getElementById('emailResults'),
       routeRef: document.getElementById('routeRef'),
       notesList: document.getElementById('notesList')
     };
@@ -130,12 +142,28 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
 
    function populateAircraft(){
       const validCodes=aircraftOrder.filter(code => globalThis.AIRCRAFT && globalThis.AIRCRAFT[code]);
-      ids.aircraftType.innerHTML=validCodes.map(code=>{
+      ids.aircraftType.innerHTML='<option value="">Select aircraft type</option>'+validCodes.map(code=>{
         const meta=globalThis.AIRCRAFT[code];
         const label=meta.selectorLabel || meta.code || code;
         return `<option value="${code}">${label}</option>`;
       }).join('');
+      ids.aircraftType.value='';
    
+    }
+
+    let registrationSelectedAircraftCode=null;
+    function updateAircraftFromRegistration(){
+      ids.aircraftReg.value=ids.aircraftReg.value.toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,5);
+      const record=globalThis.getAircraftByRegistration?.(ids.aircraftReg.value);
+      const matchedCode=record?.haul==='shorthaul' && ids.aircraftType.querySelector(`option[value="${record.airfile}"]`) ? record.airfile : null;
+      if(matchedCode){
+        ids.aircraftType.value=matchedCode;
+        registrationSelectedAircraftCode=matchedCode;
+      } else {
+        if(registrationSelectedAircraftCode && ids.aircraftType.value===registrationSelectedAircraftCode) ids.aircraftType.value='';
+        registrationSelectedAircraftCode=null;
+      }
+      prepopulateReportTime();
     }
 
     function getAircraftMeta(){ return aircraftMap[ids.aircraftType.value] || null; }
@@ -236,11 +264,24 @@ function getTable2MaxFdp(referenceHHMM, sectors){ const res=fdpApi && typeof fdp
       return '';
     }
 
+    function refreshmentBreakEmailText(minutes){
+      if(!minutes) return 'No refreshment break required.';
+      let instruction='';
+      if(minutes===20 || minutes===60) instruction='This break must be continuous.';
+      else if(minutes===40) instruction='This may be taken as one continuous 40-minute break or two 20-minute breaks.';
+      else if(minutes>60) instruction='This includes a continuous 1-hour break plus 20 minutes for each hour or part of an hour above 12 hours.';
+      return `${fmtDuration(minutes)} refreshment break required as per the HCC agreement. ${instruction}`;
+    }
+
     function computeCmdrDiscretionAllowed(crewCompliment){ return crewCompliment===2 ? 120 : 180; }
 
 
-    function calculate(){
+    function calculate({standby=false}={}){
       clearInvalidMarkers(); hideError();
+      const resultBoxes=standby
+        ? [ids.standbyResultsBox1,ids.standbyResultsBox2,ids.standbyResultsBox3]
+        : [ids.resultsBox1,ids.resultsBox2,ids.resultsBox3];
+      if(standby && !ids.standbyReportTime.value){ ids.standbyReportTime.reportValidity(); return; }
       if(!fdpApi){ showError('ba-fdp-tables.js has not loaded correctly.'); return; }
 
       const flightDate=ids.flightDate.value;
@@ -297,7 +338,8 @@ function getTable2MaxFdp(referenceHHMM, sectors){ const res=fdpApi && typeof fdp
     depRes.value,
     depAirport.timeZone
 ).getTime();
-      const reportUtcMs=zonedDateFromLocal(flightDate, reportRes.value, depAirport.timeZone).getTime();
+      const reportMinutes=standby ? Number(ids.standbyReportTime.value.slice(0,2))*60+Number(ids.standbyReportTime.value.slice(3,5)) : reportRes.value;
+      const reportUtcMs=zonedDateFromLocal(flightDate, reportMinutes, standby ? airportByCode.LHR.timeZone : depAirport.timeZone).getTime();
 
       let plannedArrivalUtcMs=utcDateFromZClockRolling(flightDate, lastArrRes.value, depUtcMs).getTime();
       if(plannedArrivalUtcMs < reportUtcMs) plannedArrivalUtcMs += 86400000;
@@ -317,6 +359,7 @@ if (revLandRes.value != null) {
       const rosteredFdp=Math.round((plannedArrivalUtcMs - reportUtcMs)/60000);
       const rosteredDuty=rosteredFdp + getClearTimeMinutes(to);
       const actualFdp=Math.round((etaUtcMs - reportUtcMs)/60000);
+      const actualFlightTime=Math.round((etaUtcMs - activeDepartureUtcMs)/60000);
       const actualDutyPeriod=actualFdp + getClearTimeMinutes(to);
 
       const acclRefHHMM=unknownAcclimatisation ? null : getReferenceReportHHMM(reportUtcMs, acclimatisedAt);
@@ -344,7 +387,7 @@ let newMaxFDPBeforeDisc = maxFDP;
       const etaDestLocal=utcMsToLocalHHMM(etaUtcMs, arrAirport.timeZone);
       const etaUtcText=fmtClockWithZ(etaUtcMs);
 
-      ids.resultsBox1.innerHTML=[
+      resultBoxes[0].innerHTML=[
         infoRow('Report Time', fmtClockWithZ(reportUtcMs)),
         infoRow('Critical Path RTG - Cabin Door Closed', fmtClockWithZ(depUtcMs - 5 * 60000)),
         infoRow('Rostered Flight Duty Period', fmtDuration(rosteredFdp)),
@@ -359,11 +402,11 @@ let newMaxFDPBeforeDisc = maxFDP;
         fmtDuration(maxFDP),
         unknownAcclimatisation ? 'Unknown acclimatisation (Table 3)' : `Reference time used: ${acclRefHHMM} local @ ${acclimatisedAt}`
     ),
-    infoRow(
+    ...(newMaxFDPInclDisc!==maxFDP ? [infoRow(
         'New Max Flight Duty Period (FDP)',
         fmtDuration(newMaxFDPInclDisc),
-        cmdrDiscRequired ? "Including Commander's Discretion" : ""
-    ),
+        "Including Commander's Discretion"
+    )] : []),
     infoRow(
         'HCC Refreshment Break',
         refreshmentBreak < 60
@@ -372,46 +415,103 @@ let newMaxFDPBeforeDisc = maxFDP;
     )
 ];
 
-ids.resultsBox2.innerHTML = box2Rows.join('');
+resultBoxes[1].innerHTML = box2Rows.join('');
 
-      ids.resultsBox3.innerHTML=[
+      resultBoxes[2].innerHTML=[
+        infoRow('Actual Flight Time', fmtDuration(actualFlightTime)),
+        ...(latestOffChocksUtcMs==null ? [] : [infoRow('Latest Off Chocks Time (SOFT LIMIT)', fmtClockWithZ(latestOffChocksUtcMs))]),
+        ...(latestTakeOffUtcMs==null ? [] : [infoRow('Latest Take Off Time (HARD LIMIT)', fmtClockWithZ(latestTakeOffUtcMs))]),
         infoRow('Latest On Chocks Time', fmtClockWithZ(latestOnChocksUtcMs)),
-        ...(latestTakeOffUtcMs==null ? [] : [
-          infoRow('Latest Take Off Time (HARD LIMIT)', fmtClockWithZ(latestTakeOffUtcMs)),
-          infoRow('Latest Off Chocks Time (SOFT LIMIT)', fmtClockWithZ(latestOffChocksUtcMs))
-        ])
       ].join('');
 
       
-      ids.routeRef.innerHTML =
+      if(!standby) ids.routeRef.innerHTML =
     `<strong>${routeKey}</strong><br>${depAirport.timeZone}`;
 
       const notes=[];
       if(usingRefreshmentBreak){ const msg=refreshmentBreakNoteShorthaul(refreshmentBreak); if(msg) notes.push(msg); }
       if(revLandRes.value!=null) notes.push('Revised landing time overrides the projected final arrival and updates the FDP and duty calculations. Rostered FDP and duty remain based on the scheduled last-sector arrival.');
-      ids.notesList.innerHTML=notes.map(n=>`<li>${n}</li>`).join('');
+      if(!standby) ids.notesList.innerHTML=notes.map(n=>`<li>${n}</li>`).join('');
+      if(standby){
+        latestStandbyFdpEmailSection=[
+          'Airport Standby Crew Member — Most Limiting FDP',
+          `Report Time (Z): ${fmtClockWithZ(reportUtcMs)}`,
+          `Max FDP: ${fmtDuration(maxFDP)}`,
+          `Latest On Chocks Time: ${fmtClockWithZ(latestOnChocksUtcMs)}`
+        ].join('\r\n');
+        ids.standbyResultsSection.hidden=false;
+        return;
+      }
+      latestStandbyFdpEmailSection='';
+      latestFdpEmailBody=[
+        'Critical Path & FDP Limits',
+        '',
+        `Senior Crew Member (SCCM): ${ids.sccm.value.trim()}`,
+        'Acting Senior Crew Member (aSCCM): Not collected on the shorthaul form',
+        ...(from==='LHR' ? [
+          `All crew clear security: ${fmtClockWithZ(addMinutes(reportUtcMs,20))}`,
+          `Bus departs (if coaching stand): ${fmtClockWithZ(addMinutes(reportUtcMs,25))}`
+        ] : []),
+        `Boarding commences: ${fmtClockWithZ(addMinutes(depUtcMs,-28))}`,
+        `Aircraft doors closed: ${fmtClockWithZ(addMinutes(depUtcMs,-5))}`,
+        `Cabin Crew Rest: ${refreshmentBreakEmailText(refreshmentBreak)}`,
+        `Max FDP: ${fmtDuration(maxFDP)} (${unknownAcclimatisation ? 'Unknown acclimatisation (Table 3)' : `Reference time used: ${acclRefHHMM} local @ ${acclimatisedAt}`})`,
+        `Latest Off Chocks Time: ${latestOffChocksUtcMs==null ? 'Not calculated (Final Sector Flight Time not provided)' : fmtClockWithZ(latestOffChocksUtcMs)}`,
+        `Latest Take Off Time: ${latestTakeOffUtcMs==null ? 'Not calculated (Final Sector Flight Time not provided)' : fmtClockWithZ(latestTakeOffUtcMs)}`,
+        `Latest On Chocks Time: ${fmtClockWithZ(latestOnChocksUtcMs)}`
+      ].join('\r\n');
+      ids.emailResultsRow.hidden=false;
+      ids.standbyCalcRow.hidden=from!=='LHR';
+      ids.standbyResultsSection.hidden=true;
+    }
+
+    let latestFdpEmailBody='';
+    let latestStandbyFdpEmailSection='';
+    function openFdpResultsEmail(){
+      const staffNumbers=ids.captainStaffNumber.value.trim().split(' ');
+      if(!/^(?:u?\d{6})(?: (?:u?\d{6})){0,9}$/i.test(ids.captainStaffNumber.value.trim())){
+        ids.captainStaffNumber.setCustomValidity('Enter up to 10 six-digit staff numbers, separated by single spaces. A u prefix is optional.');
+        ids.captainStaffNumber.reportValidity();
+        return;
+      }
+      ids.captainStaffNumber.setCustomValidity('');
+      const recipients=staffNumbers.map(staffNumber=>`u${staffNumber.replace(/^u/i,'')}`).join('; ');
+      const [year,month,day]=ids.flightDate.value.split('-');
+      const subject=[`${day}/${month}/${year}`,'FDP Limits'].join(' - ');
+      const emailBody=[latestFdpEmailBody,latestStandbyFdpEmailSection].filter(Boolean).join('\r\n\r\n');
+      window.location.href=`mailto:${encodeURI(recipients)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
     }
 
     function clearForm(){
-      ids.flightDate.value=''; ids.from.value=''; ids.to.value=''; ids.acclimatisedAt.value='LHR'; ids.unknownAcclimatisation.checked=false; ids.acclimatisedAt.disabled=false;
+      ids.flightDate.value=''; ids.from.value=''; ids.to.value=''; ids.acclimatisedAt.value='LHR'; ids.unknownAcclimatisation.checked=false; ids.acclimatisedAt.disabled=false; ids.aircraftReg.value=''; ids.aircraftType.value=''; registrationSelectedAircraftCode=null;
       ids.depHour.value=''; ids.depMinute.value=''; ids.reportHour.value=''; ids.reportMinute.value=''; ids.lastArrHour.value=''; ids.lastArrMinute.value='';
       ids.revDepHour.value=''; ids.revDepMinute.value=''; ids.finalSectorHour.value=''; ids.finalSectorMinute.value=''; ids.revLandHour.value=''; ids.revLandMinute.value='';
       ids.sccm.value='Dane Jordan-Pinder'; ids.numSectors.value='1'; ids.flightCrewCompliment.value='2'; ids.cmdrDiscRequired.checked=false;
       ids.taxiOutMins.value='25'; ids.holdingMins.value='10'; ids.taxiInMins.value='10'; ids.lhrTerminal.value='';
       standardTimeDefaults.forEach((value,field)=>approvedStandardTimes.set(field,value));
       setTodayDate(); updateLhrTerminalState(); updateArrivalLabel(); ids.moreOptionsSection.classList.add('hidden-block'); ids.moreOptionsToggle.setAttribute('aria-expanded','false'); ids.moreOptionsToggle.textContent='More Options'; hideError();
-      ids.resultsBox1.innerHTML=''; ids.resultsBox2.innerHTML=''; ids.resultsBox3.innerHTML=''; ids.routeRef.textContent='—'; ids.notesList.innerHTML='';
+      ids.resultsBox1.innerHTML=''; ids.resultsBox2.innerHTML=''; ids.resultsBox3.innerHTML=''; ids.standbyReportTime.value=''; ids.standbyCalcRow.hidden=true; ids.standbyResultsSection.hidden=true; ids.standbyResultsBox1.innerHTML=''; ids.standbyResultsBox2.innerHTML=''; ids.standbyResultsBox3.innerHTML=''; ids.emailResultsRow.hidden=true; ids.captainStaffNumber.value=''; latestFdpEmailBody=''; latestStandbyFdpEmailSection=''; ids.routeRef.textContent='—'; ids.notesList.innerHTML='';
     }
 
-    ids.from.addEventListener('input',()=>{ sanitiseAirportInput(ids.from); updateLhrTerminalState(); prepopulateReportTime(); });
+    function clearStandbyResults(){
+      ids.standbyReportTime.value='';
+      ids.standbyResultsSection.hidden=true;
+      ids.standbyResultsBox1.innerHTML=''; ids.standbyResultsBox2.innerHTML=''; ids.standbyResultsBox3.innerHTML='';
+      latestStandbyFdpEmailSection='';
+    }
+
+    ids.from.addEventListener('input',()=>{ sanitiseAirportInput(ids.from); if(normalizeCode(ids.from.value)!=='LHR'){ ids.standbyCalcRow.hidden=true; ids.standbyResultsSection.hidden=true; latestStandbyFdpEmailSection=''; } updateLhrTerminalState(); prepopulateReportTime(); });
     ids.to.addEventListener('input',()=>sanitiseAirportInput(ids.to));
     ids.acclimatisedAt.addEventListener('input',()=>sanitiseAirportInput(ids.acclimatisedAt));
+    ids.captainStaffNumber.addEventListener('input',()=>ids.captainStaffNumber.setCustomValidity(''));
+    ids.emailResults.addEventListener('click',openFdpResultsEmail);
     ids.unknownAcclimatisation.addEventListener('change',()=>{
       ids.acclimatisedAt.disabled=ids.unknownAcclimatisation.checked;
       ids.acclimatisedAt.value=ids.unknownAcclimatisation.checked ? '' : 'LHR';
       ids.acclimatisedAt.classList.remove('invalid');
     });
-    ids.aircraftType.addEventListener('change',()=>{ prepopulateReportTime(); });
+    ids.aircraftReg.addEventListener('input',updateAircraftFromRegistration);
+    ids.aircraftType.addEventListener('change',()=>{ registrationSelectedAircraftCode=null; prepopulateReportTime(); });
     ids.lhrTerminal.addEventListener('change',prepopulateReportTime);
     ids.depHour.addEventListener('input',prepopulateReportTime);
     ids.depMinute.addEventListener('input',prepopulateReportTime);
@@ -427,6 +527,8 @@ ids.resultsBox2.innerHTML = box2Rows.join('');
     ids.standardChangeCancel.addEventListener('click',()=>resolveStandardTimeChange(false));
     ids.standardChangeDialog.addEventListener('cancel',event=>{ event.preventDefault(); resolveStandardTimeChange(false); });
     ids.calcBtn.addEventListener('click',calculate);
+    ids.standbyCalcBtn.addEventListener('click',()=>calculate({standby:true}));
+    ids.standbyClearBtn.addEventListener('click',clearStandbyResults);
     ids.clearBtn.addEventListener('click',clearForm);
 
     populateSelects();

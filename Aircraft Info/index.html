@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Look up aircraft information by registration." />
+  <title>Aircraft Info</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../assets/css/fbp-shared.css">
+  <link rel="stylesheet" href="../assets/css/aircraft-info.css">
+  <script src="../data/aircraft.js"></script>
+  <script src="../data/aircraft-registrations.js"></script>
+</head>
+<body class="fbp-theme" data-fbp-version="v3">
+  <main class="fbp-shell app-wrap">
+    <section class="aircraft-info-page">
+      <form id="aircraftLookupForm" class="aircraft-lookup" novalidate>
+        <div>
+          <label for="aircraftRegistration">Aircraft Registration</label>
+          <input id="aircraftRegistration" name="registration" type="text" maxlength="5" autocomplete="off" placeholder="e.g. VIID" aria-describedby="lookupHelp" required>
+          <p id="lookupHelp" class="lookup-help">Enter a British Airways aircraft registration to see its available fleet and aircraft details.</p>
+        </div>
+        <button class="lookup-button" type="submit">Find Aircraft</button>
+      </form>
+      <p id="lookupMessage" class="lookup-message" role="status" aria-live="polite"></p>
+      <section id="aircraftResults" class="aircraft-results" hidden aria-live="polite">
+        <h2 id="aircraftResultTitle"></h2>
+        <p id="aircraftSource" class="aircraft-source"></p>
+        <div class="aircraft-result-grid">
+          <section class="aircraft-info-card">
+            <h3>Registration Details</h3>
+            <dl id="registrationDetails" class="aircraft-details"></dl>
+          </section>
+          <section class="aircraft-info-card">
+            <h3>Aircraft Type Details</h3>
+            <dl id="typeDetails" class="aircraft-details"></dl>
+          </section>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="../assets/js/fbp-shared.js"></script>
+  <script src="../assets/js/fbp-nav.js"></script>
+  <script src="../assets/js/fbp-shell.js"></script>
+  <script src="../assets/js/fbp-page.js"></script>
+  <script src="../assets/js/aircraft-info.js"></script>
+  <script>
+    FBP.createPage({
+      title: "Aircraft Info",
+      subtitle: "Look up aircraft details by registration.",
+      activePage: "aircraft-info"
+    });
+  </script>
+</body>
+</html>

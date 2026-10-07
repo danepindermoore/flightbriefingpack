@@ -744,7 +744,14 @@ globalThis.AIRCRAFT_ORDER_SHORTHAUL = [
   "32H",
   "32P",
   "319",
-  "31C"
+  "31C",
+  "3YT",
+  "3YG",
+  "3YE",
+  "3YU",
+  "3YS",
+  "3YL",
+  "3YH"
 ];
 globalThis.AIRFILE_ORDER = [
   "38A",
