@@ -73,7 +73,7 @@ globalThis.AIRCRAFT["38A"] = {
     },
     {
       "code": "M5",
-      "location": "M5L & UD FWD Cupboard"
+      "location": "M5L, UD FWD Cupboard"
     },
     {
       "code": "RES",
@@ -81,7 +81,7 @@ globalThis.AIRCRAFT["38A"] = {
     },
     {
       "code": "RESTRAINT",
-      "location": "M2L & UD AFT Galley"
+      "location": "M2L, UD AFT Galley"
     },
     {
       "code": "FE",
@@ -89,13 +89,54 @@ globalThis.AIRCRAFT["38A"] = {
     },
     {
       "code": "WEX",
-      "location": "M1L & U3L"
+      "location": "M1L, U3L"
     }
   ],
+  "registrationRequiredForEquipment": false,
   "dataFile": "38A.js",
   "dataPath": "data/aircraft/38A.js",
   "briefingTitle": "A380-841 Briefing",
   "selectorLabel": "38A",
+  "selectorSubLabel": "A380-841 · 4 Class"
+};
+globalThis.AIRCRAFT["38T"] = {
+  "code": "38T",
+  "airfile": "38T",
+  "haul": "longhaul",
+  "fullName": "A380-841",
+  "shortName": "A380",
+  "family": "A380",
+  "variant": "A380-841",
+  "manufacturer": "Airbus",
+  "configName": "4 Class",
+  "classCount": 4,
+  "classes": [
+    "F",
+    "J",
+    "W",
+    "M"
+  ],
+  "includesRestFacilities": true,
+  "restTypes": [
+    "OFCR",
+    "OFAR"
+  ],
+  "flightCrewRest": "OFCR",
+  "cabinCrewRest": "OFAR",
+  "totalSeats": 417,
+  "seatBreakdown": {
+    "first": 12,
+    "clubWorld": 106,
+    "worldTravellerPlus": 84,
+    "worldTraveller": 215
+  },
+  "crew": null,
+  "emergencyEquipmentSummary": [],
+  "registrationRequiredForEquipment": false,
+  "dataFile": null,
+  "dataPath": null,
+  "briefingTitle": "A380-841 Briefing",
+  "selectorLabel": "38T",
   "selectorSubLabel": "A380-841 · 4 Class"
 };
 globalThis.AIRCRAFT["351"] = {
@@ -123,7 +164,6 @@ globalThis.AIRCRAFT["351"] = {
   "cabinCrewRest": "OFAR",
   "totalSeats": 331,
   "seatBreakdown": {
-    "first": 0,
     "clubWorld": 56,
     "worldTravellerPlus": 56,
     "worldTraveller": 219
@@ -169,13 +209,14 @@ globalThis.AIRCRAFT["351"] = {
     },
     {
       "code": "FE",
-      "location": "All RHDs & D4L"
+      "location": "All RHDs, D4L"
     },
     {
       "code": "WEX",
-      "location": "D2R & D3R"
+      "location": "D2R, D3R"
     }
   ],
+  "registrationRequiredForEquipment": false,
   "dataFile": "351.js",
   "dataPath": "data/aircraft/351.js",
   "briefingTitle": "A350-1000 Briefing",
@@ -207,7 +248,6 @@ globalThis.AIRCRAFT["78E"] = {
   "cabinCrewRest": "CCRC",
   "totalSeats": 204,
   "seatBreakdown": {
-    "first": 0,
     "clubWorld": 31,
     "worldTravellerPlus": 37,
     "worldTraveller": 136
@@ -255,9 +295,10 @@ globalThis.AIRCRAFT["78E"] = {
     },
     {
       "code": "WEX",
-      "location": "D1L & D4L"
+      "location": "D1L, D4L"
     }
   ],
+  "registrationRequiredForEquipment": false,
   "dataFile": "78E.js",
   "dataPath": "data/aircraft/78E.js",
   "briefingTitle": "B787-8 Briefing",
@@ -339,9 +380,10 @@ globalThis.AIRCRAFT["78N"] = {
     },
     {
       "code": "WEX",
-      "location": "D1L & D4L"
+      "location": "D1L, D4L"
     }
   ],
+  "registrationRequiredForEquipment": false,
   "dataFile": "78N.js",
   "dataPath": "data/aircraft/78N.js",
   "briefingTitle": "B787-9 Briefing",
@@ -423,9 +465,10 @@ globalThis.AIRCRAFT["789"] = {
     },
     {
       "code": "WEX",
-      "location": "D1L & D4L"
+      "location": "D1L, D4L"
     }
   ],
+  "registrationRequiredForEquipment": false,
   "dataFile": "789.js",
   "dataPath": "data/aircraft/789.js",
   "briefingTitle": "B787-9 Briefing",
@@ -499,9 +542,10 @@ globalThis.AIRCRAFT["781"] = {
     },
     {
       "code": "WEX",
-      "location": "D1L & D4L"
+      "location": "D1L, D4L"
     }
   ],
+  "registrationRequiredForEquipment": false,
   "dataFile": "781.js",
   "dataPath": "data/aircraft/781.js",
   "briefingTitle": "B787-10 Briefing",
@@ -581,9 +625,10 @@ globalThis.AIRCRAFT["77M"] = {
     },
     {
       "code": "WEX",
-      "location": "D1L & D4R"
+      "location": "D1L, D4R"
     }
   ],
+  "registrationRequiredForEquipment": false,
   "dataFile": "77M.js",
   "dataPath": "data/aircraft/77M.js",
   "briefingTitle": "B777-236B Briefing",
@@ -615,7 +660,6 @@ globalThis.AIRCRAFT["77L"] = {
   "cabinCrewRest": "CCRC",
   "totalSeats": 272,
   "seatBreakdown": {
-    "first": 0,
     "clubWorld": 48,
     "worldTravellerPlus": 40,
     "worldTraveller": 184
@@ -670,9 +714,10 @@ globalThis.AIRCRAFT["77L"] = {
     },
     {
       "code": "WEX",
-      "location": "D1L & D4R"
+      "location": "D1L, D4R"
     }
   ],
+  "registrationRequiredForEquipment": false,
   "dataFile": "77L.js",
   "dataPath": "data/aircraft/77L.js",
   "briefingTitle": "B777-236 (ER) Briefing",
@@ -769,9 +814,10 @@ globalThis.AIRCRAFT["77H"] = {
     },
     {
       "code": "WEX",
-      "location": "D1L & D5L"
+      "location": "D1L, D4R"
     }
   ],
+  "registrationRequiredForEquipment": false,
   "dataFile": "77H.js",
   "dataPath": "data/aircraft/77H.js",
   "briefingTitle": "B777-336 (ER) Briefing",
@@ -800,7 +846,6 @@ globalThis.AIRCRAFT["77T"] = {
   "cabinCrewRest": null,
   "totalSeats": 336,
   "seatBreakdown": {
-    "first": 0,
     "clubWorld": 32,
     "worldTravellerPlus": 52,
     "worldTraveller": 252
@@ -855,9 +900,10 @@ globalThis.AIRCRAFT["77T"] = {
     },
     {
       "code": "WEX",
-      "location": "D1L & D4R"
+      "location": "D1L, D4R"
     }
   ],
+  "registrationRequiredForEquipment": false,
   "dataFile": "77T.js",
   "dataPath": "data/aircraft/77T.js",
   "briefingTitle": "B777-236B Briefing",
@@ -889,7 +935,6 @@ globalThis.AIRCRAFT["77S"] = {
   "cabinCrewRest": "CCRC",
   "totalSeats": 332,
   "seatBreakdown": {
-    "first": 0,
     "clubWorld": 32,
     "worldTravellerPlus": 48,
     "worldTraveller": 252
@@ -944,9 +989,10 @@ globalThis.AIRCRAFT["77S"] = {
     },
     {
       "code": "WEX",
-      "location": "D1L & D4R"
+      "location": "D1L, D4R"
     }
   ],
+  "registrationRequiredForEquipment": false,
   "dataFile": "77S.js",
   "dataPath": "data/aircraft/77S.js",
   "briefingTitle": "B777-236 (ER) Briefing",
@@ -962,12 +1008,9 @@ globalThis.AIRCRAFT["32Y"] = {
   "family": "A321",
   "variant": "A321-251 (NEO) Sharklets",
   "manufacturer": "Airbus",
-  "configName": "Shorthaul",
-  "classCount": 2,
-  "classes": [
-    "J",
-    "M"
-  ],
+  "configName": "2 Class",
+  "classCount": 0,
+  "classes": [],
   "includesRestFacilities": false,
   "restTypes": [],
   "flightCrewRest": null,
@@ -976,6 +1019,7 @@ globalThis.AIRCRAFT["32Y"] = {
   "seatBreakdown": null,
   "crew": null,
   "emergencyEquipmentSummary": [],
+  "registrationRequiredForEquipment": true,
   "dataFile": null,
   "dataPath": null,
   "briefingTitle": "A321-251 (NEO) Sharklets Briefing",
@@ -991,12 +1035,9 @@ globalThis.AIRCRAFT["32R"] = {
   "family": "A320",
   "variant": "A320-232 (CEO)",
   "manufacturer": "Airbus",
-  "configName": "Shorthaul",
-  "classCount": 2,
-  "classes": [
-    "J",
-    "M"
-  ],
+  "configName": "2 Class",
+  "classCount": 0,
+  "classes": [],
   "includesRestFacilities": false,
   "restTypes": [],
   "flightCrewRest": null,
@@ -1004,7 +1045,33 @@ globalThis.AIRCRAFT["32R"] = {
   "totalSeats": 180,
   "seatBreakdown": null,
   "crew": null,
-  "emergencyEquipmentSummary": [],
+  "emergencyEquipmentSummary": [
+    {
+      "code": "AED",
+      "location": "AFT Overhead Locker ABC"
+    },
+    {
+      "code": "M5",
+      "location": "AFT Overhead Locker ABC"
+    },
+    {
+      "code": "RES",
+      "location": "AFT Overhead Locker ABC"
+    },
+    {
+      "code": "RESTRAINT",
+      "location": "FWD Galley Cupboard"
+    },
+    {
+      "code": "FE",
+      "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+    },
+    {
+      "code": "WEX",
+      "location": "AFT Galley Bulkhead"
+    }
+  ],
+  "registrationRequiredForEquipment": false,
   "dataFile": null,
   "dataPath": null,
   "briefingTitle": "A320-232 (CEO) Briefing",
@@ -1020,12 +1087,9 @@ globalThis.AIRCRAFT["32H"] = {
   "family": "A320",
   "variant": "A320-232 (CEO) Sharklets",
   "manufacturer": "Airbus",
-  "configName": "Shorthaul",
-  "classCount": 2,
-  "classes": [
-    "J",
-    "M"
-  ],
+  "configName": "2 Class",
+  "classCount": 0,
+  "classes": [],
   "includesRestFacilities": false,
   "restTypes": [],
   "flightCrewRest": null,
@@ -1033,7 +1097,33 @@ globalThis.AIRCRAFT["32H"] = {
   "totalSeats": 180,
   "seatBreakdown": null,
   "crew": null,
-  "emergencyEquipmentSummary": [],
+  "emergencyEquipmentSummary": [
+    {
+      "code": "AED",
+      "location": "AFT Overhead Locker ABC"
+    },
+    {
+      "code": "M5",
+      "location": "AFT Overhead Locker ABC"
+    },
+    {
+      "code": "RES",
+      "location": "AFT Overhead Locker ABC"
+    },
+    {
+      "code": "RESTRAINT",
+      "location": "FWD Galley Cupboard"
+    },
+    {
+      "code": "FE",
+      "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+    },
+    {
+      "code": "WEX",
+      "location": "AFT Galley Bulkhead"
+    }
+  ],
+  "registrationRequiredForEquipment": false,
   "dataFile": null,
   "dataPath": null,
   "briefingTitle": "A320-232 (CEO) Sharklets Briefing",
@@ -1049,12 +1139,9 @@ globalThis.AIRCRAFT["32P"] = {
   "family": "A320",
   "variant": "A320-251 (NEO) Sharklets",
   "manufacturer": "Airbus",
-  "configName": "Shorthaul",
-  "classCount": 2,
-  "classes": [
-    "J",
-    "M"
-  ],
+  "configName": "2 Class",
+  "classCount": 0,
+  "classes": [],
   "includesRestFacilities": false,
   "restTypes": [],
   "flightCrewRest": null,
@@ -1063,6 +1150,7 @@ globalThis.AIRCRAFT["32P"] = {
   "seatBreakdown": null,
   "crew": null,
   "emergencyEquipmentSummary": [],
+  "registrationRequiredForEquipment": true,
   "dataFile": null,
   "dataPath": null,
   "briefingTitle": "A320-251 (NEO) Sharklets Briefing",
@@ -1078,12 +1166,9 @@ globalThis.AIRCRAFT["319"] = {
   "family": "A319",
   "variant": "A319-131",
   "manufacturer": "Airbus",
-  "configName": "Shorthaul",
-  "classCount": 2,
-  "classes": [
-    "J",
-    "M"
-  ],
+  "configName": "2 Class",
+  "classCount": 0,
+  "classes": [],
   "includesRestFacilities": false,
   "restTypes": [],
   "flightCrewRest": null,
@@ -1091,7 +1176,33 @@ globalThis.AIRCRAFT["319"] = {
   "totalSeats": 143,
   "seatBreakdown": null,
   "crew": null,
-  "emergencyEquipmentSummary": [],
+  "emergencyEquipmentSummary": [
+    {
+      "code": "AED",
+      "location": "AFT Wardrobe"
+    },
+    {
+      "code": "M5",
+      "location": "AFT Wardrobe"
+    },
+    {
+      "code": "RES",
+      "location": "AFT Wardrobe"
+    },
+    {
+      "code": "RESTRAINT",
+      "location": "FWD Overhead Locker DEF"
+    },
+    {
+      "code": "FE",
+      "location": "x1 FWD Crew Seat, x1 No 3 Crew Seat, x1 No 5 Crew Seat"
+    },
+    {
+      "code": "WEX",
+      "location": "Stowage beside No 3 Crew Seat"
+    }
+  ],
+  "registrationRequiredForEquipment": false,
   "dataFile": null,
   "dataPath": null,
   "briefingTitle": "A319-131 Briefing",
@@ -1107,12 +1218,9 @@ globalThis.AIRCRAFT["31C"] = {
   "family": "A319",
   "variant": "A319-131",
   "manufacturer": "Airbus",
-  "configName": "Shorthaul",
-  "classCount": 2,
-  "classes": [
-    "J",
-    "M"
-  ],
+  "configName": "2 Class",
+  "classCount": 0,
+  "classes": [],
   "includesRestFacilities": false,
   "restTypes": [],
   "flightCrewRest": null,
@@ -1120,7 +1228,33 @@ globalThis.AIRCRAFT["31C"] = {
   "totalSeats": 144,
   "seatBreakdown": null,
   "crew": null,
-  "emergencyEquipmentSummary": [],
+  "emergencyEquipmentSummary": [
+    {
+      "code": "AED",
+      "location": "AFT Overhead Locker DEF"
+    },
+    {
+      "code": "M5",
+      "location": "AFT Overhead Locker ABC"
+    },
+    {
+      "code": "RES",
+      "location": "AFT Overhead Locker ABC"
+    },
+    {
+      "code": "RESTRAINT",
+      "location": "FWD Overhead Locker DEF"
+    },
+    {
+      "code": "FE",
+      "location": "x1 FWD Crew Seat, x1 AFT Dogbox ABC, x1 No 3 Crew Seat"
+    },
+    {
+      "code": "WEX",
+      "location": "No 2 (Direct View) Crew Seat"
+    }
+  ],
+  "registrationRequiredForEquipment": false,
   "dataFile": null,
   "dataPath": null,
   "briefingTitle": "A319-131 Briefing",
@@ -1129,6 +1263,6 @@ globalThis.AIRCRAFT["31C"] = {
 };
 globalThis.AIRCRAFT_ORDER_LONGHAUL = ["38A", "351", "78E", "78N", "789", "781", "77M", "77L", "77H", "77T", "77S"];
 globalThis.AIRCRAFT_ORDER_SHORTHAUL = ["32Y", "32R", "32H", "32P", "319", "31C"];
-globalThis.AIRCRAFT_ORDER = ["38A", "351", "78E", "78N", "789", "781", "77M", "77L", "77H", "77T", "77S", "32Y", "32R", "32H", "32P", "319", "31C"];
-globalThis.AIRFILE_ORDER = ["38A", "351", "78E", "78N", "789", "781", "77M", "77L", "77H", "77T", "77S", "32Y", "32R", "32H", "32P", "319", "31C"];
+globalThis.AIRCRAFT_ORDER = ["38A", "38T", "351", "78E", "78N", "789", "781", "77M", "77L", "77H", "77T", "77S", "32Y", "32R", "32H", "32P", "319", "31C"];
+globalThis.AIRFILE_ORDER = ["38A", "38T", "351", "78E", "78N", "789", "781", "77M", "77L", "77H", "77T", "77S", "32Y", "32R", "32H", "32P", "319", "31C"];
 // END GENERATED AIRFILE DATA

@@ -38,6 +38,7 @@
     cabinCrewRest: "Cabin Crew Rest Facility",
     firstProduct: "First Product",
     clubWorldProduct: "Club World Product",
+    sepEquipment: "SEP Equipment",
     catering: "Catering"
   };
 
@@ -51,14 +52,6 @@
     M: "M",
     WT: "M",
     ET: "M"
-  };
-
-  const productNames = {
-    Tango: "New First 'Tango' Seat",
-    "Club Suite": "Club Suite",
-    Stretch: "Club 'Ying Yang' Seat",
-    First: "First Suite (No Doors)",
-    "First Suite": "First Suite (with Doors)"
   };
 
   function humanize(key) {
@@ -81,8 +74,8 @@
         .map(([cabin, label]) => `${label}: ${value[cabin]}`)
         .join(" · ");
     }
-    if (["product", "firstProduct", "clubWorldProduct"].includes(key) && haul === "longhaul") {
-      return String(value).split("/").map(part => productNames[part.trim()] || part.trim()).join(" / ");
+    if (key === "sepEquipment" && Array.isArray(value)) {
+      return value.map(item => `${item.code}: ${item.location}`).join(" · ");
     }
     if (Array.isArray(value)) return value.length ? value.join(", ") : "None listed";
     if (value && typeof value === "object") {
@@ -146,7 +139,7 @@
       : "Fleet registration data.";
 
     renderDetails(registrationDetails, record, ["haul", "airfile", "flightCrewBunks", "cabinCrewBunks"], record.haul);
-    renderDetails(typeDetails, type, ["dataFile", "dataPath", "briefingTitle", "selectorLabel", "selectorSubLabel", "flightCrewRest", "cabinCrewRest", "includesRestFacilities", "restTypes", "crew", "emergencyEquipmentSummary", "firstProduct", "clubWorldProduct", "notes"], record.haul);
+    renderDetails(typeDetails, type, ["dataFile", "dataPath", "briefingTitle", "selectorLabel", "selectorSubLabel", "flightCrewRest", "cabinCrewRest", "includesRestFacilities", "restTypes", "crew", "emergencyEquipmentSummary", "registrationRequiredForEquipment", "firstProduct", "clubWorldProduct", "notes"], record.haul);
     results.hidden = false;
     showMessage("");
   }

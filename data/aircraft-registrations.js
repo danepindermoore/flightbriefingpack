@@ -1,8 +1,8 @@
 /* Generated from the BA fleet register. Run scripts/generate-aircraft-registrations.py to refresh. */
 globalThis.AIRCRAFT_REGISTRATION_SOURCE = Object.freeze({
-  file: "British_Airways_Fleet_September_2026_Registrations.xlsx",
+  file: "British Airways Fleet.xlsx",
   asOf: "2026-09",
-  registrationCount: 250
+  registrationCount: 251
 });
 
 globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
@@ -13,10 +13,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "38A",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "M5L"
+      },
+      {
+        "code": "M5",
+        "location": "M5L, UD FWD Cupboard"
+      },
+      {
+        "code": "RES",
+        "location": "M5L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "M2L, UD AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "MD = All RHDs, UD = RH Crew Seats"
+      },
+      {
+        "code": "WEX",
+        "location": "M1L, U3L"
+      }
+    ],
+    "firstProduct": "First",
+    "clubWorldProduct": "Ying Yang"
   },
   "XLEB": {
     "registration": "XLEB",
@@ -25,10 +49,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "38A",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "M5L"
+      },
+      {
+        "code": "M5",
+        "location": "M5L, UD FWD Cupboard"
+      },
+      {
+        "code": "RES",
+        "location": "M5L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "M2L, UD AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "MD = All RHDs, UD = RH Crew Seats"
+      },
+      {
+        "code": "WEX",
+        "location": "M1L, U3L"
+      }
+    ],
+    "firstProduct": "First",
+    "clubWorldProduct": "Ying Yang"
   },
   "XLED": {
     "registration": "XLED",
@@ -37,10 +85,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "38A",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "M5L"
+      },
+      {
+        "code": "M5",
+        "location": "M5L, UD FWD Cupboard"
+      },
+      {
+        "code": "RES",
+        "location": "M5L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "M2L, UD AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "MD = All RHDs, UD = RH Crew Seats"
+      },
+      {
+        "code": "WEX",
+        "location": "M1L, U3L"
+      }
+    ],
+    "firstProduct": "First",
+    "clubWorldProduct": "Ying Yang"
   },
   "XLEE": {
     "registration": "XLEE",
@@ -49,10 +121,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "38A",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "M5L"
+      },
+      {
+        "code": "M5",
+        "location": "M5L, UD FWD Cupboard"
+      },
+      {
+        "code": "RES",
+        "location": "M5L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "M2L, UD AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "MD = All RHDs, UD = RH Crew Seats"
+      },
+      {
+        "code": "WEX",
+        "location": "M1L, U3L"
+      }
+    ],
+    "firstProduct": "First",
+    "clubWorldProduct": "Ying Yang"
   },
   "XLEF": {
     "registration": "XLEF",
@@ -61,10 +157,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "38A",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "M5L"
+      },
+      {
+        "code": "M5",
+        "location": "M5L, UD FWD Cupboard"
+      },
+      {
+        "code": "RES",
+        "location": "M5L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "M2L, UD AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "MD = All RHDs, UD = RH Crew Seats"
+      },
+      {
+        "code": "WEX",
+        "location": "M1L, U3L"
+      }
+    ],
+    "firstProduct": "First",
+    "clubWorldProduct": "Ying Yang"
   },
   "XLEG": {
     "registration": "XLEG",
@@ -73,10 +193,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "38A",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "M5L"
+      },
+      {
+        "code": "M5",
+        "location": "M5L, UD FWD Cupboard"
+      },
+      {
+        "code": "RES",
+        "location": "M5L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "M2L, UD AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "MD = All RHDs, UD = RH Crew Seats"
+      },
+      {
+        "code": "WEX",
+        "location": "M1L, U3L"
+      }
+    ],
+    "firstProduct": "First",
+    "clubWorldProduct": "Ying Yang"
   },
   "XLEH": {
     "registration": "XLEH",
@@ -85,10 +229,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "38A",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "M5L"
+      },
+      {
+        "code": "M5",
+        "location": "M5L, UD FWD Cupboard"
+      },
+      {
+        "code": "RES",
+        "location": "M5L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "M2L, UD AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "MD = All RHDs, UD = RH Crew Seats"
+      },
+      {
+        "code": "WEX",
+        "location": "M1L, U3L"
+      }
+    ],
+    "firstProduct": "First",
+    "clubWorldProduct": "Ying Yang"
   },
   "XLEI": {
     "registration": "XLEI",
@@ -97,10 +265,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "38A",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "M5L"
+      },
+      {
+        "code": "M5",
+        "location": "M5L, UD FWD Cupboard"
+      },
+      {
+        "code": "RES",
+        "location": "M5L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "M2L, UD AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "MD = All RHDs, UD = RH Crew Seats"
+      },
+      {
+        "code": "WEX",
+        "location": "M1L, U3L"
+      }
+    ],
+    "firstProduct": "First",
+    "clubWorldProduct": "Ying Yang"
   },
   "XLEJ": {
     "registration": "XLEJ",
@@ -109,10 +301,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "38A",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "M5L"
+      },
+      {
+        "code": "M5",
+        "location": "M5L, UD FWD Cupboard"
+      },
+      {
+        "code": "RES",
+        "location": "M5L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "M2L, UD AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "MD = All RHDs, UD = RH Crew Seats"
+      },
+      {
+        "code": "WEX",
+        "location": "M1L, U3L"
+      }
+    ],
+    "firstProduct": "First",
+    "clubWorldProduct": "Ying Yang"
   },
   "XLEK": {
     "registration": "XLEK",
@@ -121,10 +337,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "38A",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "M5L"
+      },
+      {
+        "code": "M5",
+        "location": "M5L, UD FWD Cupboard"
+      },
+      {
+        "code": "RES",
+        "location": "M5L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "M2L, UD AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "MD = All RHDs, UD = RH Crew Seats"
+      },
+      {
+        "code": "WEX",
+        "location": "M1L, U3L"
+      }
+    ],
+    "firstProduct": "First",
+    "clubWorldProduct": "Ying Yang"
   },
   "XLEL": {
     "registration": "XLEL",
@@ -133,21 +373,79 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "38A",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "M5L"
+      },
+      {
+        "code": "M5",
+        "location": "M5L, UD FWD Cupboard"
+      },
+      {
+        "code": "RES",
+        "location": "M5L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "M2L, UD AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "MD = All RHDs, UD = RH Crew Seats"
+      },
+      {
+        "code": "WEX",
+        "location": "M1L, U3L"
+      }
+    ],
+    "firstProduct": "First",
+    "clubWorldProduct": "Ying Yang"
+  },
+  "XLEC": {
+    "registration": "XLEC",
+    "haul": "longhaul",
+    "baseSection": "Main fleet",
+    "airfile": "38T",
+    "wifiType": "BA",
+    "livery": "Bespoke",
+    "sepEquipment": [],
+    "firstProduct": "Tango",
+    "clubWorldProduct": "Club Suite"
   },
   "XWBA": {
     "registration": "XWBA",
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "351",
-    "wifiType": "BA",
+    "wifiType": "Starlink",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs, D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "D2R, D3R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "XWBB": {
@@ -157,9 +455,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "351",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs, D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "D2R, D3R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "XWBC": {
@@ -167,11 +488,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "351",
-    "wifiType": "BA",
+    "wifiType": "Starlink",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs, D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "D2R, D3R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "XWBD": {
@@ -179,11 +523,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "351",
-    "wifiType": "BA",
+    "wifiType": "Starlink",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs, D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "D2R, D3R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "XWBE": {
@@ -193,9 +560,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "351",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs, D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "D2R, D3R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "XWBF": {
@@ -203,11 +593,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "351",
-    "wifiType": "BA",
+    "wifiType": "Starlink",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs, D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "D2R, D3R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "XWBG": {
@@ -217,9 +630,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "351",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs, D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "D2R, D3R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "XWBH": {
@@ -227,11 +663,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "351",
-    "wifiType": "BA",
+    "wifiType": "Starlink",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs, D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "D2R, D3R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "XWBI": {
@@ -239,11 +698,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "351",
-    "wifiType": "BA",
+    "wifiType": "Starlink",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs, D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "D2R, D3R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "XWBJ": {
@@ -251,11 +733,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "351",
-    "wifiType": "BA",
+    "wifiType": "Starlink",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs, D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "D2R, D3R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "XWBK": {
@@ -265,9 +770,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "351",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs, D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "D2R, D3R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "XWBL": {
@@ -275,11 +803,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "351",
-    "wifiType": "BA",
+    "wifiType": "Starlink",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs, D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "D2R, D3R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "XWBM": {
@@ -287,11 +838,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "351",
-    "wifiType": "BA",
+    "wifiType": "Starlink",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs, D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "D2R, D3R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "XWBN": {
@@ -301,9 +875,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "351",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs, D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "D2R, D3R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "XWBO": {
@@ -313,9 +910,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "351",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs, D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "D2R, D3R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "XWBP": {
@@ -325,9 +945,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "351",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs, D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "D2R, D3R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "XWBR": {
@@ -337,9 +980,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "351",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs, D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "D2R, D3R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "XWBS": {
@@ -347,11 +1013,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "351",
-    "wifiType": "BA",
+    "wifiType": "Starlink",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "AFT Galley"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs, D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "D2R, D3R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "ZBJA": {
@@ -361,9 +1050,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "78E",
     "wifiType": "Starlink",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "ZBJB": {
@@ -373,9 +1085,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "78E",
     "wifiType": "Starlink",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "ZBJC": {
@@ -385,9 +1120,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "78E",
     "wifiType": "Starlink",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "ZBJD": {
@@ -395,11 +1153,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "78E",
-    "wifiType": "None",
+    "wifiType": "Starlink",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "ZBJE": {
@@ -409,9 +1190,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "78E",
     "wifiType": "None",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "ZBJF": {
@@ -421,9 +1225,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "78E",
     "wifiType": "Starlink",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "ZBJG": {
@@ -433,9 +1260,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "78E",
     "wifiType": "Starlink",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "ZBJH": {
@@ -445,9 +1295,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "78E",
     "wifiType": "Starlink",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "ZBJI": {
@@ -457,9 +1330,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "78E",
     "wifiType": "Starlink",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "ZBJJ": {
@@ -469,9 +1365,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "78E",
     "wifiType": "Starlink",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "ZBJK": {
@@ -481,9 +1400,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "78E",
     "wifiType": "Starlink",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "ZBJM": {
@@ -493,9 +1435,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "78E",
     "wifiType": "Starlink",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "ZBKA": {
@@ -505,9 +1470,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "78N",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "ZBKF": {
@@ -517,9 +1506,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "78N",
     "wifiType": "None",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "ZBKG": {
@@ -529,9 +1542,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "78N",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "ZBKI": {
@@ -541,9 +1578,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "78N",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "ZBKH": {
@@ -553,9 +1614,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "78N",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "ZBKR": {
@@ -565,9 +1650,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "78N",
     "wifiType": "None",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "ZBKS": {
@@ -577,9 +1686,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "78N",
     "wifiType": "None",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "ZBKB": {
@@ -589,10 +1722,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "789",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2L"
+      },
+      {
+        "code": "M5",
+        "location": "D2L"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
+    "clubWorldProduct": "Ying Yang"
   },
   "ZBKC": {
     "registration": "ZBKC",
@@ -601,10 +1758,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "789",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2L"
+      },
+      {
+        "code": "M5",
+        "location": "D2L"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
+    "clubWorldProduct": "Ying Yang"
   },
   "ZBKD": {
     "registration": "ZBKD",
@@ -613,10 +1794,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "789",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2L"
+      },
+      {
+        "code": "M5",
+        "location": "D2L"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
+    "clubWorldProduct": "Ying Yang"
   },
   "ZBKE": {
     "registration": "ZBKE",
@@ -625,10 +1830,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "789",
     "wifiType": "None",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2L"
+      },
+      {
+        "code": "M5",
+        "location": "D2L"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
+    "clubWorldProduct": "Ying Yang"
   },
   "ZBKJ": {
     "registration": "ZBKJ",
@@ -637,10 +1866,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "789",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2L"
+      },
+      {
+        "code": "M5",
+        "location": "D2L"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
+    "clubWorldProduct": "Ying Yang"
   },
   "ZBKK": {
     "registration": "ZBKK",
@@ -649,10 +1902,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "789",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2L"
+      },
+      {
+        "code": "M5",
+        "location": "D2L"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
+    "clubWorldProduct": "Ying Yang"
   },
   "ZBKL": {
     "registration": "ZBKL",
@@ -661,10 +1938,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "789",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2L"
+      },
+      {
+        "code": "M5",
+        "location": "D2L"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
+    "clubWorldProduct": "Ying Yang"
   },
   "ZBKM": {
     "registration": "ZBKM",
@@ -673,10 +1974,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "789",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2L"
+      },
+      {
+        "code": "M5",
+        "location": "D2L"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
+    "clubWorldProduct": "Ying Yang"
   },
   "ZBKN": {
     "registration": "ZBKN",
@@ -685,10 +2010,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "789",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2L"
+      },
+      {
+        "code": "M5",
+        "location": "D2L"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
+    "clubWorldProduct": "Ying Yang"
   },
   "ZBKO": {
     "registration": "ZBKO",
@@ -697,10 +2046,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "789",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2L"
+      },
+      {
+        "code": "M5",
+        "location": "D2L"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
+    "clubWorldProduct": "Ying Yang"
   },
   "ZBKP": {
     "registration": "ZBKP",
@@ -709,10 +2082,34 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "789",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2L"
+      },
+      {
+        "code": "M5",
+        "location": "D2L"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
+    "clubWorldProduct": "Ying Yang"
   },
   "ZBLA": {
     "registration": "ZBLA",
@@ -721,9 +2118,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "781",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "ZBLB": {
@@ -733,9 +2154,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "781",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "ZBLC": {
@@ -745,9 +2190,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "781",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "ZBLD": {
@@ -757,9 +2226,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "781",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "ZBLE": {
@@ -769,9 +2262,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "781",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "ZBLF": {
@@ -781,9 +2298,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "781",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "ZBLG": {
@@ -793,9 +2334,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "781",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "ZBLH": {
@@ -805,9 +2370,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "781",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "ZBLI": {
@@ -817,9 +2406,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "781",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "ZBLJ": {
@@ -829,9 +2442,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "781",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "ZBLK": {
@@ -841,9 +2478,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "781",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "ZBLL": {
@@ -853,9 +2514,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "781",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D2R"
+      },
+      {
+        "code": "M5",
+        "location": "D2R"
+      },
+      {
+        "code": "RES",
+        "location": "D2R"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D2L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4L"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "RAES": {
@@ -865,9 +2550,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77M",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "VIIA": {
@@ -877,9 +2586,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77M",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "VIIB": {
@@ -889,9 +2622,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77M",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "VIIC": {
@@ -901,9 +2658,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77M",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "VIID": {
@@ -913,9 +2694,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77M",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "VIIE": {
@@ -925,9 +2730,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77M",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "VIIF": {
@@ -937,9 +2766,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77M",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "VIIG": {
@@ -949,9 +2802,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77M",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "VIIH": {
@@ -961,9 +2838,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77M",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "VIIJ": {
@@ -973,9 +2874,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77M",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "VIIK": {
@@ -985,9 +2910,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77M",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "VIIL": {
@@ -997,9 +2946,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77M",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "VIIM": {
@@ -1009,9 +2982,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77M",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "VIIN": {
@@ -1021,9 +3018,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77M",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "VIIS": {
@@ -1033,9 +3054,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77M",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "VIIV": {
@@ -1045,9 +3090,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77M",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "VIIW": {
@@ -1057,9 +3126,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77M",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "VIIY": {
@@ -1069,9 +3162,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77M",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
   "YMMG": {
@@ -1081,9 +3198,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77L",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "YMMH": {
@@ -1093,9 +3233,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77L",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "YMMI": {
@@ -1105,9 +3268,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77L",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "YMMJ": {
@@ -1117,9 +3303,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77L",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "YMMK": {
@@ -1129,9 +3338,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77L",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "YMML": {
@@ -1141,9 +3373,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77L",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "YMMN": {
@@ -1153,9 +3408,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77L",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "YMMO": {
@@ -1165,9 +3443,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77L",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "YMMP": {
@@ -1177,9 +3478,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77L",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "YMMR": {
@@ -1189,9 +3513,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77L",
     "wifiType": "BA",
     "livery": "OneWorld",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "YMMS": {
@@ -1201,9 +3548,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77L",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "YMMT": {
@@ -1213,9 +3583,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77L",
     "wifiType": "BA",
     "livery": "OneWorld",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "YMMU": {
@@ -1225,9 +3618,32 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77L",
     "wifiType": "BA",
     "livery": "OneWorld",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
     "clubWorldProduct": "Club Suite"
   },
   "STBA": {
@@ -1237,9 +3653,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77H",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": "First",
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
   "STBB": {
@@ -1249,9 +3689,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77H",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": "First",
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
   "STBC": {
@@ -1261,9 +3725,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77H",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": "First",
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
   "STBD": {
@@ -1273,9 +3761,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77H",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": "First",
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
   "STBE": {
@@ -1285,9 +3797,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77H",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": "First",
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
   "STBF": {
@@ -1297,9 +3833,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77H",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": "First",
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
   "STBG": {
@@ -1309,9 +3869,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77H",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": "First",
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
   "STBH": {
@@ -1321,9 +3905,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77H",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": "First",
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
   "STBI": {
@@ -1333,9 +3941,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77H",
     "wifiType": "BA",
     "livery": "Bespoke",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": "First",
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
   "STBJ": {
@@ -1345,9 +3977,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77H",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": "First",
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
   "STBK": {
@@ -1357,9 +4013,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77H",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": "First",
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
   "STBL": {
@@ -1369,9 +4049,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77H",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": "First",
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
   "STBM": {
@@ -1381,9 +4085,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77H",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": "First",
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
   "STBN": {
@@ -1393,9 +4121,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77H",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": "First",
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
   "STBO": {
@@ -1405,9 +4157,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77H",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": "First",
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
   "STBP": {
@@ -1417,9 +4193,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77H",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": "First",
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
   "VIIO": {
@@ -1429,10 +4229,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77T",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "Dogbox Aft WTP"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "clubWorldProduct": "Ying Yang"
   },
   "VIIP": {
     "registration": "VIIP",
@@ -1441,10 +4264,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77T",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "Dogbox Aft WTP"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "clubWorldProduct": "Ying Yang"
   },
   "VIIR": {
     "registration": "VIIR",
@@ -1453,10 +4299,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77T",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "Dogbox Aft WTP"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "clubWorldProduct": "Ying Yang"
   },
   "VIIT": {
     "registration": "VIIT",
@@ -1465,10 +4334,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77T",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "Dogbox Aft WTP"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "clubWorldProduct": "Ying Yang"
   },
   "VIII": {
     "registration": "VIII",
@@ -1477,10 +4369,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77T",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "Dogbox Aft WTP"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "clubWorldProduct": "Ying Yang"
   },
   "VIIX": {
     "registration": "VIIX",
@@ -1489,10 +4404,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77T",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "Dogbox Aft WTP"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "clubWorldProduct": "Ying Yang"
   },
   "YMMA": {
     "registration": "YMMA",
@@ -1501,10 +4439,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77S",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "clubWorldProduct": "Ying Yang"
   },
   "YMMB": {
     "registration": "YMMB",
@@ -1513,10 +4474,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77S",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "clubWorldProduct": "Ying Yang"
   },
   "YMMC": {
     "registration": "YMMC",
@@ -1525,10 +4509,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77S",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "clubWorldProduct": "Ying Yang"
   },
   "YMMD": {
     "registration": "YMMD",
@@ -1537,10 +4544,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77S",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "clubWorldProduct": "Ying Yang"
   },
   "YMME": {
     "registration": "YMME",
@@ -1549,10 +4579,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77S",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "clubWorldProduct": "Ying Yang"
   },
   "YMMF": {
     "registration": "YMMF",
@@ -1561,10 +4614,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "airfile": "77S",
     "wifiType": "BA",
     "livery": "Standard",
-    "newShorthaulSeat": null,
-    "xlOverheadBins": null,
-    "firstProduct": null,
-    "clubWorldProduct": "Stretch"
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "D1L"
+      },
+      {
+        "code": "M5",
+        "location": "D1L"
+      },
+      {
+        "code": "RES",
+        "location": "D1L"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "D1L"
+      },
+      {
+        "code": "FE",
+        "location": "All RHDs"
+      },
+      {
+        "code": "WEX",
+        "location": "D1L, D4R"
+      }
+    ],
+    "clubWorldProduct": "Ying Yang"
   },
   "NEOP": {
     "registration": "NEOP",
@@ -1574,7 +4650,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "M5",
+        "location": "Stowage 301"
+      },
+      {
+        "code": "RES",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "All Crew Seats except D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "Crew Seat @ D4L"
+      }
+    ]
   },
   "NEOR": {
     "registration": "NEOR",
@@ -1584,7 +4686,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "M5",
+        "location": "Stowage 301"
+      },
+      {
+        "code": "RES",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "All Crew Seats except D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "Crew Seat @ D4L"
+      }
+    ]
   },
   "NEOS": {
     "registration": "NEOS",
@@ -1594,7 +4722,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "M5",
+        "location": "Stowage 301"
+      },
+      {
+        "code": "RES",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "All Crew Seats except D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "Crew Seat @ D4L"
+      }
+    ]
   },
   "NEOT": {
     "registration": "NEOT",
@@ -1604,7 +4758,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "M5",
+        "location": "Stowage 301"
+      },
+      {
+        "code": "RES",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "All Crew Seats except D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "Crew Seat @ D4L"
+      }
+    ]
   },
   "NEOU": {
     "registration": "NEOU",
@@ -1614,7 +4794,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "M5",
+        "location": "Stowage 301"
+      },
+      {
+        "code": "RES",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "All Crew Seats except D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "Crew Seat @ D4L"
+      }
+    ]
   },
   "NEOV": {
     "registration": "NEOV",
@@ -1624,7 +4830,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "M5",
+        "location": "Stowage 301"
+      },
+      {
+        "code": "RES",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "All Crew Seats except D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "Crew Seat @ D4L"
+      }
+    ]
   },
   "NEOW": {
     "registration": "NEOW",
@@ -1634,7 +4866,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "M5",
+        "location": "Stowage 301"
+      },
+      {
+        "code": "RES",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "All Crew Seats except D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "Crew Seat @ D4L"
+      }
+    ]
   },
   "NEOX": {
     "registration": "NEOX",
@@ -1644,7 +4902,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "M5",
+        "location": "Stowage 301"
+      },
+      {
+        "code": "RES",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "All Crew Seats except D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "Crew Seat @ D4L"
+      }
+    ]
   },
   "NEOY": {
     "registration": "NEOY",
@@ -1654,7 +4938,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "M5",
+        "location": "Stowage 301"
+      },
+      {
+        "code": "RES",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "All Crew Seats except D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "Crew Seat @ D4L"
+      }
+    ]
   },
   "NEOZ": {
     "registration": "NEOZ",
@@ -1664,7 +4974,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "M5",
+        "location": "Stowage 301"
+      },
+      {
+        "code": "RES",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "All Crew Seats except D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "Crew Seat @ D4L"
+      }
+    ]
   },
   "TNEA": {
     "registration": "TNEA",
@@ -1674,7 +5010,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "Stowage 301"
+      },
+      {
+        "code": "RES",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "All Crew Seats except D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "Crew Seat @ D4L"
+      }
+    ]
   },
   "TNEB": {
     "registration": "TNEB",
@@ -1684,7 +5046,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "Stowage 301"
+      },
+      {
+        "code": "RES",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "All Crew Seats except D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "Crew Seat @ D4L"
+      }
+    ]
   },
   "TNEC": {
     "registration": "TNEC",
@@ -1694,7 +5082,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "Stowage 301"
+      },
+      {
+        "code": "RES",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "All Crew Seats except D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "Crew Seat @ D4L"
+      }
+    ]
   },
   "TNED": {
     "registration": "TNED",
@@ -1704,7 +5118,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "Stowage 314"
+      },
+      {
+        "code": "M5",
+        "location": "Stowage 301"
+      },
+      {
+        "code": "RES",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 212"
+      },
+      {
+        "code": "FE",
+        "location": "All Crew Seats except D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "Crew Seat @ D4L"
+      }
+    ]
   },
   "TNEE": {
     "registration": "TNEE",
@@ -1714,7 +5154,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "Stowage 314"
+      },
+      {
+        "code": "M5",
+        "location": "Stowage 301"
+      },
+      {
+        "code": "RES",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 212"
+      },
+      {
+        "code": "FE",
+        "location": "All Crew Seats except D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "Crew Seat @ D4L"
+      }
+    ]
   },
   "TNEF": {
     "registration": "TNEF",
@@ -1724,7 +5190,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "None",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "Stowage 314"
+      },
+      {
+        "code": "M5",
+        "location": "Stowage 301"
+      },
+      {
+        "code": "RES",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 212"
+      },
+      {
+        "code": "FE",
+        "location": "All Crew Seats except D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "Crew Seat @ D4L"
+      }
+    ]
   },
   "TNEG": {
     "registration": "TNEG",
@@ -1734,7 +5226,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "Stowage 314"
+      },
+      {
+        "code": "M5",
+        "location": "Stowage 301"
+      },
+      {
+        "code": "RES",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 212"
+      },
+      {
+        "code": "FE",
+        "location": "All Crew Seats except D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "Crew Seat @ D4L"
+      }
+    ]
   },
   "TNEH": {
     "registration": "TNEH",
@@ -1744,7 +5262,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "Stowage 314"
+      },
+      {
+        "code": "M5",
+        "location": "Stowage 301"
+      },
+      {
+        "code": "RES",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 212"
+      },
+      {
+        "code": "FE",
+        "location": "All Crew Seats except D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "Crew Seat @ D4L"
+      }
+    ]
   },
   "TNEI": {
     "registration": "TNEI",
@@ -1754,7 +5298,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "None",
     "livery": "Standard",
     "newShorthaulSeat": true,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "Stowage 314"
+      },
+      {
+        "code": "M5",
+        "location": "Stowage 301"
+      },
+      {
+        "code": "RES",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 212"
+      },
+      {
+        "code": "FE",
+        "location": "All Crew Seats except D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "Crew Seat @ D4L"
+      }
+    ]
   },
   "TNEJ": {
     "registration": "TNEJ",
@@ -1764,7 +5334,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "None",
     "livery": "Standard",
     "newShorthaulSeat": true,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "Stowage 314"
+      },
+      {
+        "code": "M5",
+        "location": "Stowage 301"
+      },
+      {
+        "code": "RES",
+        "location": "Stowage 304"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 212"
+      },
+      {
+        "code": "FE",
+        "location": "All Crew Seats except D4L"
+      },
+      {
+        "code": "WEX",
+        "location": "Crew Seat @ D4L"
+      }
+    ]
   },
   "EUUA": {
     "registration": "EUUA",
@@ -1774,7 +5370,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUUB": {
     "registration": "EUUB",
@@ -1784,7 +5406,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUUC": {
     "registration": "EUUC",
@@ -1794,7 +5442,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUUD": {
     "registration": "EUUD",
@@ -1804,7 +5478,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUUE": {
     "registration": "EUUE",
@@ -1814,7 +5514,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUUF": {
     "registration": "EUUF",
@@ -1824,7 +5550,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUUG": {
     "registration": "EUUG",
@@ -1834,7 +5586,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUUH": {
     "registration": "EUUH",
@@ -1844,7 +5622,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUUI": {
     "registration": "EUUI",
@@ -1854,7 +5658,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUUJ": {
     "registration": "EUUJ",
@@ -1864,7 +5694,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUUK": {
     "registration": "EUUK",
@@ -1874,7 +5730,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUUL": {
     "registration": "EUUL",
@@ -1884,7 +5766,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUUM": {
     "registration": "EUUM",
@@ -1894,7 +5802,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUUN": {
     "registration": "EUUN",
@@ -1904,7 +5838,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUUO": {
     "registration": "EUUO",
@@ -1914,7 +5874,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUUP": {
     "registration": "EUUP",
@@ -1924,7 +5910,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUUR": {
     "registration": "EUUR",
@@ -1934,7 +5946,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Bespoke",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUUS": {
     "registration": "EUUS",
@@ -1944,7 +5982,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUUU": {
     "registration": "EUUU",
@@ -1954,7 +6018,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUUZ": {
     "registration": "EUUZ",
@@ -1964,7 +6054,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "TTOB": {
     "registration": "TTOB",
@@ -1974,7 +6090,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "TTOE": {
     "registration": "TTOE",
@@ -1984,7 +6126,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUYA": {
     "registration": "EUYA",
@@ -1994,7 +6162,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUYB": {
     "registration": "EUYB",
@@ -2004,7 +6198,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUYC": {
     "registration": "EUYC",
@@ -2014,7 +6234,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUYD": {
     "registration": "EUYD",
@@ -2024,7 +6270,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUYE": {
     "registration": "EUYE",
@@ -2034,7 +6306,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUYF": {
     "registration": "EUYF",
@@ -2044,7 +6342,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUYG": {
     "registration": "EUYG",
@@ -2054,7 +6378,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUYH": {
     "registration": "EUYH",
@@ -2064,7 +6414,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUYI": {
     "registration": "EUYI",
@@ -2074,7 +6450,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUYJ": {
     "registration": "EUYJ",
@@ -2084,7 +6486,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUYK": {
     "registration": "EUYK",
@@ -2094,7 +6522,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUYL": {
     "registration": "EUYL",
@@ -2104,7 +6558,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUYM": {
     "registration": "EUYM",
@@ -2114,7 +6594,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUYN": {
     "registration": "EUYN",
@@ -2124,7 +6630,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUYO": {
     "registration": "EUYO",
@@ -2134,7 +6666,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUYP": {
     "registration": "EUYP",
@@ -2144,7 +6702,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "OneWorld",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUYS": {
     "registration": "EUYS",
@@ -2154,7 +6738,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "OneWorld",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUYT": {
     "registration": "EUYT",
@@ -2164,7 +6774,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUYU": {
     "registration": "EUYU",
@@ -2174,7 +6810,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUYX": {
     "registration": "EUYX",
@@ -2184,7 +6846,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "EUYY": {
     "registration": "EUYY",
@@ -2194,7 +6882,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Galley Cupboard"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 AFT Galley Bulkhead"
+      },
+      {
+        "code": "WEX",
+        "location": "AFT Galley Bulkhead"
+      }
+    ]
   },
   "TTNA": {
     "registration": "TTNA",
@@ -2204,7 +6918,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Bespoke",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTNB": {
     "registration": "TTNB",
@@ -2214,7 +6954,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTNC": {
     "registration": "TTNC",
@@ -2224,7 +6990,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTND": {
     "registration": "TTND",
@@ -2234,7 +7026,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTNE": {
     "registration": "TTNE",
@@ -2244,7 +7062,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTNF": {
     "registration": "TTNF",
@@ -2254,7 +7098,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTNG": {
     "registration": "TTNG",
@@ -2264,7 +7134,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": true,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTNH": {
     "registration": "TTNH",
@@ -2274,7 +7170,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": true,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTNI": {
     "registration": "TTNI",
@@ -2284,7 +7206,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": true,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTNJ": {
     "registration": "TTNJ",
@@ -2294,7 +7242,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": true,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTNK": {
     "registration": "TTNK",
@@ -2304,7 +7278,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTNL": {
     "registration": "TTNL",
@@ -2314,7 +7314,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTNM": {
     "registration": "TTNM",
@@ -2324,7 +7350,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTNN": {
     "registration": "TTNN",
@@ -2334,7 +7386,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTNO": {
     "registration": "TTNO",
@@ -2344,7 +7422,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTNP": {
     "registration": "TTNP",
@@ -2354,7 +7458,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTNR": {
     "registration": "TTNR",
@@ -2364,7 +7494,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTNS": {
     "registration": "TTNS",
@@ -2374,7 +7530,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTNT": {
     "registration": "TTNT",
@@ -2384,7 +7566,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": true,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTNU": {
     "registration": "TTNU",
@@ -2394,7 +7602,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": true,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTNV": {
     "registration": "TTNV",
@@ -2404,7 +7638,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": true,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTNW": {
     "registration": "TTNW",
@@ -2414,7 +7674,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": true,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTNX": {
     "registration": "TTNX",
@@ -2424,7 +7710,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": true,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTNY": {
     "registration": "TTNY",
@@ -2434,7 +7746,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": true,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTNZ": {
     "registration": "TTNZ",
@@ -2444,7 +7782,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": true,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTSA": {
     "registration": "TTSA",
@@ -2454,7 +7818,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": true,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTSB": {
     "registration": "TTSB",
@@ -2464,7 +7854,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": true,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTSC": {
     "registration": "TTSC",
@@ -2474,7 +7890,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": true,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTSD": {
     "registration": "TTSD",
@@ -2484,7 +7926,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": true,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTSE": {
     "registration": "TTSE",
@@ -2494,7 +7962,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": true,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTSF": {
     "registration": "TTSF",
@@ -2504,7 +7998,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": true,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTSG": {
     "registration": "TTSG",
@@ -2514,7 +8034,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": true,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTSH": {
     "registration": "TTSH",
@@ -2524,7 +8070,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": true,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTSI": {
     "registration": "TTSI",
@@ -2534,7 +8106,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "None",
     "livery": "Standard",
     "newShorthaulSeat": true,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTSJ": {
     "registration": "TTSJ",
@@ -2544,7 +8142,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "None",
     "livery": "Standard",
     "newShorthaulSeat": true,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "TTSK": {
     "registration": "TTSK",
@@ -2554,7 +8178,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "None",
     "livery": "Standard",
     "newShorthaulSeat": true,
-    "xlOverheadBins": true
+    "xlOverheadBins": true,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "Stowage 211"
+      },
+      {
+        "code": "FE",
+        "location": "x2 FWD Crew Seats, x1 D2R Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "D2L Crew Seat"
+      }
+    ]
   },
   "EUPD": {
     "registration": "EUPD",
@@ -2564,7 +8214,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "None",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Overhead Locker DEF"
+      },
+      {
+        "code": "FE",
+        "location": "x1 FWD Crew Seat, x1 No 3 Crew Seat, x1 No 5 Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "Stowage beside No 3 Crew Seat"
+      }
+    ]
   },
   "EUPG": {
     "registration": "EUPG",
@@ -2574,7 +8250,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "None",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Overhead Locker DEF"
+      },
+      {
+        "code": "FE",
+        "location": "x1 FWD Crew Seat, x1 No 3 Crew Seat, x1 No 5 Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "Stowage beside No 3 Crew Seat"
+      }
+    ]
   },
   "EUPJ": {
     "registration": "EUPJ",
@@ -2584,7 +8286,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "None",
     "livery": "Bespoke",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Overhead Locker DEF"
+      },
+      {
+        "code": "FE",
+        "location": "x1 FWD Crew Seat, x1 No 3 Crew Seat, x1 No 5 Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "Stowage beside No 3 Crew Seat"
+      }
+    ]
   },
   "EUPK": {
     "registration": "EUPK",
@@ -2594,7 +8322,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "None",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Overhead Locker DEF"
+      },
+      {
+        "code": "FE",
+        "location": "x1 FWD Crew Seat, x1 No 3 Crew Seat, x1 No 5 Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "Stowage beside No 3 Crew Seat"
+      }
+    ]
   },
   "EUPN": {
     "registration": "EUPN",
@@ -2604,7 +8358,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Overhead Locker DEF"
+      },
+      {
+        "code": "FE",
+        "location": "x1 FWD Crew Seat, x1 No 3 Crew Seat, x1 No 5 Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "Stowage beside No 3 Crew Seat"
+      }
+    ]
   },
   "EUPO": {
     "registration": "EUPO",
@@ -2614,7 +8394,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Overhead Locker DEF"
+      },
+      {
+        "code": "FE",
+        "location": "x1 FWD Crew Seat, x1 No 3 Crew Seat, x1 No 5 Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "Stowage beside No 3 Crew Seat"
+      }
+    ]
   },
   "EUPP": {
     "registration": "EUPP",
@@ -2624,7 +8430,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Overhead Locker DEF"
+      },
+      {
+        "code": "FE",
+        "location": "x1 FWD Crew Seat, x1 No 3 Crew Seat, x1 No 5 Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "Stowage beside No 3 Crew Seat"
+      }
+    ]
   },
   "EUPR": {
     "registration": "EUPR",
@@ -2634,7 +8466,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Overhead Locker DEF"
+      },
+      {
+        "code": "FE",
+        "location": "x1 FWD Crew Seat, x1 No 3 Crew Seat, x1 No 5 Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "Stowage beside No 3 Crew Seat"
+      }
+    ]
   },
   "EUPS": {
     "registration": "EUPS",
@@ -2644,7 +8502,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Overhead Locker DEF"
+      },
+      {
+        "code": "FE",
+        "location": "x1 FWD Crew Seat, x1 No 3 Crew Seat, x1 No 5 Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "Stowage beside No 3 Crew Seat"
+      }
+    ]
   },
   "EUPU": {
     "registration": "EUPU",
@@ -2654,7 +8538,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Overhead Locker DEF"
+      },
+      {
+        "code": "FE",
+        "location": "x1 FWD Crew Seat, x1 No 3 Crew Seat, x1 No 5 Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "Stowage beside No 3 Crew Seat"
+      }
+    ]
   },
   "EUPZ": {
     "registration": "EUPZ",
@@ -2664,7 +8574,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Wardrobe"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Overhead Locker DEF"
+      },
+      {
+        "code": "FE",
+        "location": "x1 FWD Crew Seat, x1 No 3 Crew Seat, x1 No 5 Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "Stowage beside No 3 Crew Seat"
+      }
+    ]
   },
   "DBCA": {
     "registration": "DBCA",
@@ -2674,7 +8610,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "None",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Overhead Locker DEF"
+      },
+      {
+        "code": "FE",
+        "location": "x1 FWD Crew Seat, x1 AFT Dogbox ABC, x1 No 3 Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "No 2 (Direct View) Crew Seat"
+      }
+    ]
   },
   "DBCB": {
     "registration": "DBCB",
@@ -2684,7 +8646,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "None",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Overhead Locker DEF"
+      },
+      {
+        "code": "FE",
+        "location": "x1 FWD Crew Seat, x1 AFT Dogbox ABC, x1 No 3 Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "No 2 (Direct View) Crew Seat"
+      }
+    ]
   },
   "DBCC": {
     "registration": "DBCC",
@@ -2694,7 +8682,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Overhead Locker DEF"
+      },
+      {
+        "code": "FE",
+        "location": "x1 FWD Crew Seat, x1 AFT Dogbox ABC, x1 No 3 Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "No 2 (Direct View) Crew Seat"
+      }
+    ]
   },
   "DBCD": {
     "registration": "DBCD",
@@ -2704,7 +8718,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Overhead Locker DEF"
+      },
+      {
+        "code": "FE",
+        "location": "x1 FWD Crew Seat, x1 AFT Dogbox ABC, x1 No 3 Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "No 2 (Direct View) Crew Seat"
+      }
+    ]
   },
   "DBCE": {
     "registration": "DBCE",
@@ -2714,7 +8754,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Overhead Locker DEF"
+      },
+      {
+        "code": "FE",
+        "location": "x1 FWD Crew Seat, x1 AFT Dogbox ABC, x1 No 3 Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "No 2 (Direct View) Crew Seat"
+      }
+    ]
   },
   "DBCF": {
     "registration": "DBCF",
@@ -2724,7 +8790,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Overhead Locker DEF"
+      },
+      {
+        "code": "FE",
+        "location": "x1 FWD Crew Seat, x1 AFT Dogbox ABC, x1 No 3 Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "No 2 (Direct View) Crew Seat"
+      }
+    ]
   },
   "DBCG": {
     "registration": "DBCG",
@@ -2734,7 +8826,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Overhead Locker DEF"
+      },
+      {
+        "code": "FE",
+        "location": "x1 FWD Crew Seat, x1 AFT Dogbox ABC, x1 No 3 Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "No 2 (Direct View) Crew Seat"
+      }
+    ]
   },
   "DBCH": {
     "registration": "DBCH",
@@ -2744,7 +8862,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Overhead Locker DEF"
+      },
+      {
+        "code": "FE",
+        "location": "x1 FWD Crew Seat, x1 AFT Dogbox ABC, x1 No 3 Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "No 2 (Direct View) Crew Seat"
+      }
+    ]
   },
   "DBCI": {
     "registration": "DBCI",
@@ -2754,7 +8898,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Overhead Locker DEF"
+      },
+      {
+        "code": "FE",
+        "location": "x1 FWD Crew Seat, x1 AFT Dogbox ABC, x1 No 3 Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "No 2 (Direct View) Crew Seat"
+      }
+    ]
   },
   "DBCK": {
     "registration": "DBCK",
@@ -2764,7 +8934,33 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Standard",
     "newShorthaulSeat": false,
-    "xlOverheadBins": false
+    "xlOverheadBins": false,
+    "sepEquipment": [
+      {
+        "code": "AED",
+        "location": "AFT Overhead Locker DEF"
+      },
+      {
+        "code": "M5",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RES",
+        "location": "AFT Overhead Locker ABC"
+      },
+      {
+        "code": "RESTRAINT",
+        "location": "FWD Overhead Locker DEF"
+      },
+      {
+        "code": "FE",
+        "location": "x1 FWD Crew Seat, x1 AFT Dogbox ABC, x1 No 3 Crew Seat"
+      },
+      {
+        "code": "WEX",
+        "location": "No 2 (Direct View) Crew Seat"
+      }
+    ]
   }
 });
 globalThis.AIRCRAFT_REGISTRATION_ORDER = Object.freeze([
@@ -2779,6 +8975,7 @@ globalThis.AIRCRAFT_REGISTRATION_ORDER = Object.freeze([
   "XLEJ",
   "XLEK",
   "XLEL",
+  "XLEC",
   "XWBA",
   "XWBB",
   "XWBC",

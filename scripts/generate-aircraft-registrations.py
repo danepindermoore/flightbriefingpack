@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Generate the website aircraft data from the September 2026 fleet workbook.
+"""Generate aircraft lookup data from the combined British Airways fleet workbook.
 
-Requires openpyxl for this maintenance script only. Summary-level aircraft data
-is generated into data/aircraft.js; individual crew-position details remain in
-the aircraft AOR files until those details are added to the workbook.
+Requires openpyxl for this maintenance script only. The workbook is the source
+for registration details and aircraft summaries; AOR position data remains in
+the individual aircraft JavaScript files.
 """
 
 from __future__ import annotations
@@ -11,44 +11,57 @@ from __future__ import annotations
 import argparse
 import json
 import re
+from collections import defaultdict
 from pathlib import Path
 
 from openpyxl import load_workbook
 
 
-SOURCE_NAME = "British_Airways_Fleet_September_2026_Registrations.xlsx"
+SOURCE_NAME = "British Airways Fleet.xlsx"
 SOURCE_AS_OF = "2026-09"
-REGISTRATION_SHEETS = (("Longhaul Registrations", "longhaul"), ("Shorthaul Registrations", "shorthaul"))
-EXCLUDED_AIRFILES = {"788", "78Z", "38T"}
+SHEET_NAME = "Registrations"
+EXCLUDED_AIRFILES = {"78Z"}
+LONGHAUL_AIRFILES = {"38A", "38T", "351", "78E", "78N", "789", "781", "77M", "77L", "77H", "77T", "77S"}
 AIRFILE_MARKER_START = "// BEGIN GENERATED AIRFILE DATA"
 AIRFILE_MARKER_END = "// END GENERATED AIRFILE DATA"
+EQUIPMENT_COLUMNS = (
+    ("AED Location", "AED"),
+    ("M5 Location", "M5"),
+    ("RESUS Location", "RES"),
+    ("RESTRAINT Location", "RESTRAINT"),
+    ("FE Location", "FE"),
+    ("WEX Location", "WEX"),
+)
 
 
 def normalise_header(value: object) -> str:
     return " ".join(str(value or "").strip().casefold().replace("–", "-").replace("—", "-").split())
 
 
-def get_value(row: tuple, headers: dict[str, int], *names: str):
+def value_for(row: tuple, headers: dict[str, int], *names: str):
     for name in names:
         index = headers.get(normalise_header(name))
-        if index is not None:
-            return row[index] if index < len(row) else None
+        if index is not None and index < len(row):
+            return row[index]
     return None
 
 
-def get_cabin_value(row: tuple, headers: dict[str, int], *names: str):
-    for name in names:
-        wanted = normalise_header(name)
-        for header, index in headers.items():
-            if header == wanted or header.endswith(" " + wanted):
-                return row[index] if index < len(row) else None
-    return None
+def clean(value):
+    """Treat workbook NA, empty strings and whitespace as not applicable."""
+    if value is None:
+        return None
+    if isinstance(value, str):
+        value = value.strip()
+        if not value or value.casefold() == "na":
+            return None
+    return value
 
 
 def yes_no(value: object) -> bool | None:
-    if value is None or str(value).strip() == "":
+    value = clean(value)
+    if value is None:
         return None
-    normalised = str(value).strip().casefold()
+    normalised = str(value).casefold()
     if normalised in {"yes", "y", "true", "1"}:
         return True
     if normalised in {"no", "n", "false", "0"}:
@@ -56,55 +69,17 @@ def yes_no(value: object) -> bool | None:
     raise ValueError(f"Unexpected yes/no value: {value!r}")
 
 
-def read_sheet_rows(workbook, sheet_name: str, title_rows: int):
-    rows = workbook[sheet_name].iter_rows(values_only=True)
-    for _ in range(title_rows):
-        next(rows, None)
-    header_row = next(rows)
-    headers = {normalise_header(value): index for index, value in enumerate(header_row) if value is not None}
-    return headers, rows
-
-
-def load_registration_records(workbook_path: Path) -> dict[str, dict]:
-    workbook = load_workbook(workbook_path, read_only=True, data_only=True)
-    records: dict[str, dict] = {}
-    for sheet_name, haul in REGISTRATION_SHEETS:
-        headers, rows = read_sheet_rows(workbook, sheet_name, 1)
-        for row in rows:
-            raw_registration = get_value(row, headers, "Registration")
-            if raw_registration is None or not str(raw_registration).strip():
-                continue
-            registration = str(raw_registration).strip().upper()
-            airfile = str(get_value(row, headers, "Airfile") or "").strip()
-            if not airfile:
-                raise ValueError(f"No Airfile code for registration {registration}")
-            if airfile in EXCLUDED_AIRFILES:
-                continue
-            if registration in records:
-                raise ValueError(f"Duplicate registration found across workbook sheets: {registration}")
-
-            wifi = get_value(row, headers, "Wi-Fi Type")
-            wifi_type = str(wifi).strip() if wifi is not None and str(wifi).strip() else ("None" if haul == "shorthaul" else None)
-            record = {
-                "registration": registration,
-                "haul": haul,
-                "baseSection": get_value(row, headers, "Base / section", "Base / Section"),
-                "airfile": airfile,
-                "wifiType": wifi_type,
-                "livery": get_value(row, headers, "Livery"),
-                "newShorthaulSeat": yes_no(get_value(row, headers, "New SH seat")),
-                "xlOverheadBins": yes_no(get_value(row, headers, "XL overhead bins")),
-            }
-            if haul == "longhaul":
-                record["firstProduct"] = get_value(row, headers, "First Product")
-                record["clubWorldProduct"] = get_value(row, headers, "Club World Product")
-            records[registration] = record
-
-    workbook.close()
-    return records
+def equipment_for(row: tuple, headers: dict[str, int]) -> list[dict]:
+    equipment = []
+    for column, code in EQUIPMENT_COLUMNS:
+        location = clean(value_for(row, headers, column))
+        if location is not None:
+            equipment.append({"code": code, "location": str(location)})
+    return equipment
 
 
 def spare_seats(count, raw_location) -> list[dict]:
+    count, raw_location = clean(count), clean(raw_location)
     if not count or not raw_location:
         return []
     locations = [part.strip() for part in re.split(r"\s*,\s*|\s*&\s*", str(raw_location)) if part.strip()]
@@ -117,73 +92,135 @@ def spare_seats(count, raw_location) -> list[dict]:
         seat = match.group(1)
         facing_match = re.search(r"\b(FWD|AFT)\b", location.upper())
         descriptor_match = re.search(r"\b(INBOARD|CENTRE|CENTER)\b", location.upper())
-        descriptor = descriptor_match.group(1).title() if descriptor_match else None
         item = {"seat": seat, "facing": facing_match.group(1) if facing_match else None, "note": "Spare crew seat"}
-        if descriptor:
-            item["descriptor"] = descriptor
+        if descriptor_match:
+            item["descriptor"] = descriptor_match.group(1).title()
         results.append(item)
     return results
 
 
-def read_type_summaries(workbook_path: Path) -> dict[str, list[dict]]:
+def cabin_breakdown(row: tuple, headers: dict[str, int]) -> tuple[dict, list[str]]:
+    breakdown = {}
+    classes = []
+    for header, key, code in (
+        ("F - First", "first", "F"),
+        ("J - Club World", "clubWorld", "J"),
+        ("W - World Traveller Plus", "worldTravellerPlus", "W"),
+        ("M - World Traveller", "worldTraveller", "M"),
+    ):
+        count = clean(value_for(row, headers, header))
+        if count is None:
+            continue
+        if float(count) > 0:
+            breakdown[key] = count
+            classes.append(code)
+    return breakdown, classes
+
+
+def read_workbook(workbook_path: Path) -> tuple[dict[str, dict], dict[str, list[dict]]]:
     workbook = load_workbook(workbook_path, read_only=True, data_only=True)
-    summaries = {"longhaul": [], "shorthaul": []}
-    for sheet_name, haul, title_rows in (("Long Haul", "longhaul", 2), ("Short Haul", "shorthaul", 1)):
-        headers, rows = read_sheet_rows(workbook, sheet_name, title_rows)
-        for row in rows:
-            raw_airfile = get_value(row, headers, "Airfile")
-            if raw_airfile is None or not str(raw_airfile).strip():
-                continue
-            airfile = str(raw_airfile).strip()
-            if airfile in EXCLUDED_AIRFILES:
-                continue
-            variant = str(get_value(row, headers, "Aircraft / Variant", "Aircraft / variant") or airfile).strip()
-            family_match = re.search(r"[AB]\d{3}", variant.upper())
-            family = family_match.group(0) if family_match else variant
-            manufacturer = str(get_value(row, headers, "Manufacturer") or ("Airbus" if family.startswith("A") else "Boeing" if family.startswith("B") else "Unknown"))
-            if haul == "longhaul":
-                breakdown = {
-                    "first": get_cabin_value(row, headers, "F - First"),
-                    "clubWorld": get_cabin_value(row, headers, "J - Club World"),
-                    "worldTravellerPlus": get_cabin_value(row, headers, "W - World Traveller Plus"),
-                    "worldTraveller": get_cabin_value(row, headers, "M - World Traveller"),
+    if SHEET_NAME not in workbook.sheetnames:
+        raise ValueError(f"Workbook must contain a '{SHEET_NAME}' sheet")
+    rows = workbook[SHEET_NAME].iter_rows(values_only=True)
+    next(rows, None)  # workbook title row
+    header_row = next(rows, None)
+    if not header_row:
+        raise ValueError(f"No header row found on the '{SHEET_NAME}' sheet")
+    headers = {normalise_header(value): index for index, value in enumerate(header_row) if value is not None}
+
+    raw_rows: dict[str, list[tuple]] = defaultdict(list)
+    registrations: dict[str, dict] = {}
+    for row in rows:
+        registration = clean(value_for(row, headers, "Registration"))
+        airfile_value = clean(value_for(row, headers, "Airfile"))
+        if registration is None or airfile_value is None:
+            continue
+        registration = str(registration).upper()
+        airfile = str(airfile_value).strip()
+        if airfile in EXCLUDED_AIRFILES:
+            continue
+        if registration in registrations:
+            raise ValueError(f"Duplicate registration found in workbook: {registration}")
+        haul = "longhaul" if airfile in LONGHAUL_AIRFILES else "shorthaul"
+        record = {
+            "registration": registration,
+            "haul": haul,
+            "baseSection": clean(value_for(row, headers, "Base / section")),
+            "airfile": airfile,
+            "wifiType": clean(value_for(row, headers, "Wi-Fi Type")),
+            "livery": clean(value_for(row, headers, "Livery")),
+            "newShorthaulSeat": yes_no(value_for(row, headers, "New SH seat")),
+            "xlOverheadBins": yes_no(value_for(row, headers, "XL overhead bins")),
+            "sepEquipment": equipment_for(row, headers),
+        }
+        if haul == "longhaul":
+            record["firstProduct"] = clean(value_for(row, headers, "First Product"))
+            record["clubWorldProduct"] = clean(value_for(row, headers, "Club World Product"))
+        registrations[registration] = {key: value for key, value in record.items() if value is not None}
+        raw_rows[airfile].append(row)
+
+    summaries: dict[str, list[dict]] = {"longhaul": [], "shorthaul": []}
+    for airfile, type_rows in raw_rows.items():
+        haul = "longhaul" if airfile in LONGHAUL_AIRFILES else "shorthaul"
+        row = type_rows[0]
+        variant = str(clean(value_for(row, headers, "Aircraft / variant")) or airfile)
+        family_match = re.search(r"[AB]\d{3}", variant.upper())
+        family = family_match.group(0) if family_match else variant
+        manufacturer = str(clean(value_for(row, headers, "Manufacturer")) or ("Airbus" if family.startswith("A") else "Boeing"))
+        equipment_by_registration = [equipment_for(item, headers) for item in type_rows]
+        equipment_signatures = {json.dumps(items, sort_keys=True) for items in equipment_by_registration}
+        equipment_varies = len(equipment_signatures) > 1
+        shared_equipment = equipment_by_registration[0] if not equipment_varies else []
+        total_seats = clean(value_for(row, headers, "Total Passenger Seats"))
+
+        if haul == "longhaul":
+            breakdown, classes = cabin_breakdown(row, headers)
+            legal_minimum = clean(value_for(row, headers, "Legal Minimum Crew"))
+            flight_bunks = yes_no(value_for(row, headers, "FC Bunks"))
+            cabin_bunks = yes_no(value_for(row, headers, "CC Bunks"))
+            rest_types = []
+            if flight_bunks:
+                rest_types.append("OFCR" if manufacturer.casefold() == "airbus" else "FCRC")
+            if cabin_bunks:
+                rest_types.append("OFAR" if manufacturer.casefold() == "airbus" else "CCRC")
+            rest_lookup = {"OFCR": "flightCrewRest", "FCRC": "flightCrewRest", "OFAR": "cabinCrewRest", "CCRC": "cabinCrewRest"}
+            crew = None
+            if legal_minimum is not None:
+                crew = {
+                    "legalMinimum": legal_minimum,
+                    "requiredSeats": list(range(1, int(legal_minimum) + 1)),
+                    "totalCrewSeats": clean(value_for(row, headers, "Crew Seats")),
+                    "standardCrewCompliment": clean(value_for(row, headers, "Normal Crew Complement")),
+                    "spareCrewSeats": spare_seats(value_for(row, headers, "Number of Spare Crew Seats"), value_for(row, headers, "Location of Spare Crew Seats")),
                 }
-                classes = [code for key, code in (("first", "F"), ("clubWorld", "J"), ("worldTravellerPlus", "W"), ("worldTraveller", "M")) if isinstance(breakdown[key], (int, float)) and breakdown[key] > 0]
-                flight_bunks = yes_no(get_value(row, headers, "FC Bunks"))
-                cabin_bunks = yes_no(get_value(row, headers, "CC Bunks"))
-                rest_types = []
-                if flight_bunks:
-                    rest_types.append("OFCR" if manufacturer.casefold() == "airbus" else "FCRC")
-                if cabin_bunks:
-                    rest_types.append("OFAR" if manufacturer.casefold() == "airbus" else "CCRC")
-                rest_lookup = {"OFCR": "flightCrewRest", "FCRC": "flightCrewRest", "OFAR": "cabinCrewRest", "CCRC": "cabinCrewRest"}
-                equipment = []
-                for header, code in (("AED Location", "AED"), ("M5 Location", "M5"), ("RESUS Location", "RES"), ("RESTRAINT Location", "RESTRAINT"), ("FE Location", "FE"), ("WEX Location", "WEX")):
-                    location = get_value(row, headers, header)
-                    if location is not None and str(location).strip():
-                        equipment.append({"code": code, "location": str(location).strip()})
-                summary = {
-                    "airfile": airfile, "variant": variant, "family": family, "manufacturer": manufacturer,
-                    "configName": str(get_value(row, headers, "Configuration") or f"{len(classes)} Class"),
-                    "classCount": len(classes), "classes": classes, "seatBreakdown": breakdown,
-                    "totalSeats": get_value(row, headers, "Total Passenger Seats"),
-                    "crew": {
-                        "legalMinimum": get_value(row, headers, "Legal Minimum Crew"),
-                        "requiredSeats": list(range(1, int(get_value(row, headers, "Legal Minimum Crew") or 0) + 1)),
-                        "totalCrewSeats": get_value(row, headers, "Crew Seats"),
-                        "standardCrewCompliment": get_value(row, headers, "Normal Crew Complement"),
-                        "spareCrewSeats": spare_seats(get_value(row, headers, "Number of Spare Crew Seats"), get_value(row, headers, "Location of Spare Crew Seats")),
-                    },
-                    "includesRestFacilities": bool(rest_types), "restTypes": rest_types,
-                    "flightCrewRest": next((code for code in rest_types if rest_lookup[code] == "flightCrewRest"), None),
-                    "cabinCrewRest": next((code for code in rest_types if rest_lookup[code] == "cabinCrewRest"), None),
-                    "emergencyEquipmentSummary": equipment,
-                }
-            else:
-                summary = {"airfile": airfile, "variant": variant, "family": family, "manufacturer": manufacturer, "configName": "Shorthaul", "classCount": 2, "classes": ["J", "M"], "seatBreakdown": None, "totalSeats": get_value(row, headers, "Seats"), "crew": None, "includesRestFacilities": False, "restTypes": [], "flightCrewRest": None, "cabinCrewRest": None, "emergencyEquipmentSummary": []}
-            summaries[haul].append(summary)
+                crew = {key: value for key, value in crew.items() if value is not None}
+            summary = {
+                "airfile": airfile, "variant": variant, "family": family, "manufacturer": manufacturer,
+                "configName": clean(value_for(row, headers, "Configuration")) or f"{len(classes)} Class",
+                "classCount": len(classes), "classes": classes, "seatBreakdown": breakdown,
+                "totalSeats": total_seats, "crew": crew, "includesRestFacilities": bool(rest_types),
+                "restTypes": rest_types,
+                "flightCrewRest": next((code for code in rest_types if rest_lookup[code] == "flightCrewRest"), None),
+                "cabinCrewRest": next((code for code in rest_types if rest_lookup[code] == "cabinCrewRest"), None),
+                "emergencyEquipmentSummary": shared_equipment,
+                "registrationRequiredForEquipment": equipment_varies,
+            }
+        else:
+            cabin_values = str(clean(value_for(row, headers, "Cabin Codes")) or "J, M").replace(" ", "").split(",")
+            classes = [code for code in cabin_values if code in {"F", "J", "W", "M"}]
+            summary = {
+                "airfile": airfile, "variant": variant, "family": family, "manufacturer": manufacturer,
+                "configName": clean(value_for(row, headers, "Configuration")) or "Shorthaul",
+                "classCount": len(classes), "classes": classes, "seatBreakdown": None,
+                "totalSeats": total_seats, "crew": None, "includesRestFacilities": False,
+                "restTypes": [], "flightCrewRest": None, "cabinCrewRest": None,
+                "emergencyEquipmentSummary": shared_equipment,
+                "registrationRequiredForEquipment": equipment_varies,
+            }
+        summaries[haul].append(summary)
+
     workbook.close()
-    return summaries
+    return registrations, summaries
 
 
 def update_aircraft_file(project_root: Path, summaries: dict[str, list[dict]]) -> None:
@@ -205,19 +242,24 @@ def update_aircraft_file(project_root: Path, summaries: dict[str, list[dict]]) -
                 "flightCrewRest": summary["flightCrewRest"], "cabinCrewRest": summary["cabinCrewRest"],
                 "totalSeats": summary["totalSeats"], "seatBreakdown": summary["seatBreakdown"],
                 "crew": summary["crew"], "emergencyEquipmentSummary": summary["emergencyEquipmentSummary"],
-                "dataFile": f"{code}.js" if haul == "longhaul" else None,
-                "dataPath": f"data/aircraft/{code}.js" if haul == "longhaul" else None,
+                "registrationRequiredForEquipment": summary["registrationRequiredForEquipment"],
+                # 38T has worksheet lookup data, but no AOR/FDP dataset yet.
+                "dataFile": f"{code}.js" if haul == "longhaul" and code != "38T" else None,
+                "dataPath": f"data/aircraft/{code}.js" if haul == "longhaul" and code != "38T" else None,
                 "briefingTitle": f'{summary["variant"]} Briefing',
                 "selectorLabel": code,
                 "selectorSubLabel": selector_sub,
             }
             assignments.append(f"globalThis.AIRCRAFT[{json.dumps(code)}] = {json.dumps(generated, ensure_ascii=False, indent=2)};")
+    # Keep 38T available for registration/type lookups without offering it as a
+    # Briefing or FDP selection until a corresponding operational dataset exists.
+    fdp_longhaul_codes = [code for code in longhaul_codes if code != "38T"]
     all_codes = longhaul_codes + shorthaul_codes
     block = "/* Generated from the fleet workbook by scripts/generate-aircraft-registrations.py. */\n"
     block += "globalThis.AIRCRAFT = {};\n\n" + AIRFILE_MARKER_START + "\n"
     block += "// Generated aircraft summaries share a single source: the fleet workbook.\n"
     block += "\n".join(assignments) + "\n"
-    block += "globalThis.AIRCRAFT_ORDER_LONGHAUL = " + json.dumps(longhaul_codes) + ";\n"
+    block += "globalThis.AIRCRAFT_ORDER_LONGHAUL = " + json.dumps(fdp_longhaul_codes) + ";\n"
     block += "globalThis.AIRCRAFT_ORDER_SHORTHAUL = " + json.dumps(shorthaul_codes) + ";\n"
     block += "globalThis.AIRCRAFT_ORDER = " + json.dumps(all_codes) + ";\n"
     block += "globalThis.AIRFILE_ORDER = " + json.dumps(all_codes) + ";\n"
@@ -238,7 +280,6 @@ def remove_shared_summary_from_aor(project_root: Path, summaries: dict[str, list
         source = re.sub(r'(?ms)^\s{2}(?:"config"|config):\s*\{.*?^\s{2}\},\r?\n', "", source)
         source = re.sub(r'(?ms)^\s{2}(?:"crew"|crew):\s*\{.*?^\s{2}\},\r?\n', "", source)
         source = re.sub(r'(?ms)^[ \t]{4}(?:"emergencyEquipmentSummary"|emergencyEquipmentSummary):[ \t]*\[.*?^[ \t]{4}\],[ \t]*\r?\n', "", source)
-        source = re.sub(r'(?m)^[ \t]{4}(?:"emergencyEquipmentSummary"|emergencyEquipmentSummary):[ \t]*\[\],[ \t]*\r?\n', "", source)
         path.write_text(source, encoding="utf-8", newline="\n")
 
 
@@ -252,11 +293,10 @@ def main() -> None:
     if not args.workbook.is_file():
         raise SystemExit(f"Workbook not found: {args.workbook}")
 
-    records = load_registration_records(args.workbook)
-    summaries = read_type_summaries(args.workbook)
+    records, summaries = read_workbook(args.workbook)
     update_aircraft_file(project_root, summaries)
     remove_shared_summary_from_aor(project_root, summaries)
-    registrations = list(records)
+    registration_order = list(records)
     output = f'''/* Generated from the BA fleet register. Run scripts/generate-aircraft-registrations.py to refresh. */
 globalThis.AIRCRAFT_REGISTRATION_SOURCE = Object.freeze({{
   file: {json.dumps(SOURCE_NAME)},
@@ -265,7 +305,7 @@ globalThis.AIRCRAFT_REGISTRATION_SOURCE = Object.freeze({{
 }});
 
 globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({json.dumps(records, ensure_ascii=False, indent=2)});
-globalThis.AIRCRAFT_REGISTRATION_ORDER = Object.freeze({json.dumps(registrations, ensure_ascii=False, indent=2)});
+globalThis.AIRCRAFT_REGISTRATION_ORDER = Object.freeze({json.dumps(registration_order, ensure_ascii=False, indent=2)});
 
 globalThis.getAircraftByRegistration = function (value) {{
   const compact = String(value || "").trim().toUpperCase().replace(/[^A-Z0-9]/g, "");
@@ -278,7 +318,7 @@ globalThis.getAircraftByRegistration = function (value) {{
 '''
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(output, encoding="utf-8", newline="\n")
-    print(f"Wrote {len(records)} registrations and summaries for {len(summaries['longhaul']) + len(summaries['shorthaul'])} aircraft types")
+    print(f"Wrote {len(records)} registrations and summaries for {sum(len(items) for items in summaries.values())} aircraft types")
 
 
 if __name__ == "__main__":
