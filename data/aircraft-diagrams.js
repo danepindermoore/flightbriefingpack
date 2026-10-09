@@ -20,5 +20,11 @@ globalThis.AIRCRAFT_DIAGRAMS = Object.freeze({
   "781": { image: "../assets/aircraft/781.png", viewBox: { width: 976, height: 2091 } },
   "789": { image: "../assets/aircraft/789.png", viewBox: { width: 1010, height: 2222 } },
   "78E": { image: "../assets/aircraft/78E.png", viewBox: { width: 1006, height: 2240 } },
-  "78N": { image: "../assets/aircraft/78N.png", viewBox: { width: 1003, height: 2251 } }
+  "78N": { image: "../assets/aircraft/78N.png", viewBox: { width: 1003, height: 2251 } },
+  "32H": { image: "../assets/aircraft/32H.png", viewBox: { width: 1108, height: 2173 } },
+  "32R": { image: "../assets/aircraft/32H.png", viewBox: { width: 1108, height: 2173 } },
+  "32P": { image: "../assets/aircraft/32P.png", viewBox: { width: 1108, height: 2173 } },
+  "32Y": { image: "../assets/aircraft/32Y.png", viewBox: { width: 1108, height: 2173 } },
+  "319": { image: "../assets/aircraft/319.png", viewBox: { width: 1190, height: 1973 } },
+  "31C": { image: "../assets/aircraft/319.png", viewBox: { width: 1190, height: 1973 } }
 });

@@ -249,7 +249,7 @@ const AIRCRAFT_FAMILIES=[
       {label:"TTSA-TTSJ",displayLabel:"32P (TTSA-TTSJ)",code:"32P"}
     ]},
     {label:"32H",code:"32H"},
-    {label:"32R",code:"32H"},
+    {label:"32R",code:"32R"},
     {label:"32Y",options:[
       {label:"NEOP-NEOZ",displayLabel:"32Y (NEOP-NEOZ)",code:"32Y"},
       {label:"TNEA-TNEC",displayLabel:"32Y (TNEA-TNEC)",code:"32Y"},
@@ -313,8 +313,9 @@ function applyAircraftDiagram(code,data,deck){const configured=globalThis.AIRCRA
 async function loadDataset(code,deck=null){const key=`AOR_${code}`;
 if(globalThis[key])return applyAircraftDiagram(code,globalThis[key],deck);
 const meta=globalThis.AIRCRAFT[code];
+if(meta?.haul==="shorthaul"&&globalThis.AIRCRAFT_DIAGRAMS?.[code])return applyAircraftDiagram(code,{aircraftCode:code,positions:[]},deck);
 const configuredPath=meta?.dataPath;const path=configuredPath?(configuredPath.startsWith("data/")?`${BASE_DATA_PATH}/${configuredPath.slice(5)}`:configuredPath):`${BASE_DATA_PATH}/aircraft/${code}.js`;
-await loadScript(path);
+try{await loadScript(path)}catch(error){if(globalThis.AIRCRAFT_DIAGRAMS?.[code])return applyAircraftDiagram(code,{aircraftCode:code,positions:[]},deck);throw error}
 if(!globalThis[key])throw new Error(`Loaded ${path} but ${key} was not created.`);
 return applyAircraftDiagram(code,globalThis[key],deck)
 }
