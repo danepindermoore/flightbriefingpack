@@ -215,7 +215,7 @@
   </main>
   <script>
 
-const BASE_DATA_PATH="../data",SVG_NS="http://www.w3.org/2000/svg",STATE={activeCode:null,activeMeta:null,activeData:null,activePosition:null};
+const BASE_DATA_PATH="../data",SVG_NS="http://www.w3.org/2000/svg",STATE={activeCode:null,activeMeta:null,activeData:null,activePosition:null,activeDeck:null};
 function loadScript(src){return new Promise((resolve,reject)=>{const existing=document.querySelector(`script[data-load-src="${src}"]`);if(existing){if(existing.dataset.loaded==="true"){resolve();return}existing.addEventListener("load",()=>resolve(),{once:true});existing.addEventListener("error",()=>reject(new Error(`Failed loading ${src}`)),{once:true});return}const s=document.createElement("script");s.src=src;s.dataset.loadSrc=src;s.async=false;s.addEventListener("load",()=>{s.dataset.loaded="true";resolve()},{once:true});s.addEventListener("error",()=>reject(new Error(`Failed loading ${src}`)),{once:true});document.head.appendChild(s)})}
 const esc=v=>String(v).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
 const svgEl=(tag,attrs={})=>{const el=document.createElementNS(SVG_NS,tag);Object.entries(attrs).forEach(([k,v])=>el.setAttribute(k,v));return el};
@@ -223,14 +223,14 @@ function expandAcronym(code){const groups=globalThis.ACRONYMS||{};for(const grou
 function locationTypeLabel(type){switch((type||"").toLowerCase()){case"seat":return"Under crew seat";case"area":return"In assigned area";case"fcrc":return expandAcronym("FCRC");case"ccrc":return expandAcronym("CCRC");case"ofcr":return expandAcronym("OFCR");case"ofar":return expandAcronym("OFAR");default:return""}}
 function restSummary(meta){if(!meta.includesRestFacilities)return"No crew rest facilities";return[meta.flightCrewRest,meta.cabinCrewRest].filter(Boolean).map(expandAcronym).join(" + ")}
 function bootError(message){document.getElementById("positionContent").innerHTML=`<div class="error-box"><strong>Aircraft data not loaded.</strong><br>${esc(message)}</div>`}
-async function boot(){try{await loadScript(`${BASE_DATA_PATH}/acronyms.js`);await loadScript(`${BASE_DATA_PATH}/equipment.js`);await loadScript(`${BASE_DATA_PATH}/aircraft.js`);await loadScript(`${BASE_DATA_PATH}/aircraft-registrations.js`);if(!globalThis.AIRCRAFT||!globalThis.AIRCRAFT_ORDER)throw new Error(`Loaded ${BASE_DATA_PATH}/aircraft.js but AIRCRAFT or AIRCRAFT_ORDER is still missing.`);initApp()}catch(err){bootError(err.message)}}
+async function boot(){try{await loadScript(`${BASE_DATA_PATH}/acronyms.js`);await loadScript(`${BASE_DATA_PATH}/equipment.js`);await loadScript(`${BASE_DATA_PATH}/aircraft.js`);await loadScript(`${BASE_DATA_PATH}/aircraft-registrations.js`);await loadScript(`${BASE_DATA_PATH}/aircraft-diagrams.js`);if(!globalThis.AIRCRAFT||!globalThis.AIRCRAFT_ORDER)throw new Error(`Loaded ${BASE_DATA_PATH}/aircraft.js but AIRCRAFT or AIRCRAFT_ORDER is still missing.`);initApp()}catch(err){bootError(err.message)}}
 function initApp(){
 const pageTitle=document.getElementById("pageTitle"),pageIntro=document.getElementById("pageIntro"),aircraftButtonGrid=document.getElementById("aircraftButtonGrid"),aircraftMenuLabel=document.getElementById("aircraftMenuLabel"),aircraftMenuBack=document.getElementById("aircraftMenuBack"),aircraftHeaderTitle=document.getElementById("aircraftHeaderTitle"),aircraftHeaderSub=document.getElementById("aircraftHeaderSub"),summaryStats=document.getElementById("summaryStats"),aircraftSvg=document.getElementById("aircraftSvg"),seatLayer=document.getElementById("seatLayer"),aircraftMetaContent=document.getElementById("aircraftMetaContent"),positionContent=document.getElementById("positionContent"),positionPanel=document.getElementById("positionPanel"),selectorSummary=document.getElementById("selectorSummary"),aorCaption=document.getElementById("aorCaption"),registrationLookup=document.getElementById("registrationLookup"),registrationInput=document.getElementById("registrationInput");
 const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim(),ZONE_STYLES={F:{name:"First",color:css("--gold")},CW:{name:"Club World",color:css("--cw")},WTP:{name:"World Traveller Plus",color:css("--wtp")},WT:{name:"World Traveller",color:css("--wt")}};
 const clearDiagram=()=>{aircraftSvg.innerHTML="";aircraftSvg.setAttribute("viewBox","0 0 420 980");aircraftSvg.parentElement.classList.remove("image-diagram");aircraftSvg.parentElement.style.aspectRatio="";seatLayer.innerHTML="";aorCaption.textContent=""};
 const AIRCRAFT_FAMILIES=[
   {label:"A350",direct:{label:"351",code:"351"}},
-  {label:"A380",direct:{label:"38A",code:"38A"}},
+  {label:"A380",options:[{label:"38A",code:"38A"},{label:"38T",code:"38T"}]},
   {label:"B777",options:["77S","77T","77M","77L","77H"].map(code=>({label:code,code}))},
   {label:"B787",options:["78E","789","78N","781"].map(code=>({label:code,code}))},
   {label:"Shorthaul Airbus",options:[
@@ -266,6 +266,7 @@ function makeAircraftButton(label,{family=null,option=null,direct=false}={}){
   btn.addEventListener("click",()=>{
     if(direct){selectAircraft(direct.code);return}
     if(option?.options){renderFamilyOptions(option,family);return}
+    if(option&&["38A","38T"].includes(option.code)){renderDeckOptions(option.code);return}
     if(option){selectAircraft(option.code,option.displayLabel||option.label);return}
     renderFamilyOptions(family);
   });
@@ -282,8 +283,16 @@ function renderFamilyOptions(family,parentFamily=null){
   family.options.forEach(option=>aircraftButtonGrid.appendChild(makeAircraftButton(option.label,{family,option})));
   selectorSummary.textContent="Select an aircraft configuration to load its briefing.";updateButtons();
 }
+function renderDeckOptions(code){
+  const family=AIRCRAFT_FAMILIES.find(item=>item.label==="A380");
+  aircraftMenuLabel.textContent=`${code} deck`;aircraftMenuBack.hidden=false;aircraftMenuBack.textContent="Back to A380 options";aircraftMenuBack.onclick=()=>renderFamilyOptions(family);aircraftButtonGrid.innerHTML="";
+  [{key:"MD",label:"Main Deck"},{key:"UD",label:"Upper Deck"}].forEach(deck=>{
+    const button=document.createElement("button");button.type="button";button.className="aircraft-code-btn";button.textContent=deck.label;button.dataset.aircraftCode=code;button.dataset.aircraftLabel=`${code} ${deck.key}`;button.addEventListener("click",()=>selectAircraft(code,null,deck.key));aircraftButtonGrid.appendChild(button);
+  });
+  selectorSummary.textContent=`Select Main Deck or Upper Deck for ${code}.`;updateButtons();
+}
 function returnToBriefingStart(){
-  STATE.activeCode=null;STATE.activeSelectorLabel=null;STATE.activeMeta=null;STATE.activeData=null;STATE.activePosition=null;
+  STATE.activeCode=null;STATE.activeSelectorLabel=null;STATE.activeMeta=null;STATE.activeData=null;STATE.activePosition=null;STATE.activeDeck=null;
   registrationLookup.hidden=true;registrationInput.value="";
   document.querySelector(".briefing-shell").classList.remove("has-aircraft");
   document.querySelector(".hero-copy").hidden=true;
@@ -300,13 +309,14 @@ function returnToBriefingStart(){
 function updateButtons(){[...aircraftButtonGrid.children].forEach(btn=>btn.classList.toggle("active",btn.dataset.aircraftCode===STATE.activeCode&&btn.dataset.aircraftLabel===STATE.activeSelectorLabel))}
 function setLoading(meta){document.querySelector(".briefing-shell").classList.add("has-aircraft");document.querySelector(".hero-copy").hidden=false;document.querySelector(".layout").hidden=false;positionPanel.hidden=true;registrationLookup.hidden=false;registrationInput.value="";const exampleRegistration=Object.values(globalThis.AIRCRAFT_REGISTRATIONS||{}).find(record=>record.airfile===meta.code)?.registration;registrationInput.placeholder=exampleRegistration?`i.e. ${exampleRegistration}`:"Enter aircraft registration";pageTitle.textContent="Briefing & AORs";selectorSummary.textContent=`${meta.selectorLabel} · ${meta.fullName} · ${meta.configName}`;aircraftHeaderTitle.textContent=`${meta.selectorLabel} · ${meta.fullName}`;aircraftHeaderSub.textContent="Loading aircraft data...";summaryStats.innerHTML=`<div class="meta-stat"><strong>—</strong><span>Legal Minimum Crew</span></div><div class="meta-stat"><strong>—</strong><span>Standard Crew Compliment</span></div>`;aircraftMetaContent.innerHTML=`<div class="loading"><span class="dot"></span>Loading aircraft summary...</div>`;positionContent.innerHTML=`<div class="loading"><span class="dot"></span>Loading aircraft briefing...</div>`;clearDiagram()}
 
-async function loadDataset(code){const key=`AOR_${code}`;
-if(globalThis[key])return globalThis[key];
+function applyAircraftDiagram(code,data,deck){const configured=globalThis.AIRCRAFT_DIAGRAMS?.[code];const diagram=configured?.decks?configured.decks[deck]:configured;return diagram?{...data,diagram}:data}
+async function loadDataset(code,deck=null){const key=`AOR_${code}`;
+if(globalThis[key])return applyAircraftDiagram(code,globalThis[key],deck);
 const meta=globalThis.AIRCRAFT[code];
 const configuredPath=meta?.dataPath;const path=configuredPath?(configuredPath.startsWith("data/")?`${BASE_DATA_PATH}/${configuredPath.slice(5)}`:configuredPath):`${BASE_DATA_PATH}/aircraft/${code}.js`;
 await loadScript(path);
 if(!globalThis[key])throw new Error(`Loaded ${path} but ${key} was not created.`);
-return globalThis[key]
+return applyAircraftDiagram(code,globalThis[key],deck)
 }
 
 function syncUrl(code){const url=new URL(window.location.href);url.searchParams.set("code",code);window.history.replaceState({},"",url.toString())}
@@ -411,20 +421,23 @@ function renderAircraft(meta,data){
   pageTitle.textContent="Briefing & AORs";
   selectorSummary.textContent=`${meta.selectorLabel} · ${meta.fullName} · ${meta.configName}`;
   aircraftHeaderTitle.textContent=`${meta.selectorLabel} · ${meta.fullName}`;
-  aircraftHeaderSub.textContent=data.diagram
-    ?"Select a numbered crew position to view its briefing and AOR"
+  aircraftHeaderSub.textContent=data.diagram&&Object.keys(data.diagram.positionPanels||{}).length
+    ?`Select a numbered crew position to view its briefing and AOR${meta.deck?` · ${meta.deck==="MD"?"Main Deck":"Upper Deck"}`:""}`
+    :data.diagram?`${meta.deck?`${meta.deck==="MD"?"Main Deck":"Upper Deck"} aircraft layout`:"Aircraft layout"}`
     :`${meta.selectorSubLabel}${meta.includesRestFacilities?` · ${restSummary(meta)}`:" · No crew rest facilities"}`;
   const crew=data?.crew||meta.crew||{};
-  summaryStats.innerHTML=`<div class="meta-stat"><strong>${esc(String(crew.legalMinimum??"—"))}</strong><span>Legal Minimum Crew</span></div><div class="meta-stat"><strong>${esc(String(crew.standardCrewCompliment??"—"))}</strong><span>Standard Crew Compliment</span></div>`;
+  const hasCrewSummary=crew.legalMinimum!=null||crew.standardCrewCompliment!=null;
+  summaryStats.innerHTML=hasCrewSummary?`<div class="meta-stat"><strong>${esc(String(crew.legalMinimum??"—"))}</strong><span>Legal Minimum Crew</span></div><div class="meta-stat"><strong>${esc(String(crew.standardCrewCompliment??"—"))}</strong><span>Standard Crew Compliment</span></div>`:"";
   const cabinCodes=new Set(meta.classes||[]);
   const cabinItems=CABIN_DISPLAY_ORDER.filter(cabin=>cabinCodes.has(cabin.code)).map(cabin=>cabin.name);
   const seatBreakdown=meta.seatBreakdown||{};
   const totalSeatCount=meta.totalSeats;
   const seatItems=[...(totalSeatCount!=null?[`Total Seats - ${totalSeatCount}`]:[]),...CABIN_DISPLAY_ORDER.filter(cabin=>cabinCodes.has(cabin.code)&&seatBreakdown[cabin.seatKey]!=null).map(cabin=>`${cabin.breakdownCode} - ${seatBreakdown[cabin.seatKey]}`)];
   const spareSeats=(crew.spareCrewSeats||[]).map(seat=>[seat.seat,seat.descriptor,seat.facing].filter(Boolean).join(" "));
+  const crewCards=crew.legalMinimum!=null?`<div class="small-card"><strong>Required Crew Seats</strong><span>${esc((crew.requiredSeats||[]).join(", "))}</span></div><div class="small-card"><strong>Spare Seat</strong>${summaryList(spareSeats)}</div>`:"";
   const restCodes=meta.restTypes?.length?meta.restTypes:[meta.flightCrewRest,meta.cabinCrewRest].filter(Boolean);
   const restAreas=restCodes.map(code=>REST_AREA_NAMES[code]||expandAcronym(code));
-  aircraftMetaContent.innerHTML=`<div id="registrationNotes"></div><div class="grid-2"><div class="small-card"><strong>Aircraft</strong><span>${esc(meta.manufacturer)} - ${esc(meta.fullName)}<br>${esc(meta.configName)}</span></div><div class="small-card"><strong>Cabins</strong>${summaryList(cabinItems,"Cabin details not listed")}</div><div class="small-card"><strong>Cabin Breakdown</strong>${summaryList(seatItems,"Seat breakdown not listed")}</div><div class="small-card"><strong>Required Crew Seats</strong><span>${esc((crew.requiredSeats||[]).join(", ")||"—")}</span></div><div class="small-card"><strong>Spare Seat</strong>${summaryList(spareSeats)}</div><div class="small-card"><strong>Crew Rest</strong>${summaryList(restAreas,"No crew rest areas listed")}</div><div class="small-card summary-sep-equipment"><strong>SEP Equipment Summary</strong></div></div>`;
+  aircraftMetaContent.innerHTML=`<div id="registrationNotes"></div><div class="grid-2"><div class="small-card"><strong>Aircraft</strong><span>${esc(meta.manufacturer)} - ${esc(meta.fullName)}<br>${esc(meta.configName)}</span></div><div class="small-card"><strong>Cabins</strong>${summaryList(cabinItems,"Cabin details not listed")}</div><div class="small-card"><strong>Cabin Breakdown</strong>${summaryList(seatItems,"Seat breakdown not listed")}</div>${crewCards}<div class="small-card"><strong>Crew Rest</strong>${summaryList(restAreas,"No crew rest areas listed")}</div><div class="small-card summary-sep-equipment"><strong>SEP Equipment Summary</strong></div></div>`;
   updateRegistrationNotes(meta);
   updateSepEquipment(meta);
   if(data.diagram?.image)renderConfiguredDiagram(data);
@@ -434,7 +447,7 @@ function renderAircraft(meta,data){
 function formatBullets(text){if(!text||String(text).trim()==="")return `<p>None</p>`;const parts=String(text).split(",").map(s=>s.trim()).filter(Boolean);if(!parts.length)return `<p>None</p>`;return `<ul>${parts.map(item=>`<li>${esc(item)}</li>`).join("")}</ul>`}
 function setActivePosition(number){const pos=(STATE.activeData?.positions||[]).find(p=>p.number===number);if(!pos)return;STATE.activePosition=pos;positionPanel.hidden=false;const hasAor=!!pos?.aor?.hasAor,doorText=pos.doorResponsibility||"None",restText=pos.rest||"None",serviceCabins=(pos.service?.cabin||[]).map(expandAcronym).join(" · ")||"None";let demo=`<ul><li>Position: None</li><li>Points out: None</li></ul>`;if(pos.demo){const p=pos.demo.position==null?"None":pos.demo.position,pts=pos.demo.pointsOut&&pos.demo.pointsOut.length?pos.demo.pointsOut.join(", "):"None";demo=`<ul><li>Position: ${esc(p)}</li><li>Points out: ${esc(pts)}</li></ul>`}positionContent.innerHTML=`<div class="title-row"><div><h3 class="position-name">${esc(pos.displayTitle||`Position ${pos.number}`)}</h3><div class="subtle">${esc(pos.seating?.full||"Seat not listed")}</div></div><div class="badge">${hasAor?"AOR assigned":"No AOR"}</div></div><div class="pill-row"><div class="pill">Door: ${esc(doorText)}</div><div class="pill">Rest: ${esc(restText)}</div><div class="pill">Cabin: ${esc(serviceCabins)}</div></div><div class="section"><h3>Service Delivery</h3>${formatBullets(pos.service?.summary)}</div><div class="section"><h3>Safety Demo</h3>${demo}</div><div class="section"><h3>Area of Responsibility (AOR)</h3><p>${hasAor?esc(pos.aor.area):"None"}</p></div><div class="section"><h3>Additional Responsibilities</h3>${pos.additionalResponsibilities?.length?`<ul>${pos.additionalResponsibilities.map(item=>`<li>${esc(item)}</li>`).join("")}</ul>`:`<p>None</p>`}</div><div class="section"><h3>Pre-Flight SEP Equipment Checks</h3><div class="chips">${(pos.equipmentChecks||[]).map(item=>{const fullName=globalThis.EQUIPMENT?.[item.code]||item.code,locationName=locationTypeLabel(item.locationType),qty=item.qty&&item.qty>1?`<span class="qty">${item.qty}</span>`:"";return `<button type="button" class="equipment-chip ${esc(item.locationType||"area")}" onclick="window.__toggleEquipmentChip(this)" aria-expanded="false">${qty}<span class="code">${esc(item.code)}</span><span class="full-name">— ${esc(fullName)}</span>${locationName?`<span class="location-name">· ${esc(locationName)}</span>`:""}</button>`}).join("")}</div></div>`;setAorOverlay(pos);setDemoMarker(pos);seatLayer.querySelectorAll(".seat-btn,.position-hotspot").forEach(btn=>{const active=Number(btn.dataset.position)===STATE.activePosition?.number;btn.classList.toggle("active",active);btn.setAttribute("aria-pressed",active?"true":"false")})}
 function showAllPositionsList(){if(!STATE.activeData)return;STATE.activePosition=null;positionPanel.hidden=true;setAorOverlay(null);setDemoMarker(null);seatLayer.querySelectorAll(".seat-btn,.position-hotspot").forEach(btn=>{btn.classList.remove("active");btn.setAttribute("aria-pressed","false")})}
-async function selectAircraft(code,displayLabel=null){const baseMeta=globalThis.AIRCRAFT[code];const meta=baseMeta?(displayLabel?{...baseMeta,selectorLabel:displayLabel,selectorSubLabel:`${displayLabel} · ${baseMeta.fullName}`}:baseMeta):{code,selectorLabel:displayLabel||code,selectorSubLabel:`${displayLabel||code} · Details pending`,fullName:`B787 (${code})`,configName:"Configuration pending",manufacturer:"Boeing",classes:[],includesRestFacilities:null,dataPath:`data/aircraft/${code}.js`};STATE.activeCode=code;STATE.activeSelectorLabel=meta.selectorLabel||code;STATE.activeMeta=meta;STATE.activeData=null;STATE.activePosition=null;updateButtons();setLoading(meta);try{const data=await loadDataset(code);STATE.activeData=data;syncUrl(code);renderAircraft(meta,data)}catch(err){syncUrl(code);renderMissing(meta,err)}}
+async function selectAircraft(code,displayLabel=null,deck=null){const baseMeta=globalThis.AIRCRAFT[code];let meta=baseMeta?(displayLabel?{...baseMeta,selectorLabel:displayLabel,selectorSubLabel:`${displayLabel} · ${baseMeta.fullName}`}:baseMeta):{code,selectorLabel:displayLabel||code,selectorSubLabel:`${displayLabel||code} · Details pending`,fullName:`B787 (${code})`,configName:"Configuration pending",manufacturer:"Boeing",classes:[],includesRestFacilities:null,dataPath:`data/aircraft/${code}.js`};if(deck)meta={...meta,deck,selectorSubLabel:`${meta.selectorSubLabel} · ${deck==="MD"?"Main Deck":"Upper Deck"}`};STATE.activeCode=code;STATE.activeDeck=deck;STATE.activeSelectorLabel=deck?`${code} ${deck}`:meta.selectorLabel||code;STATE.activeMeta=meta;STATE.activeData=null;STATE.activePosition=null;updateButtons();setLoading(meta);try{const data=await loadDataset(code,deck);STATE.activeData=data;syncUrl(code);renderAircraft(meta,data)}catch(err){syncUrl(code);renderMissing(meta,err)}}
 window.__toggleEquipmentChip=function(button){const expanded=button.classList.toggle("expanded");button.setAttribute("aria-expanded",expanded?"true":"false")};window.__openPosition=function(number){setActivePosition(number);document.querySelector(".position-panel")?.scrollIntoView({behavior:"smooth",block:"start"})};
  registrationInput.addEventListener("input",()=>{updateRegistrationNotes(STATE.activeMeta);if(STATE.activeMeta)updateSepEquipment(STATE.activeMeta)});
  renderFamilyMenu();document.addEventListener("click",event=>{if(!STATE.activePosition)return;if(event.target.closest(".position-hotspot,.seat-btn,button,a,input,select,textarea,label"))return;if(event.target!==positionContent&&event.target.closest("#positionContent"))return;showAllPositionsList()})}
