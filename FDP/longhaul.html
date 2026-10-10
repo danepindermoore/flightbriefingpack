@@ -60,7 +60,7 @@
     select:disabled,input:disabled{background:var(--fdp-disabled);color:#94a3b8;cursor:not-allowed;opacity:1;}
     .timegrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
     .timegrid input,.mins-only input{text-align:center;font-variant-numeric:tabular-nums;}
-    .small-italic{font-size:12px;font-style:italic;font-weight:500;color:var(--fdp-muted);}
+        .small-italic{font-size:12px;font-style:italic;font-weight:500;color:var(--fdp-muted);}
     .delay-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:end;margin-top:10px;}
     .actions,.page-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
     button,.button-link{appearance:none;border:1px solid var(--fdp-border);background:var(--fdp-card-2);color:var(--fdp-text);border-radius:16px;padding:13px 16px;font-size:15px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;box-shadow:var(--fdp-shadow-soft);transition:transform .16s ease, box-shadow .16s ease, background .16s ease;text-decoration:none;min-height:48px;}
@@ -130,7 +130,11 @@
           </div>
 
           <div><label for="sccm">Senior Crew Member (SCCM)</label><input id="sccm" maxlength="80" value="Dane Jordan-Pinder" /></div>
-          <div><label for="asccm">Acting SCCM</label><input id="asccm" maxlength="80" /></div>
+          <div><label for="asccm">IFL (aSCCM) — Briefing Checker</label><input id="asccm" maxlength="80" /></div>
+          <div><label for="captainName">Captain's Name</label><input id="captainName" maxlength="160" placeholder="Separate multiple people's names with commas" /></div>
+          <div><label for="firstOfficerNames">First Officers' Names</label><input id="firstOfficerNames" maxlength="240" placeholder="Separate multiple people's names with commas" /></div>
+          <div><label>Inbound Flight STD (Local)</label><div class="timegrid"><input id="inboundSTDHour" inputmode="numeric" maxlength="2" placeholder="HH" aria-label="Inbound STD hour" autocomplete="off" /><input id="inboundSTDMinute" inputmode="numeric" maxlength="2" placeholder="MM" aria-label="Inbound STD minute" autocomplete="off" /></div></div>
+          <div><label>Pick-Up (Enter timing before STD from station brief) on DocuNet</label><div class="timegrid"><input id="pickupOffsetHour" inputmode="numeric" maxlength="2" placeholder="HH" aria-label="Pick-up offset hours" autocomplete="off" /><input id="pickupOffsetMinute" inputmode="numeric" maxlength="2" placeholder="MM" aria-label="Pick-up offset minutes" autocomplete="off" /></div></div>
           <div class="aircraft-inputs"><div><label for="aircraftReg">Aircraft Reg <span class="small-italic">(Optional)</span></label><input id="aircraftReg" maxlength="5" placeholder="VIID" autocomplete="off" /></div><div><label for="aircraftType">Aircraft Type</label><select id="aircraftType"></select></div></div>
           <div><label for="numSectors">Number of Sectors</label><select id="numSectors"></select></div>
 
@@ -166,6 +170,7 @@
         <div class="result-box"><div id="resultsBox1"></div></div>
         <div class="result-box"><div id="resultsBox2"></div></div>
         <div class="result-box"><div id="resultsBox3"></div></div>
+        <button id="buildBriefingBtn" class="primary" type="button" hidden>Build Pre-Flight Briefing</button>
         <div id="standbyCalcRow" class="email-results-row" hidden>
           <div><label for="standbyReportTime">Crew Member called from Airport Standby</label><input id="standbyReportTime" type="time" required aria-describedby="standbyReportHint" /></div>
           <div class="standby-actions"><button id="standbyCalcBtn" class="primary" type="button">Calculate</button><button id="standbyClearBtn" class="danger" type="button">Clear</button></div>
@@ -226,6 +231,12 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       numSectors: document.getElementById('numSectors'),
       sccm: document.getElementById('sccm'),
       asccm: document.getElementById('asccm'),
+      captainName: document.getElementById('captainName'),
+      firstOfficerNames: document.getElementById('firstOfficerNames'),
+      inboundSTDHour: document.getElementById('inboundSTDHour'),
+      inboundSTDMinute: document.getElementById('inboundSTDMinute'),
+      pickupOffsetHour: document.getElementById('pickupOffsetHour'),
+      pickupOffsetMinute: document.getElementById('pickupOffsetMinute'),
       absHour: document.getElementById('absHour'),
       absMinute: document.getElementById('absMinute'),
       actualHour: document.getElementById('actualHour'),
@@ -269,6 +280,8 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
     function fmtDuration(mins){ if(mins==null) return 'NIL'; const h=Math.floor(mins/60), m=mins%60; return `${String(h).padStart(2,'0')}h${String(m).padStart(2,'0')}m`; }
     function fmtClockFromMs(ms){ const d=new Date(ms); return `${String(d.getUTCHours()).padStart(2,'0')}:${String(d.getUTCMinutes()).padStart(2,'0')}`; }
     function fmtClockWithZ(ms){ return `${fmtClockFromMs(ms)}z`; }
+    function timeStringFromParts(hour,minute){ if(hour===""||minute==="") return ""; const h=Number(hour),m=Number(minute); if(!Number.isInteger(h)||!Number.isInteger(m)||h<0||h>23||m<0||m>59) return ""; return `${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}`; }
+    function shiftClock(clock,delta){ if(!clock) return ""; const [hour,minute]=clock.split(":").map(Number); const total=((hour*60+minute+delta)%1440+1440)%1440; return `${String(Math.floor(total/60)).padStart(2,"0")}:${String(total%60).padStart(2,"0")}`; }
     function addMinutes(ms, mins){ return ms + (mins*60000); }
     function parseISODate(dateStr){ const [y,m,d]=String(dateStr).split('-').map(Number); return {y,m,d}; }
     function dayNumberUTC(y,m,d){ return Math.floor(Date.UTC(y,m-1,d)/86400000); }
@@ -365,7 +378,7 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
     }
 
     function wireTimeAutoAdvance(){
-      const pairs=[['depHour','depMinute'],['reportHour','reportMinute'],['lastArrHour','lastArrMinute'],['absHour','absMinute'],['actualHour','actualMinute'],['revDepHour','revDepMinute'],['revLandHour','revLandMinute'],['secondServiceHour','secondServiceMinute']];
+      const pairs=[['inboundSTDHour','inboundSTDMinute'],['pickupOffsetHour','pickupOffsetMinute'],['depHour','depMinute'],['reportHour','reportMinute'],['lastArrHour','lastArrMinute'],['absHour','absMinute'],['actualHour','actualMinute'],['revDepHour','revDepMinute'],['revLandHour','revLandMinute'],['secondServiceHour','secondServiceMinute']];
       for(const [hourId, minuteId] of pairs){
         const hourEl=document.getElementById(hourId), minuteEl=document.getElementById(minuteId);
         if(!hourEl || !minuteEl) continue;
@@ -749,6 +762,14 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
         `Latest Take Off Time: ${fmtClockWithZ(latestTakeOffUtcMs)}`,
         `Latest On Chocks Time: ${fmtClockWithZ(latestOnChocksUtcMs)}`
       ].join('\r\n');
+            const aircraftLabel=ids.aircraftType.selectedOptions[0]?.text||ids.aircraftType.value;
+      const callerPosition=/\b(?:78E|781|351)\b|777\s*[- ]?\s*200/i.test(aircraftLabel)?'5':/\b(?:78N|789)\b/i.test(aircraftLabel)?'9':/\b(?:77H|38A)\b/i.test(aircraftLabel)?'7':'';
+      const reportClock=timeStringFromParts(ids.reportHour.value,ids.reportMinute.value);
+      const departureClock=timeStringFromParts(ids.depHour.value,ids.depMinute.value);
+      const offsetMinutes=Number(ids.pickupOffsetHour.value||0)*60+Number(ids.pickupOffsetMinute.value||0);
+      const pickupTime=timeStringFromParts(ids.inboundSTDHour.value,ids.inboundSTDMinute.value)&&(ids.pickupOffsetHour.value||ids.pickupOffsetMinute.value)&&Number(ids.pickupOffsetMinute.value||0)<60?shiftClock(timeStringFromParts(ids.inboundSTDHour.value,ids.inboundSTDMinute.value),-offsetMinutes):'';
+      window.fbpBriefingHandoff={flightDate:ids.flightDate.value,flightNumber:ids.flightNumber.value.trim().toUpperCase(),departure:normalizeCode(ids.from.value),destination:normalizeCode(ids.to.value),aircraft:aircraftLabel,sccm:ids.sccm.value.trim(),asccm:ids.asccm.value.trim(),captainName:ids.captainName.value.trim(),firstOfficerNames:ids.firstOfficerNames.value.trim(),callerPosition,briefingFinish:shiftClock(reportClock,20),arrivalAtAircraft:shiftClock(departureClock,-50),doorsClosed:shiftClock(departureClock,-5),pickupTime,wakeUpTime:shiftClock(pickupTime,-60),minRest:routeRest?.minimum==null?'NIL':fmtDuration(routeRest.minimum),rest:routeRestEmailText(routeRest,inflightRestRequirement,refreshmentBreak),maxFdp:fmtDuration(maxFDP),latestOnChocks:fmtClockWithZ(latestOnChocksUtcMs),latestOnChocksLocal:utcMsToLocalHHMM(latestOnChocksUtcMs,arrAirport.timeZone)};
+      document.getElementById('buildBriefingBtn').hidden=false;
       ids.emailResultsRow.hidden=false;
       ids.standbyCalcRow.hidden=from!=='LHR';
       ids.standbyResultsSection.hidden=true;
@@ -768,7 +789,7 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       const [year,month,day]=ids.flightDate.value.split('-');
       const subject=[`${day}/${month}/${year}`,ids.flightNumber.value.trim().toUpperCase(),'FDP Limits'].join(' - ');
       const emailBody=[latestFdpEmailBody,latestStandbyFdpEmailSection].filter(Boolean).join('\r\n\r\n');
-      window.location.href=`mailto:${encodeURI(recipients)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+      window.location.href=`mailto:${encodeURI(recipients)}?cc=${encodeURIComponent('u155573@ba.com')}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
     }
 
     function clearForm(){
@@ -777,10 +798,11 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       setAirportSuggestions('destinationAirportMenu','[data-airport-menu-toggle="destinationAirportMenu"]','to',[]); lastAutoPopulatedRoute=null;
       ids.depHour.value=''; ids.depMinute.value=''; ids.reportHour.value=''; ids.reportMinute.value=''; ids.lastArrHour.value=''; ids.lastArrMinute.value='';
       ids.absHour.value=''; ids.absMinute.value=''; ids.actualHour.value=''; ids.actualMinute.value=''; ids.revDepHour.value=''; ids.revDepMinute.value=''; ids.revLandHour.value=''; ids.revLandMinute.value=''; ids.secondServiceHour.value=''; ids.secondServiceMinute.value='';
-      ids.sccm.value='Dane Jordan-Pinder'; ids.asccm.value=''; ids.numSectors.value='1'; ids.flightCrewCompliment.value='2'; ids.cmdrDiscRequired.checked=false;
+      ids.sccm.value='Dane Jordan-Pinder'; ids.asccm.value=''; ids.captainName.value=''; ids.firstOfficerNames.value=''; ids.inboundSTDHour.value=''; ids.inboundSTDMinute.value=''; ids.pickupOffsetHour.value=''; ids.pickupOffsetMinute.value=''; ids.numSectors.value='1'; ids.flightCrewCompliment.value='2'; ids.cmdrDiscRequired.checked=false;
       ids.taxiOutMins.value='25'; ids.holdingMins.value='10'; ids.taxiInMins.value='10'; ids.lhrTerminal.value='';
       setTodayDate(); updateLhrTerminalState(); updateDelayVisibility(); updateArrivalLabel(); prepopulateRestFacility();
       ids.moreOptionsSection.classList.add('hidden-block'); ids.moreOptionsToggle.setAttribute('aria-expanded','false'); ids.moreOptionsToggle.textContent='More Options'; hideError();
+      window.fbpBriefingHandoff=null; document.getElementById('buildBriefingBtn').hidden=true;
       ids.resultsBox1.innerHTML=''; ids.resultsBox2.innerHTML=''; ids.resultsBox3.innerHTML=''; ids.standbyReportTime.value=''; ids.standbyCalcRow.hidden=true; ids.standbyResultsSection.hidden=true; ids.standbyResultsBox1.innerHTML=''; ids.standbyResultsBox2.innerHTML=''; ids.standbyResultsBox3.innerHTML=''; ids.emailResultsRow.hidden=true; ids.captainStaffNumber.value=''; latestFdpEmailBody=''; latestStandbyFdpEmailSection=''; ids.routeRef.textContent='—'; ids.notesList.innerHTML='';
     }
 
@@ -818,6 +840,11 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
     });
     ids.revDepHour.addEventListener('input',updateDelayVisibility);
     ids.revDepMinute.addEventListener('input',updateDelayVisibility);
+    document.getElementById('buildBriefingBtn').addEventListener('click',()=>{
+      if(!window.fbpBriefingHandoff) return;
+      sessionStorage.setItem('fbpBriefingFdp',JSON.stringify(window.fbpBriefingHandoff));
+      window.location.href='../briefing-generator/index.html';
+    });
     ids.calcBtn.addEventListener('click',calculate);
     ids.standbyCalcBtn.addEventListener('click',()=>calculate({standby:true}));
     ids.standbyClearBtn.addEventListener('click',clearStandbyResults);

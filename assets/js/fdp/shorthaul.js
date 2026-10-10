@@ -479,7 +479,7 @@ resultBoxes[1].innerHTML = box2Rows.join('');
       const [year,month,day]=ids.flightDate.value.split('-');
       const subject=[`${day}/${month}/${year}`,'FDP Limits'].join(' - ');
       const emailBody=[latestFdpEmailBody,latestStandbyFdpEmailSection].filter(Boolean).join('\r\n\r\n');
-      window.location.href=`mailto:${encodeURI(recipients)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+      window.location.href=`mailto:${encodeURI(recipients)}?cc=${encodeURIComponent('u155573@ba.com')}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
     }
 
     function clearForm(){
