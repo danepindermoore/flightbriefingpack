@@ -20,8 +20,8 @@ from openpyxl import load_workbook
 SOURCE_NAME = "British Airways Fleet.xlsx"
 SOURCE_AS_OF = "2026-09"
 SHEET_NAME = "Registrations"
-EXCLUDED_AIRFILES = {"78Z"}
-LONGHAUL_AIRFILES = {"38A", "38T", "351", "78E", "78N", "789", "781", "77M", "77L", "77H", "77T", "77S"}
+EXCLUDED_AIRFILES: set[str] = set()
+LONGHAUL_AIRFILES = {"38A", "38T", "351", "78E", "78N", "78Z", "789", "781", "77M", "77L", "77H", "77T", "77S"}
 AIRFILE_MARKER_START = "// BEGIN GENERATED AIRFILE DATA"
 AIRFILE_MARKER_END = "// END GENERATED AIRFILE DATA"
 EQUIPMENT_COLUMNS = (
@@ -133,30 +133,32 @@ def read_workbook(workbook_path: Path) -> tuple[dict[str, dict], dict[str, list[
     for row in rows:
         registration = clean(value_for(row, headers, "Registration"))
         airfile_value = clean(value_for(row, headers, "Airfile"))
-        if registration is None or airfile_value is None:
+        if airfile_value is None:
             continue
-        registration = str(registration).upper()
         airfile = str(airfile_value).strip()
         if airfile in EXCLUDED_AIRFILES:
             continue
-        if registration in registrations:
-            raise ValueError(f"Duplicate registration found in workbook: {registration}")
         haul = "longhaul" if airfile in LONGHAUL_AIRFILES else "shorthaul"
-        record = {
-            "registration": registration,
-            "haul": haul,
-            "baseSection": clean(value_for(row, headers, "Base / section")),
-            "airfile": airfile,
-            "wifiType": clean(value_for(row, headers, "Wi-Fi Type")),
-            "livery": clean(value_for(row, headers, "Livery")),
-            "newShorthaulSeat": yes_no(value_for(row, headers, "New SH seat")),
-            "xlOverheadBins": yes_no(value_for(row, headers, "XL overhead bins")),
-            "sepEquipment": equipment_for(row, headers),
-        }
-        if haul == "longhaul":
-            record["firstProduct"] = clean(value_for(row, headers, "First Product"))
-            record["clubWorldProduct"] = clean(value_for(row, headers, "Club World Product"))
-        registrations[registration] = {key: value for key, value in record.items() if value is not None}
+        if registration is not None:
+            registration = str(registration).upper()
+            if registration in registrations:
+                raise ValueError(f"Duplicate registration found in workbook: {registration}")
+            record = {
+                "registration": registration,
+                "haul": haul,
+                "baseSection": clean(value_for(row, headers, "Base / section")),
+                "airfile": airfile,
+                "wifiType": clean(value_for(row, headers, "Wi-Fi Type")),
+                "livery": clean(value_for(row, headers, "Livery")),
+                "newShorthaulSeat": yes_no(value_for(row, headers, "New SH seat")),
+                "xlOverheadBins": yes_no(value_for(row, headers, "XL overhead bins")),
+                "sepEquipment": equipment_for(row, headers),
+            }
+            if haul == "longhaul":
+                record["firstProduct"] = clean(value_for(row, headers, "First Product"))
+                record["clubWorldProduct"] = clean(value_for(row, headers, "Club World Product"))
+            registrations[registration] = {key: value for key, value in record.items() if value is not None}
+        # Keep aircraft type rows even when BA has not assigned a registration yet.
         raw_rows[airfile].append(row)
 
     summaries: dict[str, list[dict]] = {"longhaul": [], "shorthaul": []}
@@ -172,6 +174,7 @@ def read_workbook(workbook_path: Path) -> tuple[dict[str, dict], dict[str, list[
         equipment_varies = len(equipment_signatures) > 1
         shared_equipment = equipment_by_registration[0] if not equipment_varies else []
         total_seats = clean(value_for(row, headers, "Total Passenger Seats"))
+        ba_aor_url = next((str(clean(value_for(item, headers, "BA AORs"))) for item in type_rows if clean(value_for(item, headers, "BA AORs"))), None)
 
         if haul == "longhaul":
             breakdown, classes = cabin_breakdown(row, headers)
@@ -204,6 +207,7 @@ def read_workbook(workbook_path: Path) -> tuple[dict[str, dict], dict[str, list[
                 "cabinCrewRest": next((code for code in rest_types if rest_lookup[code] == "cabinCrewRest"), None),
                 "emergencyEquipmentSummary": shared_equipment,
                 "registrationRequiredForEquipment": equipment_varies,
+                "baAorUrl": ba_aor_url,
             }
         else:
             cabin_values = str(clean(value_for(row, headers, "Cabin Codes")) or "J, M").replace(" ", "").split(",")
@@ -216,6 +220,7 @@ def read_workbook(workbook_path: Path) -> tuple[dict[str, dict], dict[str, list[
                 "restTypes": [], "flightCrewRest": None, "cabinCrewRest": None,
                 "emergencyEquipmentSummary": shared_equipment,
                 "registrationRequiredForEquipment": equipment_varies,
+                "baAorUrl": ba_aor_url,
             }
         summaries[haul].append(summary)
 
@@ -243,6 +248,7 @@ def update_aircraft_file(project_root: Path, summaries: dict[str, list[dict]]) -
                 "totalSeats": summary["totalSeats"], "seatBreakdown": summary["seatBreakdown"],
                 "crew": summary["crew"], "emergencyEquipmentSummary": summary["emergencyEquipmentSummary"],
                 "registrationRequiredForEquipment": summary["registrationRequiredForEquipment"],
+                "baAorUrl": summary["baAorUrl"],
                 # 38T has worksheet lookup data, but no AOR/FDP dataset yet.
                 "dataFile": f"{code}.js" if haul == "longhaul" and code != "38T" else None,
                 "dataPath": f"data/aircraft/{code}.js" if haul == "longhaul" and code != "38T" else None,
@@ -251,8 +257,7 @@ def update_aircraft_file(project_root: Path, summaries: dict[str, list[dict]]) -
                 "selectorSubLabel": selector_sub,
             }
             assignments.append(f"globalThis.AIRCRAFT[{json.dumps(code)}] = {json.dumps(generated, ensure_ascii=False, indent=2)};")
-    # Keep 38T available for registration/type lookups without offering it as a
-    # Briefing or FDP selection until a corresponding operational dataset exists.
+    # 38T remains excluded from FDP type selection until its operational dataset exists.
     fdp_longhaul_codes = [code for code in longhaul_codes if code != "38T"]
     all_codes = longhaul_codes + shorthaul_codes
     block = "/* Generated from the fleet workbook by scripts/generate-aircraft-registrations.py. */\n"

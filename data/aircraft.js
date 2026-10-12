@@ -93,6 +93,7 @@ globalThis.AIRCRAFT["38A"] = {
     }
   ],
   "registrationRequiredForEquipment": false,
+  "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/38A.pdf",
   "dataFile": "38A.js",
   "dataPath": "data/aircraft/38A.js",
   "briefingTitle": "A380-841 Briefing",
@@ -133,6 +134,7 @@ globalThis.AIRCRAFT["38T"] = {
   "crew": null,
   "emergencyEquipmentSummary": [],
   "registrationRequiredForEquipment": false,
+  "baAorUrl": null,
   "dataFile": null,
   "dataPath": null,
   "briefingTitle": "A380-841 Briefing",
@@ -217,6 +219,7 @@ globalThis.AIRCRAFT["351"] = {
     }
   ],
   "registrationRequiredForEquipment": false,
+  "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/A350.pdf",
   "dataFile": "351.js",
   "dataPath": "data/aircraft/351.js",
   "briefingTitle": "A350-1000 Briefing",
@@ -299,6 +302,7 @@ globalThis.AIRCRAFT["78E"] = {
     }
   ],
   "registrationRequiredForEquipment": false,
+  "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/Forms/AllItems.aspx?FolderCTID=0x0120004F1187214411CE40A182BDB3EEFC5EB4&id=%2Fsites%2FIFCE%5FDocs%2FShared%20Documents%2FOne%20Portal%2FSafety%2FQR%20Codes%2FB787%2D8%2078E%2Epdf&parent=%2Fsites%2FIFCE%5FDocs%2FShared%20Documents%2FOne%20Portal%2FSafety%2FQR%20Codes",
   "dataFile": "78E.js",
   "dataPath": "data/aircraft/78E.js",
   "briefingTitle": "B787-8 Briefing",
@@ -384,6 +388,7 @@ globalThis.AIRCRAFT["78N"] = {
     }
   ],
   "registrationRequiredForEquipment": false,
+  "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/78N.pdf",
   "dataFile": "78N.js",
   "dataPath": "data/aircraft/78N.js",
   "briefingTitle": "B787-9 Briefing",
@@ -469,6 +474,7 @@ globalThis.AIRCRAFT["789"] = {
     }
   ],
   "registrationRequiredForEquipment": false,
+  "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B787-9.pdf",
   "dataFile": "789.js",
   "dataPath": "data/aircraft/789.js",
   "briefingTitle": "B787-9 Briefing",
@@ -546,10 +552,96 @@ globalThis.AIRCRAFT["781"] = {
     }
   ],
   "registrationRequiredForEquipment": false,
+  "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B787-10.pdf",
   "dataFile": "781.js",
   "dataPath": "data/aircraft/781.js",
   "briefingTitle": "B787-10 Briefing",
   "selectorLabel": "781",
+  "selectorSubLabel": "B787-10 · 4 Class"
+};
+globalThis.AIRCRAFT["78Z"] = {
+  "code": "78Z",
+  "airfile": "78Z",
+  "haul": "longhaul",
+  "fullName": "B787-10",
+  "shortName": "B787",
+  "family": "B787",
+  "variant": "B787-10",
+  "manufacturer": "Boeing",
+  "configName": "4 Class",
+  "classCount": 4,
+  "classes": [
+    "F",
+    "J",
+    "W",
+    "M"
+  ],
+  "includesRestFacilities": true,
+  "restTypes": [
+    "FCRC",
+    "CCRC"
+  ],
+  "flightCrewRest": "FCRC",
+  "cabinCrewRest": "CCRC",
+  "totalSeats": 251,
+  "seatBreakdown": {
+    "first": 8,
+    "clubWorld": 48,
+    "worldTravellerPlus": 35,
+    "worldTraveller": 160
+  },
+  "crew": {
+    "legalMinimum": 6,
+    "requiredSeats": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "totalCrewSeats": 12,
+    "standardCrewCompliment": 11,
+    "spareCrewSeats": [
+      {
+        "seat": "D4L",
+        "facing": "AFT",
+        "note": "Spare crew seat"
+      }
+    ]
+  },
+  "emergencyEquipmentSummary": [
+    {
+      "code": "AED",
+      "location": "D2R"
+    },
+    {
+      "code": "M5",
+      "location": "D2R"
+    },
+    {
+      "code": "RES",
+      "location": "D2R"
+    },
+    {
+      "code": "RESTRAINT",
+      "location": "D2L"
+    },
+    {
+      "code": "FE",
+      "location": "All RHDs"
+    },
+    {
+      "code": "WEX",
+      "location": "D1L, D4L"
+    }
+  ],
+  "registrationRequiredForEquipment": false,
+  "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B787%2078Z.pdf",
+  "dataFile": "78Z.js",
+  "dataPath": "data/aircraft/78Z.js",
+  "briefingTitle": "B787-10 Briefing",
+  "selectorLabel": "78Z",
   "selectorSubLabel": "B787-10 · 4 Class"
 };
 globalThis.AIRCRAFT["77M"] = {
@@ -629,6 +721,7 @@ globalThis.AIRCRAFT["77M"] = {
     }
   ],
   "registrationRequiredForEquipment": false,
+  "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077M.pdf",
   "dataFile": "77M.js",
   "dataPath": "data/aircraft/77M.js",
   "briefingTitle": "B777-236B Briefing",
@@ -718,6 +811,7 @@ globalThis.AIRCRAFT["77L"] = {
     }
   ],
   "registrationRequiredForEquipment": false,
+  "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077L.pdf",
   "dataFile": "77L.js",
   "dataPath": "data/aircraft/77L.js",
   "briefingTitle": "B777-236 (ER) Briefing",
@@ -818,6 +912,7 @@ globalThis.AIRCRAFT["77H"] = {
     }
   ],
   "registrationRequiredForEquipment": false,
+  "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077H.pdf",
   "dataFile": "77H.js",
   "dataPath": "data/aircraft/77H.js",
   "briefingTitle": "B777-336 (ER) Briefing",
@@ -904,6 +999,7 @@ globalThis.AIRCRAFT["77T"] = {
     }
   ],
   "registrationRequiredForEquipment": false,
+  "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077T.pdf",
   "dataFile": "77T.js",
   "dataPath": "data/aircraft/77T.js",
   "briefingTitle": "B777-236B Briefing",
@@ -993,6 +1089,7 @@ globalThis.AIRCRAFT["77S"] = {
     }
   ],
   "registrationRequiredForEquipment": false,
+  "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077S.pdf",
   "dataFile": "77S.js",
   "dataPath": "data/aircraft/77S.js",
   "briefingTitle": "B777-236 (ER) Briefing",
@@ -1020,6 +1117,7 @@ globalThis.AIRCRAFT["32Y"] = {
   "crew": null,
   "emergencyEquipmentSummary": [],
   "registrationRequiredForEquipment": true,
+  "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32Y%20NEOP%20to%20NEOZ.pdf?CID=f1efab57-78d4-478f-976b-a664400ee560",
   "dataFile": null,
   "dataPath": null,
   "briefingTitle": "A321-251 (NEO) Sharklets Briefing",
@@ -1072,6 +1170,7 @@ globalThis.AIRCRAFT["32R"] = {
     }
   ],
   "registrationRequiredForEquipment": false,
+  "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca7",
   "dataFile": null,
   "dataPath": null,
   "briefingTitle": "A320-232 (CEO) Briefing",
@@ -1124,6 +1223,7 @@ globalThis.AIRCRAFT["32H"] = {
     }
   ],
   "registrationRequiredForEquipment": false,
+  "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca38",
   "dataFile": null,
   "dataPath": null,
   "briefingTitle": "A320-232 (CEO) Sharklets Briefing",
@@ -1151,6 +1251,7 @@ globalThis.AIRCRAFT["32P"] = {
   "crew": null,
   "emergencyEquipmentSummary": [],
   "registrationRequiredForEquipment": true,
+  "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNA%20to%20TTNL.pdf?CID=b9f8fe2c-cbfa-4729-bb3c-5ab086619963",
   "dataFile": null,
   "dataPath": null,
   "briefingTitle": "A320-251 (NEO) Sharklets Briefing",
@@ -1203,6 +1304,7 @@ globalThis.AIRCRAFT["319"] = {
     }
   ],
   "registrationRequiredForEquipment": false,
+  "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/319.pdf?CID=663205c8-d89c-407f-82fe-a1e71fa7b079",
   "dataFile": null,
   "dataPath": null,
   "briefingTitle": "A319-131 Briefing",
@@ -1255,14 +1357,15 @@ globalThis.AIRCRAFT["31C"] = {
     }
   ],
   "registrationRequiredForEquipment": false,
+  "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/31C.pdf?CID=11868bfa-7bf4-4844-a0d6-78ceafeb87da",
   "dataFile": null,
   "dataPath": null,
   "briefingTitle": "A319-131 Briefing",
   "selectorLabel": "31C",
   "selectorSubLabel": "A319-131 · 144 seats"
 };
-globalThis.AIRCRAFT_ORDER_LONGHAUL = ["38A", "351", "78E", "78N", "789", "781", "77M", "77L", "77H", "77T", "77S"];
+globalThis.AIRCRAFT_ORDER_LONGHAUL = ["38A", "351", "78E", "78N", "789", "781", "78Z", "77M", "77L", "77H", "77T", "77S"];
 globalThis.AIRCRAFT_ORDER_SHORTHAUL = ["32Y", "32R", "32H", "32P", "319", "31C"];
-globalThis.AIRCRAFT_ORDER = ["38A", "38T", "351", "78E", "78N", "789", "781", "77M", "77L", "77H", "77T", "77S", "32Y", "32R", "32H", "32P", "319", "31C"];
-globalThis.AIRFILE_ORDER = ["38A", "38T", "351", "78E", "78N", "789", "781", "77M", "77L", "77H", "77T", "77S", "32Y", "32R", "32H", "32P", "319", "31C"];
+globalThis.AIRCRAFT_ORDER = ["38A", "38T", "351", "78E", "78N", "789", "781", "78Z", "77M", "77L", "77H", "77T", "77S", "32Y", "32R", "32H", "32P", "319", "31C"];
+globalThis.AIRFILE_ORDER = ["38A", "38T", "351", "78E", "78N", "789", "781", "78Z", "77M", "77L", "77H", "77T", "77S", "32Y", "32R", "32H", "32P", "319", "31C"];
 // END GENERATED AIRFILE DATA
