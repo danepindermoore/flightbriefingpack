@@ -135,7 +135,7 @@
             <div><label for="to">Destination Airport</label><div class="airport-input-wrap"><input id="to" maxlength="3" placeholder="JFK" /><button class="airport-options-toggle" type="button" data-airport-menu-toggle="destinationAirportMenu" aria-label="Show destination airport options" aria-expanded="false" hidden>▾</button><div class="airport-options-menu" id="destinationAirportMenu" role="listbox" hidden></div></div></div>
           </div>
 
-          <div><label for="sccm">Senior Crew Member (SCCM)</label><input id="sccm" maxlength="80" value="Dane Jordan-Pinder" /></div>
+          <div><label for="sccm">Senior Crew Member (SCCM)</label><input id="sccm" maxlength="80" /></div>
           <div><label for="asccm">Acting Senior Crew Member</label><input id="asccm" maxlength="80" /></div>
           <div><label for="captainName">Captain's Name</label><div class="input-hint-wrap"><input id="captainName" maxlength="160" aria-describedby="captainNameHint" /><span id="captainNameHint" class="input-hint" role="status">Separate multiple people's names with commas</span></div></div>
           <div><label for="firstOfficerNames">First Officers' Names</label><div class="input-hint-wrap"><input id="firstOfficerNames" maxlength="240" aria-describedby="firstOfficerNamesHint" /><span id="firstOfficerNamesHint" class="input-hint" role="status">Separate multiple people's names with commas</span></div></div>
@@ -178,9 +178,8 @@
         <div class="result-box"><div id="resultsBox3"></div></div>
         <button id="buildBriefingBtn" class="primary" type="button" hidden>Build Pre-Flight Briefing</button>
         <div id="standbyCalcRow" class="email-results-row" hidden>
-          <div><label for="standbyReportTime">Crew Member called from Airport Standby</label><input id="standbyReportTime" type="time" required aria-describedby="standbyReportHint" /></div>
+          <div><label>Crew Member called from Airport Standby</label><div class="timegrid"><input id="standbyReportHour" inputmode="numeric" maxlength="2" placeholder="HH" aria-label="Standby crew report time hour" required /><input id="standbyReportMinute" inputmode="numeric" maxlength="2" placeholder="MM" aria-label="Standby crew report time minute" required /></div><small id="standbyReportHint" class="small">Enter this crew member’s report time in LHR local time.</small></div>
           <div class="standby-actions"><button id="standbyCalcBtn" class="primary" type="button">Calculate</button><button id="standbyClearBtn" class="danger" type="button">Clear</button></div>
-          <small id="standbyReportHint" class="small">Enter this crew member’s report time in LHR local time.</small>
         </div>
         <section id="standbyResultsSection" class="standby-results-section" hidden aria-live="polite">
           <h3>Airport Standby Crew Results</h3>
@@ -266,7 +265,8 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       resultsBox2: document.getElementById('resultsBox2'),
       resultsBox3: document.getElementById('resultsBox3'),
       standbyCalcRow: document.getElementById('standbyCalcRow'),
-      standbyReportTime: document.getElementById('standbyReportTime'),
+      standbyReportHour: document.getElementById('standbyReportHour'),
+      standbyReportMinute: document.getElementById('standbyReportMinute'),
       standbyCalcBtn: document.getElementById('standbyCalcBtn'),
       standbyClearBtn: document.getElementById('standbyClearBtn'),
       standbyResultsSection: document.getElementById('standbyResultsSection'),
@@ -384,7 +384,7 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
     }
 
     function wireTimeAutoAdvance(){
-      const pairs=[['inboundSTDHour','inboundSTDMinute'],['pickupOffsetHour','pickupOffsetMinute'],['depHour','depMinute'],['reportHour','reportMinute'],['lastArrHour','lastArrMinute'],['absHour','absMinute'],['actualHour','actualMinute'],['revDepHour','revDepMinute'],['revLandHour','revLandMinute'],['secondServiceHour','secondServiceMinute']];
+      const pairs=[['inboundSTDHour','inboundSTDMinute'],['pickupOffsetHour','pickupOffsetMinute'],['depHour','depMinute'],['reportHour','reportMinute'],['standbyReportHour','standbyReportMinute'],['lastArrHour','lastArrMinute'],['absHour','absMinute'],['actualHour','actualMinute'],['revDepHour','revDepMinute'],['revLandHour','revLandMinute'],['secondServiceHour','secondServiceMinute']];
       for(const [hourId, minuteId] of pairs){
         const hourEl=document.getElementById(hourId), minuteEl=document.getElementById(minuteId);
         if(!hourEl || !minuteEl) continue;
@@ -400,7 +400,7 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
     }
 
     function populateSelects(){
-      ids.numSectors.innerHTML=Array.from({length:10},(_,i)=>`<option value="${i+1}">${i+1}</option>`).join('');
+      ids.numSectors.innerHTML=Array.from({length:4},(_,i)=>`<option value="${i+1}">${i+1}</option>`).join('');
       ids.numSectors.value='1';
       ids.flightCrewCompliment.innerHTML=[2,3,4,5].map(n=>`<option value="${n}">${n}</option>`).join('');
       ids.flightCrewCompliment.value='2';
@@ -606,7 +606,8 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       const resultBoxes=standby
         ? [ids.standbyResultsBox1,ids.standbyResultsBox2,ids.standbyResultsBox3]
         : [ids.resultsBox1,ids.resultsBox2,ids.resultsBox3];
-      if(standby && !ids.standbyReportTime.value){ ids.standbyReportTime.reportValidity(); return; }
+      const standbyReportRes=standby ? validateRequiredTimePair(ids.standbyReportHour,ids.standbyReportMinute,'Standby Crew Member Report Time') : null;
+      if(standby && !standbyReportRes.ok){ showError(standbyReportRes.message); return; }
       if(!fdpApi){ showError('ba-fdp-tables.js has not loaded correctly.'); return; }
 
       const flightDate=ids.flightDate.value;
@@ -665,7 +666,7 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       const cmdrDiscRequired=ids.cmdrDiscRequired.checked;
 
       const depUtcMs=zonedDateFromLocal(flightDate, depRes.value, depAirport.timeZone).getTime();
-      const reportMinutes=standby ? Number(ids.standbyReportTime.value.slice(0,2))*60+Number(ids.standbyReportTime.value.slice(3,5)) : reportRes.value;
+      const reportMinutes=standby ? standbyReportRes.value : reportRes.value;
       const reportUtcMs=zonedDateFromLocal(flightDate, reportMinutes, standby ? airportByCode.LHR.timeZone : depAirport.timeZone).getTime();
 
       let plannedArrivalUtcMs=utcDateFromZClockRolling(flightDate, lastArrRes.value, depUtcMs).getTime();
@@ -820,16 +821,16 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       setAirportSuggestions('destinationAirportMenu','[data-airport-menu-toggle="destinationAirportMenu"]','to',[]); lastAutoPopulatedRoute=null;
       ids.depHour.value=''; ids.depMinute.value=''; ids.reportHour.value=''; ids.reportMinute.value=''; ids.lastArrHour.value=''; ids.lastArrMinute.value='';
       ids.absHour.value=''; ids.absMinute.value=''; ids.actualHour.value=''; ids.actualMinute.value=''; ids.revDepHour.value=''; ids.revDepMinute.value=''; ids.revLandHour.value=''; ids.revLandMinute.value=''; ids.secondServiceHour.value=''; ids.secondServiceMinute.value='';
-      ids.sccm.value='Dane Jordan-Pinder'; ids.asccm.value=''; ids.captainName.value=''; ids.firstOfficerNames.value=''; ids.inboundSTDHour.value=''; ids.inboundSTDMinute.value=''; ids.pickupOffsetHour.value=''; ids.pickupOffsetMinute.value=''; ids.numSectors.value='1'; ids.flightCrewCompliment.value='2'; ids.cmdrDiscRequired.checked=false;
+      ids.sccm.value=''; ids.asccm.value=''; ids.captainName.value=''; ids.firstOfficerNames.value=''; ids.inboundSTDHour.value=''; ids.inboundSTDMinute.value=''; ids.pickupOffsetHour.value=''; ids.pickupOffsetMinute.value=''; ids.numSectors.value='1'; ids.flightCrewCompliment.value='2'; ids.cmdrDiscRequired.checked=false;
       ids.taxiOutMins.value='25'; ids.holdingMins.value='10'; ids.taxiInMins.value='10'; ids.lhrTerminal.value='';
       setTodayDate(); updateLhrTerminalState(); updateDelayVisibility(); updateArrivalLabel(); prepopulateRestFacility();
       ids.moreOptionsSection.classList.add('hidden-block'); ids.moreOptionsToggle.setAttribute('aria-expanded','false'); ids.moreOptionsToggle.textContent='More Options'; hideError();
       window.fbpBriefingHandoff=null; document.getElementById('buildBriefingBtn').hidden=true;
-      ids.resultsBox1.innerHTML=''; ids.resultsBox2.innerHTML=''; ids.resultsBox3.innerHTML=''; ids.standbyReportTime.value=''; ids.standbyCalcRow.hidden=true; ids.standbyResultsSection.hidden=true; ids.standbyResultsBox1.innerHTML=''; ids.standbyResultsBox2.innerHTML=''; ids.standbyResultsBox3.innerHTML=''; ids.emailResultsRow.hidden=true; ids.captainStaffNumber.value=''; latestFdpEmailBody=''; latestStandbyFdpEmailSection=''; ids.routeRef.textContent='—'; ids.notesList.innerHTML='';
+      ids.resultsBox1.innerHTML=''; ids.resultsBox2.innerHTML=''; ids.resultsBox3.innerHTML=''; ids.standbyReportHour.value=''; ids.standbyReportMinute.value=''; ids.standbyCalcRow.hidden=true; ids.standbyResultsSection.hidden=true; ids.standbyResultsBox1.innerHTML=''; ids.standbyResultsBox2.innerHTML=''; ids.standbyResultsBox3.innerHTML=''; ids.emailResultsRow.hidden=true; ids.captainStaffNumber.value=''; latestFdpEmailBody=''; latestStandbyFdpEmailSection=''; ids.routeRef.textContent='—'; ids.notesList.innerHTML='';
     }
 
     function clearStandbyResults(){
-      ids.standbyReportTime.value='';
+      ids.standbyReportHour.value=''; ids.standbyReportMinute.value='';
       ids.standbyResultsSection.hidden=true;
       ids.standbyResultsBox1.innerHTML=''; ids.standbyResultsBox2.innerHTML=''; ids.standbyResultsBox3.innerHTML='';
       latestStandbyFdpEmailSection='';

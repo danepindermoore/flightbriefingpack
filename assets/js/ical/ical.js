@@ -76,10 +76,8 @@
     const els = {
       pdfFile: document.getElementById("pdfFile"),
       fileName: document.getElementById("fileName"),
-      screenshotFiles: document.getElementById("screenshotFiles"),
-      screenshotFileName: document.getElementById("screenshotFileName"),
-      ocrScreenshotsBtn: document.getElementById("ocrScreenshotsBtn"),
       openCrewlinkBtn: document.getElementById("openCrewlinkBtn"),
+      continueCrewlinkBtn: document.getElementById("continueCrewlinkBtn"),
       crewlinkFlow: document.getElementById("crewlinkFlow"),
       pastedRosterText: document.getElementById("pastedRosterText"),
       statusBox: document.getElementById("statusBox"),
@@ -120,40 +118,14 @@ function init() {
     () => {
         updatePTDateFieldState();
         saveContractSettings();
+        refreshEventsFromInputs();
     }
 );
 
     els.firstPTDate.addEventListener(
         "change",
-        saveContractSettings
+        () => { saveContractSettings(); refreshEventsFromInputs(); }
     );
-
-
-
-
-els.screenshotFiles.addEventListener("change", () => {
-
-    const files = Array.from(els.screenshotFiles.files || []);
-
-    els.screenshotFileName.textContent = files.length
-        ? `${files.length} screenshot${files.length === 1 ? "" : "s"} selected`
-        : "No screenshots selected";
-
-    if (files.length) {
-        els.pdfFile.value = "";
-        els.fileName.textContent = "No PDF selected";
-
-        setStatus(
-            `${files.length} roster screenshot${files.length === 1 ? "" : "s"} selected. Tap 'Read Screenshots' to extract the roster.`,
-            "info"
-        );
-    }
-});
-
-els.ocrScreenshotsBtn.addEventListener(
-    "click",
-    handleScreenshotOCR
-);
 
 
 
@@ -174,27 +146,57 @@ els.ocrScreenshotsBtn.addEventListener(
         els.fileName.textContent = file.name;
 
         setStatus(
-            "Roster selected. Click 'Upload' to process.",
+            "Reading roster and preparing events…",
             "info"
         );
+
+        els.pastedRosterText.value = "";
+        state.events = [];
+        updateStats();
+        renderPreview();
+        refreshExportButtons();
+        handleParseClick();
 
     });
 
 
-els.refreshBtn.addEventListener(
-    "click",
-    handleParseClick
-);
+els.refreshBtn.addEventListener("click", () => {
+    document.getElementById("postParseActions").hidden = false;
+    document.getElementById("rosterPreviewSection").hidden = false;
+    handleParseClick();
+});
+
+els.pastedRosterText.addEventListener("change", () => {
+    const pastedText = els.pastedRosterText.value.trim();
+    if (!pastedText) return;
+    els.pdfFile.value = "";
+    els.fileName.textContent = "No file selected";
+    state.events = [];
+    updateStats();
+    renderPreview();
+    refreshExportButtons();
+    processRosterText(pastedText);
+});
+
+els.pastedRosterText.addEventListener("paste", () => {
+    window.setTimeout(() => {
+        els.pastedRosterText.dispatchEvent(new Event("change", { bubbles: true }));
+    }, 0);
+});
 
     els.openCrewlinkBtn.addEventListener(
         "click",
-        openCrewlink
+        showCrewlinkInstructions
     );
+
+    els.continueCrewlinkBtn.addEventListener("click", openCrewlink);
 
 els.downloadBtn.addEventListener(
     "click",
     downloadICS
 );
+
+els.clearHistoryBtn.addEventListener("click", clearImportHistory);
 
     els.addFutureDutyBtn.addEventListener(
         "click",
@@ -289,6 +291,7 @@ card.querySelector(".future-duty-type").addEventListener("change", event => {
     renderFutureDutyFields(card);
 
     updateWrapDayState(card);
+    refreshEventsFromInputs();
 
 });
 
@@ -364,6 +367,8 @@ if (
     console.log(card.futureDuty);
 
 }
+
+refreshEventsFromInputs();
 });
 
 card.querySelector(".future-duty-delete").addEventListener(
@@ -381,6 +386,8 @@ card.querySelector(".future-duty-delete").addEventListener(
             els.noFutureDuties.style.display = "";
 
         }
+
+        refreshEventsFromInputs();
 
     }
 );
@@ -793,9 +800,13 @@ if (savedPTDate) {
 
 }
 
-function openCrewlink() {
+function showCrewlinkInstructions() {
+    const shouldExpand = els.crewlinkFlow.classList.contains("hidden");
+    els.crewlinkFlow.classList.toggle("hidden", !shouldExpand);
+    els.openCrewlinkBtn.setAttribute("aria-expanded", String(shouldExpand));
+}
 
-    els.crewlinkFlow.classList.remove("hidden");
+function openCrewlink() {
 
     window.open(
         "https://crewlink.baplc.com/ccroster/displayroster.do",
@@ -809,130 +820,22 @@ function openCrewlink() {
       els.statusBox.textContent = message;
     }
 
-
-
-async function handleScreenshotOCR() {
-
-    const files = Array.from(
-        els.screenshotFiles.files || []
-    );
-
-    if (!files.length) {
-        setStatus(
-            "Select one or more roster screenshots first.",
-            "warn"
-        );
+    function refreshEventsFromInputs() {
+      if (els.pdfFile.files[0] || els.pastedRosterText.value.trim()) {
+        state.events = [];
+        updateStats();
+        renderPreview();
+        refreshExportButtons();
+        handleParseClick();
         return;
+      }
+
+      buildFutureDuties();
+      state.events = generateFutureDutyEvents().sort(compareEvents);
+      updateStats();
+      renderPreview();
+      refreshExportButtons();
     }
-
-    if (!window.Tesseract) {
-        setStatus(
-            "The screenshot-reading engine failed to load. Refresh the page and try again.",
-            "err"
-        );
-        return;
-    }
-
-    try {
-
-        els.ocrScreenshotsBtn.disabled = true;
-        els.refreshBtn.disabled = true;
-
-        setStatus(
-            `Reading ${files.length} roster screenshot${files.length === 1 ? "" : "s"}…`
-        );
-
-        const worker =
-            await Tesseract.createWorker("eng");
-
-        const results = [];
-
-        try {
-
-            for (let i = 0; i < files.length; i++) {
-
-                setStatus(
-                    `Reading roster screenshot ${i + 1} of ${files.length}…`
-                );
-
-                const result =
-                    await worker.recognize(files[i]);
-
-                results.push({
-                    file: files[i],
-                    text: result.data.text || "",
-                    index: i
-                });
-            }
-
-        } finally {
-
-            await worker.terminate();
-
-        }
-
-        /*
-         * Keep the user's selected order.
-         *
-         * Screenshots should be selected:
-         * first page → second page → third page.
-         */
-
-        const combinedText =
-            results
-                .map(result => result.text.trim())
-                .filter(Boolean)
-                .join("\n\n");
-
-        if (!combinedText.trim()) {
-            throw new Error(
-                "No readable roster text was found in the screenshots."
-            );
-        }
-
-        /*
-         * Put the OCR text into the existing text box so that
-         * the user can inspect what was extracted if necessary.
-         */
-
-        els.pastedRosterText.value =
-            combinedText;
-
-        state.rawText =
-            combinedText;
-
-        setStatus(
-            "Screenshots read successfully. Parsing roster…",
-            "info"
-        );
-
-        /*
-         * IMPORTANT:
-         * Use the existing roster parser.
-         * We do NOT create a second parser for screenshots.
-         */
-
-        processRosterText(combinedText);
-
-    } catch (err) {
-
-        console.error(err);
-
-        setStatus(
-            "Something went wrong while reading the roster screenshots.\n\n" +
-            (err?.message || String(err)),
-            "err"
-        );
-
-    } finally {
-
-        els.ocrScreenshotsBtn.disabled = false;
-        els.refreshBtn.disabled = false;
-
-    }
-}
-
-
 
 
 
@@ -1014,7 +917,7 @@ async function handleScreenshotOCR() {
     }
 
     setStatus(
-        "Upload a roster PDF, paste Crewlink text, or add one or more Future Duties before clicking Upload.",
+        "Choose a roster PDF or paste Crewlink text, then click Next to process it.",
         "warn"
     );
 
@@ -1207,7 +1110,7 @@ function generateFuturePTEvents() {
       els.debugBlocks.value = state.dayBlocks.map((b, i) => `--- BLOCK ${i + 1} ---\n${b}`).join("\n\n");
 
       if (!year) {
-        setStatus("I couldn't detect the roster year from the roster text. Check the debug panel.", "err");
+        setStatus("I couldn't detect the roster year from the roster text. Check the roster text and try again.", "err");
         return;
       }
 
@@ -1889,6 +1792,7 @@ function parseSingleAllDayFromBlock(body, isoDate) {
     function refreshExportButtons() {
       const hasEvents = state.events.length > 0;
       els.downloadBtn.disabled = !hasEvents;
+      els.refreshBtn.disabled = !hasEvents;
     }
 
     function getExportCandidateEvents() {
@@ -2011,8 +1915,6 @@ console.log(ics.substring(0, 200));
       state.dayBlocks = [];
       state.rawText = "";
       els.fileName.textContent = "No file selected";
-      els.screenshotFiles.value = "";
-      els.screenshotFileName.textContent = "No screenshots selected";
       els.pastedRosterText.value = "";
       els.debugRawText.value = "";
       els.debugBlocks.value = "";
@@ -2314,7 +2216,7 @@ FBP.createPage({
     title: "Roster → iCal",
 
     subtitle:
-        "Upload a PDF of your roster, or click 'Open Crewlink' below. If you choose the 'Open Crewlink' option, simply copy your roster text and paste it back here. Then scroll down, input your contract type and add any future duties (i.e. annual leave etc and then click the blue 'Upload' button in section 3. IF all looks well in the preview section, click the green 'Sync with iCloud Calendar' button and your duties will be added to your iCloud calendar automatically.",
+        "Choose either Roster PDF or Crewlink from the options below. If you click Crewlink, iPhone and iPad instructions will be displayed below.",
 
     feedbackEmail: "u155573@ba.com",
 

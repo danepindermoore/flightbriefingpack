@@ -14,6 +14,12 @@ Shared styles:
     margin-top: 24px;
 }
 
+.fbp-icon svg {
+    display: block;
+    width: 34px;
+    height: 34px;
+}
+
 
 .fbp-grid-3 {
     display: grid;

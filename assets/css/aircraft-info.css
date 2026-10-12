@@ -119,16 +119,19 @@
   padding: 12px 14px;
   border: 1px solid rgba(255, 255, 255, .07);
   border-radius: 16px;
-  background: rgba(255, 255, 255, .03);
+  border-color: rgba(111, 195, 255, .34);
+  background: linear-gradient(135deg, rgba(39, 126, 183, .34), rgba(39, 126, 183, .12));
   color: var(--text);
   text-align: left;
   text-decoration: none;
   font: inherit;
+  box-shadow: 0 8px 20px rgba(15, 95, 145, .14);
 }
 
 .aircraft-document-link:hover {
-  border-color: rgba(111, 195, 255, .45);
-  background: rgba(111, 195, 255, .08);
+  border-color: rgba(111, 195, 255, .7);
+  background: linear-gradient(135deg, rgba(39, 145, 210, .48), rgba(39, 126, 183, .2));
+  transform: translateY(-1px);
 }
 
 .aircraft-document-link strong { margin-bottom: 4px; }

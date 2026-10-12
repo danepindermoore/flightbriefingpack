@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Roster PDF to iCloud Calendar</title>
-  <meta name="description" content="Upload your Crewlink roster PDF and export an iCloud calendar file." />
+  <meta name="description" content="Choose either Roster PDF or Crewlink from the options below. If you click Crewlink, iPhone and iPad instructions will be displayed below." />
   <link rel="icon" href="../favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -41,49 +41,12 @@
 
 <div class="roster-import-options">
 
-   <!-- SCREENSHOT IMPORT -->
-<div class="import-option">
-
-    <button
-        id="ocrScreenshotsBtn"
-        type="button"
-        disabled
-    >
-        📸 Roster Screenshots
-    </button>
-
-    <span
-        style="color:#e53935; font-weight:700; font-size:0.85rem; letter-spacing:0.04em;"
-    >
-        COMING SOON
-    </span>
-
-    <!-- Kept hidden so the existing JS remains intact for later -->
-    <input
-        id="screenshotFiles"
-        type="file"
-        accept="image/*"
-        multiple
-        hidden
-    />
-
-    <span
-        id="screenshotFileName"
-        class="small"
-        hidden
-    >
-        No screenshots selected
-    </span>
-
-</div>
-
-
     <!-- PDF IMPORT -->
     <div class="import-option">
 
         <label
             for="pdfFile"
-            class="file-label import-button"
+            class="file-label import-button import-choice"
         >
             📄 Roster PDF
         </label>
@@ -109,9 +72,12 @@
 
         <button
             id="openCrewlinkBtn"
+            class="import-choice"
             type="button"
+            aria-expanded="false"
+            aria-controls="crewlinkFlow"
         >
-            Open Crewlink
+            Crewlink
         </button>
 
     </div>
@@ -121,15 +87,16 @@
 
 
 <div id="crewlinkFlow" class="crewlink-flow hidden">
-<p><strong>iPhone flow:</strong> Tap <strong>Open Crewlink</strong>, log in, then tap <strong>Share</strong> → <strong>Copy</strong>. Return here, paste the roster text into the box below, then tap the <strong>Upload</strong> button in section 3 (Export) below.</p>
+<p><strong>iPhone and iPad flow:</strong> Tap <strong>Continue</strong> below to open Crewlink in a new tab. Log in, tap <strong>Share</strong> → <strong>Copy</strong>, then return here and paste the roster text into the box. Click <strong>Next</strong> in section 3 to prepare the export. When you're ready to continue to Crewlink, click <strong>Continue</strong>.</p>
 
-              <div>
+              <div class="crewlink-paste">
+                <button id="continueCrewlinkBtn" class="success" type="button">Continue</button>
                 <label class="small" for="pastedRosterText">Roster text from Crewlink</label>
                 <textarea id="pastedRosterText" placeholder="Paste roster text from Crewlink here..."></textarea>
               </div>
 
              
-            <div id="statusBox" class="status">Waiting for a roster PDF, or open Crewlink to paste roster text.</div>
+            <div id="statusBox" class="status">Waiting for a roster PDF or Crewlink roster text.</div>
           </div>
 
         </section>
@@ -137,6 +104,9 @@
 <section class="ical-card">
 
 <h2>2) Planning Tools</h2>
+
+<details class="planning-options">
+      <summary>Part Time and Future Duties (optional)</summary>
 
 <div class="controls">
 
@@ -191,6 +161,8 @@
     </button>
 </div>
 
+    </details>
+
 </section>
 
         <section class="ical-card">
@@ -206,40 +178,19 @@
 
             <div class="row">
 
-    <button
-        id="refreshBtn"
-        class="primary"
-        type="button">
+    <button id="refreshBtn" class="primary" type="button" disabled>Next</button>
 
-        Upload
-
-    </button>
-
-    <button
-        id="downloadBtn"
-        class="success"
-        type="button"
-        disabled>
-
-        Sync with iCloud Calendar
-
-    </button>
-
-    <button
-        id="clearHistoryBtn"
-        class="danger"
-        type="button">
-
-        Clear Cache
-
-    </button>
+    <div id="postParseActions" class="row" hidden>
+      <button id="downloadBtn" class="success" type="button" disabled>Sync with iCloud Calendar</button>
+      <button id="clearHistoryBtn" class="danger" type="button">Clear Cache</button>
+    </div>
 
 </div>
           </div>
         </section>
       
 
-      <section class="ical-card">
+      <section id="rosterPreviewSection" class="ical-card" hidden>
         <div class="row" style="justify-content: space-between;">
           <h2 style="margin:0;">4) Roster Preview</h2>
           <div class="row">
@@ -275,7 +226,7 @@
         </div>
       </section>
 
-      <section class="ical-card">
+      <section class="ical-card" hidden>
         <details>
           <summary>5) Debug panel</summary>
           <p class="note">This shows the raw extracted text and merged day blocks.</p>
@@ -296,9 +247,6 @@
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
-
-
   <script>
     pdfjsLib.GlobalWorkerOptions.workerSrc =
       "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";

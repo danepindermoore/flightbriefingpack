@@ -105,8 +105,8 @@
     .meta-stat,.legend-item,.small-card{padding:12px 14px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07)}
     .meta-stat strong,.small-card strong{display:block;font-size:1rem;margin-bottom:4px;letter-spacing:-.02em}
     .meta-stat span,.small-card span,.legend-item{color:var(--muted);font-size:.9rem;line-height:1.5}
-    .meta-stat-link{display:flex;flex-direction:column;justify-content:center;text-align:left;text-decoration:none;color:var(--text);font:inherit;cursor:pointer}
-    .meta-stat-link:hover{border-color:rgba(111,195,255,.45);background:rgba(111,195,255,.08)}
+    .meta-stat-link{display:flex;flex-direction:column;justify-content:center;text-align:left;text-decoration:none;color:var(--text);font:inherit;cursor:pointer;background:linear-gradient(135deg,rgba(39,126,183,.34),rgba(39,126,183,.12));border-color:rgba(111,195,255,.34);box-shadow:0 8px 20px rgba(15,95,145,.14)}
+    .meta-stat-link:hover{border-color:rgba(111,195,255,.7);background:linear-gradient(135deg,rgba(39,145,210,.48),rgba(39,126,183,.2));transform:translateY(-1px)}
     .meta-stat-link:disabled{opacity:.58;cursor:not-allowed}
     .aircraft-wrap{display:flex;justify-content:center;padding:12px 0 4px}
     .diagram-shell{width:min(100%,440px);aspect-ratio:.44/1;position:relative}
@@ -168,7 +168,7 @@
           <p class="fbp-subtitle" id="pageIntro">Select an aircraft to view its briefing options as well as the operating crew’s AORs.</p>
         </div>
         <div class="fbp-toolbar">
-          <a class="fbp-button" href="mailto:u155573@ba.com?subject=Feedback%20for%20Pre-Flight%20Briefing">Send Feedback</a>
+          <a class="fbp-button" href="mailto:u155573@ba.com?subject=Briefing%20%26%20AOR%20Feedback">Briefing &amp; AOR Feedback</a>
         </div>
       </div>
     </section>
@@ -392,13 +392,15 @@ function setAorOverlay(pos){aorCaption.textContent="";aircraftSvg.querySelectorA
 const CABIN_DISPLAY_ORDER=[{code:"F",breakdownCode:"F",name:"First",seatKey:"first"},{code:"J",breakdownCode:"CW",name:"Club World",seatKey:"clubWorld"},{code:"W",breakdownCode:"WTP",name:"World Traveller Plus",seatKey:"worldTravellerPlus"},{code:"M",breakdownCode:"WT",name:"World Traveller",seatKey:"worldTraveller"},{code:"CE",breakdownCode:"CE",name:"Club Europe",seatKey:"clubEurope"},{code:"ET",breakdownCode:"ET",name:"Euro Traveller",seatKey:"euroTraveller"}];
 const REST_AREA_NAMES={OFCR:"Overhead Flight Crew Rest",OFAR:"Overhead Flight Attendant Rest",FCRC:"Flight Crew Rest Compartment",CCRC:"Cabin Crew Rest Compartment"};
 function summaryList(items,emptyText="None listed"){return items.length?`<ul class="summary-list">${items.map(item=>`<li>${esc(item)}</li>`).join("")}</ul>`:`<span>${esc(emptyText)}</span>`}
+function displayWifiType(value){return String(value||"").trim().toUpperCase()==="BA"?"BA-WiFi (Free Messaging)":value}
 function renderAircraftSummary(meta,data){
   const record=globalThis.getAircraftByRegistration?.(registrationInput.value.trim());
   const matching=record?.airfile===(meta.airfile||meta.code)?record:null;
   const typeRecords=Object.values(globalThis.AIRCRAFT_REGISTRATIONS||{}).filter(item=>item.airfile===(meta.airfile||meta.code));
   const registrationValue=key=>{if(matching&&matching[key]!==undefined&&matching[key]!==null&&matching[key]!=="")return matching[key];const values=[...new Set(typeRecords.map(item=>item[key]).filter(value=>value!==undefined&&value!==null&&value!==""))];return values.length===1?values[0]:values.length>1?"Varies by registration":meta[key]};
   const crew=data?.crew||meta.crew||{};
-  const seats=(crew.spareCrewSeats||[]).map((seat,index)=>`${index+1} - ${seat.seat}`).join(", ")||"None listed";
+  const spareSeats=crew.spareCrewSeats||[];
+  const seats=spareSeats.length?`${spareSeats.length} Spare Seats - ${spareSeats.map(seat=>seat.seat).join(", ")}`:"None";
   const breakdown=meta.seatBreakdown||{};
   const seatText=CABIN_DISPLAY_ORDER.filter(c=>Number(breakdown[c.seatKey])>0).map(c=>`${c.breakdownCode}: ${breakdown[c.seatKey]}`).join(" · ")||"Not listed";
   const values=[
@@ -420,7 +422,7 @@ function renderAircraftSummary(meta,data){
     ["XL Overhead Bins",typeof registrationValue("xlOverheadBins")==="boolean"?(registrationValue("xlOverheadBins")?"Yes":"No"):registrationValue("xlOverheadBins")],
     ["Flight Crew Rest",typeof meta.includesRestFacilities==="boolean"?(meta.flightCrewRest?"Yes":"No"):null],
     ["Cabin Crew Rest",typeof meta.includesRestFacilities==="boolean"?(meta.cabinCrewRest?"Yes":"No"):null],
-    ["Wi-Fi Type",registrationValue("wifiType")||"Not listed"],
+    ["Wi-Fi Type",displayWifiType(registrationValue("wifiType"))||"Not listed"],
     ["Livery",registrationValue("livery")||"Not listed"]
   ];
   const detailRows=values.filter(([,value])=>value!==null&&value!==undefined&&value!=="").map(([label,value])=>`<div class="aircraft-detail-row"><dt>${esc(label)}</dt><dd>${esc(String(value))}</dd></div>`).join("");
@@ -441,7 +443,7 @@ function updateRegistrationNotes(meta){
   else if(record.airfile!==STATE.activeCode){content=`<div class="summary-registration-error">This registration belongs to ${esc(record.aircraft?.fullName||record.airfile)}, not the selected aircraft.</div>`}
   else{
     const noteItems=[];
-    if(record.wifiType)noteItems.push(`Wi-Fi Type: ${record.wifiType}`);
+    if(record.wifiType)noteItems.push(`Wi-Fi Type: ${displayWifiType(record.wifiType)}`);
     if(record.livery){const specialLivery=String(record.livery).toLowerCase()!=="standard";noteItems.push(`Special Livery: ${specialLivery?record.livery:"None"}`)}
     if(meta.haul==="longhaul"){
       if(record.firstProduct)noteItems.push(`First Product: ${record.firstProduct}`);

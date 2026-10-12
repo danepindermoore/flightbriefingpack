@@ -22,6 +22,16 @@
 <script src="../data/aircraft-registrations.js"></script>
 
 <style>
+    /* Keep the shorthaul form on the same layout system as Longhaul FDP. */
+    .fdp-grid { grid-template-columns:minmax(0,1fr); align-items:start; }
+    .fdp-card { padding:20px; border-radius:24px; }
+    .form-grid { align-items:stretch; gap:14px; }
+    .form-grid > div:not(.airport-row), .aircraft-inputs > div { min-width:0; }
+    .form-grid > div:not(.airport-row) > label, .aircraft-inputs > div > label { min-height:2.35em; line-height:1.15; }
+    .form-grid > div:focus-within, .aircraft-inputs > div:focus-within { position:relative; z-index:5; }
+    .airport-row { grid-template-columns:minmax(0,1fr) minmax(140px,.65fr) minmax(0,1fr); gap:14px; }
+    .result-box { border-radius:24px; }
+    .rest-facility-field[hidden] { display:none; }
     .aircraft-inputs {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -96,14 +106,15 @@
             <div><label for="to">Today's Last Sector Arrival Airport</label><input id="to" maxlength="3" placeholder="LHR" /></div>
           </div>
 
-          <div><label for="sccm">Senior Crew Member (SCCM)</label><input id="sccm" maxlength="80" value="Dane Jordan-Pinder" /></div>
+          <div><label for="sccm">Senior Crew Member (SCCM)</label><input id="sccm" maxlength="80" /></div>
           <div class="aircraft-inputs"><div><label for="aircraftReg">Aircraft Reg <span class="small-italic">(Optional)</span></label><input id="aircraftReg" maxlength="5" placeholder="NEOP" autocomplete="off" /></div><div><label for="aircraftType">Aircraft Type</label><select id="aircraftType"></select></div></div>
 
           <div><label>Scheduled Departure Time <span class="small-italic">(Local)</span></label><div class="timegrid"><input id="depHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="depMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
-          <div><label>Report Time <span class="small-italic">(Local)</span></label><div class="timegrid"><input id="reportHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="reportMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
           <div><label for="acclimatisedAt">Acclimatised at</label><div class="acclimatisation-options"><input id="acclimatisedAt" maxlength="3" value="LHR" /><label class="tick-box" for="unknownAcclimatisation"><input id="unknownAcclimatisation" type="checkbox" /><span>Unknown</span></label></div></div>
+          <div><label>Report Time <span class="small-italic">(Local)</span></label><div class="timegrid"><input id="reportHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="reportMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
+          <div id="restFacilityField" class="rest-facility-field" hidden><label for="restFacility">Rest Facility Available</label><select id="restFacility"><option value="1">Class 1 Rest (Bunks)</option><option value="2">Class 2 Rest (High Comfort Seat)</option><option value="3">Class 3 Rest (Passenger Seat)</option><option value="">No Rest Facility Available</option></select></div>
           <div><label id="arrivalTimeLabel">Scheduled Arrival Time <span class="small-italic">(GMT)</span></label><div class="timegrid"><input id="lastArrHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="lastArrMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
-          <div class="full-span"><button id="moreOptionsToggle" class="option-toggle" type="button" aria-expanded="false" aria-controls="moreOptionsSection">More Options</button></div>
+          <button id="moreOptionsToggle" class="option-toggle full-span" type="button" aria-expanded="false" aria-controls="moreOptionsSection">More Options</button>
           <div id="moreOptionsSection" class="full-span options-grid hidden-block">
             <div><label>Delayed Departure Time <span class="small-italic">(GMT, optional)</span></label><div class="timegrid"><input id="revDepHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="revDepMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
             <div><label>Final Sector Flight Time <span class="small-italic">(optional)</span></label><div class="timegrid"><input id="finalSectorHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="finalSectorMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
@@ -133,9 +144,9 @@
         <div class="result-box"><div id="resultsBox2"></div></div>
         <div class="result-box"><div id="resultsBox3"></div></div>
         <div id="standbyCalcRow" class="email-results-row" hidden>
-          <div><label for="standbyReportTime">Crew Member called from Airport Standby</label><input id="standbyReportTime" type="time" required aria-describedby="standbyReportHint" /></div>
+          <div><label>Crew Member called from Airport Standby</label><div class="timegrid"><input id="standbyReportHour" inputmode="numeric" maxlength="2" placeholder="HH" aria-label="Standby crew report time hour" required /><input id="standbyReportMinute" inputmode="numeric" maxlength="2" placeholder="MM" aria-label="Standby crew report time minute" required /></div></div>
           <div class="standby-actions"><button id="standbyCalcBtn" class="primary" type="button">Calculate</button><button id="standbyClearBtn" class="danger" type="button">Clear</button></div>
-          <small id="standbyReportHint" class="small">Enter this crew member’s report time in LHR local time.</small>
+          <small class="small">Enter this crew member’s report time in LHR local time.</small>
         </div>
         <section id="standbyResultsSection" class="standby-results-section" hidden aria-live="polite">
           <h3>Airport Standby Crew Results</h3>

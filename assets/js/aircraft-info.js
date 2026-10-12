@@ -136,6 +136,10 @@
     message.classList.toggle("error", isError);
   }
 
+  function displayWifiType(value) {
+    return String(value || "").trim().toUpperCase() === "BA" ? "BA-WiFi (Free Messaging)" : value;
+  }
+
   function findAircraft(registration) {
     const records = globalThis.AIRCRAFT_REGISTRATIONS || {};
     const aircraftTypes = globalThis.AIRCRAFT || {};
@@ -157,7 +161,8 @@
 
     const crew = type.crew || {};
     const seatBreakdown = type.seatBreakdown && Object.entries({ first: "F", clubWorld: "CW", worldTravellerPlus: "WTP", worldTraveller: "WT" }).filter(([key]) => Number(type.seatBreakdown[key]) > 0).map(([key, label]) => `${label}: ${type.seatBreakdown[key]}`).join(" · ");
-    const spareCrewSeats = (crew.spareCrewSeats || []).map((seat, index) => `${index + 1} - ${seat.seat}`).join(", ") || "None";
+    const spareCrewSeatList = crew.spareCrewSeats || [];
+    const spareCrewSeats = spareCrewSeatList.length ? `${spareCrewSeatList.length} Spare Seats - ${spareCrewSeatList.map(seat => seat.seat).join(", ")}` : "None";
     const hasRestInfo = typeof type.includesRestFacilities === "boolean";
     renderDetails(aircraftDetails, {
       registration: record.registration,
@@ -178,7 +183,7 @@
       xlOverheadBins: record.xlOverheadBins,
       flightCrewRestAvailable: hasRestInfo ? (type.flightCrewRest ? "Yes" : "No") : null,
       cabinCrewRestAvailable: hasRestInfo ? (type.cabinCrewRest ? "Yes" : "No") : null,
-      wifiType: record.wifiType,
+      wifiType: displayWifiType(record.wifiType),
       livery: record.livery
     }, [], record.haul);
     const equipment = new Map((record.sepEquipment || []).map(item => [String(item.code).toUpperCase(), item.location]));

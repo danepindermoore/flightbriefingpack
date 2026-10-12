@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
         activePage: "fdp",
         title: "FDP Calculator",
         subtitle: "Choose the correct calculator for your operation today.",
+        feedbackText: "FDP Feedback",
         feedbackSubject: "Feedback for FDP Calculator"
     });
 

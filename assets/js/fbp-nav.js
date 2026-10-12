@@ -30,21 +30,9 @@ const BASE = IS_FEATURE_PAGE ? "../" : "";
 const NAV_ITEMS = [
 
     {
-        id: "home",
-        text: "Home",
-        href: BASE + "index.html"
-    },
-
-    {
-        id: "ical",
-        text: "iCal",
-        href: BASE + "iCal/index.html"
-    },
-
-    {
-        id: "fdp",
-        text: "FDP",
-        href: BASE + "FDP/index.html"
+        id: "aircraft-info",
+        text: "Aircraft Info",
+        href: BASE + "Aircraft%20Info/index.html"
     },
 
     {
@@ -54,9 +42,15 @@ const NAV_ITEMS = [
     },
 
     {
-        id: "aircraft-info",
-        text: "Aircraft Info",
-        href: BASE + "Aircraft%20Info/index.html"
+        id: "fdp",
+        text: "FDP Calculator",
+        href: BASE + "FDP/index.html"
+    },
+
+    {
+        id: "ical",
+        text: "iCal",
+        href: BASE + "iCal/index.html"
     }
 
 ];
