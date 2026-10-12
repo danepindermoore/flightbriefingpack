@@ -312,7 +312,7 @@ function returnToBriefingStart(){
   window.scrollTo({top:0,behavior:"smooth"});
 }
 function updateButtons(){[...aircraftButtonGrid.children].forEach(btn=>btn.classList.toggle("active",btn.dataset.aircraftCode===STATE.activeCode&&btn.dataset.aircraftLabel===STATE.activeSelectorLabel))}
-function setLoading(meta){document.querySelector(".briefing-shell").classList.add("has-aircraft");document.querySelector(".hero-copy").hidden=false;document.querySelector(".layout").hidden=false;positionPanel.hidden=true;registrationLookup.hidden=false;registrationInput.value="";const exampleRegistration=Object.values(globalThis.AIRCRAFT_REGISTRATIONS||{}).find(record=>record.airfile===meta.code)?.registration;registrationInput.placeholder=exampleRegistration?`i.e. ${exampleRegistration}`:"Enter aircraft registration";pageTitle.textContent="Briefing & AORs";selectorSummary.textContent=`${meta.selectorLabel} · ${meta.fullName} · ${meta.configName}`;aircraftHeaderTitle.textContent=`${meta.selectorLabel} · ${meta.fullName}`;aircraftHeaderSub.textContent="Loading aircraft data...";summaryStats.innerHTML=`<div class="meta-stat"><strong>—</strong><span>Legal Minimum Crew</span></div><div class="meta-stat"><strong>—</strong><span>Standard Crew Compliment</span></div><div class="meta-stat"><strong>—</strong><span>Total Crew Seats</span></div><button class="meta-stat meta-stat-link" type="button" disabled><strong>BA AOR Diagrams</strong><span>Loading…</span></button>`;aircraftMetaContent.innerHTML=`<div class="loading"><span class="dot"></span>Loading aircraft summary...</div>`;positionContent.innerHTML=`<div class="loading"><span class="dot"></span>Loading aircraft briefing...</div>`;clearDiagram()}
+function setLoading(meta){document.querySelector(".briefing-shell").classList.add("has-aircraft");document.querySelector(".hero-copy").hidden=false;document.querySelector(".layout").hidden=false;positionPanel.hidden=true;registrationLookup.hidden=false;registrationInput.value="";const exampleRegistration=Object.values(globalThis.AIRCRAFT_REGISTRATIONS||{}).find(record=>record.airfile===meta.code)?.registration;registrationInput.placeholder=exampleRegistration?`i.e. ${exampleRegistration}`:"Enter aircraft registration";pageTitle.textContent="Briefing & AORs";selectorSummary.textContent=`${meta.selectorLabel} · ${meta.fullName} · ${meta.configName}`;aircraftHeaderTitle.textContent=`${meta.selectorLabel} · ${meta.fullName}`;aircraftHeaderSub.textContent="Loading aircraft data...";summaryStats.innerHTML=`<div class="meta-stat"><strong>—</strong><span>Legal Minimum Crew</span></div><div class="meta-stat"><strong>—</strong><span>Standard Crew Compliment</span></div><button class="meta-stat meta-stat-link" type="button" disabled><strong>BA AOR Diagrams</strong><span>Loading…</span></button><button class="meta-stat meta-stat-link" type="button" disabled><strong>Delivery Standards</strong><span>Loading…</span></button>`;aircraftMetaContent.innerHTML=`<div class="loading"><span class="dot"></span>Loading aircraft summary...</div>`;positionContent.innerHTML=`<div class="loading"><span class="dot"></span>Loading aircraft briefing...</div>`;clearDiagram()}
 
 function applyAircraftDiagram(code,data,deck){const configured=globalThis.AIRCRAFT_DIAGRAMS?.[code];const diagram=configured?.decks?configured.decks[deck]:configured;return diagram?{...data,diagram}:data}
 async function loadDataset(code,deck=null){const key=`AOR_${code}`;
@@ -423,6 +423,17 @@ function updateSepEquipment(meta){
   const items=(equipment||[]).map(item=>`${item.code}: ${item.location}`);
   card.innerHTML=`<strong>SEP Equipment Summary</strong>${summaryList(items,"None listed")}`;
 }
+function updateSummaryStats(meta,data){
+  const crew=data?.crew||meta.crew||{};
+  const typedRegistration=registrationInput.value.trim();
+  const registrationRecord=typedRegistration?globalThis.getAircraftByRegistration?.(typedRegistration):null;
+  const matchingRecord=registrationRecord?.airfile===(meta.airfile||meta.code);
+  const aorUrl=typedRegistration?(matchingRecord?(registrationRecord.baAorUrl||meta.baAorUrl):null):meta.baAorUrl;
+  const deliveryUrl=typedRegistration?(matchingRecord?(registrationRecord.baDeliveryStandardsUrl||meta.baDeliveryStandardsUrl):null):meta.baDeliveryStandardsUrl;
+  const aorButton=aorUrl?`<a class="meta-stat meta-stat-link" href="${esc(aorUrl)}" target="_blank" rel="noopener noreferrer"><strong>BA AOR Diagrams</strong><span>Open in new tab</span></a>`:`<button class="meta-stat meta-stat-link" type="button" disabled><strong>BA AOR Diagrams</strong><span>Link not listed</span></button>`;
+  const deliveryStandardsButton=deliveryUrl?`<a class="meta-stat meta-stat-link" href="${esc(deliveryUrl)}" target="_blank" rel="noopener noreferrer"><strong>Delivery Standards</strong><span>Open in new tab</span></a>`:`<button class="meta-stat meta-stat-link" type="button" disabled><strong>Delivery Standards</strong><span>Link not listed</span></button>`;
+  summaryStats.innerHTML=`<div class="meta-stat"><strong>${esc(String(crew.legalMinimum??"—"))}</strong><span>Legal Minimum Crew</span></div><div class="meta-stat"><strong>${esc(String(crew.standardCrewCompliment??"—"))}</strong><span>Standard Crew Compliment</span></div>${aorButton}${deliveryStandardsButton}`;
+}
 function renderAircraft(meta,data){
   pageTitle.textContent="Briefing & AORs";
   selectorSummary.textContent=`${meta.selectorLabel} · ${meta.fullName} · ${meta.configName}`;
@@ -432,8 +443,7 @@ function renderAircraft(meta,data){
     :data.diagram?`${meta.deck?`${meta.deck==="MD"?"Main Deck":"Upper Deck"} aircraft layout`:"Aircraft layout"}`
     :`${meta.selectorSubLabel}${meta.includesRestFacilities?` · ${restSummary(meta)}`:" · No crew rest facilities"}`;
   const crew=data?.crew||meta.crew||{};
-  const aorButton=meta.baAorUrl?`<a class="meta-stat meta-stat-link" href="${esc(meta.baAorUrl)}" target="_blank" rel="noopener noreferrer"><strong>BA AOR Diagrams</strong><span>Open in new tab</span></a>`:`<button class="meta-stat meta-stat-link" type="button" disabled><strong>BA AOR Diagrams</strong><span>Link not listed</span></button>`;
-  summaryStats.innerHTML=`<div class="meta-stat"><strong>${esc(String(crew.legalMinimum??"—"))}</strong><span>Legal Minimum Crew</span></div><div class="meta-stat"><strong>${esc(String(crew.standardCrewCompliment??"—"))}</strong><span>Standard Crew Compliment</span></div><div class="meta-stat"><strong>${esc(String(crew.totalCrewSeats??"—"))}</strong><span>Total Crew Seats</span></div>${aorButton}`;
+  updateSummaryStats(meta,data);
   const cabinCodes=new Set(meta.classes||[]);
   const cabinItems=CABIN_DISPLAY_ORDER.filter(cabin=>cabinCodes.has(cabin.code)).map(cabin=>cabin.name);
   const seatBreakdown=meta.seatBreakdown||{};
@@ -464,7 +474,7 @@ if(code==="38T"){
 setLoading(meta);try{const data=await loadDataset(code,deck);STATE.activeData=data;syncUrl(code);renderAircraft(meta,data)}catch(err){syncUrl(code);renderMissing(meta,err)}
 }
 window.__toggleEquipmentChip=function(button){const expanded=button.classList.toggle("expanded");button.setAttribute("aria-expanded",expanded?"true":"false")};window.__openPosition=function(number){setActivePosition(number);document.querySelector(".position-panel")?.scrollIntoView({behavior:"smooth",block:"start"})};
- registrationInput.addEventListener("input",()=>{updateRegistrationNotes(STATE.activeMeta);if(STATE.activeMeta)updateSepEquipment(STATE.activeMeta)});
+ registrationInput.addEventListener("input",()=>{updateRegistrationNotes(STATE.activeMeta);if(STATE.activeMeta){updateSepEquipment(STATE.activeMeta);updateSummaryStats(STATE.activeMeta,STATE.activeData)}});
  renderFamilyMenu();document.addEventListener("click",event=>{if(!STATE.activePosition)return;if(event.target.closest(".position-hotspot,.seat-btn,button,a,input,select,textarea,label"))return;if(event.target!==positionContent&&event.target.closest("#positionContent"))return;showAllPositionsList()})}
 document.addEventListener("DOMContentLoaded",boot);
 

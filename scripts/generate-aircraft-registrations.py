@@ -153,6 +153,8 @@ def read_workbook(workbook_path: Path) -> tuple[dict[str, dict], dict[str, list[
                 "newShorthaulSeat": yes_no(value_for(row, headers, "New SH seat")),
                 "xlOverheadBins": yes_no(value_for(row, headers, "XL overhead bins")),
                 "sepEquipment": equipment_for(row, headers),
+                "baAorUrl": clean(value_for(row, headers, "BA AORs")),
+                "baDeliveryStandardsUrl": clean(value_for(row, headers, "BA Delivery Standards")),
             }
             if haul == "longhaul":
                 record["firstProduct"] = clean(value_for(row, headers, "First Product"))
@@ -175,6 +177,7 @@ def read_workbook(workbook_path: Path) -> tuple[dict[str, dict], dict[str, list[
         shared_equipment = equipment_by_registration[0] if not equipment_varies else []
         total_seats = clean(value_for(row, headers, "Total Passenger Seats"))
         ba_aor_url = next((str(clean(value_for(item, headers, "BA AORs"))) for item in type_rows if clean(value_for(item, headers, "BA AORs"))), None)
+        ba_delivery_standards_url = next((str(clean(value_for(item, headers, "BA Delivery Standards"))) for item in type_rows if clean(value_for(item, headers, "BA Delivery Standards"))), None)
 
         if haul == "longhaul":
             breakdown, classes = cabin_breakdown(row, headers)
@@ -208,6 +211,7 @@ def read_workbook(workbook_path: Path) -> tuple[dict[str, dict], dict[str, list[
                 "emergencyEquipmentSummary": shared_equipment,
                 "registrationRequiredForEquipment": equipment_varies,
                 "baAorUrl": ba_aor_url,
+                "baDeliveryStandardsUrl": ba_delivery_standards_url,
             }
         else:
             cabin_values = str(clean(value_for(row, headers, "Cabin Codes")) or "J, M").replace(" ", "").split(",")
@@ -221,6 +225,7 @@ def read_workbook(workbook_path: Path) -> tuple[dict[str, dict], dict[str, list[
                 "emergencyEquipmentSummary": shared_equipment,
                 "registrationRequiredForEquipment": equipment_varies,
                 "baAorUrl": ba_aor_url,
+                "baDeliveryStandardsUrl": ba_delivery_standards_url,
             }
         summaries[haul].append(summary)
 
@@ -249,6 +254,7 @@ def update_aircraft_file(project_root: Path, summaries: dict[str, list[dict]]) -
                 "crew": summary["crew"], "emergencyEquipmentSummary": summary["emergencyEquipmentSummary"],
                 "registrationRequiredForEquipment": summary["registrationRequiredForEquipment"],
                 "baAorUrl": summary["baAorUrl"],
+                "baDeliveryStandardsUrl": summary["baDeliveryStandardsUrl"],
                 # 38T has worksheet lookup data, but no AOR/FDP dataset yet.
                 "dataFile": f"{code}.js" if haul == "longhaul" and code != "38T" else None,
                 "dataPath": f"data/aircraft/{code}.js" if haul == "longhaul" and code != "38T" else None,

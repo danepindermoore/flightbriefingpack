@@ -39,6 +39,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "M1L, U3L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/38A.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/38A.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Ying Yang"
   },
@@ -75,6 +77,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "M1L, U3L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/38A.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/38A.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Ying Yang"
   },
@@ -111,6 +115,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "M1L, U3L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/38A.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/38A.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Ying Yang"
   },
@@ -147,6 +153,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "M1L, U3L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/38A.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/38A.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Ying Yang"
   },
@@ -183,6 +191,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "M1L, U3L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/38A.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/38A.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Ying Yang"
   },
@@ -219,6 +229,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "M1L, U3L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/38A.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/38A.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Ying Yang"
   },
@@ -255,6 +267,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "M1L, U3L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/38A.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/38A.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Ying Yang"
   },
@@ -291,6 +305,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "M1L, U3L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/38A.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/38A.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Ying Yang"
   },
@@ -327,6 +343,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "M1L, U3L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/38A.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/38A.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Ying Yang"
   },
@@ -363,6 +381,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "M1L, U3L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/38A.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/38A.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Ying Yang"
   },
@@ -399,6 +419,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "M1L, U3L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/38A.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/38A.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Ying Yang"
   },
@@ -410,6 +432,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "wifiType": "BA",
     "livery": "Bespoke",
     "sepEquipment": [],
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/38T.pdf",
     "firstProduct": "Tango",
     "clubWorldProduct": "Club Suite"
   },
@@ -446,6 +469,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D2R, D3R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/A350.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/351.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "XWBB": {
@@ -481,6 +506,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D2R, D3R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/A350.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/351.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "XWBC": {
@@ -516,6 +543,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D2R, D3R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/A350.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/351.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "XWBD": {
@@ -551,6 +580,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D2R, D3R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/A350.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/351.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "XWBE": {
@@ -586,6 +617,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D2R, D3R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/A350.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/351.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "XWBF": {
@@ -621,6 +654,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D2R, D3R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/A350.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/351.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "XWBG": {
@@ -656,6 +691,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D2R, D3R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/A350.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/351.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "XWBH": {
@@ -691,6 +728,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D2R, D3R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/A350.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/351.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "XWBI": {
@@ -726,6 +765,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D2R, D3R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/A350.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/351.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "XWBJ": {
@@ -761,6 +802,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D2R, D3R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/A350.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/351.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "XWBK": {
@@ -796,6 +839,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D2R, D3R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/A350.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/351.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "XWBL": {
@@ -831,6 +876,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D2R, D3R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/A350.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/351.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "XWBM": {
@@ -866,6 +913,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D2R, D3R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/A350.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/351.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "XWBN": {
@@ -901,6 +950,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D2R, D3R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/A350.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/351.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "XWBO": {
@@ -936,6 +987,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D2R, D3R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/A350.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/351.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "XWBP": {
@@ -971,6 +1024,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D2R, D3R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/A350.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/351.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "XWBR": {
@@ -1006,6 +1061,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D2R, D3R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/A350.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/351.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "XWBS": {
@@ -1041,6 +1098,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D2R, D3R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/A350.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/351.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "ZBJA": {
@@ -1076,6 +1135,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/Forms/AllItems.aspx?FolderCTID=0x0120004F1187214411CE40A182BDB3EEFC5EB4&id=%2Fsites%2FIFCE%5FDocs%2FShared%20Documents%2FOne%20Portal%2FSafety%2FQR%20Codes%2FB787%2D8%2078E%2Epdf&parent=%2Fsites%2FIFCE%5FDocs%2FShared%20Documents%2FOne%20Portal%2FSafety%2FQR%20Codes",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/78E.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "ZBJB": {
@@ -1111,6 +1172,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/Forms/AllItems.aspx?FolderCTID=0x0120004F1187214411CE40A182BDB3EEFC5EB4&id=%2Fsites%2FIFCE%5FDocs%2FShared%20Documents%2FOne%20Portal%2FSafety%2FQR%20Codes%2FB787%2D8%2078E%2Epdf&parent=%2Fsites%2FIFCE%5FDocs%2FShared%20Documents%2FOne%20Portal%2FSafety%2FQR%20Codes",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/78E.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "ZBJC": {
@@ -1146,6 +1209,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/Forms/AllItems.aspx?FolderCTID=0x0120004F1187214411CE40A182BDB3EEFC5EB4&id=%2Fsites%2FIFCE%5FDocs%2FShared%20Documents%2FOne%20Portal%2FSafety%2FQR%20Codes%2FB787%2D8%2078E%2Epdf&parent=%2Fsites%2FIFCE%5FDocs%2FShared%20Documents%2FOne%20Portal%2FSafety%2FQR%20Codes",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/78E.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "ZBJD": {
@@ -1181,6 +1246,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/Forms/AllItems.aspx?FolderCTID=0x0120004F1187214411CE40A182BDB3EEFC5EB4&id=%2Fsites%2FIFCE%5FDocs%2FShared%20Documents%2FOne%20Portal%2FSafety%2FQR%20Codes%2FB787%2D8%2078E%2Epdf&parent=%2Fsites%2FIFCE%5FDocs%2FShared%20Documents%2FOne%20Portal%2FSafety%2FQR%20Codes",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/78E.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "ZBJE": {
@@ -1216,6 +1283,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/Forms/AllItems.aspx?FolderCTID=0x0120004F1187214411CE40A182BDB3EEFC5EB4&id=%2Fsites%2FIFCE%5FDocs%2FShared%20Documents%2FOne%20Portal%2FSafety%2FQR%20Codes%2FB787%2D8%2078E%2Epdf&parent=%2Fsites%2FIFCE%5FDocs%2FShared%20Documents%2FOne%20Portal%2FSafety%2FQR%20Codes",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/78E.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "ZBJF": {
@@ -1251,6 +1320,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/Forms/AllItems.aspx?FolderCTID=0x0120004F1187214411CE40A182BDB3EEFC5EB4&id=%2Fsites%2FIFCE%5FDocs%2FShared%20Documents%2FOne%20Portal%2FSafety%2FQR%20Codes%2FB787%2D8%2078E%2Epdf&parent=%2Fsites%2FIFCE%5FDocs%2FShared%20Documents%2FOne%20Portal%2FSafety%2FQR%20Codes",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/78E.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "ZBJG": {
@@ -1286,6 +1357,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/Forms/AllItems.aspx?FolderCTID=0x0120004F1187214411CE40A182BDB3EEFC5EB4&id=%2Fsites%2FIFCE%5FDocs%2FShared%20Documents%2FOne%20Portal%2FSafety%2FQR%20Codes%2FB787%2D8%2078E%2Epdf&parent=%2Fsites%2FIFCE%5FDocs%2FShared%20Documents%2FOne%20Portal%2FSafety%2FQR%20Codes",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/78E.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "ZBJH": {
@@ -1321,6 +1394,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/Forms/AllItems.aspx?FolderCTID=0x0120004F1187214411CE40A182BDB3EEFC5EB4&id=%2Fsites%2FIFCE%5FDocs%2FShared%20Documents%2FOne%20Portal%2FSafety%2FQR%20Codes%2FB787%2D8%2078E%2Epdf&parent=%2Fsites%2FIFCE%5FDocs%2FShared%20Documents%2FOne%20Portal%2FSafety%2FQR%20Codes",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/78E.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "ZBJI": {
@@ -1356,6 +1431,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/Forms/AllItems.aspx?FolderCTID=0x0120004F1187214411CE40A182BDB3EEFC5EB4&id=%2Fsites%2FIFCE%5FDocs%2FShared%20Documents%2FOne%20Portal%2FSafety%2FQR%20Codes%2FB787%2D8%2078E%2Epdf&parent=%2Fsites%2FIFCE%5FDocs%2FShared%20Documents%2FOne%20Portal%2FSafety%2FQR%20Codes",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/78E.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "ZBJJ": {
@@ -1391,6 +1468,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/Forms/AllItems.aspx?FolderCTID=0x0120004F1187214411CE40A182BDB3EEFC5EB4&id=%2Fsites%2FIFCE%5FDocs%2FShared%20Documents%2FOne%20Portal%2FSafety%2FQR%20Codes%2FB787%2D8%2078E%2Epdf&parent=%2Fsites%2FIFCE%5FDocs%2FShared%20Documents%2FOne%20Portal%2FSafety%2FQR%20Codes",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/78E.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "ZBJK": {
@@ -1426,6 +1505,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/Forms/AllItems.aspx?FolderCTID=0x0120004F1187214411CE40A182BDB3EEFC5EB4&id=%2Fsites%2FIFCE%5FDocs%2FShared%20Documents%2FOne%20Portal%2FSafety%2FQR%20Codes%2FB787%2D8%2078E%2Epdf&parent=%2Fsites%2FIFCE%5FDocs%2FShared%20Documents%2FOne%20Portal%2FSafety%2FQR%20Codes",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/78E.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "ZBJM": {
@@ -1461,6 +1542,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/Forms/AllItems.aspx?FolderCTID=0x0120004F1187214411CE40A182BDB3EEFC5EB4&id=%2Fsites%2FIFCE%5FDocs%2FShared%20Documents%2FOne%20Portal%2FSafety%2FQR%20Codes%2FB787%2D8%2078E%2Epdf&parent=%2Fsites%2FIFCE%5FDocs%2FShared%20Documents%2FOne%20Portal%2FSafety%2FQR%20Codes",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/78E.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "ZBKA": {
@@ -1496,6 +1579,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/78N.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/78N.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -1532,6 +1617,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/78N.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/78N.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -1568,6 +1655,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/78N.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/78N.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -1604,6 +1693,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/78N.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/78N.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -1640,6 +1731,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/78N.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/78N.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -1676,6 +1769,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/78N.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/78N.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -1712,6 +1807,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/78N.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/78N.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -1748,6 +1845,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B787-9.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/789.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Ying Yang"
   },
@@ -1784,6 +1883,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B787-9.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/789.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Ying Yang"
   },
@@ -1820,6 +1921,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B787-9.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/789.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Ying Yang"
   },
@@ -1856,6 +1959,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B787-9.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/789.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Ying Yang"
   },
@@ -1892,6 +1997,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B787-9.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/789.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Ying Yang"
   },
@@ -1928,6 +2035,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B787-9.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/789.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Ying Yang"
   },
@@ -1964,6 +2073,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B787-9.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/789.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Ying Yang"
   },
@@ -2000,6 +2111,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B787-9.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/789.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Ying Yang"
   },
@@ -2036,6 +2149,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B787-9.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/789.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Ying Yang"
   },
@@ -2072,6 +2187,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B787-9.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/789.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Ying Yang"
   },
@@ -2108,6 +2225,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B787-9.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/789.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Ying Yang"
   },
@@ -2144,6 +2263,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B787-10.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/781.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -2180,6 +2301,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B787-10.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/781.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -2216,6 +2339,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B787-10.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/781.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -2252,6 +2377,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B787-10.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/781.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -2288,6 +2415,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B787-10.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/781.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -2324,6 +2453,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B787-10.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/781.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -2360,6 +2491,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B787-10.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/781.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -2396,6 +2529,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B787-10.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/781.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -2432,6 +2567,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B787-10.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/781.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -2468,6 +2605,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B787-10.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/781.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -2504,6 +2643,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B787-10.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/781.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -2540,6 +2681,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4L"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B787-10.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/781.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -2576,6 +2719,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077M.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77M.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -2612,6 +2757,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077M.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77M.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -2648,6 +2795,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077M.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77M.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -2684,6 +2833,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077M.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77M.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -2720,6 +2871,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077M.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77M.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -2756,6 +2909,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077M.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77M.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -2792,6 +2947,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077M.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77M.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -2828,6 +2985,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077M.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77M.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -2864,6 +3023,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077M.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77M.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -2900,6 +3061,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077M.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77M.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -2936,6 +3099,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077M.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77M.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -2972,6 +3137,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077M.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77M.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -3008,6 +3175,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077M.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77M.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -3044,6 +3213,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077M.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77M.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -3080,6 +3251,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077M.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77M.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -3116,6 +3289,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077M.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77M.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -3152,6 +3327,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077M.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77M.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -3188,6 +3365,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077M.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77M.pdf",
     "firstProduct": "First",
     "clubWorldProduct": "Club Suite"
   },
@@ -3224,6 +3403,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077L.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77L.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "YMMH": {
@@ -3259,6 +3440,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077L.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77L.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "YMMI": {
@@ -3294,6 +3477,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077L.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77L.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "YMMJ": {
@@ -3329,6 +3514,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077L.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77L.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "YMMK": {
@@ -3364,6 +3551,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077L.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77L.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "YMML": {
@@ -3399,6 +3588,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077L.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77L.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "YMMN": {
@@ -3434,6 +3625,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077L.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77L.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "YMMO": {
@@ -3469,6 +3662,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077L.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77L.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "YMMP": {
@@ -3504,6 +3699,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077L.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77L.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "YMMR": {
@@ -3539,6 +3736,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077L.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77L.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "YMMS": {
@@ -3574,6 +3773,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077L.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77L.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "YMMT": {
@@ -3609,6 +3810,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077L.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77L.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "YMMU": {
@@ -3644,6 +3847,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077L.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77L.pdf",
     "clubWorldProduct": "Club Suite"
   },
   "STBA": {
@@ -3679,6 +3884,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077H.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77H.pdf",
     "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
@@ -3715,6 +3922,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077H.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77H.pdf",
     "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
@@ -3751,6 +3960,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077H.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77H.pdf",
     "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
@@ -3787,6 +3998,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077H.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77H.pdf",
     "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
@@ -3823,6 +4036,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077H.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77H.pdf",
     "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
@@ -3859,6 +4074,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077H.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77H.pdf",
     "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
@@ -3895,6 +4112,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077H.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77H.pdf",
     "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
@@ -3931,6 +4150,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077H.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77H.pdf",
     "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
@@ -3967,6 +4188,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077H.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77H.pdf",
     "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
@@ -4003,6 +4226,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077H.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77H.pdf",
     "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
@@ -4039,6 +4264,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077H.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77H.pdf",
     "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
@@ -4075,6 +4302,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077H.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77H.pdf",
     "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
@@ -4111,6 +4340,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077H.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77H.pdf",
     "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
@@ -4147,6 +4378,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077H.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77H.pdf",
     "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
@@ -4183,6 +4416,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077H.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77H.pdf",
     "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
@@ -4219,6 +4454,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077H.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77H.pdf",
     "firstProduct": "First (Privacy Doors)",
     "clubWorldProduct": "Club Suite"
   },
@@ -4255,6 +4492,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077T.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77T.pdf",
     "clubWorldProduct": "Ying Yang"
   },
   "VIIP": {
@@ -4290,6 +4529,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077T.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77T.pdf",
     "clubWorldProduct": "Ying Yang"
   },
   "VIIR": {
@@ -4325,6 +4566,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077T.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77T.pdf",
     "clubWorldProduct": "Ying Yang"
   },
   "VIIT": {
@@ -4360,6 +4603,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077T.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77T.pdf",
     "clubWorldProduct": "Ying Yang"
   },
   "VIII": {
@@ -4395,6 +4640,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077T.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77T.pdf",
     "clubWorldProduct": "Ying Yang"
   },
   "VIIX": {
@@ -4430,6 +4677,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077T.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77T.pdf",
     "clubWorldProduct": "Ying Yang"
   },
   "YMMA": {
@@ -4465,6 +4714,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077S.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77S.pdf",
     "clubWorldProduct": "Ying Yang"
   },
   "YMMB": {
@@ -4500,6 +4751,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077S.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77S.pdf",
     "clubWorldProduct": "Ying Yang"
   },
   "YMMC": {
@@ -4535,6 +4788,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077S.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77S.pdf",
     "clubWorldProduct": "Ying Yang"
   },
   "YMMD": {
@@ -4570,6 +4825,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077S.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77S.pdf",
     "clubWorldProduct": "Ying Yang"
   },
   "YMME": {
@@ -4605,6 +4862,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077S.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77S.pdf",
     "clubWorldProduct": "Ying Yang"
   },
   "YMMF": {
@@ -4640,6 +4899,8 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "location": "D1L, D4R"
       }
     ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/B777%2077S.pdf",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/77S.pdf",
     "clubWorldProduct": "Ying Yang"
   },
   "NEOP": {
@@ -4676,7 +4937,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Crew Seat @ D4L"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32Y%20NEOP%20to%20NEOZ.pdf?CID=f1efab57-78d4-478f-976b-a664400ee560",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/321_NEO.pdf"
   },
   "NEOR": {
     "registration": "NEOR",
@@ -4712,7 +4975,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Crew Seat @ D4L"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32Y%20NEOP%20to%20NEOZ.pdf?CID=f1efab57-78d4-478f-976b-a664400ee560",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/321_NEO.pdf"
   },
   "NEOS": {
     "registration": "NEOS",
@@ -4748,7 +5013,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Crew Seat @ D4L"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32Y%20NEOP%20to%20NEOZ.pdf?CID=f1efab57-78d4-478f-976b-a664400ee560",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/321_NEO.pdf"
   },
   "NEOT": {
     "registration": "NEOT",
@@ -4784,7 +5051,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Crew Seat @ D4L"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32Y%20NEOP%20to%20NEOZ.pdf?CID=f1efab57-78d4-478f-976b-a664400ee560",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/321_NEO.pdf"
   },
   "NEOU": {
     "registration": "NEOU",
@@ -4820,7 +5089,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Crew Seat @ D4L"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32Y%20NEOP%20to%20NEOZ.pdf?CID=f1efab57-78d4-478f-976b-a664400ee560",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/321_NEO.pdf"
   },
   "NEOV": {
     "registration": "NEOV",
@@ -4856,7 +5127,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Crew Seat @ D4L"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32Y%20NEOP%20to%20NEOZ.pdf?CID=f1efab57-78d4-478f-976b-a664400ee560",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/321_NEO.pdf"
   },
   "NEOW": {
     "registration": "NEOW",
@@ -4892,7 +5165,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Crew Seat @ D4L"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32Y%20NEOP%20to%20NEOZ.pdf?CID=f1efab57-78d4-478f-976b-a664400ee560",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/321_NEO.pdf"
   },
   "NEOX": {
     "registration": "NEOX",
@@ -4928,7 +5203,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Crew Seat @ D4L"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32Y%20NEOP%20to%20NEOZ.pdf?CID=f1efab57-78d4-478f-976b-a664400ee560",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/321_NEO.pdf"
   },
   "NEOY": {
     "registration": "NEOY",
@@ -4964,7 +5241,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Crew Seat @ D4L"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32Y%20NEOP%20to%20NEOZ.pdf?CID=f1efab57-78d4-478f-976b-a664400ee560",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/321_NEO.pdf"
   },
   "NEOZ": {
     "registration": "NEOZ",
@@ -5000,7 +5279,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Crew Seat @ D4L"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32Y%20NEOP%20to%20NEOZ.pdf?CID=f1efab57-78d4-478f-976b-a664400ee560",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/321_NEO.pdf"
   },
   "TNEA": {
     "registration": "TNEA",
@@ -5036,7 +5317,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Crew Seat @ D4L"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32Y%20TNEA%20to%20TNEC.pdf?CID=8c9ce0c9-97fc-4348-82a4-4b6f189ea65a",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/321_NEO.pdf"
   },
   "TNEB": {
     "registration": "TNEB",
@@ -5072,7 +5355,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Crew Seat @ D4L"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32Y%20TNEA%20to%20TNEC.pdf?CID=8c9ce0c9-97fc-4348-82a4-4b6f189ea65a",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/321_NEO.pdf"
   },
   "TNEC": {
     "registration": "TNEC",
@@ -5108,7 +5393,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Crew Seat @ D4L"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32Y%20TNEA%20to%20TNEC.pdf?CID=8c9ce0c9-97fc-4348-82a4-4b6f189ea65a",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/321_NEO.pdf"
   },
   "TNED": {
     "registration": "TNED",
@@ -5144,7 +5431,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Crew Seat @ D4L"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32Y%20TNED%20to%20TNEH.pdf?CID=d3857bfb-9c74-42e2-8f9c-4ec3fdfe28d4",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/321_NEO.pdf"
   },
   "TNEE": {
     "registration": "TNEE",
@@ -5180,7 +5469,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Crew Seat @ D4L"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32Y%20TNED%20to%20TNEH.pdf?CID=d3857bfb-9c74-42e2-8f9c-4ec3fdfe28d4",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/321_NEO.pdf"
   },
   "TNEF": {
     "registration": "TNEF",
@@ -5216,7 +5507,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Crew Seat @ D4L"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32Y%20TNED%20to%20TNEH.pdf?CID=d3857bfb-9c74-42e2-8f9c-4ec3fdfe28d4",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/321_NEO.pdf"
   },
   "TNEG": {
     "registration": "TNEG",
@@ -5252,7 +5545,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Crew Seat @ D4L"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32Y%20TNED%20to%20TNEH.pdf?CID=d3857bfb-9c74-42e2-8f9c-4ec3fdfe28d4",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/321_NEO.pdf"
   },
   "TNEH": {
     "registration": "TNEH",
@@ -5288,7 +5583,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Crew Seat @ D4L"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32Y%20TNED%20to%20TNEH.pdf?CID=d3857bfb-9c74-42e2-8f9c-4ec3fdfe28d4",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/321_NEO.pdf"
   },
   "TNEI": {
     "registration": "TNEI",
@@ -5324,7 +5621,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Crew Seat @ D4L"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32Y%20TNED%20to%20TNEH.pdf?CID=d3857bfb-9c74-42e2-8f9c-4ec3fdfe28d4",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/321_NEO.pdf"
   },
   "TNEJ": {
     "registration": "TNEJ",
@@ -5360,7 +5659,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Crew Seat @ D4L"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32Y%20TNED%20to%20TNEH.pdf?CID=d3857bfb-9c74-42e2-8f9c-4ec3fdfe28d4",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/321_NEO.pdf"
   },
   "EUUA": {
     "registration": "EUUA",
@@ -5396,7 +5697,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca7",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUUB": {
     "registration": "EUUB",
@@ -5432,7 +5735,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca7",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUUC": {
     "registration": "EUUC",
@@ -5468,7 +5773,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca7",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUUD": {
     "registration": "EUUD",
@@ -5504,7 +5811,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca7",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUUE": {
     "registration": "EUUE",
@@ -5540,7 +5849,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca7",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUUF": {
     "registration": "EUUF",
@@ -5576,7 +5887,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca7",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUUG": {
     "registration": "EUUG",
@@ -5612,7 +5925,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca8",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUUH": {
     "registration": "EUUH",
@@ -5648,7 +5963,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca9",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUUI": {
     "registration": "EUUI",
@@ -5684,7 +6001,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca10",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUUJ": {
     "registration": "EUUJ",
@@ -5720,7 +6039,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca11",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUUK": {
     "registration": "EUUK",
@@ -5756,7 +6077,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca12",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUUL": {
     "registration": "EUUL",
@@ -5792,7 +6115,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca13",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUUM": {
     "registration": "EUUM",
@@ -5828,7 +6153,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca14",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUUN": {
     "registration": "EUUN",
@@ -5864,7 +6191,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca15",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUUO": {
     "registration": "EUUO",
@@ -5900,7 +6229,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca16",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUUP": {
     "registration": "EUUP",
@@ -5936,7 +6267,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca17",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUUR": {
     "registration": "EUUR",
@@ -5972,7 +6305,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca18",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUUS": {
     "registration": "EUUS",
@@ -6008,7 +6343,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca19",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUUU": {
     "registration": "EUUU",
@@ -6044,7 +6381,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca20",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUUZ": {
     "registration": "EUUZ",
@@ -6080,7 +6419,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca21",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTOB": {
     "registration": "TTOB",
@@ -6116,7 +6457,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca22",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTOE": {
     "registration": "TTOE",
@@ -6152,7 +6495,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca23",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUYA": {
     "registration": "EUYA",
@@ -6188,7 +6533,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca24",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUYB": {
     "registration": "EUYB",
@@ -6224,7 +6571,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca25",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUYC": {
     "registration": "EUYC",
@@ -6260,7 +6609,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca26",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUYD": {
     "registration": "EUYD",
@@ -6296,7 +6647,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca27",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUYE": {
     "registration": "EUYE",
@@ -6332,7 +6685,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca28",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUYF": {
     "registration": "EUYF",
@@ -6368,7 +6723,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca29",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUYG": {
     "registration": "EUYG",
@@ -6404,7 +6761,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca30",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUYH": {
     "registration": "EUYH",
@@ -6440,7 +6799,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca31",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUYI": {
     "registration": "EUYI",
@@ -6476,7 +6837,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca32",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUYJ": {
     "registration": "EUYJ",
@@ -6512,7 +6875,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca33",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUYK": {
     "registration": "EUYK",
@@ -6548,7 +6913,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca34",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUYL": {
     "registration": "EUYL",
@@ -6584,7 +6951,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca35",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUYM": {
     "registration": "EUYM",
@@ -6620,7 +6989,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca36",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUYN": {
     "registration": "EUYN",
@@ -6656,7 +7027,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca37",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUYO": {
     "registration": "EUYO",
@@ -6692,7 +7065,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca38",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUYP": {
     "registration": "EUYP",
@@ -6728,7 +7103,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca39",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUYS": {
     "registration": "EUYS",
@@ -6764,7 +7141,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca40",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUYT": {
     "registration": "EUYT",
@@ -6800,7 +7179,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca41",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUYU": {
     "registration": "EUYU",
@@ -6836,7 +7217,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca42",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUYX": {
     "registration": "EUYX",
@@ -6872,7 +7255,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca43",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUYY": {
     "registration": "EUYY",
@@ -6908,7 +7293,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "AFT Galley Bulkhead"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32R%20H.pdf?CID=59983246-40fb-4542-861b-8dd232f1dca44",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTNA": {
     "registration": "TTNA",
@@ -6944,7 +7331,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNA%20to%20TTNL.pdf?CID=b9f8fe2c-cbfa-4729-bb3c-5ab086619963",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTNB": {
     "registration": "TTNB",
@@ -6980,7 +7369,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNA%20to%20TTNL.pdf?CID=b9f8fe2c-cbfa-4729-bb3c-5ab086619964",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTNC": {
     "registration": "TTNC",
@@ -7016,7 +7407,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNA%20to%20TTNL.pdf?CID=b9f8fe2c-cbfa-4729-bb3c-5ab086619965",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTND": {
     "registration": "TTND",
@@ -7052,7 +7445,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNA%20to%20TTNL.pdf?CID=b9f8fe2c-cbfa-4729-bb3c-5ab086619966",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTNE": {
     "registration": "TTNE",
@@ -7088,7 +7483,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNA%20to%20TTNL.pdf?CID=b9f8fe2c-cbfa-4729-bb3c-5ab086619967",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTNF": {
     "registration": "TTNF",
@@ -7124,7 +7521,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNA%20to%20TTNL.pdf?CID=b9f8fe2c-cbfa-4729-bb3c-5ab086619968",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTNG": {
     "registration": "TTNG",
@@ -7160,7 +7559,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNA%20to%20TTNL.pdf?CID=b9f8fe2c-cbfa-4729-bb3c-5ab086619969",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTNH": {
     "registration": "TTNH",
@@ -7196,7 +7597,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNA%20to%20TTNL.pdf?CID=b9f8fe2c-cbfa-4729-bb3c-5ab086619970",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTNI": {
     "registration": "TTNI",
@@ -7232,7 +7635,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNA%20to%20TTNL.pdf?CID=b9f8fe2c-cbfa-4729-bb3c-5ab086619971",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTNJ": {
     "registration": "TTNJ",
@@ -7268,7 +7673,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNA%20to%20TTNL.pdf?CID=b9f8fe2c-cbfa-4729-bb3c-5ab086619972",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTNK": {
     "registration": "TTNK",
@@ -7304,7 +7711,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNA%20to%20TTNL.pdf?CID=b9f8fe2c-cbfa-4729-bb3c-5ab086619973",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTNL": {
     "registration": "TTNL",
@@ -7340,7 +7749,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNA%20to%20TTNL.pdf?CID=b9f8fe2c-cbfa-4729-bb3c-5ab086619974",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTNM": {
     "registration": "TTNM",
@@ -7376,7 +7787,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNM%20to%20TTNU.pdf?CID=1009e0e4-a4ab-40a4-a89c-53622f796238",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTNN": {
     "registration": "TTNN",
@@ -7412,7 +7825,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNM%20to%20TTNU.pdf?CID=1009e0e4-a4ab-40a4-a89c-53622f796239",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTNO": {
     "registration": "TTNO",
@@ -7448,7 +7863,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNM%20to%20TTNU.pdf?CID=1009e0e4-a4ab-40a4-a89c-53622f796240",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTNP": {
     "registration": "TTNP",
@@ -7484,7 +7901,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNM%20to%20TTNU.pdf?CID=1009e0e4-a4ab-40a4-a89c-53622f796241",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTNR": {
     "registration": "TTNR",
@@ -7520,7 +7939,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNM%20to%20TTNU.pdf?CID=1009e0e4-a4ab-40a4-a89c-53622f796242",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTNS": {
     "registration": "TTNS",
@@ -7556,7 +7977,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNM%20to%20TTNU.pdf?CID=1009e0e4-a4ab-40a4-a89c-53622f796243",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTNT": {
     "registration": "TTNT",
@@ -7592,7 +8015,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNM%20to%20TTNU.pdf?CID=1009e0e4-a4ab-40a4-a89c-53622f796244",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTNU": {
     "registration": "TTNU",
@@ -7628,7 +8053,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNM%20to%20TTNU.pdf?CID=1009e0e4-a4ab-40a4-a89c-53622f796245",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTNV": {
     "registration": "TTNV",
@@ -7664,7 +8091,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNV%20to%20TTNZ,%20TTSA%20to%20TTSJ.pdf?CID=89c9a76e-504b-43e1-95d5-0ca2ab2db9e3",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTNW": {
     "registration": "TTNW",
@@ -7700,7 +8129,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNV%20to%20TTNZ,%20TTSA%20to%20TTSJ.pdf?CID=89c9a76e-504b-43e1-95d5-0ca2ab2db9e4",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTNX": {
     "registration": "TTNX",
@@ -7736,7 +8167,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNV%20to%20TTNZ,%20TTSA%20to%20TTSJ.pdf?CID=89c9a76e-504b-43e1-95d5-0ca2ab2db9e5",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTNY": {
     "registration": "TTNY",
@@ -7772,7 +8205,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNV%20to%20TTNZ,%20TTSA%20to%20TTSJ.pdf?CID=89c9a76e-504b-43e1-95d5-0ca2ab2db9e6",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTNZ": {
     "registration": "TTNZ",
@@ -7808,7 +8243,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNV%20to%20TTNZ,%20TTSA%20to%20TTSJ.pdf?CID=89c9a76e-504b-43e1-95d5-0ca2ab2db9e7",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTSA": {
     "registration": "TTSA",
@@ -7844,7 +8281,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNV%20to%20TTNZ,%20TTSA%20to%20TTSJ.pdf?CID=89c9a76e-504b-43e1-95d5-0ca2ab2db9e8",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTSB": {
     "registration": "TTSB",
@@ -7880,7 +8319,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNV%20to%20TTNZ,%20TTSA%20to%20TTSJ.pdf?CID=89c9a76e-504b-43e1-95d5-0ca2ab2db9e9",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTSC": {
     "registration": "TTSC",
@@ -7916,7 +8357,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNV%20to%20TTNZ,%20TTSA%20to%20TTSJ.pdf?CID=89c9a76e-504b-43e1-95d5-0ca2ab2db9e10",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTSD": {
     "registration": "TTSD",
@@ -7952,7 +8395,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNV%20to%20TTNZ,%20TTSA%20to%20TTSJ.pdf?CID=89c9a76e-504b-43e1-95d5-0ca2ab2db9e11",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTSE": {
     "registration": "TTSE",
@@ -7988,7 +8433,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNV%20to%20TTNZ,%20TTSA%20to%20TTSJ.pdf?CID=89c9a76e-504b-43e1-95d5-0ca2ab2db9e12",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTSF": {
     "registration": "TTSF",
@@ -8024,7 +8471,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNV%20to%20TTNZ,%20TTSA%20to%20TTSJ.pdf?CID=89c9a76e-504b-43e1-95d5-0ca2ab2db9e13",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTSG": {
     "registration": "TTSG",
@@ -8060,7 +8509,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNV%20to%20TTNZ,%20TTSA%20to%20TTSJ.pdf?CID=89c9a76e-504b-43e1-95d5-0ca2ab2db9e14",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTSH": {
     "registration": "TTSH",
@@ -8096,7 +8547,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNV%20to%20TTNZ,%20TTSA%20to%20TTSJ.pdf?CID=89c9a76e-504b-43e1-95d5-0ca2ab2db9e15",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTSI": {
     "registration": "TTSI",
@@ -8132,7 +8585,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNV%20to%20TTNZ,%20TTSA%20to%20TTSJ.pdf?CID=89c9a76e-504b-43e1-95d5-0ca2ab2db9e16",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTSJ": {
     "registration": "TTSJ",
@@ -8168,7 +8623,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNV%20to%20TTNZ,%20TTSA%20to%20TTSJ.pdf?CID=89c9a76e-504b-43e1-95d5-0ca2ab2db9e17",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "TTSK": {
     "registration": "TTSK",
@@ -8204,7 +8661,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "D2L Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/32P%20TTNV%20to%20TTNZ,%20TTSA%20to%20TTSJ.pdf?CID=89c9a76e-504b-43e1-95d5-0ca2ab2db9e18",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/320.pdf"
   },
   "EUPD": {
     "registration": "EUPD",
@@ -8240,7 +8699,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Stowage beside No 3 Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/319.pdf?CID=663205c8-d89c-407f-82fe-a1e71fa7b079",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/319.pdf"
   },
   "EUPG": {
     "registration": "EUPG",
@@ -8276,7 +8737,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Stowage beside No 3 Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/319.pdf?CID=663205c8-d89c-407f-82fe-a1e71fa7b080",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/319.pdf"
   },
   "EUPJ": {
     "registration": "EUPJ",
@@ -8312,7 +8775,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Stowage beside No 3 Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/319.pdf?CID=663205c8-d89c-407f-82fe-a1e71fa7b081",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/319.pdf"
   },
   "EUPK": {
     "registration": "EUPK",
@@ -8348,7 +8813,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Stowage beside No 3 Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/319.pdf?CID=663205c8-d89c-407f-82fe-a1e71fa7b082",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/319.pdf"
   },
   "EUPN": {
     "registration": "EUPN",
@@ -8384,7 +8851,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Stowage beside No 3 Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/319.pdf?CID=663205c8-d89c-407f-82fe-a1e71fa7b083",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/319.pdf"
   },
   "EUPO": {
     "registration": "EUPO",
@@ -8420,7 +8889,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Stowage beside No 3 Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/319.pdf?CID=663205c8-d89c-407f-82fe-a1e71fa7b084",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/319.pdf"
   },
   "EUPP": {
     "registration": "EUPP",
@@ -8456,7 +8927,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Stowage beside No 3 Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/319.pdf?CID=663205c8-d89c-407f-82fe-a1e71fa7b085",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/319.pdf"
   },
   "EUPR": {
     "registration": "EUPR",
@@ -8492,7 +8965,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Stowage beside No 3 Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/319.pdf?CID=663205c8-d89c-407f-82fe-a1e71fa7b086",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/319.pdf"
   },
   "EUPS": {
     "registration": "EUPS",
@@ -8528,7 +9003,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Stowage beside No 3 Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/319.pdf?CID=663205c8-d89c-407f-82fe-a1e71fa7b087",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/319.pdf"
   },
   "EUPU": {
     "registration": "EUPU",
@@ -8564,7 +9041,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Stowage beside No 3 Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/319.pdf?CID=663205c8-d89c-407f-82fe-a1e71fa7b088",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/319.pdf"
   },
   "EUPZ": {
     "registration": "EUPZ",
@@ -8600,7 +9079,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "Stowage beside No 3 Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/319.pdf?CID=663205c8-d89c-407f-82fe-a1e71fa7b089",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/319.pdf"
   },
   "DBCA": {
     "registration": "DBCA",
@@ -8636,7 +9117,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "No 2 (Direct View) Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/31C.pdf?CID=11868bfa-7bf4-4844-a0d6-78ceafeb87da",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/319.pdf"
   },
   "DBCB": {
     "registration": "DBCB",
@@ -8672,7 +9155,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "No 2 (Direct View) Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/31C.pdf?CID=11868bfa-7bf4-4844-a0d6-78ceafeb87da",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/319.pdf"
   },
   "DBCC": {
     "registration": "DBCC",
@@ -8708,7 +9193,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "No 2 (Direct View) Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/31C.pdf?CID=11868bfa-7bf4-4844-a0d6-78ceafeb87da",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/319.pdf"
   },
   "DBCD": {
     "registration": "DBCD",
@@ -8744,7 +9231,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "No 2 (Direct View) Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/31C.pdf?CID=11868bfa-7bf4-4844-a0d6-78ceafeb87da",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/319.pdf"
   },
   "DBCE": {
     "registration": "DBCE",
@@ -8780,7 +9269,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "No 2 (Direct View) Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/31C.pdf?CID=11868bfa-7bf4-4844-a0d6-78ceafeb87da",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/319.pdf"
   },
   "DBCF": {
     "registration": "DBCF",
@@ -8816,7 +9307,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "No 2 (Direct View) Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/31C.pdf?CID=11868bfa-7bf4-4844-a0d6-78ceafeb87da",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/319.pdf"
   },
   "DBCG": {
     "registration": "DBCG",
@@ -8852,7 +9345,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "No 2 (Direct View) Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/31C.pdf?CID=11868bfa-7bf4-4844-a0d6-78ceafeb87da",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/319.pdf"
   },
   "DBCH": {
     "registration": "DBCH",
@@ -8888,7 +9383,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "No 2 (Direct View) Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/31C.pdf?CID=11868bfa-7bf4-4844-a0d6-78ceafeb87da",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/319.pdf"
   },
   "DBCI": {
     "registration": "DBCI",
@@ -8924,7 +9421,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "No 2 (Direct View) Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/31C.pdf?CID=11868bfa-7bf4-4844-a0d6-78ceafeb87da",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/319.pdf"
   },
   "DBCK": {
     "registration": "DBCK",
@@ -8960,7 +9459,9 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
         "code": "WEX",
         "location": "No 2 (Direct View) Crew Seat"
       }
-    ]
+    ],
+    "baAorUrl": "https://baplc.sharepoint.com/sites/IFCE_Docs/Shared%20Documents/One%20Portal/Safety/QR%20Codes/Single%20Aisle%20Airbus%20-%2028%20October%202025/31C.pdf?CID=11868bfa-7bf4-4844-a0d6-78ceafeb87da",
+    "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Single_Aisle/319.pdf"
   }
 });
 globalThis.AIRCRAFT_REGISTRATION_ORDER = Object.freeze([
