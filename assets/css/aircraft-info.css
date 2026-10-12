@@ -4,8 +4,7 @@
   gap: 18px;
 }
 
-.aircraft-lookup,
-.aircraft-result-grid {
+.aircraft-lookup {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 14px;
@@ -85,11 +84,6 @@
   margin-top: 0;
 }
 
-.aircraft-result-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: start;
-}
-
 .aircraft-info-card {
   min-width: 0;
   padding: 20px;
@@ -103,6 +97,43 @@
   margin: 0 0 14px;
   font-size: 1.05rem;
 }
+
+.aircraft-info-card .sep-heading {
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.aircraft-document-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.aircraft-document-link {
+  display: flex;
+  min-height: 66px;
+  flex-direction: column;
+  justify-content: center;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, .07);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, .03);
+  color: var(--text);
+  text-align: left;
+  text-decoration: none;
+  font: inherit;
+}
+
+.aircraft-document-link:hover {
+  border-color: rgba(111, 195, 255, .45);
+  background: rgba(111, 195, 255, .08);
+}
+
+.aircraft-document-link strong { margin-bottom: 4px; }
+.aircraft-document-link span { color: var(--muted); font-size: .9rem; line-height: 1.5; }
+.aircraft-document-link.is-unavailable { opacity: .58; }
 
 .aircraft-details {
   display: grid;
@@ -137,12 +168,6 @@
   overflow-wrap: anywhere;
 }
 
-@media (max-width: 760px) {
-  .aircraft-result-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media (max-width: 520px) {
   .aircraft-lookup {
     grid-template-columns: 1fr;
@@ -151,6 +176,8 @@
   .aircraft-lookup button {
     width: 100%;
   }
+
+  .aircraft-document-links { grid-template-columns: 1fr; }
 
   .aircraft-detail-row {
     grid-template-columns: 1fr;

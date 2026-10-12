@@ -7,11 +7,28 @@
   const results = document.getElementById("aircraftResults");
   const title = document.getElementById("aircraftResultTitle");
   const source = document.getElementById("aircraftSource");
-  const registrationDetails = document.getElementById("registrationDetails");
-  const typeDetails = document.getElementById("typeDetails");
+  const aircraftDetails = document.getElementById("aircraftDetails");
+  const sepEquipmentDetails = document.getElementById("sepEquipmentDetails");
+  const documentLinks = document.getElementById("aircraftDocumentLinks");
 
   const labelOverrides = {
     registration: "Registration",
+    totalSeats: "Total Seats",
+    totalCrewSeats: "Total Crew Seats",
+    standardCrewCompliment: "Standard Crew Compliment",
+    legalMinimum: "Legal Minimum Crew",
+    spareCrewSeats: "Spare Crew Seats",
+    flightCrewRestAvailable: "Flight Crew Rest",
+    cabinCrewRestAvailable: "Cabin Crew Rest",
+    newShorthaulSeat: "New Short Haul Seat",
+    xlOverheadBins: "XL Overhead Bins",
+    wifiType: "Wi-Fi Type",
+    AED: "AED",
+    M5: "M5",
+    RES: "RES",
+    RESTRAINT: "RESTRAINT",
+    FE: "FE",
+    WEX: "WEX",
     baseSection: "Fleet Section",
     flightDeck: "Flight Deck Code",
     airfile: "Airfile Code",
@@ -138,8 +155,43 @@
       ? `Fleet registration data current as of ${globalThis.AIRCRAFT_REGISTRATION_SOURCE.asOf}.`
       : "Fleet registration data.";
 
-    renderDetails(registrationDetails, record, ["haul", "airfile", "flightCrewBunks", "cabinCrewBunks"], record.haul);
-    renderDetails(typeDetails, type, ["dataFile", "dataPath", "briefingTitle", "selectorLabel", "selectorSubLabel", "flightCrewRest", "cabinCrewRest", "includesRestFacilities", "restTypes", "crew", "emergencyEquipmentSummary", "registrationRequiredForEquipment", "firstProduct", "clubWorldProduct", "notes"], record.haul);
+    const crew = type.crew || {};
+    const seatBreakdown = type.seatBreakdown && Object.entries({ first: "F", clubWorld: "CW", worldTravellerPlus: "WTP", worldTraveller: "WT" }).filter(([key]) => Number(type.seatBreakdown[key]) > 0).map(([key, label]) => `${label}: ${type.seatBreakdown[key]}`).join(" · ");
+    const spareCrewSeats = (crew.spareCrewSeats || []).map((seat, index) => `${index + 1} - ${seat.seat}`).join(", ") || "None";
+    const hasRestInfo = typeof type.includesRestFacilities === "boolean";
+    renderDetails(aircraftDetails, {
+      registration: record.registration,
+      airfile: record.airfile,
+      fullName: type.fullName,
+      shortName: type.shortName,
+      manufacturer: type.manufacturer,
+      totalCrewSeats: crew.totalCrewSeats ?? "Not listed",
+      standardCrewCompliment: crew.standardCrewCompliment ?? "Not listed",
+      legalMinimum: crew.legalMinimum ?? "Not listed",
+      spareCrewSeats,
+      configName: type.configName,
+      totalSeats: type.totalSeats,
+      seatBreakdown: seatBreakdown || "Not listed",
+      firstProduct: record.firstProduct || type.firstProduct,
+      clubWorldProduct: record.clubWorldProduct || type.clubWorldProduct,
+      newShorthaulSeat: record.newShorthaulSeat,
+      xlOverheadBins: record.xlOverheadBins,
+      flightCrewRestAvailable: hasRestInfo ? (type.flightCrewRest ? "Yes" : "No") : null,
+      cabinCrewRestAvailable: hasRestInfo ? (type.cabinCrewRest ? "Yes" : "No") : null,
+      wifiType: record.wifiType,
+      livery: record.livery
+    }, [], record.haul);
+    const equipment = new Map((record.sepEquipment || []).map(item => [String(item.code).toUpperCase(), item.location]));
+    renderDetails(sepEquipmentDetails, Object.fromEntries(["AED", "M5", "RES", "RESTRAINT", "FE", "WEX"].map(code => [code, equipment.get(code) || "Not listed"])), [], record.haul);
+    documentLinks.replaceChildren();
+    [["BA AOR Diagram", record.baAorUrl], ["Delivery Standards", record.baDeliveryStandardsUrl]].forEach(([label, url]) => {
+      const link = document.createElement(url ? "a" : "div");
+      link.className = `aircraft-document-link${url ? "" : " is-unavailable"}`;
+      if (url) { link.href = url; link.target = "_blank"; link.rel = "noopener noreferrer"; }
+      const heading = document.createElement("strong"); heading.textContent = label;
+      const note = document.createElement("span"); note.textContent = url ? "Open in new tab" : "Link not listed";
+      link.append(heading, note); documentLinks.appendChild(link);
+    });
     results.hidden = false;
     showMessage("");
   }
@@ -161,3 +213,4 @@
     findAircraft(registration);
   });
 })();
+
