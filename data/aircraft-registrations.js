@@ -11,7 +11,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "38A",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -49,7 +49,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "38A",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -87,7 +87,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "38A",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -125,7 +125,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "38A",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -163,7 +163,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "38A",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -201,7 +201,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "38A",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -239,7 +239,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "38A",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -277,7 +277,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "38A",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -315,7 +315,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "38A",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -353,7 +353,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "38A",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -391,7 +391,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "38A",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -429,7 +429,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "38T",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Bespoke",
     "sepEquipment": [],
     "baDeliveryStandardsUrl": "https://danepindermoore.github.io/flightbriefingpack/Service%20Documents/Dual_Aisle/38T.pdf",
@@ -478,7 +478,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "351",
-    "wifiType": "BA",
+    "wifiType": "Starlink",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -589,7 +589,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "351",
-    "wifiType": "BA",
+    "wifiType": "Starlink",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -663,7 +663,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "351",
-    "wifiType": "BA",
+    "wifiType": "Starlink",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -811,7 +811,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "351",
-    "wifiType": "BA",
+    "wifiType": "Starlink",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -922,7 +922,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "351",
-    "wifiType": "BA",
+    "wifiType": "Starlink",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -959,7 +959,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "351",
-    "wifiType": "BA",
+    "wifiType": "Starlink",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -996,7 +996,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "351",
-    "wifiType": "BA",
+    "wifiType": "Starlink",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -1033,7 +1033,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "351",
-    "wifiType": "BA",
+    "wifiType": "Starlink",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -1551,7 +1551,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "78N",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -1627,7 +1627,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "78N",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -1665,7 +1665,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "78N",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -1703,7 +1703,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "78N",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -1817,7 +1817,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "789",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -1855,7 +1855,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "789",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -1893,7 +1893,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "789",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -1969,7 +1969,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "789",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -2007,7 +2007,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "789",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -2045,7 +2045,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "789",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -2083,7 +2083,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "789",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -2121,7 +2121,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "789",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -2159,7 +2159,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "789",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -2197,7 +2197,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "789",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -2235,7 +2235,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "781",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -2273,7 +2273,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "781",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -2311,7 +2311,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "781",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -2349,7 +2349,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "781",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -2387,7 +2387,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "781",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -2425,7 +2425,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "781",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -2463,7 +2463,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "781",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -2501,7 +2501,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "781",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -2539,7 +2539,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "781",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -2577,7 +2577,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "781",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -2615,7 +2615,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "781",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -2653,7 +2653,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "781",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -2691,7 +2691,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77M",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -2729,7 +2729,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77M",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -2767,7 +2767,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77M",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -2805,7 +2805,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77M",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -2843,7 +2843,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77M",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -2881,7 +2881,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77M",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -2919,7 +2919,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77M",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -2957,7 +2957,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77M",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -2995,7 +2995,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77M",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -3033,7 +3033,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77M",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -3071,7 +3071,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77M",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -3109,7 +3109,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77M",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -3147,7 +3147,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77M",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -3185,7 +3185,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77M",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -3223,7 +3223,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77M",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -3261,7 +3261,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77M",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -3299,7 +3299,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77M",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -3337,7 +3337,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77M",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -3375,7 +3375,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77L",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -3412,7 +3412,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77L",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -3449,7 +3449,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77L",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -3486,7 +3486,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77L",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -3523,7 +3523,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77L",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -3560,7 +3560,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77L",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -3597,7 +3597,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77L",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -3634,7 +3634,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77L",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -3671,7 +3671,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77L",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -3708,7 +3708,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77L",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "OneWorld",
     "sepEquipment": [
       {
@@ -3745,7 +3745,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77L",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -3782,7 +3782,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77L",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "OneWorld",
     "sepEquipment": [
       {
@@ -3819,7 +3819,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77L",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "OneWorld",
     "sepEquipment": [
       {
@@ -3856,7 +3856,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77H",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -3894,7 +3894,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77H",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -3932,7 +3932,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77H",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -3970,7 +3970,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77H",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -4008,7 +4008,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77H",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -4046,7 +4046,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77H",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -4084,7 +4084,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77H",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -4122,7 +4122,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77H",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -4160,7 +4160,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77H",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Bespoke",
     "sepEquipment": [
       {
@@ -4198,7 +4198,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77H",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -4236,7 +4236,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77H",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -4274,7 +4274,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77H",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -4312,7 +4312,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77H",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -4350,7 +4350,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77H",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -4388,7 +4388,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77H",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -4426,7 +4426,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "Main fleet",
     "airfile": "77H",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -4464,7 +4464,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "LGW Based",
     "airfile": "77T",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -4501,7 +4501,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "LGW Based",
     "airfile": "77T",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -4538,7 +4538,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "LGW Based",
     "airfile": "77T",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -4575,7 +4575,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "LGW Based",
     "airfile": "77T",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -4612,7 +4612,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "LGW Based",
     "airfile": "77T",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -4649,7 +4649,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "LGW Based",
     "airfile": "77T",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -4686,7 +4686,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "LGW Based",
     "airfile": "77S",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -4723,7 +4723,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "LGW Based",
     "airfile": "77S",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -4760,7 +4760,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "LGW Based",
     "airfile": "77S",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -4797,7 +4797,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "LGW Based",
     "airfile": "77S",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -4834,7 +4834,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "LGW Based",
     "airfile": "77S",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -4871,7 +4871,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "longhaul",
     "baseSection": "LGW Based",
     "airfile": "77S",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "sepEquipment": [
       {
@@ -4908,7 +4908,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32Y",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -4946,7 +4946,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32Y",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -4984,7 +4984,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32Y",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -5022,7 +5022,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32Y",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -5060,7 +5060,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32Y",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -5098,7 +5098,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32Y",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -5136,7 +5136,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32Y",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -5174,7 +5174,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32Y",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -5212,7 +5212,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32Y",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -5250,7 +5250,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32Y",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -5288,7 +5288,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32Y",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": true,
@@ -5326,7 +5326,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32Y",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": true,
@@ -5364,7 +5364,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32Y",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": true,
@@ -5402,7 +5402,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32Y",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": true,
@@ -5440,7 +5440,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32Y",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": true,
@@ -5516,7 +5516,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32Y",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": true,
@@ -5554,7 +5554,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32Y",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": true,
@@ -5668,7 +5668,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -5706,7 +5706,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -5744,7 +5744,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -5782,7 +5782,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -5820,7 +5820,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -5858,7 +5858,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -5896,7 +5896,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -5934,7 +5934,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -5972,7 +5972,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -6010,7 +6010,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -6048,7 +6048,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -6086,7 +6086,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -6124,7 +6124,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -6162,7 +6162,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -6200,7 +6200,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -6238,7 +6238,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -6276,7 +6276,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Bespoke",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -6314,7 +6314,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -6352,7 +6352,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -6390,7 +6390,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -6428,7 +6428,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -6466,7 +6466,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -6504,7 +6504,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -6542,7 +6542,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -6580,7 +6580,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -6618,7 +6618,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -6656,7 +6656,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -6694,7 +6694,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -6732,7 +6732,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -6770,7 +6770,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -6808,7 +6808,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -6846,7 +6846,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -6884,7 +6884,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -6922,7 +6922,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -6960,7 +6960,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -6998,7 +6998,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32R",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -7036,7 +7036,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32H",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -7074,7 +7074,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32H",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "OneWorld",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -7112,7 +7112,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32H",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "OneWorld",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -7150,7 +7150,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32H",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -7188,7 +7188,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32H",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -7226,7 +7226,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32H",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -7264,7 +7264,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32H",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -7302,7 +7302,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Bespoke",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -7340,7 +7340,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -7378,7 +7378,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -7416,7 +7416,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -7454,7 +7454,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -7492,7 +7492,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -7530,7 +7530,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": true,
     "xlOverheadBins": false,
@@ -7568,7 +7568,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": true,
     "xlOverheadBins": false,
@@ -7606,7 +7606,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": true,
     "xlOverheadBins": false,
@@ -7644,7 +7644,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": true,
     "xlOverheadBins": false,
@@ -7682,7 +7682,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -7720,7 +7720,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -7758,7 +7758,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": true,
@@ -7796,7 +7796,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": true,
@@ -7834,7 +7834,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": true,
@@ -7872,7 +7872,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": true,
@@ -7910,7 +7910,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": true,
@@ -7948,7 +7948,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": true,
@@ -7986,7 +7986,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": true,
     "xlOverheadBins": true,
@@ -8024,7 +8024,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": true,
     "xlOverheadBins": true,
@@ -8062,7 +8062,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": true,
     "xlOverheadBins": true,
@@ -8100,7 +8100,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": true,
     "xlOverheadBins": true,
@@ -8138,7 +8138,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": true,
     "xlOverheadBins": true,
@@ -8176,7 +8176,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": true,
     "xlOverheadBins": true,
@@ -8214,7 +8214,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": true,
     "xlOverheadBins": true,
@@ -8252,7 +8252,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": true,
     "xlOverheadBins": true,
@@ -8290,7 +8290,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": true,
     "xlOverheadBins": true,
@@ -8328,7 +8328,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": true,
     "xlOverheadBins": true,
@@ -8366,7 +8366,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": true,
     "xlOverheadBins": true,
@@ -8404,7 +8404,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": true,
     "xlOverheadBins": true,
@@ -8442,7 +8442,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": true,
     "xlOverheadBins": true,
@@ -8480,7 +8480,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": true,
     "xlOverheadBins": true,
@@ -8518,7 +8518,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "32P",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": true,
     "xlOverheadBins": true,
@@ -8822,7 +8822,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "319",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -8860,7 +8860,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "319",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -8898,7 +8898,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "319",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -8936,7 +8936,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "319",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -8974,7 +8974,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "319",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -9012,7 +9012,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "319",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -9050,7 +9050,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "319",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -9164,7 +9164,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "31C",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -9202,7 +9202,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "31C",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -9240,7 +9240,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "31C",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -9278,7 +9278,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "31C",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -9316,7 +9316,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "31C",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -9354,7 +9354,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "31C",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -9392,7 +9392,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "31C",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
@@ -9430,7 +9430,7 @@ globalThis.AIRCRAFT_REGISTRATIONS = Object.freeze({
     "haul": "shorthaul",
     "baseSection": "Main fleet",
     "airfile": "31C",
-    "wifiType": "BA",
+    "wifiType": "BA-WiFi (Free Messaging)",
     "livery": "Standard",
     "newShorthaulSeat": false,
     "xlOverheadBins": false,
