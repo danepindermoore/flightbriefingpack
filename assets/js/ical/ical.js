@@ -1131,15 +1131,34 @@ function generateFuturePTEvents() {
 
 
       const generatedFutureDutyEvents = generateFutureDutyEvents();
+      const generatedWrapDayDates = new Set(
+        generatedFutureDutyEvents
+          .filter(event => event.title === "OFF DUTY" && event.source === "generated")
+          .map(event => event.date)
+      );
+
+      // Keep the existing wrap-day UID if a refreshed roster also parses an
+      // all-day event on that date. This lets iCloud update the same event
+      // even when its source changes from generated to roster data.
+      for (const event of parsed) {
+        if (!event.allDay || !generatedWrapDayDates.has(event.date)) continue;
+        const stableUid = `future_off_duty|${event.date}`;
+        event.uidBase = stableUid;
+        event.fingerprint = stableUid;
+      }
+
+      const parsedAllDayDates = new Set(
+        parsed.filter(event => event.allDay).map(event => event.date)
+      );
       const filteredGeneratedFutureDutyEvents = generatedFutureDutyEvents.filter(generated => {
-
+        if (generated.title === "OFF DUTY" && parsedAllDayDates.has(generated.date)) {
+          return false;
+        }
         return !parsed.some(real =>
-
-            real.type === generated.type &&
-            real.date === generated.date &&
-            real.title === generated.title);
-
-    });
+          real.type === generated.type &&
+          real.date === generated.date &&
+          real.title === generated.title);
+      });
 
       const uniqueGeneratedFutureDutyEvents = removeDuplicateGeneratedEvents(filteredGeneratedFutureDutyEvents);
       const generatedPTEvents = generateFuturePTEvents();
