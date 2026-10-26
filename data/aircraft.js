@@ -25,6 +25,7 @@ globalThis.AIRCRAFT["38A"] = {
     "OFCR",
     "OFAR"
   ],
+  "boardingSupportPosition": null,
   "flightCrewRest": "OFCR",
   "cabinCrewRest": "OFAR",
   "totalSeats": 469,
@@ -123,6 +124,7 @@ globalThis.AIRCRAFT["38T"] = {
     "OFCR",
     "OFAR"
   ],
+  "boardingSupportPosition": null,
   "flightCrewRest": "OFCR",
   "cabinCrewRest": "OFAR",
   "totalSeats": 417,
@@ -164,6 +166,7 @@ globalThis.AIRCRAFT["351"] = {
     "OFCR",
     "OFAR"
   ],
+  "boardingSupportPosition": 11,
   "flightCrewRest": "OFCR",
   "cabinCrewRest": "OFAR",
   "totalSeats": 331,
@@ -250,6 +253,7 @@ globalThis.AIRCRAFT["78E"] = {
     "FCRC",
     "CCRC"
   ],
+  "boardingSupportPosition": 2,
   "flightCrewRest": "FCRC",
   "cabinCrewRest": "CCRC",
   "totalSeats": 204,
@@ -335,6 +339,7 @@ globalThis.AIRCRAFT["78N"] = {
     "FCRC",
     "CCRC"
   ],
+  "boardingSupportPosition": 2,
   "flightCrewRest": "FCRC",
   "cabinCrewRest": "CCRC",
   "totalSeats": 215,
@@ -422,6 +427,7 @@ globalThis.AIRCRAFT["789"] = {
     "FCRC",
     "CCRC"
   ],
+  "boardingSupportPosition": 2,
   "flightCrewRest": "FCRC",
   "cabinCrewRest": "CCRC",
   "totalSeats": 216,
@@ -508,6 +514,7 @@ globalThis.AIRCRAFT["781"] = {
   "restTypes": [
     "FCRC"
   ],
+  "boardingSupportPosition": 2,
   "flightCrewRest": "FCRC",
   "cabinCrewRest": null,
   "totalSeats": 256,
@@ -588,6 +595,7 @@ globalThis.AIRCRAFT["78Z"] = {
     "FCRC",
     "CCRC"
   ],
+  "boardingSupportPosition": 2,
   "flightCrewRest": "FCRC",
   "cabinCrewRest": "CCRC",
   "totalSeats": 251,
@@ -671,6 +679,7 @@ globalThis.AIRCRAFT["77M"] = {
   ],
   "includesRestFacilities": false,
   "restTypes": [],
+  "boardingSupportPosition": 10,
   "flightCrewRest": null,
   "cabinCrewRest": null,
   "totalSeats": 235,
@@ -758,6 +767,7 @@ globalThis.AIRCRAFT["77L"] = {
     "FCRC",
     "CCRC"
   ],
+  "boardingSupportPosition": 10,
   "flightCrewRest": "FCRC",
   "cabinCrewRest": "CCRC",
   "totalSeats": 272,
@@ -850,6 +860,7 @@ globalThis.AIRCRAFT["77H"] = {
     "FCRC",
     "CCRC"
   ],
+  "boardingSupportPosition": 3,
   "flightCrewRest": "FCRC",
   "cabinCrewRest": "CCRC",
   "totalSeats": 254,
@@ -948,6 +959,7 @@ globalThis.AIRCRAFT["77T"] = {
   ],
   "includesRestFacilities": false,
   "restTypes": [],
+  "boardingSupportPosition": 10,
   "flightCrewRest": null,
   "cabinCrewRest": null,
   "totalSeats": 336,
@@ -1039,6 +1051,7 @@ globalThis.AIRCRAFT["77S"] = {
     "FCRC",
     "CCRC"
   ],
+  "boardingSupportPosition": 10,
   "flightCrewRest": "FCRC",
   "cabinCrewRest": "CCRC",
   "totalSeats": 332,
@@ -1123,6 +1136,7 @@ globalThis.AIRCRAFT["32Y"] = {
   "classes": [],
   "includesRestFacilities": false,
   "restTypes": [],
+  "boardingSupportPosition": null,
   "flightCrewRest": null,
   "cabinCrewRest": null,
   "totalSeats": 220,
@@ -1152,6 +1166,7 @@ globalThis.AIRCRAFT["32R"] = {
   "classes": [],
   "includesRestFacilities": false,
   "restTypes": [],
+  "boardingSupportPosition": null,
   "flightCrewRest": null,
   "cabinCrewRest": null,
   "totalSeats": 180,
@@ -1206,6 +1221,7 @@ globalThis.AIRCRAFT["32H"] = {
   "classes": [],
   "includesRestFacilities": false,
   "restTypes": [],
+  "boardingSupportPosition": null,
   "flightCrewRest": null,
   "cabinCrewRest": null,
   "totalSeats": 180,
@@ -1260,6 +1276,7 @@ globalThis.AIRCRAFT["32P"] = {
   "classes": [],
   "includesRestFacilities": false,
   "restTypes": [],
+  "boardingSupportPosition": null,
   "flightCrewRest": null,
   "cabinCrewRest": null,
   "totalSeats": 180,
@@ -1289,6 +1306,7 @@ globalThis.AIRCRAFT["319"] = {
   "classes": [],
   "includesRestFacilities": false,
   "restTypes": [],
+  "boardingSupportPosition": null,
   "flightCrewRest": null,
   "cabinCrewRest": null,
   "totalSeats": 143,
@@ -1343,6 +1361,7 @@ globalThis.AIRCRAFT["31C"] = {
   "classes": [],
   "includesRestFacilities": false,
   "restTypes": [],
+  "boardingSupportPosition": null,
   "flightCrewRest": null,
   "cabinCrewRest": null,
   "totalSeats": 144,

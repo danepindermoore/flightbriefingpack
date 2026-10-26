@@ -585,15 +585,9 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
         const minutes=Number(match[1])*60+Number(match[2]);
         return minutes>0?fmtDuration(minutes):'';
       };
-      const items=[];
-      const legal=positiveDuration(routeRest?.minimum);
-      const hcc=positiveDuration(routeRest?.hcc);
-      if(legal) items.push(`${legal} legal minimum bunk rest required`);
-      if(hcc) items.push(`${hcc} HCC agreement bunk rest`);
-      if(refreshmentBreak>0) items.push(refreshmentBreakEmailText(refreshmentBreak));
-      return items.join('. ');
+      const items=[positiveDuration(routeRest?.hcc),refreshmentBreak>0?fmtDuration(refreshmentBreak):''].filter(Boolean);
+      return [...new Set(items)].join(' · ')||'NA';
     }
-
     function computeCmdrDiscretionAllowed(crewCompliment){ return crewCompliment===2 ? 120 : 180; }
 
     function routeRefText(routeKey, routeRest, depTz, facilityText){
@@ -791,7 +785,7 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       const departureClock=timeStringFromParts(ids.depHour.value,ids.depMinute.value);
       const offsetMinutes=Number(ids.pickupOffsetHour.value||0)*60+Number(ids.pickupOffsetMinute.value||0);
       const pickupTime=timeStringFromParts(ids.inboundSTDHour.value,ids.inboundSTDMinute.value)&&(ids.pickupOffsetHour.value||ids.pickupOffsetMinute.value)&&Number(ids.pickupOffsetMinute.value||0)<60?shiftClock(timeStringFromParts(ids.inboundSTDHour.value,ids.inboundSTDMinute.value),-offsetMinutes):'';
-      window.fbpBriefingHandoff={flightDate:ids.flightDate.value,flightNumber:ids.flightNumber.value.trim().toUpperCase(),departure:normalizeCode(ids.from.value),destination:normalizeCode(ids.to.value),aircraft:aircraftLabel,sccm:ids.sccm.value.trim(),asccm:ids.asccm.value.trim(),captainName:ids.captainName.value.trim(),firstOfficerNames:ids.firstOfficerNames.value.trim(),flightTime:fmtDuration(activeFlightTime),callerPosition,briefingFinish:shiftClock(reportClock,20),arrivalAtAircraft:shiftClock(departureClock,-50),doorsClosed:shiftClock(departureClock,-5),pickupTime,wakeUpTime:shiftClock(pickupTime,-60),minRest:routeRest?.minimum==null?'NIL':fmtDuration(routeRest.minimum),rest:routeRestBriefingText(routeRest,refreshmentBreak),maxFdp:fmtDuration(maxFDP),latestOnChocks:fmtClockWithZ(latestOnChocksUtcMs),latestOnChocksLocal:utcMsToLocalHHMM(latestOnChocksUtcMs,arrAirport.timeZone)};
+      window.fbpBriefingHandoff={flightDate:ids.flightDate.value,flightNumber:ids.flightNumber.value.trim().toUpperCase(),departure:normalizeCode(ids.from.value),destination:normalizeCode(ids.to.value),aircraft:aircraftLabel,registration:ids.aircraftReg.value.trim().toUpperCase(),sccm:ids.sccm.value.trim(),asccm:ids.asccm.value.trim(),captainName:ids.captainName.value.trim(),firstOfficerNames:ids.firstOfficerNames.value.trim(),flightTime:fmtDuration(activeFlightTime),callerPosition,briefingFinish:shiftClock(reportClock,20),arrivalAtAircraft:shiftClock(departureClock,-50),doorsClosed:shiftClock(departureClock,-5),pickupTime,wakeUpTime:shiftClock(pickupTime,-60),minRest:routeRest?.minimum==null?'NA':fmtDuration(routeRest.minimum),rest:routeRestBriefingText(routeRest,refreshmentBreak),maxFdp:fmtDuration(maxFDP),latestOnChocks:fmtClockWithZ(latestOnChocksUtcMs),latestOnChocksLocal:utcMsToLocalHHMM(latestOnChocksUtcMs,arrAirport.timeZone)};
       document.getElementById('buildBriefingBtn').hidden=false;
       ids.emailResultsRow.hidden=false;
       ids.standbyCalcRow.hidden=from!=='LHR';

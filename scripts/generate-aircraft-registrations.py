@@ -2,8 +2,8 @@
 """Generate aircraft lookup data from the combined British Airways fleet workbook.
 
 Requires openpyxl for this maintenance script only. The workbook is the source
-for registration details and aircraft summaries; AOR position data remains in
-the individual aircraft JavaScript files.
+for registration details, aircraft summaries and additional-needs boarding
+positions. Detailed AOR position data remains in the individual aircraft files.
 """
 
 from __future__ import annotations
@@ -55,6 +55,22 @@ def clean(value):
         if not value or value.casefold() == "na":
             return None
     return value
+
+
+def position_number(value) -> int | None:
+    value = clean(value)
+    if value is None:
+        return None
+    try:
+        number = float(value)
+    except (TypeError, ValueError):
+        match = re.fullmatch(r"(?:crew\s*)?(?:position\s*)?(?:no\.?\s*)?(\d+)", str(value).strip(), re.IGNORECASE)
+        if not match:
+            raise ValueError(f"Unexpected additional-needs boarding position: {value!r}")
+        number = float(match.group(1))
+    if not number.is_integer() or number < 1:
+        raise ValueError(f"Unexpected additional-needs boarding position: {value!r}")
+    return int(number)
 
 
 def yes_no(value: object) -> bool | None:
@@ -167,6 +183,13 @@ def read_workbook(workbook_path: Path) -> tuple[dict[str, dict], dict[str, list[
     for airfile, type_rows in raw_rows.items():
         haul = "longhaul" if airfile in LONGHAUL_AIRFILES else "shorthaul"
         row = type_rows[0]
+        boarding_positions = {
+            position_number(value_for(item, headers, "Crew Member responsible for Additional Needs customers"))
+            for item in type_rows
+        } - {None}
+        if len(boarding_positions) > 1:
+            raise ValueError(f"Conflicting additional-needs boarding positions for airfile {airfile}: {sorted(boarding_positions)}")
+        boarding_support_position = next(iter(boarding_positions), None)
         variant = str(clean(value_for(row, headers, "Aircraft / variant")) or airfile)
         family_match = re.search(r"[AB]\d{3}", variant.upper())
         family = family_match.group(0) if family_match else variant
@@ -204,6 +227,7 @@ def read_workbook(workbook_path: Path) -> tuple[dict[str, dict], dict[str, list[
                 "airfile": airfile, "variant": variant, "family": family, "manufacturer": manufacturer,
                 "configName": clean(value_for(row, headers, "Configuration")) or f"{len(classes)} Class",
                 "classCount": len(classes), "classes": classes, "seatBreakdown": breakdown,
+                "boardingSupportPosition": boarding_support_position,
                 "totalSeats": total_seats, "crew": crew, "includesRestFacilities": bool(rest_types),
                 "restTypes": rest_types,
                 "flightCrewRest": next((code for code in rest_types if rest_lookup[code] == "flightCrewRest"), None),
@@ -220,6 +244,7 @@ def read_workbook(workbook_path: Path) -> tuple[dict[str, dict], dict[str, list[
                 "airfile": airfile, "variant": variant, "family": family, "manufacturer": manufacturer,
                 "configName": clean(value_for(row, headers, "Configuration")) or "Shorthaul",
                 "classCount": len(classes), "classes": classes, "seatBreakdown": None,
+                "boardingSupportPosition": boarding_support_position,
                 "totalSeats": total_seats, "crew": None, "includesRestFacilities": False,
                 "restTypes": [], "flightCrewRest": None, "cabinCrewRest": None,
                 "emergencyEquipmentSummary": shared_equipment,
@@ -249,6 +274,7 @@ def update_aircraft_file(project_root: Path, summaries: dict[str, list[dict]]) -
                 "family": summary["family"], "variant": summary["variant"], "manufacturer": summary["manufacturer"],
                 "configName": summary["configName"], "classCount": summary["classCount"], "classes": summary["classes"],
                 "includesRestFacilities": summary["includesRestFacilities"], "restTypes": summary["restTypes"],
+                "boardingSupportPosition": summary["boardingSupportPosition"],
                 "flightCrewRest": summary["flightCrewRest"], "cabinCrewRest": summary["cabinCrewRest"],
                 "totalSeats": summary["totalSeats"], "seatBreakdown": summary["seatBreakdown"],
                 "crew": summary["crew"], "emergencyEquipmentSummary": summary["emergencyEquipmentSummary"],
@@ -285,6 +311,7 @@ def remove_shared_summary_from_aor(project_root: Path, summaries: dict[str, list
         if not path.exists():
             continue
         source = path.read_text(encoding="utf-8")
+        source = re.sub(r'(?m)^\s{2}(?:"boardingSupportPosition"|boardingSupportPosition):.*?,\r?\n', "", source)
         source = re.sub(r'(?m)^\s{2}(?:"variantNotes"|variantNotes):.*?,\r?\n', "", source)
         source = re.sub(r'(?m)^\s{2}(?:"aircraftName"|aircraftName):.*?,\r?\n', "", source)
         source = re.sub(r'(?m)^\s{2}(?:"configName"|configName):.*?,\r?\n', "", source)

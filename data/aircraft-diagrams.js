@@ -1,27 +1,192 @@
-/* Aircraft layout images uploaded to assets/aircraft. */
+/* Aircraft layout images and working-position hit areas. */
 globalThis.AIRCRAFT_DIAGRAMS = Object.freeze({
   "38A": {
     decks: {
-      MD: { image: "../assets/aircraft/38A%20MD.png", viewBox: { width: 978, height: 2116 } },
-      UD: { image: "../assets/aircraft/38A%20UD.png", viewBox: { width: 978, height: 1824 } }
+      MD: { image: "../assets/aircraft/38A%20MD.png", viewBox: { width: 978, height: 2116 }, positionPanels: {
+      "1": { x: 0, y: 36, w: 316, h: 174 },
+      "19": { x: 0, y: 221, w: 316, h: 174 },
+      "2": { x: 0, y: 432, w: 316, h: 174 },
+      "3": { x: 0, y: 1005, w: 316, h: 174 },
+      "20": { x: 0, y: 1200, w: 316, h: 174 },
+      "4": { x: 0, y: 1485, w: 316, h: 174 },
+      "5": { x: 0, y: 1818, w: 316, h: 174 },
+      "6": { x: 650, y: 85, w: 328, h: 174 },
+      "7": { x: 650, y: 445, w: 328, h: 174 },
+      "21": { x: 650, y: 1014, w: 328, h: 174 },
+      "8": { x: 650, y: 1203, w: 328, h: 174 },
+      "9": { x: 650, y: 1488, w: 328, h: 174 },
+      "10": { x: 650, y: 1812, w: 328, h: 174 }
+      } },
+      UD: { image: "../assets/aircraft/38A%20UD.png", viewBox: { width: 978, height: 1824 }, positionPanels: {
+      "11": { x: 0, y: 105, w: 316, h: 174 },
+      "12": { x: 0, y: 410, w: 316, h: 174 },
+      "22": { x: 0, y: 600, w: 316, h: 174 },
+      "13": { x: 0, y: 1130, w: 316, h: 174 },
+      "14": { x: 0, y: 1550, w: 316, h: 174 },
+      "15": { x: 650, y: 105, w: 328, h: 174 },
+      "16": { x: 650, y: 410, w: 328, h: 174 },
+      "17": { x: 650, y: 1130, w: 328, h: 174 },
+      "18": { x: 650, y: 1550, w: 328, h: 174 }
+      } }
     }
   },
   "38T": {
     decks: {
-      MD: { image: "../assets/aircraft/38T%20MD.png", viewBox: { width: 978, height: 2116 } },
-      UD: { image: "../assets/aircraft/38T%20UD.png", viewBox: { width: 978, height: 1824 } }
+      MD: { image: "../assets/aircraft/38T%20MD.png", viewBox: { width: 978, height: 2116 }, positionPanels: {
+      "1": { x: 0, y: 36, w: 316, h: 174 },
+      "19": { x: 0, y: 221, w: 316, h: 174 },
+      "2": { x: 0, y: 432, w: 316, h: 174 },
+      "3": { x: 0, y: 1005, w: 316, h: 174 },
+      "20": { x: 0, y: 1200, w: 316, h: 174 },
+      "4": { x: 0, y: 1485, w: 316, h: 174 },
+      "5": { x: 0, y: 1818, w: 316, h: 174 },
+      "6": { x: 650, y: 85, w: 328, h: 174 },
+      "7": { x: 650, y: 445, w: 328, h: 174 },
+      "21": { x: 650, y: 1014, w: 328, h: 174 },
+      "8": { x: 650, y: 1203, w: 328, h: 174 },
+      "9": { x: 650, y: 1488, w: 328, h: 174 },
+      "10": { x: 650, y: 1812, w: 328, h: 174 }
+      } },
+      UD: { image: "../assets/aircraft/38T%20UD.png", viewBox: { width: 978, height: 1824 }, positionPanels: {
+      "11": { x: 0, y: 105, w: 316, h: 174 },
+      "12": { x: 0, y: 410, w: 316, h: 174 },
+      "22": { x: 0, y: 600, w: 316, h: 174 },
+      "13": { x: 0, y: 1130, w: 316, h: 174 },
+      "14": { x: 0, y: 1550, w: 316, h: 174 },
+      "15": { x: 650, y: 105, w: 328, h: 174 },
+      "16": { x: 650, y: 410, w: 328, h: 174 },
+      "17": { x: 650, y: 1130, w: 328, h: 174 },
+      "18": { x: 650, y: 1550, w: 328, h: 174 }
+      } }
     }
   },
-  "77H": { image: "../assets/aircraft/77H.png", viewBox: { width: 996, height: 2179 } },
-  "77L": { image: "../assets/aircraft/77L.png", viewBox: { width: 977, height: 2143 } },
-  "77M": { image: "../assets/aircraft/77M.png", viewBox: { width: 974, height: 2197 } },
-  "77S": { image: "../assets/aircraft/77S.png", viewBox: { width: 987, height: 2189 } },
-  "77T": { image: "../assets/aircraft/77T.png", viewBox: { width: 987, height: 2276 } },
-  "781": { image: "../assets/aircraft/781.png", viewBox: { width: 976, height: 2091 } },
-  "789": { image: "../assets/aircraft/789.png", viewBox: { width: 1010, height: 2222 } },
-  "78E": { image: "../assets/aircraft/78E.png", viewBox: { width: 1006, height: 2240 } },
-  "78N": { image: "../assets/aircraft/78N.png", viewBox: { width: 1003, height: 2251 } },
-  "78Z": { image: "../assets/aircraft/78Z.png", viewBox: { width: 976, height: 2141 } },
+  "351": { image: "../assets/aircraft/351.png", viewBox: { width: 854, height: 1842 } },
+  "77H": { image: "../assets/aircraft/77H.png", viewBox: { width: 996, height: 2179 }, positionPanels: {
+      "1": { x: 0, y: 64, w: 325, h: 174 },
+      "13": { x: 0, y: 256, w: 325, h: 174 },
+      "2": { x: 0, y: 464, w: 325, h: 174 },
+      "3": { x: 0, y: 675, w: 325, h: 174 },
+      "4": { x: 0, y: 1075, w: 325, h: 174 },
+      "5": { x: 0, y: 1524, w: 325, h: 174 },
+      "6": { x: 0, y: 1989, w: 325, h: 174 },
+      "7": { x: 628, y: 59, w: 365, h: 174 },
+      "8": { x: 628, y: 482, w: 365, h: 174 },
+      "9": { x: 628, y: 679, w: 365, h: 174 },
+      "10": { x: 628, y: 1075, w: 365, h: 174 },
+      "11": { x: 628, y: 1528, w: 365, h: 174 },
+      "12": { x: 628, y: 1996, w: 365, h: 174 }
+  } },
+  "77L": { image: "../assets/aircraft/77L.png", viewBox: { width: 977, height: 2143 }, positionPanels: {
+      "1": { x: 0, y: 60, w: 325, h: 174 },
+      "9": { x: 0, y: 247, w: 325, h: 174 },
+      "2": { x: 0, y: 550, w: 325, h: 174 },
+      "3": { x: 0, y: 1352, w: 325, h: 174 },
+      "4": { x: 0, y: 1868, w: 325, h: 174 },
+      "5": { x: 630, y: 54, w: 347, h: 174 },
+      "6": { x: 630, y: 553, w: 347, h: 174 },
+      "10": { x: 630, y: 757, w: 347, h: 174 },
+      "7": { x: 630, y: 1352, w: 347, h: 174 },
+      "8": { x: 630, y: 1862, w: 347, h: 174 }
+  } },
+  "77M": { image: "../assets/aircraft/77M.png", viewBox: { width: 974, height: 2197 }, positionPanels: {
+      "1": { x: 0, y: 61, w: 325, h: 174 },
+      "9": { x: 0, y: 250, w: 325, h: 174 },
+      "2": { x: 0, y: 552, w: 325, h: 174 },
+      "10": { x: 0, y: 745, w: 325, h: 174 },
+      "3": { x: 0, y: 1282, w: 325, h: 174 },
+      "4": { x: 0, y: 1965, w: 325, h: 174 },
+      "5": { x: 650, y: 44, w: 324, h: 174 },
+      "11": { x: 650, y: 254, w: 324, h: 174 },
+      "6": { x: 650, y: 550, w: 324, h: 174 },
+      "7": { x: 650, y: 1284, w: 324, h: 174 },
+      "8": { x: 650, y: 1960, w: 324, h: 174 }
+  } },
+  "77S": { image: "../assets/aircraft/77S.png", viewBox: { width: 987, height: 2189 }, positionPanels: {
+      "1": { x: 0, y: 12, w: 325, h: 174 },
+      "9": { x: 0, y: 199, w: 325, h: 174 },
+      "2": { x: 0, y: 543, w: 325, h: 174 },
+      "10": { x: 0, y: 743, w: 325, h: 174 },
+      "3": { x: 0, y: 1346, w: 325, h: 174 },
+      "4": { x: 0, y: 1966, w: 325, h: 174 },
+      "5": { x: 628, y: 7, w: 359, h: 174 },
+      "6": { x: 628, y: 540, w: 359, h: 174 },
+      "7": { x: 628, y: 1348, w: 359, h: 174 },
+      "8": { x: 628, y: 1957, w: 359, h: 174 }
+  } },
+  "77T": { image: "../assets/aircraft/77T.png", viewBox: { width: 987, height: 2276 }, positionPanels: {
+      "1": { x: 0, y: 84, w: 325, h: 174 },
+      "9": { x: 0, y: 273, w: 325, h: 174 },
+      "2": { x: 0, y: 617, w: 325, h: 174 },
+      "10": { x: 0, y: 817, w: 325, h: 174 },
+      "3": { x: 0, y: 1420, w: 325, h: 174 },
+      "4": { x: 0, y: 2040, w: 325, h: 174 },
+      "5": { x: 628, y: 78, w: 359, h: 174 },
+      "6": { x: 628, y: 610, w: 359, h: 174 },
+      "7": { x: 628, y: 1420, w: 359, h: 174 },
+      "8": { x: 628, y: 2029, w: 359, h: 174 }
+  } },
+  "781": { image: "../assets/aircraft/781.png", viewBox: { width: 976, height: 2091 }, positionPanels: {
+      "1": { x: 0, y: 27, w: 325, h: 174 },
+      "10": { x: 0, y: 215, w: 325, h: 174 },
+      "2": { x: 0, y: 610, w: 325, h: 174 },
+      "11": { x: 0, y: 803, w: 325, h: 174 },
+      "3": { x: 0, y: 1250, w: 325, h: 174 },
+      "4": { x: 0, y: 1935, w: 325, h: 174 },
+      "9": { x: 626, y: 21, w: 350, h: 174 },
+      "5": { x: 626, y: 584, w: 350, h: 174 },
+      "6": { x: 626, y: 786, w: 350, h: 174 },
+      "7": { x: 626, y: 1250, w: 350, h: 174 },
+      "8": { x: 626, y: 1925, w: 350, h: 174 }
+  } },
+  "789": { image: "../assets/aircraft/789.png", viewBox: { width: 1010, height: 2222 }, positionPanels: {
+      "1": { x: 0, y: 18, w: 325, h: 174 },
+      "10": { x: 0, y: 206, w: 325, h: 174 },
+      "2": { x: 0, y: 501, w: 325, h: 174 },
+      "3": { x: 0, y: 1410, w: 325, h: 174 },
+      "4": { x: 0, y: 1976, w: 325, h: 174 },
+      "9": { x: 684, y: 15, w: 326, h: 174 },
+      "5": { x: 684, y: 486, w: 326, h: 174 },
+      "6": { x: 684, y: 689, w: 326, h: 174 },
+      "7": { x: 684, y: 1395, w: 326, h: 174 },
+      "11": { x: 684, y: 1779, w: 326, h: 174 },
+      "8": { x: 684, y: 1992, w: 326, h: 174 }
+  } },
+  "78E": { image: "../assets/aircraft/78E.png", viewBox: { width: 1006, height: 2240 }, positionPanels: {
+      "1": { x: 0, y: 30, w: 325, h: 174 },
+      "2": { x: 0, y: 511, w: 325, h: 174 },
+      "3": { x: 0, y: 1406, w: 325, h: 174 },
+      "4": { x: 0, y: 2005, w: 325, h: 174 },
+      "5": { x: 680, y: 27, w: 326, h: 174 },
+      "6": { x: 680, y: 521, w: 326, h: 174 },
+      "7": { x: 680, y: 1403, w: 326, h: 174 },
+      "8": { x: 680, y: 2005, w: 326, h: 174 }
+  } },
+  "78N": { image: "../assets/aircraft/78N.png", viewBox: { width: 1003, height: 2251 }, positionPanels: {
+      "1": { x: 0, y: 51, w: 325, h: 174 },
+      "10": { x: 0, y: 240, w: 325, h: 174 },
+      "2": { x: 0, y: 535, w: 325, h: 174 },
+      "3": { x: 0, y: 1366, w: 325, h: 174 },
+      "4": { x: 0, y: 2011, w: 325, h: 174 },
+      "9": { x: 680, y: 46, w: 323, h: 174 },
+      "5": { x: 680, y: 517, w: 323, h: 174 },
+      "6": { x: 680, y: 720, w: 323, h: 174 },
+      "7": { x: 680, y: 1366, w: 323, h: 174 },
+      "11": { x: 680, y: 1812, w: 323, h: 174 },
+      "8": { x: 680, y: 2027, w: 323, h: 174 }
+  } },
+  "78Z": { image: "../assets/aircraft/78Z.png", viewBox: { width: 976, height: 2141 }, positionPanels: {
+      "1": { x: 0, y: 27, w: 325, h: 174 },
+      "10": { x: 0, y: 215, w: 325, h: 174 },
+      "2": { x: 0, y: 610, w: 325, h: 174 },
+      "11": { x: 0, y: 803, w: 325, h: 174 },
+      "3": { x: 0, y: 1250, w: 325, h: 174 },
+      "4": { x: 0, y: 1935, w: 325, h: 174 },
+      "9": { x: 626, y: 21, w: 350, h: 174 },
+      "5": { x: 626, y: 584, w: 350, h: 174 },
+      "6": { x: 626, y: 786, w: 350, h: 174 },
+      "7": { x: 626, y: 1250, w: 350, h: 174 },
+      "8": { x: 626, y: 1925, w: 350, h: 174 }
+  } },
   "32H": { image: "../assets/aircraft/32H.png", viewBox: { width: 1108, height: 2173 } },
   "32R": { image: "../assets/aircraft/32H.png", viewBox: { width: 1108, height: 2173 } },
   "32P": { image: "../assets/aircraft/32P.png", viewBox: { width: 1108, height: 2173 } },
