@@ -84,7 +84,37 @@ document.addEventListener('DOMContentLoaded',()=>{const form=document.querySelec
 .passenger-load-row input:disabled{background:#e5e9ed;border-color:#c6cdd5;color:#8c97a4;cursor:not-allowed}
 @media(max-width:560px){.passenger-load-row{gap:6px}.passenger-load-row input{padding:9px 4px;font-size:.9rem}}
 </style>
+<style>
+/* Keep the 16:9 briefing canvas inside dynamic tablet/browser viewports. */
+.viewport{height:calc(100svh - 54px);min-height:0;padding:58px 12px 12px}
+.slide{width:min(100%,calc((100svh - 124px)*16/9));max-height:calc(100svh - 124px);flex:none}
+.quick{top:60px}
+@supports(height:100dvh){.viewport{height:calc(100dvh - 54px)}.slide{width:min(100%,calc((100dvh - 124px)*16/9));max-height:calc(100dvh - 124px)}}
+.security-check-layout{min-height:0;align-items:stretch}
+.security-area-photo{min-height:0;min-width:0}
+.security-area-photo img{display:block;flex:1 1 auto;height:auto;min-height:0;object-fit:contain}
+.security-area-photo figcaption{flex:none;padding:8px 12px}
+.plane-mark{font:30px Arial,sans-serif;fill:#fff;font-variant-emoji:text;text-anchor:middle;dominant-baseline:central;filter:drop-shadow(0 0 7px #fff)}
+.people-aircraft-slide .aircraft-quick-details{overflow:auto;min-width:0}
+@media(max-aspect-ratio:3/2){
+  .people-aircraft-slide>.heading{left:3%;top:3%;width:35%}
+  .people-aircraft-slide>.body{inset:3% 3% 5%;gap:1.2%}
+  .people-aircraft-slide .people-panel{grid-column:span 4;margin-top:clamp(105px,19vh,145px);height:calc(100% - clamp(105px,19vh,145px));padding:clamp(12px,1.5vw,20px)}
+  .people-aircraft-slide .aircraft-panel{grid-column:span 8;height:100%;min-height:0;grid-template-rows:minmax(0,1fr);gap:0;padding:0}
+  .people-aircraft-slide .aircraft-overview{grid-template-columns:minmax(0,1.15fr) minmax(220px,.85fr);gap:clamp(6px,1vw,12px);height:100%;min-height:0}
+  .people-aircraft-slide .aircraft-right-info{display:grid;grid-template-columns:minmax(0,1fr) clamp(92px,11vw,132px);grid-template-rows:auto minmax(0,1fr) auto;gap:4px 8px;min-width:0}
+  .people-aircraft-slide .aircraft-panel-heading{grid-column:1/-1;font-size:clamp(.9rem,1.25vw,1.15rem)}
+  .people-aircraft-slide .aircraft-quick-details{grid-column:1;grid-row:2;min-height:0}
+  .people-aircraft-slide .aircraft-quick-details li{padding:clamp(2px,.35vh,4px) 0}
+  .people-aircraft-slide .aor-qr{grid-column:2;grid-row:2;align-self:start;width:100%;min-width:0}
+  .people-aircraft-slide .aor-qr img{width:100%;max-width:132px;height:auto}
+  .people-aircraft-slide .equipment-locations{grid-column:1/-1;grid-row:3;margin-top:0;min-width:0}
+  .people-aircraft-slide .equipment-locations li{padding:clamp(2px,.35vh,4px) 0}
+}
+@media(max-width:760px){.viewport{padding:54px 8px 8px}.slide{width:min(100%,calc((100svh - 116px)*16/9));max-height:calc(100svh - 116px)}@supports(height:100dvh){.slide{width:min(100%,calc((100dvh - 116px)*16/9));max-height:calc(100dvh - 116px)}}}
+</style>
 <script>
+document.addEventListener('DOMContentLoaded',()=>{const plane=document.querySelector('.plane-mark');if(plane?.firstChild)plane.firstChild.nodeValue='\u2708\uFE0E'});
 document.addEventListener('DOMContentLoaded',()=>{const form=document.querySelector('#form');if(!form)return;const syncFirstPassenger=()=>{const aircraftInput=form.elements.namedItem('aircraft'),firstInput=form.elements.namedItem('paxFirst'),text=String(aircraftInput?.value||'').toUpperCase(),code=(globalThis.AIRCRAFT_ORDER||[]).slice().sort((a,b)=>b.length-a.length).find(item=>new RegExp(`(?:^|[^A-Z0-9])${item}(?:$|[^A-Z0-9])`,'i').test(text)),threeClass=globalThis.AIRCRAFT?.[code]?.classCount===3,field=firstInput?.closest('.field');if(field){field.classList.remove('hidden');field.classList.toggle('disabled-field',threeClass)}if(firstInput)firstInput.disabled=threeClass};document.querySelector('#gateForm')?.addEventListener('submit',()=>window.setTimeout(syncFirstPassenger,0));syncFirstPassenger()});
 </script>
 </head>
