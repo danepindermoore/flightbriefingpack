@@ -32,3 +32,92 @@ Shared styles:
         grid-template-columns: 1fr;
     }
 }
+
+/* Four compact, expandable home shortcuts sized for a phone's first view. */
+.fbp-grid-3 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+body.fbp-theme .tool-card {
+  min-height: 0;
+  padding: 12px;
+  display: block;
+  transition: border-color .18s ease, background .18s ease;
+}
+
+body.fbp-theme .tool-card-toggle {
+  width: 100%;
+  min-height: 104px;
+  padding: 8px 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 14px;
+  background: transparent;
+  color: var(--text);
+  box-shadow: none;
+  text-align: center;
+}
+
+body.fbp-theme .tool-card-toggle:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.tool-card-toggle:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.tool-card .fbp-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.tool-card .fbp-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.tool-card-title {
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.tool-card-details {
+  padding: 8px 4px 4px;
+  border-top: 1px solid var(--border);
+}
+
+.tool-card-details p {
+  margin: 0 0 12px;
+  font-size: .9rem;
+  line-height: 1.45;
+}
+
+.tool-card-open {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+.tool-card.is-expanded {
+  border-color: rgba(111,195,255,.46);
+}
+
+@media (max-width: 700px) {
+  .fbp-grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
+  body.fbp-theme .tool-card { padding: 8px; border-radius: 18px; }
+  body.fbp-theme .tool-card-toggle { min-height: 96px; gap: 6px; }
+  .tool-card .fbp-icon { width: 42px; height: 42px; border-radius: 13px; }
+  .tool-card .fbp-icon svg { width: 28px; height: 28px; }
+  .tool-card-title { font-size: .95rem; }
+  .tool-card-details p { font-size: .82rem; }
+}

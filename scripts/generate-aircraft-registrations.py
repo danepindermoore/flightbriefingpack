@@ -323,7 +323,7 @@ def remove_shared_summary_from_aor(project_root: Path, summaries: dict[str, list
 
 def main() -> None:
     project_root = Path(__file__).resolve().parents[1]
-    default_workbook = project_root.parent / SOURCE_NAME
+    default_workbook = (Path.home() / "iCloudDrive" / "Documents" / "Work" / "British Airways" / "5.0 Project Work" / "WebApps" / SOURCE_NAME)
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("workbook", nargs="?", type=Path, default=default_workbook)
     parser.add_argument("--output", type=Path, default=project_root / "data" / "aircraft-registrations.js")
