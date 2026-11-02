@@ -88,10 +88,10 @@ Responsibilities
     <div class="fbp-toolbar">
 
         <a
-            class="fbp-button"
+            class="fbp-button fbp-feedback-button"
             href="mailto:${feedbackEmail}?subject=${encodeURIComponent(feedbackSubject)}">
 
-            ${feedbackText}
+            <span class="feedback-label"><span>${feedbackText.split(/\s+/)[0]}</span><span>${feedbackText.split(/\s+/).slice(1).join(" ")}</span></span><span class="feedback-arrow" aria-hidden="true">↗</span>
 
         </a>
 

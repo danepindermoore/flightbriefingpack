@@ -121,7 +121,7 @@ button:hover,
 }
 
 button.primary {
-    background: linear-gradient(180deg,#0ea5e9,#0284c7);
+    background: linear-gradient(135deg,#216da5,#155b91);
 }
 
 button.success {

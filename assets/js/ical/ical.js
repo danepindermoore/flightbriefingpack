@@ -2232,7 +2232,7 @@ FBP.createPage({
 
     contentSelector: ".ical-wrap",
 
-    title: "Roster → iCal",
+    title: "MyRoster",
 
     subtitle:
         "Choose either Roster PDF or Crewlink from the options below. If you click Crewlink, iPhone and iPad instructions will be displayed below.",
@@ -2241,7 +2241,7 @@ FBP.createPage({
 
     feedbackSubject: "Feedback for iCal Roster Tool",
 
-    feedbackText: "iCal Feedback",
+    feedbackText: "MyRoster Feedback",
 
     activePage: "ical"
 

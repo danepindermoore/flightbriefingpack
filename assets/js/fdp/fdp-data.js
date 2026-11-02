@@ -5,17 +5,17 @@
 
 const FDP_CALCULATORS = [
     {
-        badge: "LONGHAUL",
-        title: "Longhaul FDP",
+        type: "longhaul",
+        title: "Longhaul",
         description: "Use this version for longhaul operations",
-        button: "Open Longhaul Calculator",
+        button: "Open Longhaul",
         url: "longhaul.html"
     },
     {
-        badge: "SHORTHAUL",
-        title: "Shorthaul FDP",
+        type: "shorthaul",
+        title: "Shorthaul",
         description: "Use this version for shorthaul operations",
-        button: "Open Shorthaul Calculator",
+        button: "Open Shorthaul",
         url: "shorthaul.html"
     }
 ];

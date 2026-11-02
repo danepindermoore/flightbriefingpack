@@ -23,7 +23,7 @@
     :root{--fdp-card:var(--surface);--fdp-card-2:var(--surface-2);--fdp-text:var(--text);--fdp-muted:var(--muted);--fdp-border:var(--border);--fdp-shadow:var(--shadow);--fdp-shadow-soft:var(--shadow);--fdp-input-bg:var(--surface);--fdp-warn:#ef4444;--fdp-warn-bg:rgba(239,68,68,.12);--fdp-warn-ring:rgba(239,68,68,.18);--fdp-disabled:var(--surface-2);}
     *{box-sizing:border-box;}
     .app-wrap{padding-bottom:24px;}
-    .fdp-grid{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(320px,.94fr);gap:18px;align-items:start;margin-top:22px;}
+    .fdp-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;align-items:start;margin-top:22px;}
     .fdp-card{background:var(--fdp-card);border:1px solid var(--fdp-border);border-radius:24px;box-shadow:var(--fdp-shadow);padding:20px;color:var(--fdp-text);}
     .fdp-card h2{margin:0 0 14px;font-size:18px;font-weight:800;letter-spacing:-.02em;}
     .section-note{color:var(--fdp-muted);font-size:13px;margin:-6px 0 14px;line-height:1.55;white-space:pre-line;}
@@ -31,8 +31,8 @@
     .form-grid > div:not(.airport-row),.aircraft-inputs > div{min-width:0;}
     .form-grid > div:not(.airport-row) > label,.aircraft-inputs > div > label{height:2.35em;line-height:1.15;}
     .input-hint-wrap{position:relative;}
-    .input-hint{display:none;position:absolute;z-index:40;left:8px;top:calc(100% + 7px);max-width:min(330px,calc(100vw - 48px));padding:9px 12px;border:1px solid var(--fdp-border);border-radius:10px;background:var(--fdp-card);color:var(--fdp-text);box-shadow:0 10px 28px rgba(0,0,0,.24);font-size:13px;font-weight:600;line-height:1.35;}
-    .input-hint-wrap:focus-within .input-hint{display:block;z-index:60;}
+    .input-hint{display:none;position:static;max-width:min(330px,100%);margin:7px 0 0;padding:9px 12px;border:1px solid var(--fdp-border);border-radius:10px;background:var(--fdp-card);color:var(--fdp-text);box-shadow:0 6px 18px rgba(0,0,0,.18);font-size:13px;font-weight:600;line-height:1.35;}
+    .input-hint-wrap:focus-within .input-hint{display:block;}
     .form-grid > div:focus-within,.aircraft-inputs > div:focus-within{position:relative;z-index:50;}
     .options-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding-top:4px;}
     .aircraft-inputs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
@@ -115,7 +115,7 @@
           <p class="fbp-subtitle">Use this version for longhaul operations</p>
         </div>
         <div class="fbp-toolbar">
-          <a class="fbp-button" href="mailto:u155573@ba.com?subject=Feedback%20for%20Longhaul%20FDP">FDP Feedback</a>
+          <a class="fbp-button fbp-feedback-button" href="mailto:u155573@ba.com?subject=Feedback%20for%20MyBriefing"><span class="feedback-label"><span>MyBriefing</span><span>Feedback</span></span><span class="feedback-arrow" aria-hidden="true">↗</span></a>
           <a class="fbp-button" href="../FDP/">Back to FDP Selection</a>
         </div>
       </div>
