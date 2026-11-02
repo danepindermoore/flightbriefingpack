@@ -28,7 +28,7 @@ body.fbp-theme .fbp-hero .fbp-subtitle { max-width: 620px; margin-top: 14px; fon
 body.fbp-theme .home-feedback { min-height: 44px; border-radius: 999px; padding: 10px 16px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.28); color: var(--text); font-weight: 700; }
 .home-feedback .feedback-arrow { color: #ef657b; font-size: 1.1em; }
 
-.fbp-grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+.fbp-grid-tools { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
 body.fbp-theme .tool-card {
   min-height: 176px; padding: 12px; display: flex; align-items: stretch;
   border-radius: 18px; background: linear-gradient(145deg, rgba(15,39,69,.94), rgba(7,27,61,.96));
@@ -61,8 +61,6 @@ body.fbp-theme .tool-card-toggle:hover { transform: none; box-shadow: none; }
 .tool-card.is-expanded .tool-card-toggle { min-height: 104px; }
 
 @media (max-width: 850px) {
-  .fbp-grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .fbp-grid-3 > .tool-card:last-child:nth-child(odd) { grid-column: 1 / -1; width: calc(50% - 5px); justify-self: center; }
   body.fbp-theme .fbp-hero .fbp-topbar { align-items: flex-start; }
 }
 @media (max-width: 560px) {
@@ -74,8 +72,7 @@ body.fbp-theme .tool-card-toggle:hover { transform: none; box-shadow: none; }
   body.fbp-theme .fbp-hero .fbp-subtitle { font-size: .98rem; line-height: 1.5; }
   .fbp-hero .fbp-toolbar { align-self: stretch; }
   body.fbp-theme .home-feedback { width: fit-content; }
-  .fbp-grid-3 { gap: 10px; margin-top: 12px; }
-  .fbp-grid-3 > .tool-card:last-child:nth-child(odd) { width: calc(50% - 5px); }
+  .fbp-grid-tools { gap: 10px; margin-top: 12px; }
   body.fbp-theme .tool-card { min-height: 122px; padding: 8px; border-radius: 15px; }
   body.fbp-theme .tool-card-toggle { min-height: 104px; gap: 8px; padding: 10px 4px; }
   .tool-card .fbp-icon { width: 62px; height: 62px; border-radius: 20px 20px 20px 7px; }
@@ -87,10 +84,3 @@ body.fbp-theme .tool-card-toggle:hover { transform: none; box-shadow: none; }
 @media (prefers-reduced-motion: reduce) {
   .tool-card, .tool-card-title, .tool-card .fbp-icon { transition: none !important; }
 }
-.home-hero-actions{display:flex;flex-direction:column;align-items:center;gap:18px}
-.home-documents-link{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-width:120px;min-height:118px;padding:6px;text-align:center;text-decoration:none;border-radius:14px;transition:transform .2s ease}
-.home-documents-link:hover{transform:translateY(-2px)}
-.home-documents-link:focus-visible{outline:3px solid var(--brand-sky);outline-offset:3px}
-.home-documents-link .fbp-icon{width:76px;height:76px}
-.home-documents-link .fbp-icon svg{width:42px;height:42px}
-@media(max-width:560px){.home-hero-actions{align-self:center!important;flex-direction:row;align-items:center;gap:18px}.home-documents-link{min-width:92px;min-height:96px}.home-documents-link .fbp-icon{width:62px;height:62px}}
