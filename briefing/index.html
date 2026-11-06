@@ -154,7 +154,7 @@
     @media (max-width:520px){.aircraft-button-grid,.legend,.grid-2{grid-template-columns:1fr}.meta-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
   </style>
 </head>
-<body class="fbp-theme" data-fbp-version="v1.2">
+<body class="fbp-theme">
   <main class="fbp-shell">
 
 
@@ -324,7 +324,8 @@ function returnToBriefingStart(){
   window.scrollTo({top:0,behavior:"smooth"});
 }
 function updateButtons(){[...aircraftButtonGrid.children].forEach(btn=>btn.classList.toggle("active",btn.dataset.aircraftCode===STATE.activeCode&&btn.dataset.aircraftLabel===STATE.activeSelectorLabel))}
-function setLoading(meta,registration=""){document.querySelector(".briefing-shell").classList.add("has-aircraft");document.querySelector(".hero-copy").hidden=false;document.querySelector(".layout").hidden=false;positionPanel.hidden=true;registrationLookup.hidden=false;registrationInput.value=registration||"";pageTitle.textContent="MyAircraft";selectorSummary.textContent=`${meta.selectorLabel} · ${meta.fullName} · ${meta.configName}`;aircraftHeaderTitle.textContent=`${meta.selectorLabel} · ${meta.fullName}`;aircraftHeaderSub.textContent="Loading aircraft data...";summaryStats.innerHTML=`<div class="meta-stat"><strong>—</strong><span>Legal Minimum Crew</span></div><div class="meta-stat"><strong>—</strong><span>Standard Crew Compliment</span></div><button class="meta-stat meta-stat-link" type="button" disabled><strong>BA AOR Diagrams</strong><span>Loading…</span></button><button class="meta-stat meta-stat-link" type="button" disabled><strong>Delivery Standards</strong><span>Loading…</span></button>`;aircraftMetaContent.innerHTML=`<div class="loading"><span class="dot"></span>Loading aircraft summary...</div>`;positionContent.innerHTML=`<div class="loading"><span class="dot"></span>Loading aircraft briefing...</div>`;clearDiagram()}
+function setRegistrationExample(code){const registrations=Object.values(globalThis.AIRCRAFT_REGISTRATIONS||{});const match=registrations.find(item=>item.airfile===code);registrationInput.placeholder=match?.registration||"XXXX"}
+function setLoading(meta,registration=""){setRegistrationExample(meta.airfile||meta.code);setRegistrationExample(meta.airfile||meta.code);document.querySelector(".briefing-shell").classList.add("has-aircraft");document.querySelector(".hero-copy").hidden=false;document.querySelector(".layout").hidden=false;positionPanel.hidden=true;registrationLookup.hidden=false;registrationInput.value=registration||"";pageTitle.textContent="MyAircraft";selectorSummary.textContent=`${meta.selectorLabel} · ${meta.fullName} · ${meta.configName}`;aircraftHeaderTitle.textContent=`${meta.selectorLabel} · ${meta.fullName}`;aircraftHeaderSub.textContent="Loading aircraft data...";summaryStats.innerHTML=`<div class="meta-stat"><strong>—</strong><span>Legal Minimum Crew</span></div><div class="meta-stat"><strong>—</strong><span>Standard Crew Compliment</span></div><button class="meta-stat meta-stat-link" type="button" disabled><strong>BA AOR Diagrams</strong><span>Loading…</span></button><button class="meta-stat meta-stat-link" type="button" disabled><strong>Delivery Standards</strong><span>Loading…</span></button>`;aircraftMetaContent.innerHTML=`<div class="loading"><span class="dot"></span>Loading aircraft summary...</div>`;positionContent.innerHTML=`<div class="loading"><span class="dot"></span>Loading aircraft briefing...</div>`;clearDiagram()}
 
 function applyAircraftDiagram(code,data,deck){const configured=globalThis.AIRCRAFT_DIAGRAMS?.[code];const diagram=configured?.decks?configured.decks[deck]:configured;if(!diagram)return data;const legacy=data.diagram;if(!legacy)return{...data,diagram};const merged={...legacy,...diagram};for(const key of ["positionPanels","fuselageClipPath","aorAreaIds","aorShapes","demoPoints"]){if(diagram[key]==null&&legacy[key]!=null)merged[key]=legacy[key]}if(diagram.positionPanels==null&&legacy.positionPanels)merged.viewBox=legacy.viewBox||diagram.viewBox;return{...data,diagram:merged}}
 async function loadDataset(code,deck=null){const key=`AOR_${code}`;
@@ -507,15 +508,33 @@ function updateSepEquipment(meta){
   const items=(equipment||[]).map(item=>`${item.code}: ${item.location}`);
   card.innerHTML=`<strong>SEP Equipment Summary</strong>${summaryList(items,"None listed")}`;
 }
-function updateSummaryStats(meta,data){
+const DOCUNET_AOR_LINKS=Object.freeze({
+  "78E":{app:"docunet://BAW-B787-FAM#KTHIFKFE.B-FM-492814060724DKDEQGSQM-1",web:"https://docunet-online.vistair.com/BAW/?manualCode=BAW-B787-FAM&preferredRevisionId=Latest&id=KTHIFKFE.B-FM-492814060724DKDEQGSQM-1"},
+  "789":{app:"docunet://BAW-B787-FAM#KTHIFKFE.B-FM-311314102425EUVTYYHKC-1",web:"https://docunet-online.vistair.com/BAW/?manualCode=BAW-B787-FAM&preferredRevisionId=Latest&id=KTHIFKFE.B-FM-311314102425EUVTYYHKC-1"},
+  "78N":{app:"docunet://BAW-B787-FAM#KTHIFKFE.B-FM-440214102425VNQJUONZJ-1",web:"https://docunet-online.vistair.com/BAW/?manualCode=BAW-B787-FAM&preferredRevisionId=Latest&id=KTHIFKFE.B-FM-440214102425VNQJUONZJ-1"},
+  "781":{app:"docunet://BAW-B787-FAM#KTHIFKFE.B-YNFBNRFN-1",web:"https://docunet-online.vistair.com/BAW/?manualCode=BAW-B787-FAM&preferredRevisionId=Latest&id=KTHIFKFE.B-YNFBNRFN-1"},
+  "78Z":{app:"docunet://BAW-B787-FAM#KTHIFKFE.B-FM-401111091526VZUMLYOMG-1",web:"https://docunet-online.vistair.com/BAW/?manualCode=BAW-B787-FAM&preferredRevisionId=Latest&id=KTHIFKFE.B-FM-401111091526VZUMLYOMG-1"},
+  "77M":{app:"docunet://BAW-B777-FAM#LNSIKMLF.B-SFJQIYVY-1",web:"https://docunet-online.vistair.com/BAW/?manualCode=BAW-B777-FAM&preferredRevisionId=1&id=LNSIKMLF.B-SFJQIYVY-1"},
+  "77S":{app:"docunet://BAW-B777-FAM#LNSIKMLF.B-XUSPJCXX-1",web:"https://docunet-online.vistair.com/BAW/?manualCode=BAW-B777-FAM&preferredRevisionId=1&id=LNSIKMLF.B-XUSPJCXX-1"},
+  "77T":{app:"docunet://BAW-B777-FAM#LNSIKMLF.B-PUBWKUFG-1",web:"https://docunet-online.vistair.com/BAW/?manualCode=BAW-B777-FAM&preferredRevisionId=1&id=LNSIKMLF.B-PUBWKUFG-1"},
+  "77L":{app:"docunet://BAW-B777-FAM#LNSIKMLF.B-LGIMOVUF-1",web:"https://docunet-online.vistair.com/BAW/?manualCode=BAW-B777-FAM&preferredRevisionId=1&id=LNSIKMLF.B-LGIMOVUF-1"},
+  "38A":{app:"docunet://BAW-A3L-CCOM#id13-10.toc-duinv-20300094",web:"https://docunet-online.vistair.com/BAW/?manualCode=BAW-A3L-CCOM&preferredRevisionId=Latest&id=id13-10.toc-duinv-20300094"},
+  "351":{app:"docunet://BAW-A3P-CCOM#id13-35.toc-psl-PP04781",web:"https://docunet-online.vistair.com/BAW/?manualCode=BAW-A3P-CCOM&preferredRevisionId=Latest&id=id13-35.toc-psl-PP04781"},
+  "77H":{app:"docunet://BAW-B777-FAM#LNSIKMLF.B-BXUMVYMJ-1",web:"https://docunet-online.vistair.com/BAW/?manualCode=BAW-B777-FAM&preferredRevisionId=1&id=LNSIKMLF.B-BXUMVYMJ-1"}
+});function updateSummaryStats(meta,data){
   const crew=data?.crew||meta.crew||{};
   const typedRegistration=registrationInput.value.trim();
   const registrationRecord=typedRegistration?globalThis.getAircraftByRegistration?.(typedRegistration):null;
   const matchingRecord=registrationRecord?.airfile===(meta.airfile||meta.code);
-  const aorUrl=typedRegistration?(matchingRecord?(registrationRecord.baAorUrl||meta.baAorUrl):null):meta.baAorUrl;
-  const deliveryUrl=typedRegistration?(matchingRecord?(registrationRecord.baDeliveryStandardsUrl||meta.baDeliveryStandardsUrl):null):meta.baDeliveryStandardsUrl;
-  const aorButton=aorUrl?`<a class="meta-stat meta-stat-link" href="${esc(aorUrl)}" target="_blank" rel="noopener noreferrer"><strong>BA AOR Diagrams</strong><span>Open in new tab</span></a>`:`<button class="meta-stat meta-stat-link" type="button" disabled><strong>BA AOR Diagrams</strong><span>Link not listed</span></button>`;
-  const deliveryStandardsButton=deliveryUrl?`<a class="meta-stat meta-stat-link" href="${esc(deliveryUrl)}" target="_blank" rel="noopener noreferrer"><strong>Delivery Standards</strong><span>Open in new tab</span></a>`:`<button class="meta-stat meta-stat-link" type="button" disabled><strong>Delivery Standards</strong><span>Link not listed</span></button>`;
+  const aircraftCode=meta.airfile||meta.code;
+  const docunetAor=DOCUNET_AOR_LINKS[aircraftCode]||null;
+  const aorUrl=typedRegistration?(matchingRecord?(docunetAor?.web||registrationRecord.baAorUrl||meta.baAorUrl):null):(docunetAor?.web||meta.baAorUrl);
+  const aorAppUrl=docunetAor&&(!typedRegistration||matchingRecord)?docunetAor.app:null;
+  const deliveryCode=matchingRecord?registrationRecord.airfile:(meta.airfile||meta.code);
+  const deliveryUrl=deliveryCode?"https://docunet-online.vistair.com/BAW/?manualCode=BAW-AUTO-C03A99BF0&preferredRevisionId=1&id="+encodeURIComponent(deliveryCode):null;
+  const deliveryAppUrl=deliveryCode?"docunet://BAW-AUTO-C03A99BF0#"+encodeURIComponent(deliveryCode):null;
+  const aorButton=aorAppUrl&&aorUrl?`<a class="meta-stat meta-stat-link docunet-app-link" href="${esc(aorAppUrl)}" data-web-url="${esc(aorUrl)}" target="_blank" rel="noopener noreferrer"><strong>BA AOR Diagrams</strong><span>Open in DocuNet</span></a>`:aorUrl?`<a class="meta-stat meta-stat-link" href="${esc(aorUrl)}" target="_blank" rel="noopener noreferrer"><strong>BA AOR Diagrams</strong><span>Open in new tab</span></a>`:`<button class="meta-stat meta-stat-link" type="button" disabled><strong>BA AOR Diagrams</strong><span>Link not listed</span></button>`;
+  const deliveryStandardsButton=deliveryUrl?`<a class="meta-stat meta-stat-link docunet-app-link" href="${esc(deliveryAppUrl)}" data-web-url="${esc(deliveryUrl)}" target="_blank" rel="noopener noreferrer"><strong>Delivery Standards</strong><span>Open in DocuNet</span></a>`:`<button class="meta-stat meta-stat-link" type="button" disabled><strong>Delivery Standards</strong><span>Link not listed</span></button>`;
   summaryStats.innerHTML=`<div class="meta-stat"><strong>${esc(String(crew.legalMinimum??"—"))}</strong><span>Legal Minimum Crew</span></div><div class="meta-stat"><strong>${esc(String(crew.standardCrewCompliment??"—"))}</strong><span>Standard Crew Compliment</span></div>${aorButton}${deliveryStandardsButton}`;
 }
 function renderAircraft(meta,data){
@@ -536,7 +555,7 @@ function renderAircraft(meta,data){
 function formatBullets(text){if(!text||String(text).trim()==="")return `<p>None</p>`;const parts=String(text).split(",").map(s=>s.trim()).filter(Boolean);if(!parts.length)return `<p>None</p>`;return `<ul>${parts.map(item=>`<li>${esc(item)}</li>`).join("")}</ul>`}
 function setActivePosition(number){const pos=(STATE.activeData?.positions||[]).find(p=>p.number===number);if(!pos)return;STATE.activePosition=pos;positionPanel.hidden=false;const hasAor=!!pos?.aor?.hasAor,doorText=pos.doorResponsibility||"None",restText=pos.rest||"None",serviceCabins=(pos.service?.cabin||[]).map(expandAcronym).join(" · ")||"None";let demo=`<ul><li>Position: None</li><li>Points out: None</li></ul>`;if(pos.demo){const p=pos.demo.position==null?"None":pos.demo.position,pts=pos.demo.pointsOut&&pos.demo.pointsOut.length?pos.demo.pointsOut.join(", "):"None";demo=`<ul><li>Position: ${esc(p)}</li><li>Points out: ${esc(pts)}</li></ul>`}positionContent.innerHTML=`<div class="title-row"><div><h3 class="position-name">${esc(pos.displayTitle||`Position ${pos.number}`)}</h3><div class="subtle">${esc(pos.seating?.full||"Seat not listed")}</div></div><div class="badge">${hasAor?"AOR assigned":"No AOR"}</div></div><div class="pill-row"><div class="pill">Door: ${esc(doorText)}</div><div class="pill">Rest: ${esc(restText)}</div><div class="pill">Cabin: ${esc(serviceCabins)}</div></div><div class="section"><h3>Service Delivery</h3>${formatBullets(pos.service?.summary)}</div><div class="section"><h3>Safety Demo</h3>${demo}</div><div class="section"><h3>Area of Responsibility (AOR)</h3><p>${hasAor?esc(pos.aor.area):"None"}</p></div><div class="section"><h3>Additional Responsibilities</h3>${pos.additionalResponsibilities?.length?`<ul>${pos.additionalResponsibilities.map(item=>`<li>${esc(item)}</li>`).join("")}</ul>`:`<p>None</p>`}</div><div class="section"><h3>Pre-Flight SEP Equipment Checks</h3><div class="chips">${(pos.equipmentChecks||[]).map(item=>{const fullName=globalThis.EQUIPMENT?.[item.code]||item.code,locationName=locationTypeLabel(item.locationType),qty=item.qty&&item.qty>1?`<span class="qty">${item.qty}</span>`:"";return `<button type="button" class="equipment-chip ${esc(item.locationType||"area")}" onclick="window.__toggleEquipmentChip(this)" aria-expanded="false">${qty}<span class="code">${esc(item.code)}</span><span class="full-name">— ${esc(fullName)}</span>${locationName?`<span class="location-name">· ${esc(locationName)}</span>`:""}</button>`}).join("")}</div></div>`;setAorOverlay(pos);setDemoMarker(pos);seatLayer.querySelectorAll(".seat-btn,.position-hotspot").forEach(btn=>{const active=Number(btn.dataset.position)===STATE.activePosition?.number;btn.classList.toggle("active",active);btn.setAttribute("aria-pressed",active?"true":"false")})}
 function showAllPositionsList(){if(!STATE.activeData)return;STATE.activePosition=null;positionPanel.hidden=true;setAorOverlay(null);setDemoMarker(null);seatLayer.querySelectorAll(".seat-btn,.position-hotspot").forEach(btn=>{btn.classList.remove("active");btn.setAttribute("aria-pressed","false")})}
-async function selectAircraft(code,displayLabel=null,deck=null,registration=null){
+async function selectAircraft(code,displayLabel=null,deck=null,registration=null){setRegistrationExample(code);
 const baseMeta=globalThis.AIRCRAFT[code];let meta=baseMeta?(displayLabel?{...baseMeta,selectorLabel:displayLabel,selectorSubLabel:`${displayLabel} · ${baseMeta.fullName}`}:baseMeta):{code,selectorLabel:displayLabel||code,selectorSubLabel:`${displayLabel||code} · Details pending`,fullName:`B787 (${code})`,configName:"Configuration pending",manufacturer:"Boeing",classes:[],includesRestFacilities:null,dataPath:`data/aircraft/${code}.js`};
 if(deck)meta={...meta,deck,selectorSubLabel:`${meta.selectorSubLabel} · ${deck==="MD"?"Main Deck":"Upper Deck"}`};
 STATE.activeCode=code;STATE.activeDeck=deck;STATE.activeSelectorLabel=deck?`${code} ${deck}`:meta.selectorLabel||code;STATE.activeMeta=meta;STATE.activeData=null;STATE.activePosition=null;updateButtons();
@@ -557,5 +576,8 @@ document.addEventListener("DOMContentLoaded",boot);
   <script>
     document.querySelector(".fbp-shell").prepend(FBP.createNavigation("briefing"));
   </script>
+<script>
+document.addEventListener("click",function(event){const link=event.target.closest("a.docunet-app-link");if(!link)return;event.preventDefault();let leftPage=false;window.addEventListener("blur",()=>{leftPage=true},{once:true});document.addEventListener("visibilitychange",()=>{if(document.hidden)leftPage=true},{once:true});window.location.href=link.href;window.setTimeout(()=>{if(!leftPage&&!document.hidden&&link.dataset.webUrl)window.open(link.dataset.webUrl,"_blank","noopener,noreferrer")},1600)});
+</script>
 </body>
 </html>

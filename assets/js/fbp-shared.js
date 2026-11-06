@@ -60,34 +60,6 @@ Responsibilities
     };
 
     //-----------------------------------------------------
-    // Version Badge
-    //-----------------------------------------------------
-
-    FBP.injectVersion = function () {
-
-        const version =
-
-            document.body.dataset.fbpVersion ||
-
-            FBP.version;
-
-        const badge =
-
-            document.createElement("div");
-
-        badge.className = "fbp-version";
-
-        badge.textContent = version;
-
-        document.body.appendChild(
-
-            badge
-
-        );
-
-    };
-
-    //-----------------------------------------------------
     // Initialise
     //-----------------------------------------------------
 
@@ -95,7 +67,6 @@ Responsibilities
 
         FBP.refreshAssets();
 
-        FBP.injectVersion();
 
     };
 

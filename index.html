@@ -15,7 +15,7 @@
   
 </head>
 
-<body class="fbp-theme" data-fbp-version="v2">
+<body class="fbp-theme">
  
 <main class="fbp-shell">
 
@@ -54,32 +54,37 @@
 
 
     <section class="homepage-wrap">
-  <div class="fbp-grid-tools">
+  <div class="fbp-grid-tools public-tools">
     <article class="fbp-card tool-card">
       <button class="tool-card-toggle" type="button" aria-label="MyAircraft — Aircraft details, AOR diagrams and service standards" aria-expanded="false" aria-controls="tool-details-briefing">
         <span class="fbp-icon" aria-hidden="true"><svg viewBox="0 0 48 48" focusable="false"><path d="M24 4.5 27 18l13 8v3l-13-3.5L26 38l5 3v2l-7-2-7 2v-2l5-3-1-12.5L8 29v-3l13-8z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><path d="m19 39 5 1.5 5-1.5" fill="none" stroke="#d7193f" stroke-width="2.7" stroke-linecap="round"/><path d="m21.5 36.5 2.5 1 2.5-1" fill="none" stroke="#75b8df" stroke-width="2.7" stroke-linecap="round"/></svg></span><span class="tool-card-title">MyAircraft</span>
       </button>
       <div class="tool-card-details" id="tool-details-briefing" hidden><p>Lookup aircraft information such as Wi-Fi details and seating config, as well as opening AOR diagrams and service delivery standards.</p><a class="fbp-button primary tool-card-open" href="briefing/index.html">Open MyAircraft</a></div>
     </article>
-    <article class="fbp-card tool-card">
-      <button class="tool-card-toggle" type="button" aria-label="MyBriefing — FDP calculations and pre-flight briefing presentations" aria-expanded="false" aria-controls="tool-details-fdp">
-        <span class="fbp-icon" aria-hidden="true"><svg viewBox="0 0 48 48" focusable="false"><path d="M7 11a3 3 0 0 1 3-3h19l5 5v22H10a3 3 0 0 1-3-3z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M14 18h13M14 23h10M14 28h8M21 8v5h5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="27" y="16" width="14" height="27" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M31 20h6M32 38h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="34" cy="40" r=".7" fill="currentColor"/></svg></span><span class="tool-card-title">MyBriefing</span>
-      </button>
-      <div class="tool-card-details" id="tool-details-fdp" hidden><p>Calculate FDP limits, latest chocks-on times and launch pre-flight briefing presentations for SCCMs</p><a class="fbp-button primary tool-card-open" href="FDP/index.html">Open MyBriefing</a></div>
-    </article>
-    <article class="fbp-card tool-card">
-      <button class="tool-card-toggle" type="button" aria-label="MyRoster — Calendar" aria-expanded="false" aria-controls="tool-details-ical">
-        <span class="fbp-icon" aria-hidden="true"><svg viewBox="0 0 48 48" focusable="false"><rect x="7" y="11" width="34" height="31" rx="5" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M15 6v10M33 6v10M7 20h34M15 27h5M25 27h5M15 34h5M25 34h5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="m31 32 3 3 6-8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tool-card-title">MyRoster</span>
-      </button>
-      <div class="tool-card-details" id="tool-details-ical" hidden><p>Upload a roster PDF or paste Crewlink roster text, then sync your roster with Apple iCloud Calendar.</p><a class="fbp-button primary tool-card-open" href="iCal/index.html">Open MyRoster</a></div>
-    </article>
-    <article class="fbp-card tool-card">
+    <article class="fbp-card tool-card tool-card-documents">
       <button class="tool-card-toggle" type="button" aria-label="MyDocuments — Crew forms and reference PDFs" aria-expanded="false" aria-controls="tool-details-documents">
         <span class="fbp-icon" aria-hidden="true"><svg viewBox="0 0 48 48" focusable="false"><path d="M12 5h17l8 8v30H12a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M28 5v9h9M16 21h17M16 27h17M16 33h12M16 39h10" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tool-card-title">MyDocuments</span>
       </button>
       <div class="tool-card-details" id="tool-details-documents" hidden><p>Open, print or download commonly used crew forms and reference documents.</p><a class="fbp-button primary tool-card-open" href="MyDocuments/index.html">Open MyDocuments</a></div>
     </article>
   </div>
+  <details class="homepage-admin">
+    <summary>Admin</summary>
+    <div class="fbp-grid-tools">
+      <article class="fbp-card tool-card tool-card-briefing">
+      <button class="tool-card-toggle" type="button" aria-label="MyBriefing — FDP calculations and pre-flight briefing presentations" aria-expanded="false" aria-controls="tool-details-fdp">
+        <span class="fbp-icon" aria-hidden="true"><svg viewBox="0 0 48 48" focusable="false"><path d="M7 11a3 3 0 0 1 3-3h19l5 5v22H10a3 3 0 0 1-3-3z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M14 18h13M14 23h10M14 28h8M21 8v5h5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="27" y="16" width="14" height="27" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M31 20h6M32 38h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="34" cy="40" r=".7" fill="currentColor"/></svg></span><span class="tool-card-title">MyBriefing</span>
+      </button>
+      <div class="tool-card-details" id="tool-details-fdp" hidden><p>Calculate FDP limits, latest chocks-on times and launch pre-flight briefing presentations for SCCMs</p><a class="fbp-button primary tool-card-open" href="FDP/index.html">Open MyBriefing</a></div>
+    </article>
+      <article class="fbp-card tool-card tool-card-roster">
+      <button class="tool-card-toggle" type="button" aria-label="MyRoster — Calendar" aria-expanded="false" aria-controls="tool-details-ical">
+        <span class="fbp-icon" aria-hidden="true"><svg viewBox="0 0 48 48" focusable="false"><rect x="7" y="11" width="34" height="31" rx="5" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M15 6v10M33 6v10M7 20h34M15 27h5M25 27h5M15 34h5M25 34h5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="m31 32 3 3 6-8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tool-card-title">MyRoster</span>
+      </button>
+      <div class="tool-card-details" id="tool-details-ical" hidden><p>Upload a roster PDF or paste Crewlink roster text, then sync your roster with Apple iCloud Calendar.</p><a class="fbp-button primary tool-card-open" href="iCal/index.html">Open MyRoster</a></div>
+    </article>
+    </div>
+  </details>
 </section>
 
 </main>

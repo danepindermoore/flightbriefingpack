@@ -48,9 +48,9 @@ body.fbp-theme .tool-card-toggle:hover { transform: none; box-shadow: none; }
   background: linear-gradient(145deg, #216da5, #0d3f70); box-shadow: inset 0 1px rgba(255,255,255,.2), 0 10px 25px rgba(0,0,0,.22);
   transition: background .2s ease, transform .2s ease;
 }
-.tool-card:nth-child(2) .fbp-icon { background: linear-gradient(145deg, #c8102e, #86102b); }
-.tool-card:nth-child(3) .fbp-icon { background: linear-gradient(145deg, #398bb9, #155b91); }
-.tool-card:nth-child(4) .fbp-icon { background: linear-gradient(145deg, #277caa, #12466f); }
+.tool-card-briefing .fbp-icon { background: linear-gradient(145deg, #c8102e, #86102b); }
+.tool-card-roster .fbp-icon { background: linear-gradient(145deg, #398bb9, #155b91); }
+.tool-card-documents .fbp-icon { background: linear-gradient(145deg, #277caa, #12466f); }
 .tool-card .fbp-icon svg { width: 42px; height: 42px; }
 .tool-card-title { max-width: 100%; color: #fff; font-size: 1.05rem; font-weight: 750; line-height: 1.2; }
 .tool-card-toggle:hover .fbp-icon, .tool-card-toggle:focus-visible .fbp-icon { transform: scale(1.06); }
@@ -84,3 +84,11 @@ body.fbp-theme .tool-card-toggle:hover { transform: none; box-shadow: none; }
 @media (prefers-reduced-motion: reduce) {
   .tool-card, .tool-card-title, .tool-card .fbp-icon { transition: none !important; }
 }
+
+.homepage-admin{margin-top:16px;border:1px solid rgba(176,201,223,.2);border-radius:18px;background:linear-gradient(145deg,rgba(15,39,69,.74),rgba(7,27,61,.8));overflow:hidden}
+.homepage-admin>summary{display:flex;align-items:center;justify-content:space-between;min-height:58px;padding:14px 20px;color:#fff;font-size:1rem;font-weight:800;cursor:pointer;list-style:none}
+.homepage-admin>summary::-webkit-details-marker{display:none}
+.homepage-admin>summary::after{content:"+";display:grid;place-items:center;width:28px;height:28px;border:1px solid rgba(255,255,255,.35);border-radius:50%;font-size:1.2rem;line-height:1}
+.homepage-admin[open]>summary::after{content:"−"}
+.homepage-admin>summary:focus-visible{outline:3px solid var(--brand-sky);outline-offset:-3px}
+.homepage-admin>.fbp-grid-tools{margin:0;padding:0 14px 14px}

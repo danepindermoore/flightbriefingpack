@@ -288,22 +288,6 @@ body.fbp-theme {
   box-shadow: 0 12px 28px rgba(11,58,98,0.3);
 }
 
-.fbp-version {
-  position: fixed;
-  right: 16px;
-  bottom: 14px;
-  z-index: 999;
-  padding: 9px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: rgba(8,16,29,0.78);
-  backdrop-filter: blur(10px);
-  color: var(--muted);
-  font-size: 0.82rem;
-  font-weight: 700;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.18);
-}
-
 @media (max-width: 980px) {
   .fbp-grid-3 {
     grid-template-columns: 1fr;
@@ -349,12 +333,7 @@ body.fbp-theme {
     width: 100%;
   }
 
-  .fbp-version {
-    right: 12px;
-    bottom: 12px;
   }
-
-}
 
 /* Shared visual treatment for feature-page panels. */
 body.fbp-theme .briefing-card,

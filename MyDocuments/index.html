@@ -13,18 +13,21 @@
   <script src="../assets/js/fbp-shell.js"></script>
   <script src="../assets/js/fbp-page.js"></script>
 </head>
-<body class="fbp-theme" data-fbp-version="v1">
+<body class="fbp-theme">
   <main class="fbp-shell">
     <div class="documents-content">
-      <p class="documents-intro">Open a PDF in a new tab to read or print it from your browser, or download a copy to your device.</p>
+      <p class="documents-intro">Open a document in a new browser tab.</p>
       <section class="documents-section">
         <h2>Available Documents</h2>
         <div class="documents-grid">
-          <article class="document-card"><div><span class="document-type">CREW RESOURCE</span><h3>Crew Break Seat Allocation Template</h3></div><div class="document-actions"><a href="../assets/mydocuments/Crew%20Break%20Seat%20Allocation%20Template.pdf" target="_blank" rel="noopener">Open / Print</a><a href="../assets/mydocuments/Crew%20Break%20Seat%20Allocation%20Template.pdf" download>Download PDF</a></div></article>
-          <article class="document-card"><div><span class="document-type">CREW RESOURCE</span><h3>Crew Hold Baggage Manifest</h3></div><div class="document-actions"><a href="../assets/mydocuments/Crew%20Hold%20Baggage%20Manifest.pdf" target="_blank" rel="noopener">Open / Print</a><a href="../assets/mydocuments/Crew%20Hold%20Baggage%20Manifest.pdf" download>Download PDF</a></div></article>
-          <article class="document-card"><div><span class="document-type">CREW RESOURCE</span><h3>Flight Crew Order Form</h3></div><div class="document-actions"><a href="../assets/mydocuments/Flight%20Crew%20Order%20Form.pdf" target="_blank" rel="noopener">Open / Print</a><a href="../assets/mydocuments/Flight%20Crew%20Order%20Form.pdf" download>Download PDF</a></div></article>
-          <article class="document-card"><div><span class="document-type">CREW RESOURCE</span><h3>India SPML Delivery Template</h3></div><div class="document-actions"><a href="../assets/mydocuments/India%20SPML%20delivery%20Template.pdf" target="_blank" rel="noopener">Open / Print</a><a href="../assets/mydocuments/India%20SPML%20delivery%20Template.pdf" download>Download PDF</a></div></article>
-          <article class="document-card"><div><span class="document-type">CREW RESOURCE</span><h3>Summer Season 2026 Report Times</h3></div><div class="document-actions"><a href="../assets/mydocuments/Summer%20Season%202026%20Report%20Times.pdf" target="_blank" rel="noopener">Open / Print</a><a href="../assets/mydocuments/Summer%20Season%202026%20Report%20Times.pdf" download>Download PDF</a></div></article>
+          <article class="document-card"><div><span class="document-type">CREW RESOURCE</span><h3>Crew Break Seat Allocation Template (No Bunks)</h3></div><div class="document-actions"><a href="../assets/mydocuments/Crew%20Break%20Seat%20Allocation%20Template%20%28No%20Bunks%29.pdf" target="_blank" rel="noopener">Open</a></div></article>
+          <article class="document-card"><div><span class="document-type">CREW RESOURCE</span><h3>Crew Hold Baggage Manifest</h3></div><div class="document-actions"><a href="../assets/mydocuments/Crew%20Hold%20Baggage%20Manifest.pdf" target="_blank" rel="noopener">Open</a></div></article>
+          <article class="document-card"><div><span class="document-type">CREW RESOURCE</span><h3>Flight Crew Meal Order Form</h3></div><div class="document-actions"><a href="../assets/mydocuments/Flight%20Crew%20Meal%20Order%20Form.pdf" target="_blank" rel="noopener">Open</a></div></article>
+          <article class="document-card"><div><span class="document-type">CREW RESOURCE</span><h3>India SPML WT Delivery Template</h3></div><div class="document-actions"><a href="../assets/mydocuments/India%20SPML%20WT%20Delivery%20Template.pdf" target="_blank" rel="noopener">Open</a></div></article>
+          <article class="document-card"><div><span class="document-type">CREW RESOURCE</span><h3>Summer Season 2026 Report Times</h3></div><div class="document-actions"><a href="../assets/mydocuments/Summer%20Season%202026%20Report%20Times.pdf" target="_blank" rel="noopener">Open</a></div></article>
+          <article class="document-card"><div><span class="document-type">DOCUNET</span><h3>Pre-Take Off Service: Drink Restrictions</h3></div><div class="document-actions"><a class="docunet-app-link" href="docunet://BAW-AUTO-C03A99BF0#Pre-Take%2520Off%2520Drinks" data-web-url="https://docunet-online.vistair.com/BAW/?manualCode=BAW-AUTO-C03A99BF0&amp;preferredRevisionId=1&amp;id=Pre-Take%2520Off%2520Drinks" target="_blank" rel="noopener">Open</a></div></article>
+          <article class="document-card"><div><span class="document-type">DOCUNET</span><h3>Aircraft Change Matrix</h3></div><div class="document-actions"><a class="docunet-app-link" href="docunet://BAW-AUTO-C03A99BF0#Aircraft%2520Change%2520Matrix" data-web-url="https://docunet-online.vistair.com/BAW/?manualCode=BAW-AUTO-C03A99BF0&amp;preferredRevisionId=1&amp;id=Aircraft%2520Change%2520Matrix" target="_blank" rel="noopener">Open</a></div></article>
+          <article class="document-card"><div><span class="document-type">DOCUNET</span><h3>Club World in First</h3></div><div class="document-actions"><a class="docunet-app-link" href="docunet://BAW-AUTO-C03A99BF0#Club%2520World%2520in%2520First" data-web-url="https://docunet-online.vistair.com/BAW/?manualCode=BAW-AUTO-C03A99BF0&amp;preferredRevisionId=1&amp;id=Club%2520World%2520in%2520First" target="_blank" rel="noopener">Open</a></div></article>
         </div>
       </section>
     </div>
@@ -32,5 +35,8 @@
   <script>
     FBP.createPage({container:"main",contentSelector:".documents-content",layout:"wide",title:"MyDocuments",subtitle:"Crew forms, templates and reference documents",feedbackText:"MyDocuments Feedback",feedbackSubject:"Feedback for MyDocuments",activePage:"documents"});
   </script>
+<script>
+document.addEventListener("click",function(event){const link=event.target.closest("a.docunet-app-link");if(!link)return;event.preventDefault();let leftPage=false;window.addEventListener("blur",()=>{leftPage=true},{once:true});document.addEventListener("visibilitychange",()=>{if(document.hidden)leftPage=true},{once:true});window.location.href=link.href;window.setTimeout(()=>{if(!leftPage&&!document.hidden&&link.dataset.webUrl)window.open(link.dataset.webUrl,"_blank","noopener,noreferrer")},1600)});
+</script>
 </body>
 </html>

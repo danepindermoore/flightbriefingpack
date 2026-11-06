@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="../assets/js/fbp-access.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content="Longhaul FDP calculator." />
@@ -27,9 +28,13 @@
     .fdp-card{background:var(--fdp-card);border:1px solid var(--fdp-border);border-radius:24px;box-shadow:var(--fdp-shadow);padding:20px;color:var(--fdp-text);}
     .fdp-card h2{margin:0 0 14px;font-size:18px;font-weight:800;letter-spacing:-.02em;}
     .section-note{color:var(--fdp-muted);font-size:13px;margin:-6px 0 14px;line-height:1.55;white-space:pre-line;}
+    .calculated-field>label{display:flex;align-items:center;flex-wrap:wrap;gap:7px;height:auto;min-height:2.35em;}
+    .calculated-badge{display:inline-flex;align-items:center;padding:3px 8px;border:1px solid rgba(117,184,223,.45);border-radius:999px;background:rgba(46,92,153,.22);color:#b8d9f1;font-size:10px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;}
+    .calculated-note{display:block;margin-top:6px;color:var(--fdp-muted);font-size:12px;line-height:1.35;}
     .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:stretch;}
     .form-grid > div:not(.airport-row),.aircraft-inputs > div{min-width:0;}
     .form-grid > div:not(.airport-row) > label,.aircraft-inputs > div > label{height:2.35em;line-height:1.15;}
+    .form-grid > .calculated-field > label{height:auto;min-height:2.35em;}
     .input-hint-wrap{position:relative;}
     .input-hint{display:none;position:static;max-width:min(330px,100%);margin:7px 0 0;padding:9px 12px;border:1px solid var(--fdp-border);border-radius:10px;background:var(--fdp-card);color:var(--fdp-text);box-shadow:0 6px 18px rgba(0,0,0,.18);font-size:13px;font-weight:600;line-height:1.35;}
     .input-hint-wrap:focus-within .input-hint{display:block;}
@@ -105,7 +110,7 @@
     }
 </style>
 </head>
-<body class="fbp-theme" data-fbp-version="v1.2">
+<body class="fbp-theme">
   <main class="fbp-shell app-wrap">
     <section class="fbp-hero">
       <div class="fbp-aircraft-bg" aria-hidden="true"><svg viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg"><g opacity="0.9" transform="translate(390 74) scale(1.12)"><path d="M566.5 95.5C550.4 96.5 508.9 97.8 456 99.8L337 178.5H283L359 99.2C307.4 101.3 247.4 104.2 184 107.6L117 156H74L122.5 108.8C74.1 111.5 34.3 114.2 11.8 116.5C4.7 117.2 0 123.5 0 130.6C0 137.8 5 144.1 12.1 144.8C34.8 147.1 74.7 149.7 122.7 152.4L74 199H117L184.6 153.5C248.3 156.9 308.3 159.9 359.7 162L283 239.5H337L456.3 161.4C509.2 163.4 550.5 164.8 566.5 165.8C582.1 166.8 595 154.6 595 139.1V122.2C595 106.7 582 94.5 566.5 95.5Z" fill="currentColor"/></g></svg></div>
@@ -139,17 +144,22 @@
           <div><label for="asccm">Acting Senior Crew Member</label><input id="asccm" maxlength="80" /></div>
           <div><label for="captainName">Captain's Name</label><div class="input-hint-wrap"><input id="captainName" maxlength="160" aria-describedby="captainNameHint" /><span id="captainNameHint" class="input-hint" role="status">Separate multiple people's names with commas</span></div></div>
           <div><label for="firstOfficerNames">First Officers' Names</label><div class="input-hint-wrap"><input id="firstOfficerNames" maxlength="240" aria-describedby="firstOfficerNamesHint" /><span id="firstOfficerNamesHint" class="input-hint" role="status">Separate multiple people's names with commas</span></div></div>
-          <div><label>Inbound Flight STD (Local)</label><div class="timegrid"><input id="inboundSTDHour" inputmode="numeric" maxlength="2" placeholder="HH" aria-label="Inbound STD hour" autocomplete="off" /><input id="inboundSTDMinute" inputmode="numeric" maxlength="2" placeholder="MM" aria-label="Inbound STD minute" autocomplete="off" /></div></div>
-          <div><label>Pick-Up (Enter timing before STD from station brief) on DocuNet</label><div class="timegrid"><input id="pickupOffsetHour" inputmode="numeric" maxlength="2" placeholder="HH" aria-label="Pick-up offset hours" autocomplete="off" /><input id="pickupOffsetMinute" inputmode="numeric" maxlength="2" placeholder="MM" aria-label="Pick-up offset minutes" autocomplete="off" /></div></div>
+
+
           <div class="aircraft-inputs"><div><label for="aircraftReg">Aircraft Reg <span class="small-italic">(Optional)</span></label><input id="aircraftReg" maxlength="5" placeholder="VIID" autocomplete="off" /></div><div><label for="aircraftType">Aircraft Type</label><select id="aircraftType"></select></div></div>
           <div><label for="numSectors">Number of Sectors</label><select id="numSectors"></select></div>
 
           <div><label>Scheduled Departure Time <span class="small-italic">(Local)</span></label><div class="timegrid"><input id="depHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="depMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
           <div><label for="acclimatisedAt">Acclimatised at</label><div class="acclimatisation-options"><input id="acclimatisedAt" maxlength="3" value="LHR" /><label class="tick-box" for="unknownAcclimatisation"><input id="unknownAcclimatisation" type="checkbox" /><span>Unknown</span></label></div></div>
-          <div><label>Report Time <span class="small-italic">(Local)</span></label><div class="timegrid"><input id="reportHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="reportMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
+          <div class="calculated-field"><label>Report Time <span class="small-italic">(Local)</span><span class="calculated-badge">Auto · editable</span></label><div class="timegrid"><input id="reportHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="reportMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div><small class="calculated-note">Prefilled from the flight details; you can change it.</small></div>
           <div><label for="restFacility">Rest Facility Available</label><select id="restFacility"><option value="1">Class 1 Rest (Bunks)</option><option value="2">Class 2 Rest (High Comfort Seat)</option><option value="3">Class 3 Rest (Passenger Seat)</option><option value="">No Rest Facility Available</option></select></div>
           <div><label>ABS Flight Time</label><div class="timegrid"><input id="absHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="absMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
           <div><label id="arrivalTimeLabel">Scheduled Arrival Time <span class="small-italic">(GMT)</span></label><div class="timegrid"><input id="lastArrHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="lastArrMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
+          <button id="briefingDetailsToggle" class="option-toggle full-span" type="button" aria-expanded="false" aria-controls="briefingDetailsSection">Briefing Details</button>
+          <div id="briefingDetailsSection" class="full-span options-grid hidden-block">
+          <div><label>Inbound Flight STD (Local)</label><div class="timegrid"><input id="inboundSTDHour" inputmode="numeric" maxlength="2" placeholder="HH" aria-label="Inbound STD hour" autocomplete="off" /><input id="inboundSTDMinute" inputmode="numeric" maxlength="2" placeholder="MM" aria-label="Inbound STD minute" autocomplete="off" /></div></div>
+          <div><label>Pick-Up (Enter timing before STD from station brief) on DocuNet</label><div class="timegrid"><input id="pickupOffsetHour" inputmode="numeric" maxlength="2" placeholder="HH" aria-label="Pick-up offset hours" autocomplete="off" /><input id="pickupOffsetMinute" inputmode="numeric" maxlength="2" placeholder="MM" aria-label="Pick-up offset minutes" autocomplete="off" /></div></div>
+          </div>
           <button id="moreOptionsToggle" class="option-toggle full-span" type="button" aria-expanded="false" aria-controls="moreOptionsSection">More Options</button>
           <div id="moreOptionsSection" class="full-span options-grid hidden-block">
             <div><label>Delayed Departure Time <span class="small-italic">(GMT, optional)</span></label><div class="timegrid"><input id="revDepHour" inputmode="numeric" maxlength="2" placeholder="HH" /><input id="revDepMinute" inputmode="numeric" maxlength="2" placeholder="MM" /></div></div>
@@ -228,6 +238,8 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       depMinute: document.getElementById('depMinute'),
       reportHour: document.getElementById('reportHour'),
       reportMinute: document.getElementById('reportMinute'),
+      briefingDetailsToggle: document.getElementById('briefingDetailsToggle'),
+      briefingDetailsSection: document.getElementById('briefingDetailsSection'),
       moreOptionsToggle: document.getElementById('moreOptionsToggle'),
       moreOptionsSection: document.getElementById('moreOptionsSection'),
       lastArrHour: document.getElementById('lastArrHour'),
@@ -303,6 +315,32 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
     function hideError(){ ids.errorBox.style.display='none'; ids.errorBox.textContent=''; }
     function sanitiseAirportInput(el){ el.value=normalizeCode(el.value); el.classList.remove('invalid'); }
     function sanitiseFlightNumber(){ let raw=ids.flightNumber.value.toUpperCase().replace(/[^A-Z0-9]/g,''); raw=raw.replace(/^BA/,'').replace(/[A-Z]/g,'').slice(0,4); ids.flightNumber.value='BA'+raw; }
+    function loadTestScenario(){
+      clearForm();
+      ids.flightNumber.value='BA9999';
+      ids.flightDate.value=''; setTodayDate();
+      ids.from.value='LHR'; ids.to.value='JFK'; ids.lhrTerminal.value='T5';
+      ids.sccm.value='Dane'; ids.asccm.value='Gary';
+      ids.captainName.value='Wendy'; ids.firstOfficerNames.value='Rebekah, Mark';
+      ids.inboundSTDHour.value='18'; ids.inboundSTDMinute.value='15'; ids.pickupOffsetHour.value='01'; ids.pickupOffsetMinute.value='55';
+      ids.aircraftReg.value='XWBA'; updateAircraftFromRegistration();
+      ids.numSectors.value='1';
+      ids.depHour.value='12'; ids.depMinute.value='10';
+      ids.acclimatisedAt.value='LHR'; ids.unknownAcclimatisation.checked=false; ids.acclimatisedAt.disabled=false;
+      ids.absHour.value='10'; ids.absMinute.value='00';
+      ids.lastArrHour.value='22'; ids.lastArrMinute.value='10';
+      currentAirportRoute=null; lastAutoPopulatedRoute=null;
+      setAirportSuggestions('departureAirportMenu','[data-airport-menu-toggle="departureAirportMenu"]','from',[]);
+      setAirportSuggestions('destinationAirportMenu','[data-airport-menu-toggle="destinationAirportMenu"]','to',[]);
+      updateLhrTerminalState(); prepopulateRestFacility(); prepopulateReportTime();
+      ids.flightNumber.value='BA9999';
+      hideError(); clearInvalidMarkers();
+    }
+    function handleFlightNumberInput(){
+      const digits=ids.flightNumber.value.replace(/\D/g,'');
+      if(digits==='9999'){loadTestScenario();return}
+      sanitiseFlightNumber(); updateRouteFromFlightNumber();
+    }
     let lastAutoPopulatedRoute = null;
     let currentAirportRoute = null;
     function getRouteSectors(route){
@@ -724,6 +762,7 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       const wakeUpTime=pickupTime?shiftClock(pickupTime,-60):'';
 
       resultBoxes[0].innerHTML=[
+        infoRow('Destination Airport', `${arrAirport.city}, ${arrAirport.airport}`),
         infoRow('Report Time', fmtClockWithZ(reportUtcMs)),
         infoRow('Critical Path RTG - Cabin Door Closed', fmtClockWithZ(depUtcMs - 5 * 60000)),
         infoRow('Rostered Flight Duty Period', fmtDuration(rosteredFdp)),
@@ -733,7 +772,8 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       ].join('');
 
       const maxFdpReference=unknownAcclimatisation ? 'Unknown acclimatisation (Table 3)' : `Reference time used: ${acclRefHHMM} local @ ${acclimatisedAt}`;
-      const legalMinimumRest=routeRest?.minimum==null?'00h00m':(()=>{const match=String(routeRest.minimum).match(/^(\d+)[.:](\d{1,2})$/);return match?fmtDuration(Number(match[1])*60+Number(match[2])):'00h00m'})();
+      const legalMinimumRestMinutes=routeRest?.minimum==null?0:(()=>{const match=String(routeRest.minimum).match(/^(\d+)[.:](\d{1,2})$/);return match?Number(match[1])*60+Number(match[2]):0})();
+      const legalMinimumRest=legalMinimumRestMinutes===0?'Not Required':fmtDuration(legalMinimumRestMinutes);
       const maxFdpNote=[maxFdpReference,inflightRestRequirement>0?`Inflight rest: ${fmtDuration(inflightRestRequirement)} · New Max FDP: ${fmtDuration(newMaxFDPInclDisc)}${cmdrDiscRequired?" (including Commander's Discretion)":''}`:''].filter(Boolean).join(' · ');
       const box2Rows=[
         infoRow('Legal Minimum Rest',legalMinimumRest),
@@ -834,6 +874,7 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       ids.sccm.value=''; ids.asccm.value=''; ids.captainName.value=''; ids.firstOfficerNames.value=''; ids.inboundSTDHour.value=''; ids.inboundSTDMinute.value=''; ids.pickupOffsetHour.value=''; ids.pickupOffsetMinute.value=''; ids.numSectors.value='1'; ids.flightCrewCompliment.value='2'; ids.cmdrDiscRequired.checked=false;
       ids.taxiOutMins.value='25'; ids.holdingMins.value='10'; ids.taxiInMins.value='10'; ids.lhrTerminal.value='';
       setTodayDate(); updateLhrTerminalState(); updateDelayVisibility(); updateArrivalLabel(); prepopulateRestFacility();
+      ids.briefingDetailsSection.classList.add('hidden-block'); ids.briefingDetailsToggle.setAttribute('aria-expanded','false'); ids.briefingDetailsToggle.textContent='Briefing Details';
       ids.moreOptionsSection.classList.add('hidden-block'); ids.moreOptionsToggle.setAttribute('aria-expanded','false'); ids.moreOptionsToggle.textContent='More Options'; hideError();
       window.fbpBriefingHandoff=null; document.getElementById('buildBriefingBtn').hidden=true;
       ids.resultsBox1.innerHTML=''; ids.resultsBox2.innerHTML=''; ids.resultsBox3.innerHTML=''; ids.standbyReportHour.value=''; ids.standbyReportMinute.value=''; ids.standbyCalcRow.hidden=true; ids.standbyResultsSection.hidden=true; ids.standbyResultsBox1.innerHTML=''; ids.standbyResultsBox2.innerHTML=''; ids.standbyResultsBox3.innerHTML=''; ids.emailResultsRow.hidden=true; ids.captainStaffNumber.value=''; latestFdpEmailBody=''; latestStandbyFdpEmailSection=''; ids.routeRef.textContent='—'; ids.notesList.innerHTML='';
@@ -854,8 +895,7 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       ids.acclimatisedAt.value=ids.unknownAcclimatisation.checked ? '' : 'LHR';
       ids.acclimatisedAt.classList.remove('invalid');
     });
-    ids.flightNumber.addEventListener('input',sanitiseFlightNumber);
-    ids.flightNumber.addEventListener('input',updateRouteFromFlightNumber);
+    ids.flightNumber.addEventListener('input',handleFlightNumberInput);
     ids.flightDate.addEventListener('input',updateRouteFromFlightNumber);
     let staffNumberLimitWarningShown=false;
     ids.captainStaffNumber.addEventListener('input',()=>{
@@ -871,6 +911,12 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
     ids.depHour.addEventListener('input',prepopulateReportTime);
     ids.depMinute.addEventListener('input',prepopulateReportTime);
     ids.numSectors.addEventListener('change',updateArrivalLabel);
+    ids.briefingDetailsToggle.addEventListener('click',()=>{
+      const expanded=ids.briefingDetailsToggle.getAttribute('aria-expanded')!=='true';
+      ids.briefingDetailsToggle.setAttribute('aria-expanded',String(expanded));
+      ids.briefingDetailsSection.classList.toggle('hidden-block',!expanded);
+      ids.briefingDetailsToggle.textContent=expanded?'Hide Briefing Details':'Briefing Details';
+    });
     ids.moreOptionsToggle.addEventListener('click',()=>{
       const expanded=ids.moreOptionsToggle.getAttribute('aria-expanded')!=='true';
       ids.moreOptionsToggle.setAttribute('aria-expanded',String(expanded));

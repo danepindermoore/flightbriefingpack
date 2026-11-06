@@ -44,7 +44,8 @@ const NAV_ITEMS = [
     {
         id: "fdp",
         text: "MyBriefing",
-        href: BASE + "FDP/index.html"
+        href: BASE + "FDP/index.html",
+        adminOnly: true
     },
 
     {
@@ -55,11 +56,15 @@ const NAV_ITEMS = [
     {
         id: "ical",
         text: "MyRoster",
-        href: BASE + "iCal/index.html"
+        href: BASE + "iCal/index.html",
+        adminOnly: true
     }
 
 ];
 
+    const ADMIN_ACCESS_KEY = "fbpAdminAccess";
+    function hasAdminAccess(){try{return sessionStorage.getItem(ADMIN_ACCESS_KEY)==="granted"}catch{return false}}
+    function visibleNavigationItems(){return NAV_ITEMS.filter(item=>!item.adminOnly||hasAdminAccess())}
     //-----------------------------------------------------
     // Create Navigation
     //-----------------------------------------------------
@@ -70,7 +75,7 @@ const NAV_ITEMS = [
 
         nav.className = "fbp-subnav";
 
-        NAV_ITEMS.forEach(item => {
+        visibleNavigationItems().forEach(item => {
 
             const link = document.createElement("a");
 
@@ -104,7 +109,7 @@ const NAV_ITEMS = [
 
     FBP.getNavigationItems = function () {
 
-        return [...NAV_ITEMS];
+        return visibleNavigationItems();
 
     };
 
