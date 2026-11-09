@@ -146,6 +146,7 @@ const baDestinations = [
 { code:"PHL", city:"Philadelphia", airport:"Philadelphia International Airport", timeZone:"America/New_York", haul:"LH" },												
 { code:"PHX", city:"Phoenix", airport:"Phoenix Sky Harbor International Airport", timeZone:"America/Phoenix", haul:"LH" },												
 { code:"PMI", city:"Palma Mallorca", airport:"Palma de Mallorca Airport", timeZone:"Europe/Madrid", haul:"SH" },												
+{ code:"PVG", city:"Shanghai", airport:"Shanghai Pudong International Airport", timeZone:"Asia/Shanghai", haul:"LH" },
 { code:"PRG", city:"Prague", airport:"Václav Havel Airport Prague", timeZone:"Europe/Prague", haul:"SH" },												
 { code:"PUJ", city:"Punta Cana", airport:"Punta Cana International Airport", timeZone:"America/Santo_Domingo", haul:"LH" },												
 { code:"PUY", city:"Pula", airport:"Pula Airport", timeZone:"Europe/Zagreb", haul:"SH" },												
