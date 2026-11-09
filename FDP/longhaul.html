@@ -616,15 +616,23 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       return `${legal}. ${hcc}; ${planned}. Required route rest used in the FDP calculation: ${fmtDuration(requiredRestMinutes)}. ${refreshmentBreakEmailText(refreshmentBreak)}`;
     }
 
-    function routeRestBriefingText(routeRest, refreshmentBreak){
-      const positiveDuration=value=>{
-        const match=String(value??'').match(/^(\d+)[.:](\d{1,2})$/);
-        if(!match) return '';
-        const minutes=Number(match[1])*60+Number(match[2]);
-        return minutes>0?fmtDuration(minutes):'';
-      };
-      const items=[positiveDuration(routeRest?.hcc),refreshmentBreak>0?fmtDuration(refreshmentBreak):''].filter(Boolean);
-      return [...new Set(items)].join(' · ')||'NA';
+    function routeRestMinutes(value){
+      const match=String(value??'').match(/^(\d+)[.:]([0-5]?\d)$/);
+      return match ? Number(match[1])*60+Number(match[2]) : 0;
+    }
+
+    function getRestResult(routeRest, inflightRestRequirement, refreshmentBreak){
+      const agreementRest=routeRestMinutes(routeRest?.hcc);
+      if(agreementRest>0){
+        const note=inflightRestRequirement>agreementRest
+          ? `Required inflight rest for this FDP: ${fmtDuration(inflightRestRequirement)}`
+          : '';
+        return {label:'HCC Agreement Rest', value:fmtDuration(agreementRest), note};
+      }
+      if(inflightRestRequirement>0){
+        return {label:'Required Inflight Rest', value:fmtDuration(inflightRestRequirement), note:''};
+      }
+      return {label:'HCC Refreshment Break', value:refreshmentBreak>0?fmtDuration(refreshmentBreak):'Not Required', note:''};
     }
     function computeCmdrDiscretionAllowed(crewCompliment){ return crewCompliment===2 ? 120 : 180; }
 
@@ -772,13 +780,19 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       ].join('');
 
       const maxFdpReference=unknownAcclimatisation ? 'Unknown acclimatisation (Table 3)' : `Reference time used: ${acclRefHHMM} local @ ${acclimatisedAt}`;
-      const legalMinimumRestMinutes=routeRest?.minimum==null?0:(()=>{const match=String(routeRest.minimum).match(/^(\d+)[.:](\d{1,2})$/);return match?Number(match[1])*60+Number(match[2]):0})();
-      const legalMinimumRest=legalMinimumRestMinutes===0?'Not Required':fmtDuration(legalMinimumRestMinutes);
-      const maxFdpNote=[maxFdpReference,inflightRestRequirement>0?`Inflight rest: ${fmtDuration(inflightRestRequirement)} · New Max FDP: ${fmtDuration(newMaxFDPInclDisc)}${cmdrDiscRequired?" (including Commander's Discretion)":''}`:''].filter(Boolean).join(' · ');
+      const legalMinimumRestMinutes=routeRestMinutes(routeRest?.minimum);
+      const legalMinimumRest=legalMinimumRestMinutes>0?fmtDuration(legalMinimumRestMinutes):'Not Required';
+      const restResult=getRestResult(routeRest,inflightRestRequirement,refreshmentBreak);
+      const effectiveMaxFdp=fmtDuration(newMaxFDPInclDisc);
+      const maxFdpNote=[
+        maxFdpReference,
+        newMaxFDPInclDisc!==maxFDP?`Base FDP: ${fmtDuration(maxFDP)}`:'',
+        cmdrDiscRequired?"Includes Commander's Discretion":''
+      ].filter(Boolean).join(' · ');
       const box2Rows=[
         infoRow('Legal Minimum Rest',legalMinimumRest),
-        infoRow('HCC Refreshment Break',fmtDuration(refreshmentBreak)),
-        infoRow('Max Flight Duty Period (Max FDP)',fmtDuration(maxFDP),maxFdpNote),
+        infoRow(restResult.label,restResult.value,restResult.note),
+        infoRow('Max Flight Duty Period (Max FDP)',effectiveMaxFdp,maxFdpNote),
         infoRow('Approx Flight Time',fmtDuration(approximateFlightTime))
       ];
       resultBoxes[1].innerHTML=box2Rows.join('');
@@ -804,7 +818,7 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
         latestStandbyFdpEmailSection=[
           'Airport Standby Crew Member — Most Limiting FDP',
           `Report Time (Z): ${fmtClockWithZ(reportUtcMs)}`,
-          `Max FDP: ${fmtDuration(maxFDP)}`,
+          `Max FDP: ${effectiveMaxFdp}`,
           `Latest On Chocks Time: ${fmtClockWithZ(latestOnChocksUtcMs)}`
         ].join('\r\n');
         ids.standbyResultsSection.hidden=false;
@@ -825,9 +839,10 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
         '',
         'FDP Information',
         `Legal Minimum Rest = ${legalMinimumRest}`,
-        `HCC Refreshment Break = ${fmtDuration(refreshmentBreak)}`,
+        `${restResult.label} = ${restResult.value}`,
+        ...(restResult.note?[restResult.note]:[]),
         '',
-        `Max Flight Duty Period (Max FDP) = ${fmtDuration(maxFDP)}`,
+        `Max Flight Duty Period (Max FDP) = ${effectiveMaxFdp}`,
         `Approx Flight Time = ${fmtDuration(approximateFlightTime)}`,
         '',
         `Latest On Chocks Time (Zulu) = ${fmtClockWithZ(latestOnChocksUtcMs)}`,
@@ -841,7 +856,7 @@ const airportList = typeof baDestinations !== "undefined" ? baDestinations : [];
       ].join('\r\n');
             const aircraftLabel=ids.aircraftType.selectedOptions[0]?.text||ids.aircraftType.value;
       const callerPosition=/\b(?:78E|781|351|77T|77S|77M|77L)\b|777\s*[- ]?\s*200/i.test(aircraftLabel)?'5':/\b(?:78N|789)\b/i.test(aircraftLabel)?'9':/\b(?:77H|38A)\b/i.test(aircraftLabel)?'7':'';
-      window.fbpBriefingHandoff={flightDate:ids.flightDate.value,flightNumber:ids.flightNumber.value.trim().toUpperCase(),departure:normalizeCode(ids.from.value),destination:normalizeCode(ids.to.value),aircraft:aircraftLabel,registration:ids.aircraftReg.value.trim().toUpperCase(),sccm:ids.sccm.value.trim(),asccm:ids.asccm.value.trim(),captainName:ids.captainName.value.trim(),firstOfficerNames:ids.firstOfficerNames.value.trim(),flightTime:fmtDuration(activeFlightTime),callerPosition,briefingFinish:shiftClock(reportClock,20),arrivalAtAircraft:shiftClock(departureClock,-50),doorsClosed:shiftClock(departureClock,-5),pickupTime,wakeUpTime,minRest:legalMinimumRestMinutes>0?legalMinimumRest:'NA',rest:routeRestBriefingText(routeRest,refreshmentBreak),maxFdp:fmtDuration(newMaxFDPInclDisc),latestOnChocks:fmtClockWithZ(latestOnChocksUtcMs),latestOnChocksLocal:utcMsToLocalHHMM(latestOnChocksUtcMs,arrAirport.timeZone)};
+      window.fbpBriefingHandoff={flightDate:ids.flightDate.value,flightNumber:ids.flightNumber.value.trim().toUpperCase(),departure:normalizeCode(ids.from.value),destination:normalizeCode(ids.to.value),aircraft:aircraftLabel,registration:ids.aircraftReg.value.trim().toUpperCase(),sccm:ids.sccm.value.trim(),asccm:ids.asccm.value.trim(),captainName:ids.captainName.value.trim(),firstOfficerNames:ids.firstOfficerNames.value.trim(),flightTime:fmtDuration(activeFlightTime),callerPosition,briefingFinish:shiftClock(reportClock,20),arrivalAtAircraft:shiftClock(departureClock,-50),doorsClosed:shiftClock(departureClock,-5),pickupTime,wakeUpTime,minRest:legalMinimumRestMinutes>0?legalMinimumRest:'NA',rest:restResult.value==='Not Required'?'NA':restResult.value,restLabel:restResult.label,restNote:restResult.note,maxFdp:effectiveMaxFdp,latestOnChocks:fmtClockWithZ(latestOnChocksUtcMs),latestOnChocksLocal:utcMsToLocalHHMM(latestOnChocksUtcMs,arrAirport.timeZone)};
       document.getElementById('buildBriefingBtn').hidden=false;
       ids.emailResultsRow.hidden=false;
       ids.standbyCalcRow.hidden=from!=='LHR';
