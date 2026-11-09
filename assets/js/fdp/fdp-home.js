@@ -26,33 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
         <path d="m21.5 36.5 2.5 1 2.5-1" fill="none" stroke="#75b8df" stroke-width="2.7" stroke-linecap="round"/>
     </svg>`;
 
-    grid.innerHTML = FDP_CALCULATORS.map((calc, index) => `
-        <article class="fdp-choice" data-type="${calc.type}">
-            <button class="fdp-choice-toggle" type="button" aria-expanded="false" aria-controls="fdp-details-${calc.type}">
-                <span class="fdp-icon" aria-hidden="true">${aircraftIcon()}</span>
-                <span class="fdp-choice-title">${calc.title}</span>
-            </button>
-            <div class="fdp-choice-details" id="fdp-details-${calc.type}" hidden>
-                <p>${calc.description}</p>
-                <a class="fdp-choice-cta" href="${calc.url}">${calc.button}<span aria-hidden="true"> →</span></a>
-            </div>
-        </article>
+    grid.innerHTML = FDP_CALCULATORS.map(calc => `
+        <a class="fdp-choice" data-type="${calc.type}" href="${calc.url}">
+            <span class="fdp-icon" aria-hidden="true">${aircraftIcon()}</span>
+            <span class="fdp-choice-title">${calc.title}</span>
+        </a>
     `).join("");
-
-    grid.querySelectorAll(".fdp-choice-toggle").forEach(toggle => {
-        toggle.addEventListener("click", () => {
-            const card = toggle.closest(".fdp-choice");
-            const details = document.getElementById(toggle.getAttribute("aria-controls"));
-            const expanded = toggle.getAttribute("aria-expanded") === "true";
-            grid.querySelectorAll(".fdp-choice-toggle").forEach(other => {
-                if (other === toggle) return;
-                other.setAttribute("aria-expanded", "false");
-                document.getElementById(other.getAttribute("aria-controls")).hidden = true;
-                other.closest(".fdp-choice").classList.remove("is-expanded");
-            });
-            toggle.setAttribute("aria-expanded", String(!expanded));
-            details.hidden = expanded;
-            card.classList.toggle("is-expanded", !expanded);
-        });
-    });
 });
